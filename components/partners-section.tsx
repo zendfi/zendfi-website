@@ -1,48 +1,184 @@
-export function PartnersSection() {
-  const partners = [
-    { name: "TechFlow", logo: "TF" },
-    { name: "GlobalPay", logo: "GP" },
-    { name: "FinanceHub", logo: "FH" },
-    { name: "PayStream", logo: "PS" },
-    { name: "MoneyBridge", logo: "MB" },
-    { name: "SwiftTrans", logo: "ST" },
-    { name: "CryptoLink", logo: "CL" },
-    { name: "PayForward", logo: "PF" },
-  ]
+"use client"
 
-  const advisors = [
-    { name: "Deutsche Bank", logo: "DB" },
-    { name: "Goldman Sachs", logo: "GS" },
-    { name: "JPMorgan", logo: "JP" },
-    { name: "Morgan Stanley", logo: "MS" },
-  ]
+import { useState, useEffect } from "react"
+import Image from "next/image"
+
+const partners = [
+  {
+    name: "Cross River Bank",
+    description: "US banking partner",
+    logo: "/images/partners/cross-river-bank.png", // Placeholder path
+    category: "Banking"
+  },
+  {
+    name: "Circle",
+    description: "Institutional stablecoin provider",
+    logo: "/images/partners/circle.png", // Placeholder path
+    category: "Stablecoin"
+  },
+  {
+    name: "Quidax",
+    description: "SEC-licensed Nigerian exchange",
+    logo: "/images/partners/quidax.png", // Placeholder path
+    category: "Exchange"
+  },
+  {
+    name: "Paystack",
+    description: "Proven Nigerian payment rails",
+    logo: "/images/partners/paystack.png", // Placeholder path
+    category: "Payments"
+  },
+  {
+    name: "Modulr",
+    description: "UK banking partner",
+    logo: "/images/partners/modulr.png", // Placeholder path
+    category: "Banking"
+  }
+]
+
+export function PartnersSection() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+
+  useEffect(() => {
+    if (!isAutoPlaying) return
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % partners.length)
+    }, 3000)
+
+    return () => clearInterval(interval)
+  }, [isAutoPlaying])
+
+  const nextPartner = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % partners.length)
+  }
+
+  const prevPartner = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + partners.length) % partners.length)
+  }
 
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        <div className="text-center space-y-8">
-          <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Partners</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center">
-            {partners.map((partner, index) => (
-              <div key={index} className="flex items-center justify-center">
-                <div className="h-12 w-12 rounded-lg bg-muted flex items-center justify-center">
-                  <span className="text-sm font-semibold text-muted-foreground">{partner.logo}</span>
-                </div>
-              </div>
-            ))}
+    <section className="py-20 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-16">
+          <div className="space-y-4">
+            <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground text-balance">
+              Backed by trusted infrastructure partners
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              We partner with industry leaders to ensure secure, reliable, and compliant money transfers.
+            </p>
           </div>
-        </div>
 
-        <div className="text-center space-y-8">
-          <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Advisors</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center max-w-2xl mx-auto">
-            {advisors.map((advisor, index) => (
-              <div key={index} className="flex items-center justify-center">
-                <div className="h-12 w-20 rounded-lg bg-muted flex items-center justify-center">
-                  <span className="text-sm font-semibold text-muted-foreground">{advisor.logo}</span>
+          {/* Interactive Partner Showcase */}
+          <div className="relative max-w-4xl mx-auto">
+            <div 
+              className="relative bg-white rounded-2xl shadow-xl p-8 md:p-12 border"
+              onMouseEnter={() => setIsAutoPlaying(false)}
+              onMouseLeave={() => setIsAutoPlaying(true)}
+            >
+              {/* Main Partner Display */}
+              <div className="text-center space-y-8">
+                <div className="relative">
+                  {/* Partner Logo */}
+                  <div className="w-48 h-24 mx-auto rounded-xl flex items-center justify-center bg-white border border-gray-200 p-4">
+                    <Image
+                      src={partners[currentIndex].logo}
+                      alt={`${partners[currentIndex].name} logo`}
+                      width={160}
+                      height={80}
+                      className="object-contain max-w-full max-h-full"
+                      quality={90}
+                    />
+                  </div>
+                  
+                  {/* Category Badge */}
+                  <div className="absolute -top-2 -right-2 bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-medium">
+                    {partners[currentIndex].category}
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="font-heading text-2xl font-bold text-foreground">
+                    {partners[currentIndex].name}
+                  </h3>
+                  <p className="text-lg text-muted-foreground">
+                    {partners[currentIndex].description}
+                  </p>
+                </div>
+
+                {/* Navigation Controls */}
+                <div className="flex items-center justify-center space-x-4">
+                  <button
+                    onClick={prevPartner}
+                    className="h-10 w-10 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-colors"
+                  >
+                    <svg className="h-5 w-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+
+                  {/* Progress Indicators */}
+                  <div className="flex space-x-2">
+                    {partners.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentIndex(index)}
+                        className={`h-2 w-8 rounded-full transition-colors ${
+                          index === currentIndex ? 'bg-accent' : 'bg-accent/20'
+                        }`}
+                      />
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={nextPartner}
+                    className="h-10 w-10 rounded-full bg-accent/10 hover:bg-accent/20 flex items-center justify-center transition-colors"
+                  >
+                    <svg className="h-5 w-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* All Partners Grid */}
+            <div className="mt-12">
+              <h3 className="text-center text-lg font-semibold text-foreground mb-8">All Partners</h3>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+                {partners.map((partner, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`group p-4 rounded-xl border transition-all ${
+                      index === currentIndex
+                        ? 'border-accent bg-accent/5 shadow-md'
+                        : 'border-border bg-white hover:border-accent/50 hover:shadow-sm'
+                    }`}
+                  >
+                    {/* Partner Logo */}
+                    <div className="w-full h-16 bg-white rounded-lg flex items-center justify-center border border-gray-200 mb-3 p-2">
+                      <Image
+                        src={partner.logo}
+                        alt={`${partner.name} logo`}
+                        width={80}
+                        height={40}
+                        className="object-contain max-w-full max-h-full"
+                        quality={90}
+                      />
+                    </div>
+                    <p className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">
+                      {partner.name}
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {partner.category}
+                    </p>
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

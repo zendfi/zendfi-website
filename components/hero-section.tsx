@@ -53,9 +53,9 @@ export function HeroSection() {
               <Image
                 src="/images/globe-payments.png"
                 alt="Global payment network illustration showing Earth with credit cards connected by payment flows"
-                width={800}
-                height={800}
-                sizes="(max-width: 768px) 500px, (max-width: 1024px) 650px, 800px"
+                width={1000}
+                height={1000}
+                sizes="(max-width: 768px) 500px, (max-width: 1024px) 650px, 1000px"
                 className="object-contain hover:scale-105 transition-transform duration-500"
                 priority
                 quality={85}
