@@ -42,7 +42,8 @@ export async function POST(request: Request) {
       '50k-plus': '$50,000+'
     }
 
-    const emailHtml = `
+    // Admin notification email (to your team)
+    const adminEmailHtml = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9fafb;">
       <div style="background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
         <h2 style="color: #1f2937; margin-bottom: 20px; border-bottom: 2px solid #6366f1; padding-bottom: 10px;">
@@ -78,7 +79,50 @@ export async function POST(request: Request) {
     </div>
     `
 
-    const emailText = `
+    // User confirmation email (to the person who signed up)
+    const userConfirmationHtml = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9fafb;">
+      <div style="background-color: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <div style="text-align: center; margin-bottom: 30px;">
+          <h1 style="color: #6366f1; margin: 0; font-size: 28px;">🎉 Welcome to Zendfi!</h1>
+          <p style="color: #6b7280; margin: 10px 0 0 0; font-size: 16px;">You're on the waitlist for frictionless international transfers</p>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); padding: 25px; border-radius: 8px; text-align: center; margin-bottom: 30px;">
+          <h2 style="color: white; margin: 0 0 10px 0; font-size: 20px;">Thanks for joining, ${firstName}!</h2>
+          <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 14px;">You'll be among the first to experience lightning-fast US/UK to Nigeria transfers</p>
+        </div>
+
+        <div style="margin-bottom: 25px;">
+          <h3 style="color: #374151; margin-bottom: 15px; font-size: 18px;">What happens next?</h3>
+          <ul style="color: #6b7280; line-height: 1.6; padding-left: 20px;">
+            <li style="margin-bottom: 8px;">We'll keep you updated on our launch progress</li>
+            <li style="margin-bottom: 8px;">You'll get early access when we go live</li>
+            <li style="margin-bottom: 8px;">Special launch offers exclusively for waitlist members</li>
+          </ul>
+        </div>
+
+        <div style="background-color: #f3f4f6; padding: 20px; border-radius: 6px; margin-bottom: 25px;">
+          <h4 style="color: #374151; margin: 0 0 10px 0; font-size: 16px;">✨ What makes Zendfi different?</h4>
+          <div style="display: grid; gap: 10px;">
+            <p style="margin: 0; color: #6b7280; font-size: 14px;"><strong>⚡ Under 15 minutes:</strong> Lightning-fast transfers</p>
+            <p style="margin: 0; color: #6b7280; font-size: 14px;"><strong>💰 1.5% fees:</strong> Transparent, low-cost pricing</p>
+            <p style="margin: 0; color: #6b7280; font-size: 14px;"><strong>🔒 Bank-grade security:</strong> Your money is protected</p>
+            <p style="margin: 0; color: #6b7280; font-size: 14px;"><strong>🌍 US/UK to Nigeria:</strong> Seamless cross-border payments</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+          <p style="color: #6b7280; font-size: 14px; margin: 0 0 10px 0;">Questions? We're here to help!</p>
+          <p style="margin: 0;">
+            <a href="mailto:hello@zendfi.tech" style="color: #6366f1; text-decoration: none; font-weight: 500;">hello@zendfi.tech</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    `
+
+    const adminEmailText = `
 New Waitlist Signup - Zendfi
 
 Contact Information:
@@ -93,6 +137,28 @@ Estimated Monthly Volume: ${volumeLabels[estimatedVolume] || estimatedVolume || 
 Submitted on: ${new Date().toISOString()}
     `
 
+    const userConfirmationText = `
+Welcome to Zendfi, ${firstName}!
+
+Thanks for joining our waitlist! You're now on the list for early access to frictionless international transfers from the US/UK to Nigeria.
+
+What happens next?
+- We'll keep you updated on our launch progress
+- You'll get early access when we go live  
+- Special launch offers exclusively for waitlist members
+
+What makes Zendfi different?
+⚡ Under 15 minutes: Lightning-fast transfers
+💰 1.5% fees: Transparent, low-cost pricing
+🔒 Bank-grade security: Your money is protected
+🌍 US/UK to Nigeria: Seamless cross-border payments
+
+Questions? Email us at hello@zendfi.tech
+
+Best regards,
+The Zendfi Team
+    `
+
     // Initialize Resend only when needed and if API key exists
     if (process.env.RESEND_API_KEY) {
       try {
@@ -100,13 +166,25 @@ Submitted on: ${new Date().toISOString()}
           resend = new Resend(process.env.RESEND_API_KEY)
         }
         
+        // Send admin notification email
         await resend.emails.send({
           from: 'Zendfi Waitlist <waitlist@zendfi.tech>',
           to: [process.env.WAITLIST_EMAIL || 'hello@zendfi.tech'],
-          subject: `New Waitlist Signup: ${firstName} ${lastName}`,
-          html: emailHtml,
-          text: emailText,
+          subject: `🎉 New Waitlist Signup: ${firstName} ${lastName}`,
+          html: adminEmailHtml,
+          text: adminEmailText,
         })
+
+        // Send user confirmation email
+        await resend.emails.send({
+          from: 'Zendfi <hello@zendfi.tech>',
+          to: [email],
+          subject: `Welcome to Zendfi, ${firstName}! 🎉`,
+          html: userConfirmationHtml,
+          text: userConfirmationText,
+        })
+
+        console.log(`Emails sent successfully to admin and user: ${email}`)
       } catch (emailError) {
         console.error('Error sending email:', emailError)
         // Continue with the response even if email fails
@@ -126,7 +204,7 @@ Submitted on: ${new Date().toISOString()}
 
     return NextResponse.json(
       { 
-        message: 'Successfully joined waitlist',
+        message: 'Successfully joined waitlist! Check your email for confirmation.',
         data: {
           name: `${firstName} ${lastName}`,
           email,
