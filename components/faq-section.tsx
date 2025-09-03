@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "Is Zendfi safe and regulated?",
     answer:
-      "Yes. We partner with regulated banking providers (like Cross River and Modulr), licensed stablecoin providers (Circle), and SEC-licensed Nigerian exchanges (Quidax). All transfers are fully compliant with US, UK and Nigerian regulations.",
+      "Yes. We partner with regulated banking providers (like Unit and Modulr), licensed stablecoin providers (Circle), and SEC-licensed Nigerian exchanges (Quidax). All transfers are fully compliant with US, UK and Nigerian regulations.",
   },
   {
     question: "What does Zendfi cost?",

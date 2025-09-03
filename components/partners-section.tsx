@@ -5,9 +5,9 @@ import Image from "next/image"
 
 const partners = [
   {
-    name: "Cross River Bank",
+    name: "Unit",
     description: "US banking partner",
-    logo: "/images/partners/cross-river-bank.png", // Placeholder path
+    logo: "/images/partners/unit.svg", // Placeholder path
     category: "Banking"
   },
   {
@@ -64,7 +64,7 @@ export function PartnersSection() {
         <div className="text-center space-y-16">
           <div className="space-y-4">
             <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground text-balance">
-              Powered by trusted infrastructure partners
+              Powered by trusted infrastructure providers
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Zendfi is built on industry leaders to ensure secure, reliable, and compliant money transfers.
