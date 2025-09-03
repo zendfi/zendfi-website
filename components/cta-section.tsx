@@ -51,7 +51,7 @@ export function CTASection() {
                     className="h-6 w-auto"
                   />
                 </div>
-                <div className="text-sm text-muted-foreground">Technical Documentation</div>
+                <div className="text-sm text-muted-foreground"></div>
                 <div className="space-y-2">
                   <div className="h-2 bg-accent/30 rounded-full"></div>
                   <div className="h-2 bg-accent/20 rounded-full w-3/4"></div>

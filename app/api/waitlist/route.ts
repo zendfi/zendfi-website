@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Don't initialize Resend at module level - do it conditionally
+let resend: Resend | null = null
 
 export async function POST(request: Request) {
   try {
@@ -92,9 +93,13 @@ Estimated Monthly Volume: ${volumeLabels[estimatedVolume] || estimatedVolume || 
 Submitted on: ${new Date().toISOString()}
     `
 
-    // Send email using Resend
+    // Initialize Resend only when needed and if API key exists
     if (process.env.RESEND_API_KEY) {
       try {
+        if (!resend) {
+          resend = new Resend(process.env.RESEND_API_KEY)
+        }
+        
         await resend.emails.send({
           from: 'Zendfi Waitlist <waitlist@zendfi.tech>',
           to: [process.env.WAITLIST_EMAIL || 'hello@zendfi.tech'],
