@@ -10,7 +10,7 @@ export function NetworkSection() {
               Money moves at the speed of the internet
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Send to Nigeria in minutes, not days 
+              Access our global network to send money to Nigeria in minutes, not days. 
             </p>
           </div>
 

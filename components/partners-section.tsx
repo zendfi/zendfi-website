@@ -64,10 +64,10 @@ export function PartnersSection() {
         <div className="text-center space-y-16">
           <div className="space-y-4">
             <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground text-balance">
-              Backed by trusted infrastructure partners
+              Powered by trusted infrastructure partners
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              We partner with industry leaders to ensure secure, reliable, and compliant money transfers.
+              Zendfi is built on industry leaders to ensure secure, reliable, and compliant money transfers.
             </p>
           </div>
 
@@ -82,12 +82,12 @@ export function PartnersSection() {
               <div className="text-center space-y-8">
                 <div className="relative">
                   {/* Partner Logo */}
-                  <div className="w-48 h-24 mx-auto rounded-xl flex items-center justify-center bg-white border border-gray-200 p-4">
+                  <div className="w-72 h-36 mx-auto rounded-xl flex items-center justify-center bg-white p-6">
                     <Image
                       src={partners[currentIndex].logo}
                       alt={`${partners[currentIndex].name} logo`}
-                      width={160}
-                      height={80}
+                      width={240}
+                      height={120}
                       className="object-contain max-w-full max-h-full"
                       quality={90}
                     />
@@ -159,7 +159,7 @@ export function PartnersSection() {
                     }`}
                   >
                     {/* Partner Logo */}
-                    <div className="w-full h-16 bg-white rounded-lg flex items-center justify-center border border-gray-200 mb-3 p-2">
+                    <div className="w-full h-16 bg-white rounded-lg flex items-center justify-center mb-3 p-2">
                       <Image
                         src={partner.logo}
                         alt={`${partner.name} logo`}

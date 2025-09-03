@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
 
 export function Header() {
   return (
@@ -19,9 +20,11 @@ export function Header() {
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
-              Get Started
-            </Button>
+            <Link href="/waitlist">
+              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                Join The Waitlist
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

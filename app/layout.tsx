@@ -65,10 +65,10 @@ export const metadata: Metadata = {
     description: "Send money from the US/UK to Nigeria in under 15 minutes at transparent rates. Fast, secure, and affordable international transfers.",
     images: [
       {
-        url: "/images/logo.png",
+        url: "/preview.png",
         width: 1200,
         height: 630,
-        alt: "Zendfi - International Money Transfers",
+        alt: "Zendfi - Say hello to frictionless international transfers",
       },
     ],
   },
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Zendfi - Fast US/UK to Nigeria Money Transfers",
     description: "Send money from the US/UK to Nigeria in under 15 minutes at transparent rates. Fast, secure, and affordable international transfers.",
-    images: ["/images/logo.png"],
+    images: ["/preview.png"],
     creator: "@ZendfiHQ",
   },
   verification: {

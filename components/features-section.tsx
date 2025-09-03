@@ -6,8 +6,11 @@ export function FeaturesSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16">
           <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground text-balance">
-            Purpose-built for financial innovators
+            Everyone deserves access to a seamless experience
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Built for individuals, businesses, and Nigerian SMEs who need reliable transfers.
+            </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-5xl mx-auto">
           <Card className="border-border bg-card hover:shadow-lg transition-shadow">

@@ -16,9 +16,8 @@ export function StatisticsSection() {
             </h2>
 
                         <p className="text-lg text-muted-foreground leading-relaxed">
-              Zendfi leverages cutting-edge blockchain infrastructure and regulatory-compliant digital assets
-              to revolutionize cross-border payments. Our network enables financial institutions to process
-              transactions faster, cheaper, and more securely than traditional methods.
+              ZendFi is built on secure banking infrastructure and digital currency technology to deliver the fastest money transfers between the US/UK and Nigeria. 
+              Send money in minutes, not days, with transparent pricing and bank-level security.
             </p>
 
             <div className="flex items-center text-blue-600 hover:text-blue-700 transition-colors duration-200">

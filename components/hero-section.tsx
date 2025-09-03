@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
 
 export function HeroSection() {
   return (
@@ -25,18 +26,20 @@ export function HeroSection() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animate-delay-300">
-              <Button
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all duration-300"
-              >
-                Try Out Beta
-              </Button>
+              <Link href="/waitlist">
+                <Button
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+                >
+                  Join The Waitlist
+                </Button>
+              </Link>
               <Button
                 variant="outline"
                 size="lg"
                 className="border-border bg-transparent hover:scale-105 transition-all duration-300"
               >
-                Join The Waitlist
+                Watch Demo
                 <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
