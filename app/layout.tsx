@@ -4,6 +4,8 @@ import { Plus_Jakarta_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 
 const jakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -26,10 +28,10 @@ const jakartaSansBold = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL('https://zendfi.tech'),
   title: {
-    default: "Zendfi - Fast US/UK to Nigeria Money Transfers",
+    default: "Zendfi - The Future of Global Crypto Payments",
     template: "%s | Zendfi"
   },
-  description: "Send money from the US/UK to Nigeria in under 15 minutes at transparent rates. Fast, secure, and affordable international transfers for individuals and businesses.",
+  description: "Seamless cross-border payments powered by crypto. Fast, secure, and affordable infrastructure for businesses and individuals to send and receive money globally in minutes.",
   keywords: [
     "money transfer",
     "US to Nigeria",
@@ -61,8 +63,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://zendfi.tech",
     siteName: "Zendfi",
-    title: "Zendfi - Fast US/UK to Nigeria Money Transfers",
-    description: "Send money from the US/UK to Nigeria in under 15 minutes at transparent rates. Fast, secure, and affordable international transfers.",
+    title: "Zendfi — The Future of Global Crypto Payments",
+    description: "Seamless cross-border payments powered by crypto. Fast, secure, and affordable infrastructure for businesses and individuals to send and receive money globally in minutes.",
     images: [
       {
         url: "/preview.png",
@@ -74,8 +76,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zendfi - Fast US/UK to Nigeria Money Transfers",
-    description: "Send money from the US/UK to Nigeria in under 15 minutes at transparent rates. Fast, secure, and affordable international transfers.",
+    title: "Zendfi — The Future of Global Crypto Payments",
+    description: "Seamless cross-border payments powered by crypto. Fast, secure, and affordable infrastructure for businesses and individuals to send and receive money globally in minutes.",
     images: ["/preview.png"],
     creator: "@ZendfiHQ",
   },
@@ -109,7 +111,9 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`font-sans ${jakartaSans.variable} ${jakartaSansBold.variable}`}>
+        {/* <Header /> */}
         <Suspense fallback={null}>{children}</Suspense>
+        {/* <Footer /> */}
         <Analytics />
       </body>
     </html>

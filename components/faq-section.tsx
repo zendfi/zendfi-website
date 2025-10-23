@@ -1,43 +1,39 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, Mail } from "lucide-react";
+import Link from "next/link"
 
 const faqs = [
   {
-    question: "What is Zendfi?",
+    question: "What is ZendFi?",
     answer:
-      "Zendfi is a fintech platform that aimed at providing fast, affordable money transfers between the US/UK and Nigeria. We use a combination of instant banking rails and stablecoin technology to deliver transfers in under 15 minutes.",
+      "ZendFi is a next-generation fintech platform built on blockchain and banking infrastructure, enabling fast, low-cost international money transfers. It bridges traditional finance and crypto to make global payments seamless and borderless.",
   },
   {
-    question: "Who is Zendfi for?",
+    question: "Who is ZendFi for?",
     answer:
-      "Zendfi serves Nigerian diaspora in the US/UK, US/UK businesses with Nigerian operations, and Nigerian SMEs receiving payments from US clients. We offer both individual and business accounts.",
+      "ZendFi is designed for individuals, freelancers, and businesses that need reliable, instant cross-border payments especially between Africa and the rest of the world.",
   },
   {
-    question: "How does Zendfi work?",
+    question: "How does ZendFi work?",
     answer:
-      "Zendfi connects to your US/UK bank account, instantly converts your dollars/pounds to stablecoins, then converts to Nigerian Naira and deposits directly to the recipient's Nigerian bank account — all in under 15 minutes.",
+      "ZendFi uses secure digital payment rails to move money through cryptocurrency across borders in minutes. We handle the conversion in SOL, USDC and USDT based on your preference.",
   },
   {
-    question: "What makes Zendfi different?",
+    question: "What makes ZendFi different?",
     answer:
-      "Speed and intelligence. While other services take hours or days, Zendfi guarantees under 15 minutes. Our smart routing powered by AI automatically optimizes each transfer for the fastest, cheapest route without any manual intervention.",
+      "ZendFi combines speed, simplicity, and scalability. Unlike traditional remittance services, ZendFi's infrastructure is built for real-time settlements, lower fees, and a developer-friendly system for easy integration all powered by the Solana blockchain.",
   },
   {
-    question: "Is Zendfi safe and regulated?",
+    question: "Is ZendFi safe?",
     answer:
-      "Yes. We partner with regulated banking providers (like Unit and Modulr), licensed stablecoin providers (Circle), and SEC-licensed Nigerian exchanges (Quidax). All transfers are fully compliant with US, UK and Nigerian regulations.",
+      "Absolutely. ZendFi operates with strict compliance and security standards, partnering with trusted global payment providers and regulated institutions to ensure every transaction is secure.",
   },
   {
-    question: "What does Zendfi cost?",
+    question: "What does ZendFi cost?",
     answer:
-      "Our fees start at 1.5% for transfers, with no hidden charges. This is up to 75% cheaper than traditional services like Western Union, and competitive with other digital providers while being significantly faster.",
-  },
-  {
-    question: "What are the transfer limits?",
-    answer:
-      "Individual accounts: Up to $10,000 per transfer, $25,000 per month \n Business accounts: Custom limits based on your needs and compliance requirements",
+      "ZendFi keeps fees transparent and affordable - no hidden charges, just straightforward pricing designed to save you money on every transaction.",
   },
 ]
 
@@ -49,10 +45,18 @@ export function FAQSection() {
   }
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="font-heading text-4xl lg:text-5xl font-bold text-slate-900 mb-4">FAQs</h2>
+    <section className="py-24 bg-gradient-to-b from-background via-background to-accent/5 relative overflow-hidden">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div
+          className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground my-6 leading-tight">
+            Got Questions?
+            <span className="block text-accent">We've Got Answers</span>
+          </h2>
+          <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            Everything you need to know about ZendFi's payment infrastructure and how it can transform your business.
+          </p>
         </div>
 
         <div className="space-y-4">
@@ -87,6 +91,36 @@ export function FAQSection() {
               </div>
             </div>
           ))}
+        </div>
+      
+
+        {/* Contact Support Section */}
+        <div
+          className="mt-16 text-center"
+        >
+          <div className="bg-card/30 backdrop-blur-sm border border-border/50 rounded-3xl p-8 md:p-12">
+            <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mx-auto mb-6">
+              <Mail className="w-8 h-8" />
+            </div>
+
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+              Still Have Questions?
+            </h3>
+
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Our support team is here to help you get the most out of ZendFi's payment infrastructure.
+            </p>
+
+            <Link href={"mailto:help@zendfi.tech"}>
+              <div
+               
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-accent/10 border border-accent/20 text-accent font-medium hover:bg-accent/20 transition-colors duration-300 cursor-pointer"
+              >
+                <Mail className="w-4 h-4" />
+                <span>support@zendfi.tech</span>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

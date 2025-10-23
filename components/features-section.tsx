@@ -1,82 +1,95 @@
-import { Card, CardContent } from "@/components/ui/card"
-
 export function FeaturesSection() {
+  const features = [
+    {
+      icon: (
+        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+        </svg>
+      ),
+      title: "83% Lower Fees",
+      description: "Cut costs from 2.9% to 0.5% with zero chargebacks. Keep more revenue with final transactions.",
+      highlight: "83%"
+    },
+    {
+      icon: (
+        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+      title: "Instant Settlement",
+      description: "Funds hit your wallet in 400ms. No more waiting days for settlements or dealing with rolling reserves.",
+      highlight: "400ms"
+    },
+    {
+      icon: (
+        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
+      title: "10-Minute Setup",
+      description: "Simple REST API integration. Get production-ready Solana payments running in minutes, not weeks.",
+      highlight: "10 min"
+    }
+  ]
+
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground text-balance">
-            Everyone deserves access to a seamless experience
+    <section className="py-24 bg-gradient-to-b from-background to-secondary/5">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="text-center max-w-4xl mx-auto mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+            Enterprise Solana Payments
+            <span className="block text-accent">Infrastructure</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Built for individuals, businesses, and Nigerian SMEs who need reliable transfers.
-            </p>
+          <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            The payment infrastructure that eliminates the need for a payment team.
+            <span className="font-semibold text-foreground"> Accept crypto payments in minutes, not months.</span>
+          </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-5xl mx-auto">
-          <Card className="border-border bg-card hover:shadow-lg transition-shadow">
-            <CardContent className="p-6 space-y-4">
-              <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                <svg className="h-6 w-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                  />
-                </svg>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-heading text-lg font-semibold text-foreground">For Businesses</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Pay remote teams, suppliers, and partners in Nigeria with automated payroll, real-time tracking, and built-in compliance, all at 75% less cost than traditional banking.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
 
-          <Card className="border-border bg-card hover:shadow-lg transition-shadow">
-            <CardContent className="p-6 space-y-4">
-              <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                <svg className="h-6 w-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-                  />
-                </svg>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-heading text-lg font-semibold text-foreground">For Individuals</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Support family in Nigeria with transfers that arrive in minutes, not hours. Send from any US bank account with transparent pricing and real-time updates.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="group relative"
+            >
+              {/* Card */}
+              <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 h-full transition-all duration-300 group-hover:border-accent/30 group-hover:shadow-lg group-hover:shadow-accent/5 group-hover:-translate-y-1">
+                {/* Background gradient on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-          <Card className="border-border bg-card hover:shadow-lg transition-shadow">
-            <CardContent className="p-6 space-y-4">
-              <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                <svg className="h-6 w-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                  />
-                </svg>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-heading text-lg font-semibold text-foreground">For Nigerian SMEs</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Receive payments from US customers in minutes instead of weeks. Generate payment links, track invoices, and convert to Naira automatically.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+                {/* Content */}
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                    {feature.icon}
+                  </div>
 
+                  {/* Title with highlight */}
+                  <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
+                    {feature.title}
+                  </h3>
 
+                  {/* Description */}
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    {feature.description}
+                  </p>
+
+                
+                </div>
+ </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
+          <div className="inline-flex items-center gap-4 px-6 py-3 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-accent">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+            Ready to get started? Integration takes just 10 minutes
+          </div>
         </div>
       </div>
     </section>

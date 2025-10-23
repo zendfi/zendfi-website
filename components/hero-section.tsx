@@ -1,70 +1,113 @@
 "use client"
 
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 
 export function HeroSection() {
   return (
-    <section className="relative py-20 lg:py-32 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 animate-fade-in-up">
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium animate-fade-in-up animate-delay-100">
-              <span className="mr-2"></span>
-              Zendfi
-              <span className="ml-2 px-2 py-0.5 bg-accent text-accent-foreground text-xs rounded-full">BETA</span>
-            </div>
-            <div className="space-y-4 animate-fade-in-up animate-delay-200">
-              <h1 className="font-heading text-6xl lg:text-8xl font-bold text-foreground leading-tight text-balance">
-                {"Say hello to "}
-                <span className="text-accent">frictionless</span>
-                {" international transfers"}
+          
+          {/* Left: Text Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="space-y-8"
+          >
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/15 border border-accent/30 w-fit"
+            >
+              <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-sm font-medium text-accent">Powered by Solana</span>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.7 }}
+              className="space-y-4"
+            >
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-accent leading-tight text-balance">
+                Payments
+                <span className="block text-accent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                without borders
+                </span>
               </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                Send money from the US/UK to Nigeria in under 15 minutes at 1.5% — powered by instant banking and stablecoin technology.
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+                Accept crypto payments instantly with zero intermediaries. Built for developers, designed for scale.
               </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animate-delay-300">
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 pt-4"
+            >
               <Link href="/waitlist">
                 <Button
                   size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+                  className="bg-accent max-w-60 text-primary-foreground hover:bg-accent/90 hover:shadow-primary/20 transition-all duration-300 w-full sm:w-auto"
                 >
-                  Join The Waitlist
+                  Schedule a Demo
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
                 </Button>
               </Link>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-border bg-transparent hover:scale-105 transition-all duration-300"
-              >
-                Watch Demo
-                <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-              </Button>
-            </div>
-          </div>
-          <div className="relative animate-slide-in-right animate-delay-400">
-            <div className="relative w-full h-[650px] flex items-center justify-center">
-              <Image
-                src="/images/globe-payments.png"
-                alt="Global payment network illustration showing Earth with credit cards connected by payment flows"
-                width={1000}
-                height={1000}
-                sizes="(max-width: 768px) 500px, (max-width: 1024px) 650px, 1000px"
-                className="object-contain hover:scale-105 transition-transform duration-500"
-                priority
-                quality={85}
-              />
-            </div>
-          </div>
+
+              <Link href="/docs">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-border max-w-60 transition-all duration-300 hover:text-black bg-transparent cursor-pointer w-full sm:w-auto"
+                >
+                  View Docs
+                </Button>
+              </Link>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.6 }}
+              className="grid grid-cols-3 gap-6 pt-8 border-t border-border"
+            >
+              <div>
+                <div className="text-2xl font-bold text-primary">2.5s</div>
+                <p className="text-sm text-muted-foreground">Settlement time</p>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-primary">$0</div>
+                <p className="text-sm text-muted-foreground">Setup fees</p>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-primary">99.9%</div>
+                <p className="text-sm text-muted-foreground">Uptime SLA</p>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right: Image with subtle floating effect */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 40 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
+            className="relative hidden lg:flex items-center justify-center w-[600px] h-[600px]"
+          >
+              <Image src="/images/sol3.png" alt="solana1" fill priority />
+          </motion.div>
         </div>
       </div>
     </section>

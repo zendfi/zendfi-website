@@ -14,7 +14,6 @@ const StatisticsSection = lazy(() =>
 const NetworkSection = lazy(() => import("@/components/network-section").then((m) => ({ default: m.NetworkSection })))
 const SecuritySection = lazy(() => import("@/components/security-section").then((m) => ({ default: m.SecuritySection })))
 const PartnersSection = lazy(() => import("@/components/partners-section").then((m) => ({ default: m.PartnersSection })))
-const FAQSection = lazy(() => import("@/components/faq-section").then((m) => ({ default: m.FAQSection })))
 const CTASection = lazy(() => import("@/components/cta-section").then((m) => ({ default: m.CTASection })))
 const Footer = lazy(() => import("@/components/footer").then((m) => ({ default: m.Footer })))
 
@@ -29,7 +28,7 @@ export default function Home() {
     "name": "Zendfi",
     "url": "https://zendfi.tech",
     "logo": "https://zendfi.tech/images/logo.png",
-    "description": "Fast, secure money transfers from the US/UK to Nigeria in under 15 minutes at transparent rates.",
+    "description": "Seamless cross-border payments powered by crypto. Fast, secure, and affordable infrastructure for businesses and individuals to send and receive money globally in minutes.",
     "serviceType": "Money Transfer Service",
     "areaServed": [
       {
@@ -73,11 +72,8 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Header />
-      <div className="pt-16">
+      <div className="pt-10">
         <HeroSection />
-        <Suspense fallback={<SectionSkeleton />}>
-          <TestimonialSection />
-        </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
           <FeaturesSection />
         </Suspense>
@@ -91,18 +87,18 @@ export default function Home() {
           <SecuritySection />
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
-          <PartnersSection />
+          <TestimonialSection />
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
-          <FAQSection />
+          {/* <PartnersSection /> */}
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
           <CTASection />
         </Suspense>
+        <Suspense fallback={<SectionSkeleton />}>
+          <Footer />
+        </Suspense>
       </div>
-      <Suspense fallback={<SectionSkeleton />}>
-        <Footer />
-      </Suspense>
     </main>
   )
 }

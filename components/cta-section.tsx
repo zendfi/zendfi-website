@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { Video } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -10,12 +11,12 @@ export function CTASection() {
           <div className="space-y-6">
             <h2 className="font-heading text-3xl lg:text-4xl font-bold text-foreground text-balance">Explore Zendfi</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              International money transfers reimagined for speed, savings, and simplicity.
+            Cross-border payments reinvented for speed, affordability, and seamless global access.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/waitlist">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto">
-                  Join The Waitlist
+                <Button size="lg" className="bg-accent text-primary-foreground hover:bg-accent/90 w-full sm:w-auto">
+                  Documentation
                   <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
@@ -26,19 +27,12 @@ export function CTASection() {
                   </svg>
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="border-border bg-transparent">
+              <Button variant="outline" size="lg" className="border-border bg-transparent hover:text-accent cursor-pointer">
                 Watch Demo
-                <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-                  />
-                </svg>
+                <Video />
               </Button>
             </div>
-          </div>
+          </div>  
           <div className="relative">
             <div className="relative bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl p-8 border border-border">
               <div className="space-y-4">
@@ -48,7 +42,7 @@ export function CTASection() {
                     alt="Zendfi Logo"
                     width={100}
                     height={24}
-                    className="h-6 w-auto"
+                    className="h-6 w-auto filter hue-rotate-[19deg] brightness-110"
                   />
                 </div>
                 <div className="text-sm text-muted-foreground"></div>
