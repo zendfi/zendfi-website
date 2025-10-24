@@ -173,7 +173,7 @@ export default function SolutionsPage() {
                         all in one place.
                     </p>
                     <a
-                        href="/get-started"
+                        href="/signup"
                         className="inline-block px-8 py-3 bg-accent/60 text-white rounded-full text-lg font-semibold hover:bg-accent/70 transition-all"
                     >
                         Get Started

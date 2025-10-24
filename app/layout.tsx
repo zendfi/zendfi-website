@@ -33,9 +33,7 @@ export const metadata: Metadata = {
   },
   description: "Seamless cross-border payments powered by crypto. Fast, secure, and affordable infrastructure for businesses and individuals to send and receive money globally in minutes.",
   keywords: [
-    "money transfer",
-    "US to Nigeria",
-    "UK to Nigeria", 
+    "crypto payments",
     "international transfers",
     "remittance",
     "send money Nigeria",

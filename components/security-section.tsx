@@ -72,7 +72,7 @@ export function SecuritySection() {
 
           {/* Illustration */}
           <div className="relative">
-            <div className="relative w-full h-[600px] flex items-center justify-center">
+            <div className="relative w-full h-[600px] flex items-center justify-center p-3">
               <div className="relative w-full max-w-2xl">
                 <Image
                   src="/images/global-security.png"
