@@ -104,7 +104,7 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.9, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
-            className="relative hidden lg:flex items-center justify-center w-[600px] h-[600px]"
+            className="relative hidden lg:flex items-center justify-center w-[700px] h-[700px]"
           >
               <Image src="/images/sol3.png" alt="solana1" fill priority />
           </motion.div>

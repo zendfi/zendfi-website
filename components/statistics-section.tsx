@@ -19,8 +19,8 @@ export function StatisticsSection() {
             <Image
               src="/images/zendfiworld.png"
               alt="Solana2"
-              width={500}
-              height={500}
+              width={720}
+              height={720}
               className="mx-auto"
             />
           </motion.div>

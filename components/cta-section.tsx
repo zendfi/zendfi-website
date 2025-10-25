@@ -16,13 +16,13 @@ export function CTASection() {
           <p className="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0">
             Cross-border payments reinvented for speed, affordability, and seamless global access.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+          <div className="flex flex-col sm:flex-row justify-center items-center lg:justify-start gap-4">
             <Link href="/docs">
               <Button size="lg" className="bg-accent text-primary-foreground hover:bg-accent/90">
                 Documentation
               </Button>
             </Link>
-            <Button variant="outline" size="lg" className="gap-2">
+            <Button variant="outline" size="lg" className="gap-2 hover:text-accent max-w-72">
               <Video className="h-5 w-5" />
               Watch Demo
             </Button>

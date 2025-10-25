@@ -24,12 +24,12 @@ export function NetworkSection() {
     {
       icon: <Shield className="h-6 w-6 text-accent" />,
       title: "Enterprise-Grade Security",
-      desc: `JWT auth, RBAC, Redis rate limiting, AES-256 encryption, and signature replay protection out-of-the-box.`
+      desc: `MPC (non-custodial walltet), Biometrics, and military-grade encryption.`
     },
     {
       icon: <Globe className="h-6 w-6 text-accent" />,
       title: "Advanced Payment Types",
-      desc: `Payment links, invoices, subscriptions, split payments, escrow, and installment options — all in one platform.`
+      desc: `Payment links, invoices, subscriptions, split payments, escrow, and installment options all in one platform.`
     },
     {
       icon: <Webhook className="h-6 w-6 text-accent" />,
@@ -48,7 +48,7 @@ export function NetworkSection() {
             Core Features
           </h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto leading-relaxed">
-            Built for developers, merchants, and enterprises — ZendFi combines speed, security, and flexibility for seamless crypto payments.
+            Built for developers, merchants, and enterprises ZendFi combines speed, security, and flexibility for seamless crypto payments.
           </p>
         </div>
 

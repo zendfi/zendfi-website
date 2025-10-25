@@ -1,3 +1,4 @@
+"use client"
 import { Calendar, Home, Inbox, LogOut, Search, Settings } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -12,6 +13,7 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
+import { useMerchantAuth } from "@/hooks/use-merchants-auth"
 
 // Menu items.
 const items = [
@@ -43,6 +45,7 @@ const items = [
 ]
 
 export function AppSidebar() {
+    const { logout } = useMerchantAuth();
     return (
         <Sidebar>
             <SidebarContent>
@@ -75,7 +78,7 @@ export function AppSidebar() {
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
-                    <Button variant="outline" className="mt-auto border-gray-300 text-gray-700 hover:text-accent hover:border-accent m-2">
+                    <Button onClick={() => logout()} variant="outline" className="mt-auto border-gray-300 text-gray-700 hover:text-accent hover:border-accent m-2">
                         <LogOut size={16} className="mr-2" /> Log out
                     </Button>
         </Sidebar>

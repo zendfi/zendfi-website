@@ -6,8 +6,8 @@ export function FeaturesSection() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
         </svg>
       ),
-      title: "83% Lower Fees",
-      description: "Cut costs from 2.9% to 0.5% with zero chargebacks. Keep more revenue with final transactions.",
+      title: "Up to 83% Lower Fees",
+      description: "Cut costs from 2.9% to 1.5% with zero chargebacks. Keep more revenue with final transactions.",
       highlight: "83%"
     },
     {
@@ -27,7 +27,7 @@ export function FeaturesSection() {
         </svg>
       ),
       title: "10-Minute Setup",
-      description: "Simple REST API integration. Get production-ready Solana payments running in minutes, not weeks.",
+      description: "Simple REST API and SDK integration. Get production-ready Solana payments running in minutes, not weeks.",
       highlight: "10 min"
     }
   ]

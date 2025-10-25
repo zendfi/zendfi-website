@@ -9,23 +9,9 @@ import Link from "next/link"
 
 const plans = [
   {
-    name: "Personal",
-    highlight: "Best for individuals & freelancers",
-    price: "1.5%",
-    description: "per transfer",
-    limit: "Up to $25,000/month",
-    features: [
-      "Instant USD/GBP → NGN transfers",
-      "Live rate preview",
-      "Local bank delivery",
-      "No hidden charges",
-    ],
-    buttonText: "Get Started",
-  },
-  {
     name: "Business",
     highlight: "For SMEs & startups",
-    price: "1.2%",
+    price: "1.5%",
     description: "per transfer",
     limit: "Custom monthly limit",
     features: [
@@ -66,7 +52,7 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2">
           {plans.map((plan, index) => (
             <Card
               key={index}
