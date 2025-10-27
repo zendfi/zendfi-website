@@ -23,19 +23,19 @@ export default function AdvancedFeatures() {
           </li>
           <li className="flex items-center gap-2">
             <ArrowRight className="w-4 h-4 text-primary" />
-            <a href="#subscriptions-coming-soon" className="hover:text-primary transition-colors">Subscriptions (Coming Soon)</a>
+            <a href="#subscriptions-coming-soon" className="hover:text-primary transition-colors">Subscriptions</a>
           </li>
           <li className="flex items-center gap-2">
             <ArrowRight className="w-4 h-4 text-primary" />
-            <a href="#installment-plans-coming-soon" className="hover:text-primary transition-colors">Installment Plans (Coming Soon)</a>
+            <a href="#installment-plans-coming-soon" className="hover:text-primary transition-colors">Installment Plans</a>
           </li>
           <li className="flex items-center gap-2">
             <ArrowRight className="w-4 h-4 text-primary" />
-            <a href="#escrow-payments-coming-soon" className="hover:text-primary transition-colors">Escrow Payments (Coming Soon)</a>
+            <a href="#escrow-payments-coming-soon" className="hover:text-primary transition-colors">Escrow Payments</a>
           </li>
           <li className="flex items-center gap-2">
             <ArrowRight className="w-4 h-4 text-primary" />
-            <a href="#invoices-coming-soon" className="hover:text-primary transition-colors">Invoices (Coming Soon)</a>
+            <a href="#invoices-coming-soon" className="hover:text-primary transition-colors">Invoices</a>
           </li>
         </ul>
       </Card>
@@ -403,7 +403,7 @@ export default function AdvancedFeatures() {
       <div id="subscriptions-coming-soon" className="space-y-4">
         <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2">
           <RefreshCw className="w-6 h-6 text-primary" />
-          Subscriptions (Coming Soon)
+          Subscriptions
         </h2>
         <p className="text-muted-foreground">
           Recurring payments made simple! Perfect for SaaS products, memberships, and subscription-based services.
@@ -437,7 +437,7 @@ export default function AdvancedFeatures() {
       <div id="installment-plans-coming-soon" className="space-y-4">
         <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2">
           <Calendar className="w-6 h-6 text-primary" />
-          Installment Plans (Coming Soon)
+          Installment Plans
         </h2>
         <p className="text-muted-foreground">
           Buy now, pay later functionality. Split large purchases into manageable payments over time.
@@ -471,7 +471,7 @@ export default function AdvancedFeatures() {
       <div id="escrow-payments-coming-soon" className="space-y-4">
         <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2">
           <Shield className="w-6 h-6 text-primary" />
-          Escrow Payments (Coming Soon)
+          Escrow Payments
         </h2>
         <p className="text-muted-foreground">
           Hold funds securely until conditions are met. Perfect for freelance work, real estate, and high-value transactions requiring buyer/seller protection.
@@ -517,7 +517,7 @@ export default function AdvancedFeatures() {
       <div id="invoices-coming-soon" className="space-y-4">
         <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2">
           <Mail className="w-6 h-6 text-primary" />
-          Invoices (Coming Soon)
+          Invoices
         </h2>
         <p className="text-muted-foreground">
           Professional crypto invoicing for B2B payments. Send beautiful invoices, track payments, and manage your receivables all in one place.
