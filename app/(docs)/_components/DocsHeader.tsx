@@ -115,7 +115,7 @@ export const DocsHeader = () => {
 
           <div className="pt-4 border-t border-slate-200/50">
             <Link
-              href="api.zendfi.tech/dashboard"
+              href="https://api.zendfi.tech/dashboard"
               onClick={() => setMobileMenuOpen(false)}
               className="block text-center w-full px-4 py-2 text-sm font-semibold border-1 border-accent rounded-lg hover:opacity-90 transition-all"
             >
