@@ -129,35 +129,6 @@ export default function AboutPage() {
         <>
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-28">
                 <Header />
-                {/* Hero Section */}
-                    <motion.div initial={{ opacity: 0, y: 40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }} className="absolute inset-0 -z-10 -top-50">
-                        <svg
-                            viewBox="0 0 1200 900"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            preserveAspectRatio="xMidYMid slice"
-                        >
-                            <g>
-                                <path d="M50 720 Q200 590 350 540 Q500 490 650 520 Q800 550 950 460 Q1100 370 1200 340" stroke="#C8A2D0" strokeWidth="0.8" fill="none" opacity="0.8" />
-                                <path d="M80 730 Q250 620 400 570 Q550 520 700 550 Q850 580 1000 490 Q1150 400 1300 370" stroke="#C8A2D0" strokeWidth="1.5" fill="none" opacity="0.7" />
-                                <path d="M20 710 Q180 580 320 530 Q460 480 600 510 Q740 540 880 450 Q1020 360 1200 330" stroke="#C8A2D0" strokeWidth="1.2" fill="none" opacity="0.8" />
-                                <path d="M120 740 Q280 640 450 590 Q620 540 770 570 Q920 600 1070 510 Q1220 420 1350 390" stroke="#C8A2D0" strokeWidth="0.6" fill="none" opacity="0.6" />
-                                <path d="M60 725 Q220 600 380 550 Q540 500 680 530 Q820 560 960 470 Q1100 380 1280 350" stroke="#C8A2D0" strokeWidth="1.0" fill="none" opacity="0.7" />
-                                <path d="M150 735 Q300 660 480 610 Q660 560 800 590 Q940 620 1080 530 Q1220 440 1400 410" stroke="#C8A2D0" strokeWidth="1.3" fill="none" opacity="0.6" />
-                                <path d="M40 715 Q190 585 340 535 Q490 485 630 515 Q770 545 910 455 Q1050 365 1250 335" stroke="#C8A2D0" strokeWidth="0.9" fill="none" opacity="0.8" />
-                                <path d="M100 728 Q260 630 420 580 Q580 530 720 560 Q860 590 1000 500 Q1140 410 1320 380" stroke="#C8A2D0" strokeWidth="1.4" fill="none" opacity="0.7" />
-                                <path d="M30 722 Q170 595 310 545 Q450 495 590 525 Q730 555 870 465 Q1010 375 1180 345" stroke="#C8A2D0" strokeWidth="0.5" fill="none" opacity="0.6" />
-                                <path d="M90 732 Q240 625 390 575 Q540 525 680 555 Q820 585 960 495 Q1100 405 1300 375" stroke="#C8A2D0" strokeWidth="1.1" fill="none" opacity="0.8" />
-                                <path d="M70 727 Q210 605 360 555 Q510 505 650 535 Q790 565 930 475 Q1070 385 1260 355" stroke="#C8A2D0" strokeWidth="0.4" fill="none" opacity="0.5" />
-                                <path d="M110 738 Q270 645 430 595 Q590 545 730 575 Q870 605 1010 515 Q1150 425 1380 395" stroke="#C8A2D0" strokeWidth="1.5" fill="none" opacity="0.7" />
-                                <path d="M45 718 Q185 588 325 538 Q465 488 605 518 Q745 548 885 458 Q1025 368 1220 338" stroke="#C8A2D0" strokeWidth="0.7" fill="none" opacity="0.6" />
-                                <path d="M130 721 Q290 630 460 580 Q630 530 770 560 Q910 590 1050 500 Q1190 410 1350 380" stroke="#C8A2D0" strokeWidth="1.0" fill="none" opacity="0.8" />
-                                <path d="M25 713 Q165 583 305 533 Q445 483 585 513 Q725 543 865 453 Q1005 363 1200 333" stroke="#C8A2D0" strokeWidth="0.3" fill="none" opacity="0.4" />
-                             </g>
-                        </svg>
-                    </motion.div>
                 <div className="relative max-w-7xl mx-auto">
                     <motion.section
                         className="text-center max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24"
