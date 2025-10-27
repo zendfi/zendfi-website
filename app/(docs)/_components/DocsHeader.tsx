@@ -56,7 +56,7 @@ export const DocsHeader = () => {
 
           <div className="hidden md:block">
             <Link
-              href="api.zendfi.tech/dashboard"
+              href="https://api.zendfi.tech/dashboard"
               className="px-4 py-2 text-sm font-semibold text-white bg-accent/80 rounded-lg hover:opacity-90 transition-all"
             >
               Get API Key
