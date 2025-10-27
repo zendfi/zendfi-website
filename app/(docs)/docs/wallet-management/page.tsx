@@ -432,23 +432,23 @@ export default function WalletManagement() {
 
           <Card className="p-4">
             <h4 className="font-semibold mb-2">400 Bad Request - No MPC Wallet</h4>
-            <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
               <code>{`{
   "error": "MPC wallet not found",
   "message": "This merchant doesn't have an MPC wallet. Only MPC wallets support key export."
 }`}</code>
             </pre>
-            <p className="text-sm text-muted-foreground">**Solution:** Only MPC wallets can export keys. Contact support if you need access to custodial wallet keys.</p>
+            <p className="text-sm text-muted-foreground">Solution: Only MPC wallets can export keys. Contact support if you need access to custodial wallet keys.</p>
           </Card>
 
           <Card className="p-4">
             <h4 className="font-semibold mb-2">401 Unauthorized - Invalid Passkey</h4>
-            <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
               <code>{`{
   "error": "Failed to export key: Invalid passkey signature"
 }`}</code>
             </pre>
-            <p className="text-sm text-muted-foreground">**Solution:** 
+            <p className="text-sm text-muted-foreground">Solution: 
 - Ensure you completed passkey authentication correctly
 - Check that credential_id matches your registered passkey
 - Verify signature data is correct
@@ -457,12 +457,12 @@ export default function WalletManagement() {
 
           <Card className="p-4">
             <h4 className="font-semibold mb-2">500 Internal Server Error</h4>
-            <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
               <code>{`{
   "error": "Failed to export key: Failed to combine shards"
 }`}</code>
             </pre>
-            <p className="text-sm text-muted-foreground">**Solution:** 
+            <p className="text-sm text-muted-foreground">Solution: 
 - Internal error combining MPC shards
 - Contact support with the timestamp
 - This is rare - may indicate network issues with Lit Protocol</p>
@@ -473,7 +473,6 @@ export default function WalletManagement() {
       {/* Withdraw Funds */}
       <div id="withdraw-funds" className="space-y-4">
         <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2">
-          <DollarSign className="w-6 h-6 text-primary" />
           Withdraw Funds
         </h2>
         <p className="text-muted-foreground">
@@ -745,22 +744,22 @@ export default function WalletManagement() {
 
           <Card className="p-4">
             <h4 className="font-semibold mb-2">400 Bad Request - Invalid Amount</h4>
-            <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
               <code>{`{
   "error": "Amount must be greater than 0"
 }`}</code>
             </pre>
-            <p className="text-sm text-muted-foreground">**Solution:** Use positive amounts only (no zero or negative).</p>
+            <p className="text-sm text-muted-foreground">Solution: Use positive amounts only (no zero or negative).</p>
           </Card>
 
           <Card className="p-4">
             <h4 className="font-semibold mb-2">400 Bad Request - Invalid Address</h4>
-            <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
               <code>{`{
   "error": "Invalid destination address"
 }`}</code>
             </pre>
-            <p className="text-sm text-muted-foreground">**Solution:** 
+            <p className="text-sm text-muted-foreground">Solution: 
 - Check that <code>to_address</code> is a valid Solana address
 - Must be base58 format
 - Cannot be empty or malformed</p>
@@ -768,23 +767,23 @@ export default function WalletManagement() {
 
           <Card className="p-4">
             <h4 className="font-semibold mb-2">400 Bad Request - No MPC Wallet</h4>
-            <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
               <code>{`{
   "error": "MPC wallet not found",
   "message": "This merchant doesn't have an MPC wallet."
 }`}</code>
             </pre>
-            <p className="text-sm text-muted-foreground">**Solution:** Only MPC wallets support API withdrawals. Contact support for custodial wallet withdrawals.</p>
+            <p className="text-sm text-muted-foreground">Solution: Only MPC wallets support API withdrawals. Contact support for custodial wallet withdrawals.</p>
           </Card>
 
           <Card className="p-4">
             <h4 className="font-semibold mb-2">401 Unauthorized - Invalid Passkey</h4>
-            <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
               <code>{`{
   "error": "Withdrawal failed: Invalid passkey signature"
 }`}</code>
             </pre>
-            <p className="text-sm text-muted-foreground">**Solution:**
+            <p className="text-sm text-muted-foreground">Solution:
 - Complete passkey authentication correctly
 - Ensure signature data is accurate
 - Try authenticating again</p>
@@ -792,12 +791,12 @@ export default function WalletManagement() {
 
           <Card className="p-4">
             <h4 className="font-semibold mb-2">500 Internal Server Error - Insufficient Balance</h4>
-            <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
               <code>{`{
   "error": "Withdrawal failed: Insufficient balance"
 }`}</code>
             </pre>
-            <p className="text-sm text-muted-foreground">**Solution:**
+            <p className="text-sm text-muted-foreground">Solution:
 - Check your balance with GET /api/v1/merchants/me/wallet
 - Ensure you have enough for the withdrawal + transaction fee (~0.000005 SOL)
 - For USDC: need SOL for transaction fees too</p>
@@ -857,7 +856,7 @@ export default function WalletManagement() {
               <li>Automatically creates MPC wallet after passkey registration</li>
             </ul>
             <p className="text-sm text-muted-foreground"><strong>How To Use:</strong> When you create an MPC merchant, you'll receive a <code>passkey_setup_url</code> like:</p>
-            <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
               <code>https://api.zendfi.tech/merchants/550e8400-e29b-41d4-a716-446655440000/setup-passkey</code>
             </pre>
             <p className="text-sm text-muted-foreground">Just open it in a browser and follow the instructions!</p>
@@ -1085,7 +1084,7 @@ export default function WalletManagement() {
     "webhook_url": "https://webhook.site/your-unique-url"
   }'`}</code>
           </pre>
-          <p className="text-sm text-muted-foreground">**Response includes:**
+          <p className="text-sm text-muted-foreground">Response includes:
 - <code>passkey_setup_url</code>: Visit this to set up your passkey
 - <code>api_key</code>: Save this for API requests</p>
         </Card>

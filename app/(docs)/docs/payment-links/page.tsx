@@ -695,7 +695,7 @@ export default function PaymentLinks() {
         <Card className="p-4">
           <h4 className="font-semibold mb-2">400 Bad Request</h4>
           <p className="text-muted-foreground mb-3">Link is invalid or inactive.</p>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>{`{
   "error": "Invalid payment link parameters",
   "details": "Amount must be greater than 0"
@@ -706,7 +706,7 @@ export default function PaymentLinks() {
         <Card className="p-4">
           <h4 className="font-semibold mb-2">404 Not Found</h4>
           <p className="text-muted-foreground mb-3">Payment link doesn't exist.</p>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>{`{
   "error": "Payment link not found",
   "details": "No payment link found with code: pyl_invalid123"
@@ -717,7 +717,7 @@ export default function PaymentLinks() {
         <Card className="p-4">
           <h4 className="font-semibold mb-2">410 Gone</h4>
           <p className="text-muted-foreground mb-3">Payment link has expired or reached max uses.</p>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>{`{
   "error": "Payment link no longer available",
   "details": "This payment link has expired or reached its usage limit"
@@ -727,7 +727,7 @@ export default function PaymentLinks() {
 
         <Card className="p-4">
           <h4 className="font-semibold mb-2">Expired Link:</h4>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>{`{
   "error": "Payment link expired",
   "details": "This link expired on 2025-11-30T23:59:59Z"
@@ -737,7 +737,7 @@ export default function PaymentLinks() {
 
         <Card className="p-4">
           <h4 className="font-semibold mb-2">Max Uses Reached:</h4>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>{`{
   "error": "Payment link capacity reached",
   "details": "This link has been used 100 times (maximum allowed)"
@@ -748,7 +748,7 @@ export default function PaymentLinks() {
         <Card className="p-4">
           <h4 className="font-semibold mb-2">500 Internal Server Error</h4>
           <p className="text-muted-foreground mb-3">Something went wrong on our end.</p>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>{`{
   "error": "Internal server error",
   "details": "Failed to create payment from link. Please try again."
@@ -772,7 +772,7 @@ export default function PaymentLinks() {
           <p className="text-muted-foreground mb-4">
             Use the <code>hosted_page_url</code> from your payment link response:
           </p>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>https://zendfi.tech/checkout/pyl_hk3n7x9m2q</code>
           </pre>
         </Card>
@@ -799,7 +799,7 @@ export default function PaymentLinks() {
                 <ExternalLink className="w-4 h-4" />
                 Direct Link
               </h4>
-              <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+              <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
                 <code>Share the hosted_page_url directly:
 https://zendfi.tech/checkout/pyl_hk3n7x9m2q</code>
               </pre>
@@ -822,7 +822,7 @@ https://zendfi.tech/checkout/pyl_hk3n7x9m2q</code>
                 <Mail className="w-4 h-4" />
                 Embed in Email
               </h4>
-              <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+              <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
                 <code>{`<a href="https://zendfi.tech/checkout/pyl_hk3n7x9m2q">
   Click here to complete your payment
 </a>`}</code>

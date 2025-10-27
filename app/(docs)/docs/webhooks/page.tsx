@@ -430,7 +430,7 @@ export default function Webhooks() {
           <p className="text-muted-foreground mb-4">
             Every webhook includes a signature in the <code>signature</code> field:
           </p>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>t=1730053845,v1=a2f8c9d3e4b5a6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1</code>
           </pre>
           <p className="text-muted-foreground mb-4"><strong>Format:</strong></p>
@@ -475,12 +475,12 @@ export default function Webhooks() {
 
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-2">Endpoint</h3>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto mb-4">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>POST /api/v1/webhooks/verify</code>
           </pre>
 
           <h3 className="text-lg font-bold mb-2">Authentication</h3>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto mb-4">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>Authorization: Bearer YOUR_API_KEY</code>
           </pre>
 
@@ -559,7 +559,7 @@ export default function Webhooks() {
         <div className="grid md:grid-cols-3 gap-4">
           <Card className="p-4">
             <h4 className="font-semibold mb-2">Example Response (Valid)</h4>
-            <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
               <code>{`{
   "valid": true,
   "message": "Webhook signature is valid",
@@ -570,7 +570,7 @@ export default function Webhooks() {
 
           <Card className="p-4">
             <h4 className="font-semibold mb-2">Example Response (Expired)</h4>
-            <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
               <code>{`{
   "valid": false,
   "message": "Webhook signature expired (420 seconds old, max 300)",
@@ -581,7 +581,7 @@ export default function Webhooks() {
 
           <Card className="p-4">
             <h4 className="font-semibold mb-2">Example Response (Invalid)</h4>
-            <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
               <code>{`{
   "valid": false,
   "message": "Webhook signature is invalid",
@@ -604,12 +604,12 @@ export default function Webhooks() {
 
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-2">Endpoint</h3>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto mb-4">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>GET /api/v1/webhooks</code>
           </pre>
 
           <h3 className="text-lg font-bold mb-2">Authentication</h3>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto mb-4">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>Authorization: Bearer YOUR_API_KEY</code>
           </pre>
 
@@ -737,7 +737,7 @@ export default function Webhooks() {
 
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Manual Retry Endpoint</h3>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto mb-4">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>{`POST /api/v1/webhooks/{webhook_id}/retry`}</code>
           </pre>
           <h4 className="text-md font-semibold mb-2">URL Parameters</h4>
@@ -810,7 +810,7 @@ export default function Webhooks() {
 
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">List Dead Letter Queue</h3>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto mb-4">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>GET /admin/webhooks/dlq</code>
           </pre>
           <p className="text-sm text-muted-foreground mb-4"><strong>Note:</strong> This is an admin endpoint. Contact support for access.</p>
@@ -841,7 +841,7 @@ export default function Webhooks() {
 
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">DLQ Entry Details</h3>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto mb-4">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>{`GET /admin/webhooks/dlq/{dlq_id}`}</code>
           </pre>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
@@ -891,7 +891,7 @@ export default function Webhooks() {
 
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Resolve DLQ Entry</h3>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto mb-4">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>{`POST /admin/webhooks/dlq/{dlq_id}/resolve`}</code>
           </pre>
           <h4 className="font-semibold mb-2">Request:</h4>
@@ -922,7 +922,7 @@ export default function Webhooks() {
         <Card className="p-6 border-primary/50">
           <h3 className="text-lg font-bold mb-3">Step 1: Set Up Local Webhook Endpoint</h3>
           <p className="text-sm text-muted-foreground mb-4">Use <strong>ngrok</strong> to expose your local server to the internet:</p>
-          <pre className="bg-muted p-3 rounded-md overflow-x-auto text-sm">
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>ngrok http 3000</code>
           </pre>
           <p className="text-sm text-muted-foreground">This gives you a public URL like: <code>https://abc123.ngrok.io</code></p>
