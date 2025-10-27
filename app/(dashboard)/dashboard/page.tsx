@@ -33,7 +33,7 @@ export default function DashboardPage() {
               <User size={18} /> User Info
             </h3>
             <div className="grid md:grid-cols-2 gap-4 text-gray-700">
-              <p><strong>Name:</strong> Daniel Uzodinma</p>
+              <p><strong>Name:</strong> John Doe</p>
               <p><strong>Email:</strong> daniel@zendfi.com</p>
               <p><strong>Account Type:</strong> Business</p>
               <p><strong>Joined:</strong> March 2025</p>

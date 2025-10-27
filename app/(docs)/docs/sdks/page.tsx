@@ -4,7 +4,7 @@ export default function SDKs() {
   return (
     <div className="space-y-6 md:space-y-8">
       <div>
-        <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-2">SDKs & Libraries</h1>
+        <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-2">SDKs & Libraries (STILL IN DEVELOPMENT!)</h1>
         <p className="text-base md:text-lg text-muted-foreground">Official SDKs for popular programming languages.</p>
       </div>
 
