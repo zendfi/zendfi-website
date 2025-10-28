@@ -4,23 +4,45 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const apiKey = request.cookies.get('api_key');
   const merchantId = request.cookies.get('merchant_id');
-  const isAuthPage = request.nextUrl.pathname.startsWith('/signup') || 
-                     request.nextUrl.pathname.startsWith('/sign-in');
-  const isProtectedPage = request.nextUrl.pathname.startsWith('/dashboard');
+  const adminId = request.cookies.get('admin_token');
+
+  const { pathname } = request.nextUrl;
+
+  const isAuthPage = pathname.startsWith('/signup') || pathname.startsWith('/sign-in');
+  const isProtectedPage = pathname.startsWith('/dashboard');
+  const isAdminPage = pathname.startsWith('/admin');
 
   const isAuthenticated = apiKey && merchantId;
 
+  // prevent redirect loops by checking destination
   if (isProtectedPage && !isAuthenticated) {
-    return NextResponse.redirect(new URL('/sign-in', request.url));
+    if (!pathname.startsWith('/sign-in')) {
+      const redirectUrl = new URL('/sign-in', request.url);
+      return NextResponse.redirect(redirectUrl);
+    }
+  }
+
+  if (isAdminPage && !adminId) {
+    if (!pathname.startsWith('/admin/sign-in')) {
+      const redirectUrl = new URL('/admin/sign-in', request.url);
+      return NextResponse.redirect(redirectUrl);
+    }
   }
 
   if (isAuthPage && isAuthenticated) {
-    return NextResponse.redirect(new URL('/dashboard', request.url));
+    const redirectUrl = new URL('/dashboard', request.url);
+    return NextResponse.redirect(redirectUrl);
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/signup', '/sign-in'],
+  matcher: [
+    '/dashboard/:path*',
+    '/signup',
+    '/sign-in',
+    '/admin/:path*',
+    '/admin/sign-in',
+  ],
 };

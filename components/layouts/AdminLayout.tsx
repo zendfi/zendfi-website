@@ -6,7 +6,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <SidebarProvider>
             <AdminSidebar />
             <main className="w-full">
-                <div className="flex items-center p-4 border-b">
+                <div className="flex items-center p-4 space-x-4 border-b">
                     <SidebarTrigger className="text-accent" />
                     <div className="flex items-center gap-2">
                         <h1 className="font-semibold text-base text-accent">Admin Panel</h1>

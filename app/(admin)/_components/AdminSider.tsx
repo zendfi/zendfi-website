@@ -1,4 +1,5 @@
-import { LogOut, Users, CreditCard, BarChart3, Settings, Menu, X, Shield } from "lucide-react"
+"use client";
+import { LogOut, Users, CreditCard, BarChart3, Settings } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import {
@@ -12,6 +13,7 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
+import { useAdminAuth } from "@/hooks/use-admin-auth"
 
 // Menu items.
 const items = [
@@ -31,13 +33,14 @@ const items = [
         icon: CreditCard,
     },
     {
-        title: "Settings",
-        url: "/admin/settings",
+        title: "Logs",
+        url: "/admin/logs",
         icon: Settings,
     },
 ]
 
 export function AdminSidebar() {
+    const { logout } = useAdminAuth();
     return (
         <Sidebar>
             <SidebarContent>
@@ -71,7 +74,11 @@ export function AdminSidebar() {
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
-            <Button variant="outline" className="mt-auto border-gray-300 text-gray-700 hover:text-accent hover:border-accent m-2">
+            <Button
+                onClick={() => logout()}
+                variant="outline"
+                className="mt-auto border-gray-300 text-gray-700 hover:text-accent hover:border-accent m-2"
+            >
                 <LogOut size={16} className="mr-2" /> Log out
             </Button>
         </Sidebar>

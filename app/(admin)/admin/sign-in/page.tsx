@@ -2,6 +2,7 @@
 
 import { LogIn, Shield, ArrowRight, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import AdminLoginForm from "@/components/widgets/admin-login-form"
 
 const AdminSignIn = () => {
   return (
@@ -17,15 +18,7 @@ const AdminSignIn = () => {
             Secure access for authorized administrators
           </p>
         </div>
-        <Button
-          variant="outline"
-          size="lg"
-          className="w-full flex items-center justify-center gap-3 border-accent/20 hover:bg-accent/10 hover:border-accent/30 transition-all"
-        >
-          <Mail size={18} className="text-accent" />
-          Continue with Google
-          <ArrowRight size={16} className="ml-1 text-accent" />
-        </Button>
+        <AdminLoginForm />
       </div>
     </div>
   )
