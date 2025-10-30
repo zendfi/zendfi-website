@@ -16,6 +16,7 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
     { href: "/docs/wallet-management", label: "Wallet Management" },
     { href: "/docs/advanced", label: "Advanced Features" },
     { href: "/docs/sdks", label: "SDKs & Libraries" },
+    { href: "/docs/cli", label: "CLI" },
   ]
 
   return (

@@ -15,26 +15,21 @@ export default function SDKs() {
         <Card className="p-4 md:p-6 bg-card border border-border">
           <h3 className="font-semibold text-foreground mb-3 text-sm md:text-base">Installation</h3>
           <div className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <pre>{`npm install zendfi-sdk`}</pre>
+            <pre>{`npm install @zendfi/sdk`}</pre>
           </div>
 
           <h3 className="font-semibold text-foreground mb-3 text-sm md:text-base">Basic Usage</h3>
           <div className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <pre>{`import { ZendFi } from "zendfi-sdk"
+            <pre>{`import { zendfi } from '@zendfi/sdk';
 
-const zendfi = new ZendFi("YOUR_API_KEY")
+// That's it! Auto-configured from environment
+const payment = await zendfi.payments.create({
+  amount: 50,
+  description: 'Premium subscription',
+});
 
-// Create a transfer
-const transfer = await zendfi.transfer({
-  amount: 500,
-  from: "USD",
-  to: "NGN",
-  recipient: "0123456789",
-  description: "Payment"
-})
-
-console.log(transfer.status)
-console.log(transfer.id)`}</pre>
+console.log(payment.checkout_url);
+`}</pre>
           </div>
         </Card>
 
