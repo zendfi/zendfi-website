@@ -2412,7 +2412,7 @@ if __name__ == '__main__':
         <p className="text-center font-semibold mt-2">Happy building! You&apos;re going to do great things!</p>
       </Card>
 
-      {/* Quick Links */}
+      {/* Quick Links
       <Card className="p-6">
         <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
           <ArrowRight className="h-5 w-5" />
@@ -2424,7 +2424,7 @@ if __name__ == '__main__':
           <Link href="./04-webhooks.md" className="block p-3 bg-muted/50 rounded-md hover:bg-muted text-center">Webhooks Setup</Link>
           <Link href="./05-wallet-management.md" className="block p-3 bg-muted/50 rounded-md hover:bg-muted text-center">Wallet Management</Link>
         </div>
-      </Card>
+      </Card> */}
     </div>
   )
 }
