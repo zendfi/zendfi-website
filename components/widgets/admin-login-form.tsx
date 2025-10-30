@@ -31,7 +31,7 @@ export default function AdminLoginForm() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 bg-gray-300 placeholder-gray-400 text-white focus:outline-none focus:ring-accent/50 focus:border-accent/50 focus:z-10 sm:text-sm"
-                placeholder="admin@zendfi.tech"
+                placeholder="Enter email"
                 disabled={isLoggingIn}
               />
             </div>
