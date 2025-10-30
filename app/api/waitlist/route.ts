@@ -106,7 +106,7 @@ export async function POST(request: Request) {
           <h4 style="color: #374151; margin: 0 0 10px 0; font-size: 16px;">✨ What makes Zendfi different?</h4>
           <div style="display: grid; gap: 10px;">
             <p style="margin: 0; color: #6b7280; font-size: 14px;"><strong>⚡ Under 15 minutes:</strong> Lightning-fast transfers</p>
-            <p style="margin: 0; color: #6b7280; font-size: 14px;"><strong>💰 1.5% fees:</strong> Transparent, low-cost pricing</p>
+            <p style="margin: 0; color: #6b7280; font-size: 14px;"><strong>💰 0.5% fees:</strong> Transparent, low-cost pricing</p>
             <p style="margin: 0; color: #6b7280; font-size: 14px;"><strong>🔒 Bank-grade security:</strong> Your money is protected</p>
             <p style="margin: 0; color: #6b7280; font-size: 14px;"><strong>🌍 US/UK to Nigeria:</strong> Seamless cross-border payments</p>
           </div>
@@ -149,7 +149,7 @@ What happens next?
 
 What makes Zendfi different?
 ⚡ Under 15 minutes: Lightning-fast transfers
-💰 1.5% fees: Transparent, low-cost pricing
+💰 0.5% fees: Transparent, low-cost pricing
 🔒 Bank-grade security: Your money is protected
 🌍 US/UK to Nigeria: Seamless cross-border payments
 

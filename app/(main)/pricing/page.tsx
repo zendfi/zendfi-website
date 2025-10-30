@@ -11,7 +11,7 @@ const plans = [
   {
     name: "Business",
     highlight: "For SMEs & startups",
-    price: "1.5%",
+    price: "0.5%",
     description: "per transfer",
     limit: "Custom monthly limit",
     features: [

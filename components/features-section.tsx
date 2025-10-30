@@ -7,7 +7,7 @@ export function FeaturesSection() {
         </svg>
       ),
       title: "Up to 83% Lower Fees",
-      description: "Cut costs from 2.9% to 1.5% with zero chargebacks. Keep more revenue with final transactions.",
+      description: "Cut costs from 2.9% to 0.5% with zero chargebacks. Keep more revenue with final transactions.",
       highlight: "83%"
     },
     {

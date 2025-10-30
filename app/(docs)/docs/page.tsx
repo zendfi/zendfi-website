@@ -819,7 +819,7 @@ config/secrets.*`}</code>
             <ol className="space-y-1 text-muted-foreground list-decimal list-inside">
               <li>Customer pays with SOL or USDC</li>
               <li>If paid in SOL, we automatically swap to USDC (stable value!)</li>
-              <li>USDC is settled to your wallet (minus 1.5% fee)</li>
+              <li>USDC is settled to your wallet (minus 0.5% fee)</li>
             </ol>
           </div>
 
@@ -832,11 +832,11 @@ config/secrets.*`}</code>
             <ul className="space-y-1 text-muted-foreground">
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
-                <span>USDC payment: 1.5% (clean and simple!)</span>
+                <span>USDC payment: 0.5% (clean and simple!)</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
-                <span>SOL payment: 1.5% + Solana gas fees + tiny swap fee (~0.1%)</span>
+                <span>SOL payment: 0.5% + Solana gas fees + tiny swap fee (~0.1%)</span>
               </li>
             </ul>
           </div>
@@ -849,7 +849,7 @@ config/secrets.*`}</code>
             <p className="font-semibold mb-2">How it works:</p>
             <ol className="space-y-1 text-muted-foreground list-decimal list-inside">
               <li>Customer pays with specified token (SOL or USDC)</li>
-              <li>Same token is settled to your wallet (minus 1.5% fee)</li>
+              <li>Same token is settled to your wallet (minus 0.5% fee)</li>
             </ol>
           </div>
 
@@ -862,7 +862,7 @@ config/secrets.*`}</code>
             <ul className="space-y-1 text-muted-foreground">
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
-                <span>Any token: 1.5% flat (that's it!)</span>
+                <span>Any token: 0.5% flat (that's it!)</span>
               </li>
             </ul>
           </div>
