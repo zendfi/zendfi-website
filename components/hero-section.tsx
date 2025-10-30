@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
+import { ScheduleDemoButton } from "./schedule-demo"
 
 export function HeroSection() {
   return (
@@ -54,17 +55,7 @@ export function HeroSection() {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 pt-4"
             >
-              <Link href="/waitlist">
-                <Button
-                  size="lg"
-                  className="bg-accent max-w-60 text-primary-foreground hover:bg-accent/90 hover:shadow-primary/20 transition-all duration-300 w-full sm:w-auto"
-                >
-                  Schedule a Demo
-                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </Button>
-              </Link>
+             <ScheduleDemoButton />
 
               <Link href="/docs">
                 <Button
