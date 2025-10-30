@@ -1,35 +1,44 @@
 "use client"
 
-import { useState } from "react"
-import { Loader2 } from "lucide-react"
-import  Link  from "next/link";
+import Link from "next/link"
 import Image from "next/image"
-import LoginForm from "@/components/widgets/login-form";
+import LoginForm from "@/components/widgets/login-form"
 
 export default function LoginPage() {
-    const [loading, setLoading] = useState(false)
+  return (
+    <div className="min-h-screen flex flex-col lg:flex-row relative">
+      {/* Logo */}
+      <Link
+        href="/"
+        className="absolute left-5 top-5 z-20 flex items-center"
+      >
+        <Image
+          src="/images/logo.png"
+          alt="Zendfi Logo"
+          width={120}
+          height={32}
+          className="h-8 w-auto filter hue-rotate-[19deg] brightness-110"
+          priority
+        />
+      </Link>
 
-    const handleGoogleLogin = async () => {
-        setLoading(true)
+      {/* Image section */}
+      <div className="hidden lg:block relative w-1/2 h-screen">
+        <Image
+          src="/images/sign-in.png"
+          alt="Sign In"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+      </div>
 
-    }
-
-    return (
-        <div className="min-h-screen flex flex-col">
-                        <Link href="/" className="flex items-center absolute left-5 top-5">
-                            <Image
-                                src="/images/logo.png"
-                                alt="Zendfi Logo"
-                                width={120}
-                                height={32}
-                                className="h-8 w-auto filter hue-rotate-[19deg] brightness-110"
-                                priority
-                            />
-                        </Link>
-            <main className="flex items-center justify-between flex-1 lg:pr-14 px-4 lg:px-0 flex-wrap">
-                <Image src={"/images/sign-in.png"} alt="Sign-up" width={800} height={800} className="hidden lg:flex flex-1" />
-                <LoginForm />
-            </main>
+      {/* Form section */}
+      <main className="flex flex-1 items-center justify-center w-full px-6 sm:px-10 lg:px-0">
+        <div className="w-full max-w-md">
+          <LoginForm />
         </div>
-    )
+      </main>
+    </div>
+  )
 }
