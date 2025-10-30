@@ -13,22 +13,18 @@ export interface AdminAuthData {
 export const adminAuthUtils = {
     setAdminAuth: (data: AdminAuthData) => {
         // Calculate expiry (token valid for 24 hours)
-        const expiryDate = new Date(data.expiresAt);
 
         Cookies.set('admin_token', data.token, {
-            expires: expiryDate,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
         });
 
         Cookies.set('admin_id', data.admin.id, {
-            expires: expiryDate,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
         });
 
         Cookies.set('admin_role', data.admin.role, {
-            expires: expiryDate,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
         });

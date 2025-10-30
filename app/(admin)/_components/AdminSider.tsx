@@ -23,8 +23,8 @@ const items = [
         icon: BarChart3,
     },
     {
-        title: "Users",
-        url: "/admin/users",
+        title: "Merchants",
+        url: "/admin/merchants",
         icon: Users,
     },
     {
@@ -33,8 +33,8 @@ const items = [
         icon: CreditCard,
     },
     {
-        title: "Logs",
-        url: "/admin/logs",
+        title: "Settings",
+        url: "/admin/settings",
         icon: Settings,
     },
 ]
