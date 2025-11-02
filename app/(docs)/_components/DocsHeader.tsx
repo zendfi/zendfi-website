@@ -1,24 +1,59 @@
 "use client"
 
-import { Menu, X } from "lucide-react"
+import { Headset, Menu, Book, Code, Zap, Shield, Wallet, Terminal, Package } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import { usePathname } from "next/navigation"
+import { DocsSearch } from "@/app/(docs)/_components/docs-search"
+import { docData } from "@/lib/doc-json"
+import { Button } from "@/components/ui/button"
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 
 export const DocsHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
 
-  const navLinks = [
-    { href: "/docs", label: "Getting Started" },
-    { href: "/docs/api", label: "API Reference" },
-    { href: "/docs/payment-links", label: "Payment Links" },
-    { href: "/docs/webhooks", label: "Webhooks" },
-    { href: "/docs/wallet-management", label: "Wallet Management" },
-    { href: "/docs/advanced", label: "Advanced Features" },
-    { href: "/docs/sdks", label: "SDKs & Libraries" },
-    { href: "/docs/cli", label: "CLI" },
+  const navigationSections = [
+    {
+      title: "Getting Started",
+      id: "getting-started",
+      items: [
+        { label: "Getting Started", href: "/docs", icon: Book },
+      ]
+    },
+    {
+      title: "API & Integration",
+      id: "api-integration",
+      items: [
+        { label: "API Reference", href: "/docs/api", icon: Code },
+        { label: "Payment Links", href: "/docs/payment-links", icon: Zap },
+        { label: "Webhooks", href: "/docs/webhooks", icon: Zap },
+      ]
+    },
+    {
+      title: "Features",
+      id: "features",
+      items: [
+        { label: "Wallet Management", href: "/docs/wallet-management", icon: Wallet },
+        { label: "Advanced Features", href: "/docs/advanced", icon: Shield },
+      ]
+    },
+    {
+      title: "Developer Tools",
+      id: "developer-tools",
+      items: [
+        { label: "SDKs & Libraries", href: "/docs/sdks", icon: Package },
+        { label: "CLI", href: "/docs/cli", icon: Terminal },
+      ]
+    }
   ]
 
   return (
@@ -36,95 +71,99 @@ export const DocsHeader = () => {
             />
           </Link>
 
-          {/* <nav className="hidden md:flex items-center space-x-6">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`text-sm font-medium transition-colors ${
-                    isActive
-                      ? "text-accent font-semibold"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              )
-            })}
-          </nav> */}
-
-          <div className="hidden md:block">
-            <Link
-              href="https://api.zendfi.tech/dashboard"
-              className="px-4 py-2 text-sm font-semibold text-white bg-accent/80 rounded-lg hover:opacity-90 transition-all"
-            >
-              Get API Key
+          {/* Desktop: Search + API Key Button */}
+          <div className="hidden md:flex items-center justify-between gap-3 ">
+            <DocsSearch docsData={docData as any} />
+            <Link href="/signup">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-border transition-all duration-300 text-white bg-accent cursor-pointer"
+              >
+                Get API Key
+              </Button>
             </Link>
           </div>
 
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-md hover:bg-secondary transition-colors"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
-            ) : (
-              <Menu className="w-6 h-6 text-foreground" />
-            )}
-          </button>
+          {/* Mobile: Search + Menu Trigger */}
+          <div className="flex md:hidden items-center gap-2">
+            <DocsSearch docsData={docData as any} />
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Toggle menu"
+                  className="border rounded bg-gray-100"
+                >
+                  <Menu className="w-6 h-6 text-foreground" />
+                </Button>
+              </SheetTrigger>
+
+              <SheetContent side="left" className="w-64 p-0 flex flex-col">
+                <SheetHeader className="p-6 pb-4 text-left border-b border-slate-200/50">
+                  <SheetTitle className="text-sm font-semibold">Documentation</SheetTitle>
+                  <SheetDescription className="sr-only">
+                    Navigate through documentation sections
+                  </SheetDescription>
+                </SheetHeader>
+
+                <nav className="flex-1 overflow-y-auto px-4 py-4">
+                  <div className="space-y-6">
+                    {navigationSections.map((section) => (
+                      <div key={section.id}>
+                        <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 px-3">
+                          {section.title}
+                        </h3>
+                        <div className="space-y-1">
+                          {section.items.map((item) => {
+                            const isActive = pathname === item.href
+                            const Icon = item.icon
+                            return (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className={`
+                                flex items-center gap-2 px-3 py-2 text-sm rounded-lg
+                                transition-colors
+                                ${isActive
+                                    ? "bg-accent text-accent-foreground font-medium"
+                                    : "text-foreground hover:bg-secondary"
+                                  }
+                              `}
+                              >
+                                {Icon && (
+                                  <Icon className={`w-4 h-4 ${isActive ? "text-accent-foreground" : "text-muted-foreground"}`} />
+                                )}
+                                <span>{item.label}</span>
+                              </Link>
+                            )
+                          })}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </nav>
+
+                <div className="p-4 border-t border-slate-200/50 mt-auto">
+                  <Link
+                    href="/signup"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <Button
+                      variant="outline"
+                      className="w-full text-white bg-accent hover:bg-accent/90"
+                    >
+                      Get API Key
+                    </Button>
+                  </Link>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
-
-      {mobileMenuOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black/50 md:hidden"
-          onClick={() => setMobileMenuOpen(false)}
-        />
-      )}
-
-      <aside
-        className={`fixed top-16 left-0 z-50 h-[calc(100vh-64px)] w-64 bg-card border-r border-border p-6 overflow-y-auto transition-transform duration-300 md:hidden ${
-          mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        <nav className="space-y-4">
-          <div>
-            <h3 className="text-sm font-semibold text-foreground mb-3">Documentation</h3>
-            <div className="space-y-2">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                      isActive
-                        ? "bg-accent text-primary-foreground"
-                        : "text-foreground hover:bg-secondary"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              })}
-            </div>
-          </div>
-
-          <div className="pt-4 border-t border-slate-200/50">
-            <Link
-              href="https://api.zendfi.tech/dashboard"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block text-center w-full px-4 py-2 text-sm font-semibold border-1 border-accent rounded-lg hover:opacity-90 transition-all"
-            >
-              Get API Key
-            </Link>
-          </div>
-        </nav>
-      </aside>
     </header>
   )
 }

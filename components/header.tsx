@@ -1,8 +1,8 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Zap, Lock, TrendingUp, Code } from 'lucide-react';
+import { Menu, X, Zap, Lock, TrendingUp, Code, ExternalLink } from 'lucide-react';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,6 +13,8 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import Image from 'next/image';
+import { Button } from './ui/button';
+import { motion } from 'framer-motion';
 
 const solutions = [
   {
@@ -68,9 +70,27 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-md">
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${scrolled
+          ? 'bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm'
+          : 'bg-transparent'
+        }`}
+    >
       <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-12 p-4">
         <div className="flex h-10 lg:h-16 items-center justify-between">
           <div className="flex items-center space-x-2">
@@ -158,8 +178,15 @@ export function Header() {
             <Link href="/sign-in" className="px-4 py-2 text-base font-medium text-slate-600 hover:text-slate-900 transition-colors duration-200">
               Sign In
             </Link>
-            <Link href="/signup" className="px-5 py-2 text-base font-semibold bg-accent text-primary-foreground hover:bg-accent/90 rounded-lg transition-all duration-200 cursor-pointer">
-              Get Started
+            <Link href="/signup">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-border max-w-60 transition-all duration-300 group bg-accent text-white cursor-pointer w-full sm:w-auto"
+              >
+                Get Started <ExternalLink className="w-3.5 h-3.5 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Button>
+
             </Link>
           </div>
 
@@ -218,7 +245,8 @@ export function Header() {
           </div>
         )}
       </div>
-    </header>
+    </motion.header>
+
   );
 }
 

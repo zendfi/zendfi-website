@@ -217,7 +217,7 @@ export default function GettingStarted() {
             </ul>
           </div>
 
-          <p className="text-sm text-muted-foreground"><strong>Next step:</strong> You'll receive a <code className="bg-gray-300 px-1">passkey_setup_url</code> - just open it in your browser, scan your face/finger, and you're done! Easy!</p>
+          <p className="text-sm text-muted-foreground"><strong>Next step:</strong> You'll receive a <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">passkey_setup_url</code> - just open it in your browser, scan your face/finger, and you're done! Easy!</p>
         </Card>
 
         {/* Option 2: BIP39 Mnemonic */}
@@ -460,7 +460,7 @@ export default function GettingStarted() {
             </li>
             <li className="flex items-start gap-2">
               <span className="text-primary mt-1">•</span>
-              <span>Return <code className="bg-gray-300 px-1">200 OK</code> status code</span>
+              <span>Return <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">200 OK</code> status code</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-primary mt-1">•</span>
@@ -474,19 +474,19 @@ export default function GettingStarted() {
           <ul className="space-y-1 text-muted-foreground">
             <li className="flex items-start gap-2">
               <span className="text-primary mt-1">•</span>
-              <span><code className="bg-gray-300 px-1">payment.confirmed</code> - Cha-ching! Money received</span>
+              <span><code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">payment.confirmed</code> - Cha-ching! Money received</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-primary mt-1">•</span>
-              <span><code className="bg-gray-300 px-1">payment.failed</code> - Oops, something went wrong</span>
+              <span><code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">payment.failed</code> - Oops, something went wrong</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-primary mt-1">•</span>
-              <span><code className="bg-gray-300 px-1">settlement.completed</code> - Funds are in your wallet</span>
+              <span><code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">settlement.completed</code> - Funds are in your wallet</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-primary mt-1">•</span>
-              <span><code className="bg-gray-300 px-1">settlement.failed</code> - Rare, but we'll let you know</span>
+              <span><code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">settlement.failed</code> - Rare, but we'll let you know</span>
             </li>
           </ul>
         </div>
@@ -500,7 +500,7 @@ export default function GettingStarted() {
       <div className="space-y-4">
         <h2 className="text-xl md:text-2xl font-bold">Response - MPC Passkey Wallet</h2>
         <Card className="p-6">
-          <p className="font-semibold mb-2">Status: <code className="bg-gray-300 px-2 py-1 rounded">200 OK</code></p>
+          <p className="font-semibold mb-2">Status: <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">200 OK</code></p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>{`{
   "merchant": {
@@ -530,7 +530,7 @@ export default function GettingStarted() {
 
         <h2 className="text-xl md:text-2xl font-bold mt-6">Response - Mnemonic/Simple/Provided Wallet</h2>
         <Card className="p-6">
-          <p className="font-semibold mb-2">Status: <code className="bg-gray-300 px-2 py-1 rounded">200 OK</code></p>
+          <p className="font-semibold mb-2">Status: <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">200 OK</code></p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
             <code>{`{
   "merchant": {
@@ -590,13 +590,13 @@ export default function GettingStarted() {
       <div className="space-y-4">
         <h2 className="text-xl md:text-2xl font-bold">Step 2: Complete Passkey Setup (MPC Wallet Only)</h2>
         <p className="text-muted-foreground">
-          If you chose <code className=" bg-gray-300 px-1">wallet_generation_method: "mpc_passkey"</code>, you'll need to complete this super quick step before you can receive payments. Don't worry, it takes literally 5 seconds! ⚡
+          If you chose <code className=" bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">wallet_generation_method: "mpc_passkey"</code>, you'll need to complete this super quick step before you can receive payments. Don't worry, it takes literally 5 seconds! ⚡
         </p>
 
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Option A: Browser Setup (Easiest Way!)</h3>
           <ol className="space-y-2 text-muted-foreground list-decimal list-inside">
-            <li>Open the <code className="bg-gray-300 px-1">passkey_setup_url</code> from your merchant creation response</li>
+            <li>Open the <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">passkey_setup_url</code> from your merchant creation response</li>
             <li>Click "Setup Passkey"</li>
             <li>Authenticate with Face ID/Touch ID/Windows Hello</li>
             <li>Done! Your wallet is now active and ready to rock!</li>
@@ -662,7 +662,7 @@ ZENDFI_API_KEY=zendfi_live_abc123def456...`}</code>
 
           <div>
             <h3 className="text-lg font-semibold mb-2">Never Commit API Keys (Golden Rule!)</h3>
-            <p className="text-sm text-muted-foreground mb-3">Add to <code className="bg-gray-300 px-1">.gitignore</code>:</p>
+            <p className="text-sm text-muted-foreground mb-3">Add to <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">.gitignore</code>:</p>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
               <code>{`.env
 .env.local
@@ -711,7 +711,7 @@ config/secrets.*`}</code>
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Test the Payment Flow</h3>
           <ol className="space-y-2 text-muted-foreground list-decimal list-inside">
-            <li>Open the <code className="bg-gray-300 px-1">payment_url</code> in your browser</li>
+            <li>Open the <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">payment_url</code> in your browser</li>
             <li>Connect a Solana wallet (Phantom, Solflare, etc.)</li>
             <li>Approve the transaction</li>
             <li>Check payment status (see below)</li>
@@ -753,19 +753,19 @@ config/secrets.*`}</code>
             <ul className="space-y-1 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
-                <span><code className="bg-gray-300 px-1">Pending</code> - Waiting for customer payment (they have 15 minutes!)</span>
+                <span><code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">Pending</code> - Waiting for customer payment (they have 15 minutes!)</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
-                <span><code className="bg-gray-300 px-1">Confirmed</code> - Payment received and verified on blockchain (woohoo!)</span>
+                <span><code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">Confirmed</code> - Payment received and verified on blockchain (woohoo!)</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
-                <span><code className="bg-gray-300 px-1">Failed</code> - Transaction failed (no worries, just create a new one)</span>
+                <span><code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">Failed</code> - Transaction failed (no worries, just create a new one)</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
-                <span><code className="bg-gray-300 px-1">Expired</code> - Payment window expired (15 minutes passed)</span>
+                <span><code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">Expired</code> - Payment window expired (15 minutes passed)</span>
               </li>
             </ul>
           </div>

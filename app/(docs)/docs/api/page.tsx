@@ -381,7 +381,7 @@ export default function APIReference() {
           </pre>
 
           <p className="text-sm text-muted-foreground">
-            <strong>Note:</strong> This payment's confirmation will be sent to <code className="bg-gray-300 px-1">https://mytickets.com/webhooks/payment-confirmed</code> instead of your default webhook URL.
+            <strong>Note:</strong> This payment's confirmation will be sent to <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">https://mytickets.com/webhooks/payment-confirmed</code> instead of your default webhook URL.
           </p>
         </Card>
 
@@ -844,19 +844,19 @@ export default function APIReference() {
           <ul className="space-y-2 text-muted-foreground">
             <li className="flex items-start gap-2">
               <span className="text-primary mt-1">•</span>
-              <span><code className="bg-gray-300 px-1">minimum_amount</code> is <strong>required</strong> when <code className="bg-gray-300 px-1">allow_custom_amount</code> is <code className="bg-gray-300 px-1">true</code></span>
+              <span><code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">minimum_amount</code> is <strong>required</strong> when <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">allow_custom_amount</code> is <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">true</code></span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-primary mt-1">•</span>
-              <span><code className="bg-gray-300 px-1">maximum_amount</code> must be greater than <code className="bg-gray-300 px-1">minimum_amount</code> (if provided)</span>
+              <span><code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">maximum_amount</code> must be greater than <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">minimum_amount</code> (if provided)</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-primary mt-1">•</span>
-              <span><code className="bg-gray-300 px-1">suggested_amount</code> must be between <code className="bg-gray-300 px-1">minimum_amount</code> and <code className="bg-gray-300 px-1">maximum_amount</code></span>
+              <span><code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">suggested_amount</code> must be between <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">minimum_amount</code> and <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">maximum_amount</code></span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-primary mt-1">•</span>
-              <span><code className="bg-gray-300 px-1">amount</code> field is ignored for display (but used as fallback)</span>
+              <span><code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">amount</code> field is ignored for display (but used as fallback)</span>
             </li>
           </ul>
         </Card>
@@ -1001,7 +1001,7 @@ export default function APIReference() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">How It Works</h3>
           <p className="text-muted-foreground mb-4">
-            Include an <code className="bg-gray-300 px-1">Idempotency-Key</code> header with a unique value. If you retry the same request with the same key, you'll get the original response instead of creating a duplicate payment. Magic! ✨
+            Include an <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">Idempotency-Key</code> header with a unique value. If you retry the same request with the same key, you'll get the original response instead of creating a duplicate payment. Magic! ✨
           </p>
           <p className="text-muted-foreground">
             It's like a safety net for your payments - try the same request twice, only pay once!
@@ -1075,7 +1075,7 @@ while (attempts < maxAttempts) {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
-                <span>Recommended format: <code className="bg-gray-300 px-1">{`prefix_timestamp_{unique_id}_attempt#{attempt}`}</code></span>
+                <span>Recommended format: <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">{`prefix_timestamp_{unique_id}_attempt#{attempt}`}</code></span>
               </li>
             </ul>
           </Card>
@@ -1095,8 +1095,8 @@ while (attempts < maxAttempts) {
         <Card className="p-6 border-primary/50">
           <h3 className="text-lg font-bold mb-3">Test on Devnet (Your Playground!)</h3>
           <ol className="space-y-2 text-muted-foreground list-decimal list-inside">
-            <li>Set <code className="bg-gray-300 px-1">SOLANA_NETWORK=devnet</code> in your <code className="bg-gray-300 px-1">.env</code></li>
-            <li>Use devnet USDC mint: <code className="bg-gray-300 px-1 text-xs">4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU</code></li>
+            <li>Set <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">SOLANA_NETWORK=devnet</code> in your <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">.env</code></li>
+            <li>Use devnet USDC mint: <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs text-xs">4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU</code></li>
             <li>Get free devnet SOL/USDC from Solana Faucet - it's like Monopoly money, but fun!</li>
           </ol>
         </Card>
@@ -1128,7 +1128,7 @@ while (attempts < maxAttempts) {
               <li>Create payment</li>
               <li>Copy QR code or payment URL</li>
               <li>Pay with devnet wallet</li>
-              <li>Check status → should show <code className="bg-gray-300 px-1">Confirmed</code> (usually within 60 seconds!)</li>
+              <li>Check status → should show <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">Confirmed</code> (usually within 60 seconds!)</li>
             </ol>
           </Card>
 
@@ -1140,7 +1140,7 @@ while (attempts < maxAttempts) {
             <ol className="space-y-1 text-sm text-muted-foreground list-decimal list-inside">
               <li>Create payment</li>
               <li>Wait 16+ minutes (grab a coffee! ☕)</li>
-              <li>Check status → should show <code className="bg-gray-300 px-1">Expired</code></li>
+              <li>Check status → should show <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">Expired</code></li>
             </ol>
           </Card>
 
@@ -1150,7 +1150,7 @@ while (attempts < maxAttempts) {
               Scenario 3: Idempotency Magic
             </h4>
             <ol className="space-y-1 text-sm text-muted-foreground list-decimal list-inside">
-              <li>Create payment with <code className="bg-gray-300 px-1">Idempotency-Key: test_123</code></li>
+              <li>Create payment with <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">Idempotency-Key: test_123</code></li>
               <li>Retry with same key</li>
               <li>Should receive identical response (no duplicate payment - nice!)</li>
             </ol>
