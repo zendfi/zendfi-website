@@ -72,7 +72,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Header />
-      <div className="pt-10">
+      <div className="">
         <HeroSection />
         <Suspense fallback={<SectionSkeleton />}>
           <FeaturesSection />
@@ -87,7 +87,7 @@ export default function Home() {
           <SecuritySection />
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
-          <TestimonialSection />
+          {/* <TestimonialSection /> */}
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
           {/* <PartnersSection /> */}

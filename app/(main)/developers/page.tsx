@@ -1,8 +1,24 @@
 "use client"
+
 import { Header } from "@/components/header"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Zap, Globe, Lock, Code2, Webhook } from "lucide-react"
+import { 
+  ArrowRight, 
+  Zap, 
+  Globe, 
+  Lock, 
+  Code2, 
+  Webhook, 
+  Check,
+  Copy,
+  Terminal,
+  BookOpen,
+  Layers,
+  Clock,
+  Shield,
+  Sparkles
+} from "lucide-react"
 import Link from "next/link"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
@@ -11,34 +27,65 @@ import { motion } from "framer-motion"
 export default function DevelopersPage() {
   const steps = [
     {
-      number: "1",
-      title: "Create a Developer Account",
-      description: "Sign up for a ZendFi developer account and access your dashboard",
+      number: "01",
+      title: "Create Account",
+      description: "Sign up for a ZendFi developer account and access your dashboard instantly",
       icon: Lock,
+      gradient: "from-violet-500/20 to-purple-500/20",
+      iconColor: "text-violet-500"
     },
     {
-      number: "2",
-      title: "Generate Your API Key",
-      description: "Get your unique API key from the dashboard settings",
+      number: "02",
+      title: "Generate API Key",
+      description: "Get your unique API credentials from the dashboard in one click",
       icon: Code2,
+      gradient: "from-blue-500/20 to-cyan-500/20",
+      iconColor: "text-blue-500"
     },
     {
-      number: "3",
-      title: "Initialize a Transaction",
-      description: "Use our SDKs or REST API to create your first transaction",
+      number: "03",
+      title: "Initialize Transaction",
+      description: "Use our SDKs or REST API to create your first payment transaction",
       icon: Zap,
+      gradient: "from-amber-500/20 to-orange-500/20",
+      iconColor: "text-amber-500"
     },
     {
-      number: "4",
-      title: "Send Funds",
-      description: "Process payments globally with our secure infrastructure",
+      number: "04",
+      title: "Process Payment",
+      description: "Send and receive funds globally with our secure infrastructure",
       icon: Globe,
+      gradient: "from-green-500/20 to-emerald-500/20",
+      iconColor: "text-green-500"
     },
     {
-      number: "5",
-      title: "Receive Webhooks",
-      description: "Get real-time updates on transaction status via webhooks",
+      number: "05",
+      title: "Monitor Status",
+      description: "Get real-time updates on transactions via webhooks and dashboard",
       icon: Webhook,
+      gradient: "from-pink-500/20 to-rose-500/20",
+      iconColor: "text-pink-500"
+    },
+  ]
+
+  const features = [
+    {
+      icon: Zap,
+      title: "Fast Integration",
+      description: "Get up and running in minutes with our comprehensive SDKs, REST APIs, and detailed documentation",
+      gradient: "from-violet-500/10 to-purple-500/10"
+    },
+    {
+      icon: Globe,
+      title: "Global Coverage",
+      description: "Send and receive payments in 150+ countries with competitive exchange rates and instant settlement",
+      gradient: "from-blue-500/10 to-cyan-500/10"
+    },
+    {
+      icon: Shield,
+      title: "Secure & Reliable",
+      description: "Enterprise-grade security with 99.9% uptime SLA, compliance, and instant transaction finality",
+      gradient: "from-green-500/10 to-emerald-500/10"
     },
   ]
 
@@ -46,183 +93,409 @@ export default function DevelopersPage() {
     {
       title: "Cross-Border Payroll",
       description: "Pay employees and contractors worldwide in their local currency with minimal fees",
+      icon: Globe,
+      color: "text-violet-500"
     },
     {
       title: "Merchant Checkout",
       description: "Accept crypto-backed payments in your e-commerce platform seamlessly",
+      icon: Zap,
+      color: "text-blue-500"
     },
     {
       title: "P2P Transfers",
       description: "Enable peer-to-peer payments with instant settlement and low costs",
+      icon: ArrowRight,
+      color: "text-green-500"
     },
     {
       title: "Subscription Billing",
       description: "Automate recurring payments for SaaS and subscription services",
+      icon: Clock,
+      color: "text-amber-500"
     },
     {
       title: "Marketplace Payouts",
       description: "Distribute earnings to sellers and creators instantly",
+      icon: Layers,
+      color: "text-pink-500"
     },
     {
       title: "Remittances",
       description: "Send money home with competitive rates and fast delivery",
+      icon: ArrowRight,
+      color: "text-purple-500"
     },
   ]
+
+  const codeSnippet = `import { ZendFi } from '@zendfi/sdk';
+
+const zendfi = new ZendFi({
+  apiKey: 'your_api_key'
+});
+
+// Create a payment
+const payment = await zendfi.payments.create({
+  amount: 100,
+  currency: 'USD',
+  recipient: 'wallet_address'
+});
+
+console.log(payment.status);`
 
   return (
     <main className="min-h-screen bg-background">
       <Header />
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
-
-        {/* Text Section */}
-        <motion.div
-          className="text-center lg:text-left max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-        >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight">
-            Build Global Payment Solutions
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 md:mb-10">
-            ZendFi provides APIs and SDKs that let you send and receive crypto-backed fiat payments globally in under{" "}
-            <span className="text-accent font-medium">15 minutes</span>.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link href="/docs">
-              <Button size="lg" className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-white transition-all">
-                Get Started <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
-            <Link href="/docs/api">
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full sm:w-auto border-accent/30 text-accent hover:text-accent/90 transition-all"
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-violet-500/5 via-transparent to-transparent" />
+        
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Text Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-violet-500/20 mb-6"
               >
-                View API Docs
-              </Button>
-            </Link>
-          </div>
-        </motion.div>
+                <Code2 className="w-4 h-4 text-violet-500" />
+                <span className="text-sm font-medium text-accent dark:text-violet-400">
+                  Developer Platform
+                </span>
+              </motion.div>
 
-        {/* Image Section */}
-        <motion.div
-          className="flex justify-center lg:justify-end"
-          initial={{ opacity: 0, x: 60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <Image
-            src="/images/api.png"
-            alt="ZendFi API Illustration"
-            width={500}
-            height={500}
-            className="w-[300px] md:w-[400px] lg:w-[500px] h-auto"
-          />
-        </motion.div>
-      </section>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                <span className="bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
+                  Build Global
+                </span>
+                <br />
+                <span className="bg-accent bg-clip-text text-transparent">
+                  Payment Solutions
+                </span>
+              </h1>
 
-      {/* What is ZendFi */}
-      <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-card border-y border-border">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-6 md:mb-8">What is ZendFi?</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="p-6 bg-background border border-border">
-              <Image src={"/images/api-image1.png"} alt="api-image1.png" width={50} height={50} />
-              <h3 className="font-semibold text-foreground mb-3 text-lg">Fast Integration</h3>
-              <p className="text-muted-foreground text-sm md:text-base">
-                Get up and running in minutes with our comprehensive SDKs and REST APIs
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                ZendFi provides powerful APIs and SDKs that let you send and receive crypto-backed fiat payments globally in under{" "}
+                <span className="text-accent font-semibold">15 minutes</span>.
               </p>
-            </Card>
-            <Card className="p-6 bg-background border border-border">
-              <Image src={"/images/api-image2.png"} alt="api-image2.png" width={50} height={50} />
-              <h3 className="font-semibold text-foreground mb-3 text-lg">Global Coverage</h3>
-              <p className="text-muted-foreground text-sm md:text-base">
-                Send and receive payments in 150+ countries with competitive exchange rates
-              </p>
-            </Card>
-            <Card className="p-6 bg-background border border-border">
-              <Image src={"/images/api-image3.png"} alt="api-image3.png" width={50} height={50} />
-              <h3 className="font-semibold text-foreground mb-3 text-lg">Secure & Reliable</h3>
-              <p className="text-muted-foreground text-sm md:text-base">
-                Enterprise-grade security with 99.9% uptime SLA and instant settlement
-              </p>
-            </Card>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/docs">
+                  <Button size="lg" className="bg-accent text-white hover:bg-accent group">
+                    Get Started
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <Link href="/docs/api">
+                  <Button size="lg" variant="outline" className="border-2 text-accent hover:text-accent">
+                    View API Docs
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Quick Stats */}
+              <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-border/50">
+                {[
+                  { value: "<15min", label: "Integration" },
+                  { value: "150+", label: "Countries" },
+                  { value: "99.9%", label: "Uptime" }
+                ].map((stat, i) => (
+                  <div key={i}>
+                    <div className="text-2xl font-bold text-foreground mb-1">
+                      {stat.value}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Code Preview Section */}
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative"
+            >
+              <div className="relative rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-6 shadow-2xl border border-slate-700/50">
+                {/* Window Controls */}
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                  <span className="ml-4 text-xs text-slate-400 font-mono">payment.js</span>
+                </div>
+                
+                {/* Code */}
+                <pre className="text-sm text-slate-300 font-mono leading-relaxed overflow-x-auto">
+                  <code>{codeSnippet}</code>
+                </pre>
+
+                {/* Copy Button */}
+                <button className="absolute top-6 right-6 p-2 rounded-lg bg-slate-700/50 hover:bg-slate-700 transition-colors group">
+                  <Copy className="w-4 h-4 text-slate-400 group-hover:text-white" />
+                </button>
+
+                {/* Glow Effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-purple-600 rounded-2xl opacity-20 blur-xl -z-10" />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 ">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-12 md:mb-16 text-center">How It Works</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-4">
-            {steps.map((step, index) => {
-              const Icon = step.icon
+      {/* Features Section */}
+      <section className="py-20 md:py-28 bg-gradient-to-b from-background to-muted/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              Why Developers Choose ZendFi
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Everything you need to build world-class payment experiences
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {features.map((feature, i) => {
+              const Icon = feature.icon
               return (
-                <div key={index} className="relative">
-                  <Card className="p-6 bg-card border border-border h-full">
-                    <div className="flex flex-col items-center text-center">
-                      <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-                        <Icon className="w-6 h-6 text-accent/60" />
-                      </div>
-                      <h3 className="font-semibold text-foreground mb-2 text-sm md:text-base">{step.title}</h3>
-                      <p className="text-muted-foreground text-xs md:text-sm">{step.description}</p>
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <Card className={`p-8 h-full  border border-border/50 hover:border-border transition-all`}>
+                    <div className="w-14 h-14 rounded-2xl bg-accent/70 flex items-center justify-center mb-6">
+                      <Icon className="w-7 h-7 text-white" />
                     </div>
+                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
                   </Card>
-                  {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-2 w-4 h-0.5 bg-accent/20 transform -translate-y-1/2" />
-                  )}
-                </div>
+                </motion.div>
               )
             })}
           </div>
         </div>
       </section>
 
+{/* How It Works - Step by Step */}
+<section className="py-20 md:py-28 bg-background">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Header */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className="text-center max-w-2xl mx-auto mb-20"
+    >
+      <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        Integration in 5 Simple Steps
+      </h2>
+      <p className="text-lg text-muted-foreground">
+        Go from signup to your first transaction in minutes.
+      </p>
+    </motion.div>
+
+    {/* Steps Timeline */}
+    <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5 relative">
+      {steps.map((step, i) => {
+        const Icon = step.icon
+        const isLast = i === steps.length - 1
+        return (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: i * 0.1 }}
+            viewport={{ once: true }}
+            className="relative flex flex-col items-center text-center"
+          >
+            {/* Step Number */}
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent text-primary-foreground font-semibold shadow-sm mb-6 z-10">
+              {step.number}
+            </div>
+
+            {/* Icon */}
+            <div className="w-14 h-14 rounded-xl border border-border flex items-center justify-center mb-5">
+              <Icon className={`w-7 h-7 text-accent`} />
+            </div>
+
+            {/* Title */}
+            <h3 className="text-lg font-semibold text-foreground mb-2">
+              {step.title}
+            </h3>
+
+            {/* Description */}
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+              {step.description}
+            </p>
+
+            {/* Arrow (Desktop only) */}
+            {!isLast && (
+              <div className="hidden lg:flex absolute top-12 right-[-25px] w-8 h-8 items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="w-6 h-6 text-border"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 12h14m-7-7l7 7-7 7"
+                  />
+                </svg>
+              </div>
+            )}
+          </motion.div>
+        )
+      })}
+    </div>
+  </div>
+</section>
+
+
+
+
       {/* Use Cases */}
-      <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-card border-y border-border">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-12 md:mb-16 text-center">Use Cases</h2>
+      <section className="py-20 md:py-28 bg-gradient-to-b from-muted/20 to-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              Built for Every Use Case
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              From startups to enterprises, ZendFi powers diverse payment workflows
+            </p>
+          </motion.div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {useCases.map((useCase, index) => (
-              <Card
-                key={index}
-                className="p-6 bg-background border border-border hover:border-accent/30 transition-colors"
-              >
-                <h3 className="font-semibold text-foreground mb-3 text-lg">{useCase.title}</h3>
-                <p className="text-muted-foreground text-sm md:text-base">{useCase.description}</p>
-              </Card>
-            ))}
+            {useCases.map((useCase, i) => {
+              const Icon = useCase.icon
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.03, y: -4 }}
+                >
+                  <Card className="p-6 h-full bg-background border border-border/50 hover:border-violet-500/30 hover:shadow-lg transition-all group">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500/10 to-purple-500/10 flex items-center justify-center flex-shrink-0 transition-transform">
+                        <Icon className={`w-6 h-6 ${useCase.color}`} />
+                      </div>
+                      <h3 className="font-semibold text-foreground text-lg pt-2">
+                        {useCase.title}
+                      </h3>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {useCase.description}
+                    </p>
+                  </Card>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* Quick Links CTA */}
-      <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-accent/5 to-accent/10 border border-accent/20 rounded-lg p-8 md:p-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Ready to Get Started?</h2>
-            <p className="text-muted-foreground text-center mb-8 text-sm md:text-base">
-              Choose your next step and start building with ZendFi today
-            </p>
-            <div className="grid md:grid-cols-3 gap-4">
-              <Link href="/docs" className="w-full">
-                <Button className="w-full bg-accent/60 hover:bg-accent/70 text-white">Documentation</Button>
-              </Link>
-              <Link href="/docs/sdks" className="w-full">
-                <Button className="w-full bg-accent/60 hover:bg-accent/70 text-white">SDKs & Libraries</Button>
-              </Link>
-              <Link href={"/signup"}>
-                <Button className="w-full bg-accent/60 hover:bg-accent/70 text-white">Get API Key</Button>
-              </Link>
+      {/* CTA Section */}
+      <section className="py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative rounded-3xl p-12 md:p-16 overflow-hidden">
+              <div className="relative z-10 max-w-3xl mx-auto text-center">
+                <h2 className="text-4xl md:text-5xl font-bold text-accent mb-6">
+                  Ready to Get Started?
+                </h2>
+                <p className="text-xl text-slate-800 mb-10">
+                  Join thousands of developers building the future of payments with ZendFi
+                </p>
+
+                <div className="grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+                  <Link href="/docs">
+                    <Button size="lg" variant="outline" className="w-full border-accent/30 text-accent hover:text-accent">
+                      <BookOpen className="w-4 h-4 mr-2" />
+                      Documentation
+                    </Button>
+                  </Link>
+                  <Link href="/docs/sdks">
+                    <Button size="lg" variant="outline" className="w-full border-accent/30 text-accent hover:text-accent">
+                      <Terminal className="w-4 h-4 mr-2" />
+                      SDKs
+                    </Button>
+                  </Link>
+                  <Link href="/signup">
+                    <Button size="lg" variant="outline" className="w-full border-accent/30 text-accent hover:text-accent">
+                      <Code2 className="w-4 h-4 mr-2" />
+                      Get API Key
+                    </Button>
+                  </Link>
+                </div>
+
+                {/* Trust Indicators */}
+                <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-slate-800 text-sm">
+                  <div className="flex items-center gap-2">
+                    <Check className="w-5 h-5" />
+                    <span>Free to start</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="w-5 h-5" />
+                    <span>No credit card required</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="w-5 h-5" />
+                    <span>Live in 15 minutes</span>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
+
       <Footer />
     </main>
   )
