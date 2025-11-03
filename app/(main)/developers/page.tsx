@@ -3,13 +3,13 @@
 import { Header } from "@/components/header"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { 
-  ArrowRight, 
-  Zap, 
-  Globe, 
-  Lock, 
-  Code2, 
-  Webhook, 
+import {
+  ArrowRight,
+  Zap,
+  Globe,
+  Lock,
+  Code2,
+  Webhook,
   Check,
   Copy,
   Terminal,
@@ -149,112 +149,123 @@ console.log(payment.status);`
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-violet-500/5 via-transparent to-transparent" />
-        
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Text Section */}
+      {/* Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-violet-500/5 via-transparent to-transparent" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 md:py-32 mt-10">
+        <div className="grid lg:grid-cols-2 gap-10 xl:gap-16 items-center">
+          {/* Text Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            {/* Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-violet-500/20 mb-5 sm:mb-6"
             >
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-violet-500/20 mb-6"
-              >
-                <Code2 className="w-4 h-4 text-violet-500" />
-                <span className="text-sm font-medium text-accent dark:text-violet-400">
-                  Developer Platform
-                </span>
-              </motion.div>
+              <Code2 className="w-4 h-4 text-violet-500" />
+              <span className="text-xs sm:text-sm font-medium text-accent dark:text-violet-400">
+                Developer Platform
+              </span>
+            </motion.div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                <span className="bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
-                  Build Global
-                </span>
-                <br />
-                <span className="bg-accent bg-clip-text text-transparent">
-                  Payment Solutions
-                </span>
-              </h1>
+            {/* Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 sm:mb-6 leading-tight">
+              <span className="bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
+                Build Global
+              </span>
+              <br />
+              <span className="bg-accent bg-clip-text text-transparent">
+                Payment Solutions
+              </span>
+            </h1>
 
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                ZendFi provides powerful APIs and SDKs that let you send and receive crypto-backed fiat payments globally in under{" "}
-                <span className="text-accent font-semibold">15 minutes</span>.
-              </p>
+            {/* Description */}
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
+              ZendFi provides powerful APIs and SDKs that let you send and receive crypto-backed fiat payments globally in under{" "}
+              <span className="text-accent font-semibold">15 minutes</span>.
+            </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/docs">
-                  <Button size="lg" className="bg-accent text-white hover:bg-accent group">
-                    Get Started
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-                <Link href="/docs/api">
-                  <Button size="lg" variant="outline" className="border-2 text-accent hover:text-accent">
-                    View API Docs
-                  </Button>
-                </Link>
-              </div>
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full">
+              <Link href="/docs" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  className="bg-accent text-white hover:bg-accent/90 w-full sm:w-auto group"
+                >
+                  Get Started
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
 
-              {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-border/50">
-                {[
-                  { value: "<15min", label: "Integration" },
-                  { value: "150+", label: "Countries" },
-                  { value: "99.9%", label: "Uptime" }
-                ].map((stat, i) => (
-                  <div key={i}>
-                    <div className="text-2xl font-bold text-foreground mb-1">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {stat.label}
-                    </div>
+              <Link href="/docs/api" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 text-accent hover:text-accent w-full sm:w-auto"
+                >
+                  View API Docs
+                </Button>
+              </Link>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-3 sm:grid-cols-3 gap-6 mt-10 sm:mt-12 pt-8 border-t border-border/50 text-center sm:text-left">
+              {[
+                { value: "<15min", label: "Integration" },
+                { value: "150+", label: "Countries" },
+                { value: "99.9%", label: "Uptime" },
+              ].map((stat, i) => (
+                <div key={i}>
+                  <div className="text-xl sm:text-2xl font-bold text-foreground mb-1">
+                    {stat.value}
                   </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Code Preview Section */}
-            <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative"
-            >
-              <div className="relative rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-6 shadow-2xl border border-slate-700/50">
-                {/* Window Controls */}
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
-                  <span className="ml-4 text-xs text-slate-400 font-mono">payment.js</span>
+                  <div className="text-xs sm:text-sm text-muted-foreground">
+                    {stat.label}
+                  </div>
                 </div>
-                
-                {/* Code */}
-                <pre className="text-sm text-slate-300 font-mono leading-relaxed overflow-x-auto">
-                  <code>{codeSnippet}</code>
-                </pre>
+              ))}
+            </div>
+          </motion.div>
 
-                {/* Copy Button */}
-                <button className="absolute top-6 right-6 p-2 rounded-lg bg-slate-700/50 hover:bg-slate-700 transition-colors group">
-                  <Copy className="w-4 h-4 text-slate-400 group-hover:text-white" />
-                </button>
-
-                {/* Glow Effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-purple-600 rounded-2xl opacity-20 blur-xl -z-10" />
+          {/* Code Preview */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative mt-12 lg:mt-0"
+          >
+            <div className="relative rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-4 sm:p-6 shadow-2xl border border-slate-700/50 overflow-hidden">
+              {/* Window Controls */}
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <div className="w-3 h-3 rounded-full bg-red-500" />
+                <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                <div className="w-3 h-3 rounded-full bg-green-500" />
+                <span className="ml-4 text-xs text-slate-400 font-mono">payment.js</span>
               </div>
-            </motion.div>
-          </div>
+
+              {/* Code */}
+              <pre className="text-xs sm:text-sm text-slate-300 font-mono leading-relaxed overflow-x-auto max-h-[400px] md:max-h-[500px]">
+                <code>{codeSnippet}</code>
+              </pre>
+
+              {/* Copy Button */}
+              <button className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-lg bg-slate-700/50 hover:bg-slate-700 transition-colors group">
+                <Copy className="w-4 h-4 text-slate-400 group-hover:text-white" />
+              </button>
+
+              {/* Glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-purple-600 rounded-2xl opacity-20 blur-xl -z-10" />
+            </div>
+          </motion.div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Features Section */}
       <section className="py-20 md:py-28 bg-gradient-to-b from-background to-muted/20">
@@ -304,84 +315,84 @@ console.log(payment.status);`
         </div>
       </section>
 
-{/* How It Works - Step by Step */}
-<section className="py-20 md:py-28 bg-background">
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    {/* Header */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-      className="text-center max-w-2xl mx-auto mb-20"
-    >
-      <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-        Integration in 5 Simple Steps
-      </h2>
-      <p className="text-lg text-muted-foreground">
-        Go from signup to your first transaction in minutes.
-      </p>
-    </motion.div>
-
-    {/* Steps Timeline */}
-    <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5 relative">
-      {steps.map((step, i) => {
-        const Icon = step.icon
-        const isLast = i === steps.length - 1
-        return (
+      {/* How It Works - Step by Step */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
           <motion.div
-            key={i}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="relative flex flex-col items-center text-center"
+            className="text-center max-w-2xl mx-auto mb-20"
           >
-            {/* Step Number */}
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent text-primary-foreground font-semibold shadow-sm mb-6 z-10">
-              {step.number}
-            </div>
-
-            {/* Icon */}
-            <div className="w-14 h-14 rounded-xl border border-border flex items-center justify-center mb-5">
-              <Icon className={`w-7 h-7 text-accent`} />
-            </div>
-
-            {/* Title */}
-            <h3 className="text-lg font-semibold text-foreground mb-2">
-              {step.title}
-            </h3>
-
-            {/* Description */}
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              {step.description}
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Integration in 5 Simple Steps
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Go from signup to your first transaction in minutes.
             </p>
-
-            {/* Arrow (Desktop only) */}
-            {!isLast && (
-              <div className="hidden lg:flex absolute top-12 right-[-25px] w-8 h-8 items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  className="w-6 h-6 text-border"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5 12h14m-7-7l7 7-7 7"
-                  />
-                </svg>
-              </div>
-            )}
           </motion.div>
-        )
-      })}
-    </div>
-  </div>
-</section>
+
+          {/* Steps Timeline */}
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5 relative">
+            {steps.map((step, i) => {
+              const Icon = step.icon
+              const isLast = i === steps.length - 1
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="relative flex flex-col items-center text-center"
+                >
+                  {/* Step Number */}
+                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent text-primary-foreground font-semibold shadow-sm mb-6 z-10">
+                    {step.number}
+                  </div>
+
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-xl border border-border flex items-center justify-center mb-5">
+                    <Icon className={`w-7 h-7 text-accent`} />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                    {step.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+                    {step.description}
+                  </p>
+
+                  {/* Arrow (Desktop only) */}
+                  {!isLast && (
+                    <div className="hidden lg:flex absolute top-12 right-[-25px] w-8 h-8 items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                        stroke="currentColor"
+                        className="w-6 h-6 text-border"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M5 12h14m-7-7l7 7-7 7"
+                        />
+                      </svg>
+                    </div>
+                  )}
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
 
 
 

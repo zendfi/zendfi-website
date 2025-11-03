@@ -207,7 +207,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden border-t border-slate-200/50 py-4 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="md:hidden border-t bg-background/80 backdrop-blur-lg border-slate-200/50 py-4 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
             <MobileNavLink href="/what-is-zendfi" onClick={() => setIsOpen(false)}>What's Zendfi</MobileNavLink>
             <div className="px-4">
               <div className="font-semibold text-slate-600 mb-2">Solutions</div>
