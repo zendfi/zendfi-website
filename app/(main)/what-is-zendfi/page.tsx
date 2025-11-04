@@ -7,7 +7,8 @@ import Link from "next/link";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { TestimonialSection } from "@/components/testimonial-section";
-import { ArrowRight, Zap, Globe2, TrendingDown, Shield, Code2, Sparkles } from "lucide-react";
+import { ArrowRight, Zap, Globe2, TrendingDown, Shield, Code2, Sparkles, CheckCircle2 } from "lucide-react";
+import { useRef } from "react";
 
 export default function AboutPage() {
     const { scrollYProgress } = useScroll();
@@ -21,7 +22,8 @@ export default function AboutPage() {
             desc: "Traditional transfers take days — ZendFi settles cross-border payments in minutes using secure blockchain infrastructure.",
             icon: Zap,
             gradient: "from-accent/80/20 to-purple-300/20",
-            iconColor: "text-accent/50"
+            iconColor: "text-accent/50",
+            feat: ["Instant Settlements (400ms)", "No Settlement Holds"],
         },
         {
             number: "02",
@@ -29,7 +31,8 @@ export default function AboutPage() {
             desc: "Designed for businesses and developers building across borders, especially in emerging markets like Africa.",
             icon: Globe2,
             gradient: "from-blue-200/20 to-cyan-300/20",
-            iconColor: "text-blue-500"
+            iconColor: "text-blue-500",
+            feat: ["Global by Default (190+ countries)", "Payment Links & Invoices"],
         },
         {
             number: "03",
@@ -37,7 +40,8 @@ export default function AboutPage() {
             desc: "By removing middlemen, ZendFi cuts transfer costs up to 75%, making international payments affordable for everyone.",
             icon: TrendingDown,
             gradient: "from-green-200/20 to-emerald-300/20",
-            iconColor: "text-green-500"
+            iconColor: "text-green-500",
+            feat: ["0.5% Transaction Fee", "Zero Chargebacks"],
         },
         {
             number: "04",
@@ -45,7 +49,8 @@ export default function AboutPage() {
             desc: "We partner with regulated financial providers to ensure every transaction is compliant, secure, and fully transparent.",
             icon: Shield,
             gradient: "from-amber-200/20 to-orange-300/20",
-            iconColor: "text-amber-500"
+            iconColor: "text-amber-500",
+            feat: ["Strong Encryption", "99.95% Uptime SLA"],
         },
         {
             number: "05",
@@ -53,7 +58,8 @@ export default function AboutPage() {
             desc: "Our easy-to-use APIs and SDKs allow you to integrate payment solutions into your apps in minutes, not weeks.",
             icon: Code2,
             gradient: "from-pink-200/20 to-rose-300/20",
-            iconColor: "text-pink-500"
+            iconColor: "text-pink-500",
+            feat: ["10-Minute Integration", "Open Source SDKs (TS, Python, Rust)"],
         },
     ];
 
@@ -158,7 +164,6 @@ export default function AboutPage() {
                         </motion.div>
                     </motion.section>
 
-                    {/* Story Section - Bento Style */}
                     <motion.section
                         className="py-20 md:py-28"
                         initial={{ opacity: 0, y: 60 }}
@@ -166,16 +171,16 @@ export default function AboutPage() {
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true, margin: "-100px" }}
                     >
-                        <div className="grid lg:grid-cols-2 gap-8 items-center">
+                        <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <motion.div
-                                className="relative p-8 md:p-12 rounded-3xl bg-gradient-to-br from-accent/50/5 to-purple-500/5 border border-accent/50/10 backdrop-blur-sm"
-                                whileHover={{ scale: 1.02 }}
-                                transition={{ duration: 0.3 }}
+                                className="relative p-10 md:p-14 rounded-3xl bg-background border-2 border-border"
+                                initial={{ opacity: 0, x: -40 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: 0.2 }}
+                                viewport={{ once: true }}
                             >
-                                {/* <div className="absolute top-8 right-8 w-20 h-20 bg-gradient-to-br from-accent/50/20 to-purple-500/20 rounded-full blur-2xl" /> */}
-
                                 <div className="relative">
-                                    <span className="inline-block px-4 py-1.5 rounded-full bg-accent/50/10 text-accent/60 dark:text-accent/40 text-sm font-medium mb-6">
+                                    <span className="inline-block px-4 py-1.5 rounded-full border-2 border-violet-600 text-violet-600 text-sm font-semibold mb-6">
                                         Our Story
                                     </span>
 
@@ -185,7 +190,7 @@ export default function AboutPage() {
                                         Borderless World
                                     </h2>
 
-                                    <div className="space-y-4 text-muted-foreground leading-relaxed">
+                                    <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
                                         <p>
                                             ZendFi started with a simple question: why should sending money
                                             across borders be slow and expensive? After watching individuals and
@@ -198,7 +203,21 @@ export default function AboutPage() {
                                             inclusive for builders, creators, and businesses worldwide.
                                         </p>
                                     </div>
+
+                                    {/* Decorative corner accent */}
+                                    <div className="absolute top-0 right-0 w-24 h-24 border-t-4 border-r-4 border-violet-600 rounded-tr-3xl opacity-20" />
                                 </div>
+                            </motion.div>
+
+                            {/* Visual element */}
+                            <motion.div
+                                className="relative"
+                                initial={{ opacity: 0, x: 40 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: 0.4 }}
+                                viewport={{ once: true }}
+                            >
+                                {/* <Image src={"/images/sol3.png"} alt="illustration" width={300} height={300}/> */}
                             </motion.div>
                         </div>
                     </motion.section>
@@ -206,7 +225,7 @@ export default function AboutPage() {
                     {/* Why Choose ZendFi */}
                     <section className="py-20 md:py-28">
                         <motion.div
-                            className="text-center max-w-3xl mx-auto mb-16"
+                            className="text-center max-w-3xl mx-auto mb-20"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
@@ -221,47 +240,13 @@ export default function AboutPage() {
                             </p>
                         </motion.div>
 
-                        <div className="space-y-8">
+                        <div className="space-y-6">
                             {reasons.map((reason, i) => (
-                                <motion.div
-                                    key={reason.title}
-                                    initial={{ opacity: 0, y: 40 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: i * 0.1 }}
-                                    viewport={{ once: true, margin: "-50px" }}
-                                    whileHover={{ scale: 1.01 }}
-                                    className="group"
-                                >
-                                    <div className={`relative p-8 md:p-10 rounded-3xl bg-gradient-to-br ${reason.gradient} border border-border/50 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-border`}>
-                                        {/* Hover Effect */}
-                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-
-                                        <div className="relative grid md:grid-cols-[auto_1fr] gap-8 items-start">
-                                            {/* Icon & Number */}
-                                            <div className="flex items-center gap-6">
-                                                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${reason.gradient} border border-border/50 flex items-center justify-center`}>
-                                                    <reason.icon className={`w-8 h-8 ${reason.iconColor}`} />
-                                                </div>
-                                                <span className="text-5xl font-bold text-muted-foreground/20">
-                                                    {reason.number}
-                                                </span>
-                                            </div>
-
-                                            {/* Content */}
-                                            <div className="space-y-3">
-                                                <h3 className="text-2xl md:text-3xl font-semibold text-foreground">
-                                                    {reason.title}
-                                                </h3>
-                                                <p className="text-lg text-muted-foreground leading-relaxed">
-                                                    {reason.desc}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </motion.div>
+                                <InteractiveReasonCard key={i} reason={reason} index={i} />
                             ))}
                         </div>
                     </section>
+
 
                     {/* CTA Section */}
                     <motion.section
@@ -284,10 +269,12 @@ export default function AboutPage() {
                                     Join thousands of businesses already using ZendFi to power their global transactions.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                    <Link href={"/signup"}>
                                     <Button size="lg" className="bg-white text-accent/60 hover:bg-white/90">
                                         Get Started
                                         <ArrowRight className="ml-2 w-4 h-4" />
                                     </Button>
+                                    </Link>
                                     <Button size="lg" variant="outline" className="border-white/30 text-white bg-white/10">
                                         <Link href={"mailto:hello@zendfi.tech"}>
                                             Contact Sales
@@ -303,5 +290,73 @@ export default function AboutPage() {
             {/* <TestimonialSection /> */}
             <Footer />
         </>
+    );
+}
+function InteractiveReasonCard({ reason, index }: { reason: any; index: number }) {
+    const cardRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: cardRef,
+        offset: ["start end", "end start"],
+    });
+
+    const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0, 1, 1, 0.8]);
+    const scale = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0.97, 1, 1, 0.99]);
+    const y = useTransform(scrollYProgress, [0, 1], [50, -30]);
+
+    return (
+        <motion.div
+            ref={cardRef}
+            style={{ opacity, scale, y }}
+            transition={{ type: "spring", stiffness: 200, damping: 25 }}
+            className="group"
+        >
+            <div className="relative p-8 md:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-sm transition-all duration-500">
+
+                <div className="relative grid md:grid-cols-[auto_1fr_auto] gap-8 items-center">
+                    {/* Left side */}
+                    <div className="flex md:flex-col items-center gap-6">
+                        <motion.div
+                            whileHover={{ rotate: 15, scale: 1.1 }}
+                            transition={{ duration: 0.4 }}
+                            className="w-20 h-20 rounded-2xl bg-violet-50 dark:bg-violet-950/30 border border-gray-200 dark:border-zinc-800 flex items-center justify-center transition-all duration-300"
+                        >
+                            <reason.icon className={`w-10 h-10 ${reason.iconColor}`} />
+                        </motion.div>
+
+                        <span className="text-6xl font-bold text-gray-200 dark:text-zinc-700 group-hover:text-violet-500/30 transition-colors duration-300">
+                            {reason.number}
+                        </span>
+                    </div>
+
+                    {/* Middle content */}
+                    <div className="space-y-3">
+                        <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white group-hover:text-violet-600 transition-colors duration-300">
+                            {reason.title}
+                        </h3>
+                        <p className="text-lg text-gray-600 dark:text-zinc-400 leading-relaxed">
+                            {reason.desc}
+                        </p>
+
+                        <div className="flex flex-wrap gap-2 pt-2">
+                            {reason.feat.map((feature: string, i: number) => (
+                                <div
+                                    key={i}
+                                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full 
+               bg-gray-50 dark:bg-zinc-800 border border-gray-200 
+               dark:border-zinc-700 text-sm"
+                                >
+                                    <CheckCircle2 className="w-4 h-4 text-violet-600" />
+                                    <span className="font-medium text-gray-800 dark:text-zinc-300">
+                                        {feature}
+                                    </span>
+                                </div>
+                            ))}
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </motion.div>
     );
 }

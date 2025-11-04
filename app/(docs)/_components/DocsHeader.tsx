@@ -16,10 +16,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export const DocsHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+  const isMobile = useIsMobile()
 
   const navigationSections = [
     {
@@ -86,82 +88,84 @@ export const DocsHeader = () => {
           </div>
 
           {/* Mobile: Search + Menu Trigger */}
-          <div className="flex md:hidden items-center gap-2">
-            <DocsSearch docsData={docData as any} />
-            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  aria-label="Toggle menu"
-                  className="border rounded bg-gray-100"
-                >
-                  <Menu className="w-6 h-6 text-foreground" />
-                </Button>
-              </SheetTrigger>
+          {isMobile && (
+            <div className="flex md:hidden items-center gap-2">
+              <DocsSearch docsData={docData as any} />
+              <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    aria-label="Toggle menu"
+                    className="border rounded bg-gray-100"
+                  >
+                    <Menu className="w-6 h-6 text-foreground" />
+                  </Button>
+                </SheetTrigger>
 
-              <SheetContent side="left" className="w-64 p-0 flex flex-col">
-                <SheetHeader className="p-6 pb-4 text-left border-b border-slate-200/50">
-                  <SheetTitle className="text-sm font-semibold">Documentation</SheetTitle>
-                  <SheetDescription className="sr-only">
-                    Navigate through documentation sections
-                  </SheetDescription>
-                </SheetHeader>
+                <SheetContent side="left" className="w-64 p-0 flex flex-col">
+                  <SheetHeader className="p-6 pb-4 text-left border-b border-slate-200/50">
+                    <SheetTitle className="text-sm font-semibold">Documentation</SheetTitle>
+                    <SheetDescription className="sr-only">
+                      Navigate through documentation sections
+                    </SheetDescription>
+                  </SheetHeader>
 
-                <nav className="flex-1 overflow-y-auto px-4 py-4">
-                  <div className="space-y-6">
-                    {navigationSections.map((section) => (
-                      <div key={section.id}>
-                        <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 px-3">
-                          {section.title}
-                        </h3>
-                        <div className="space-y-1">
-                          {section.items.map((item) => {
-                            const isActive = pathname === item.href
-                            const Icon = item.icon
-                            return (
-                              <Link
-                                key={item.href}
-                                href={item.href}
-                                onClick={() => setMobileMenuOpen(false)}
-                                className={`
+                  <nav className="flex-1 overflow-y-auto px-4 py-4">
+                    <div className="space-y-6">
+                      {navigationSections.map((section) => (
+                        <div key={section.id}>
+                          <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 px-3">
+                            {section.title}
+                          </h3>
+                          <div className="space-y-1">
+                            {section.items.map((item) => {
+                              const isActive = pathname === item.href
+                              const Icon = item.icon
+                              return (
+                                <Link
+                                  key={item.href}
+                                  href={item.href}
+                                  onClick={() => setMobileMenuOpen(false)}
+                                  className={`
                                 flex items-center gap-2 px-3 py-2 text-sm rounded-lg
                                 transition-colors
                                 ${isActive
-                                    ? "bg-accent text-accent-foreground font-medium"
-                                    : "text-foreground hover:bg-secondary"
-                                  }
+                                      ? "bg-accent text-accent-foreground font-medium"
+                                      : "text-foreground hover:bg-secondary"
+                                    }
                               `}
-                              >
-                                {Icon && (
-                                  <Icon className={`w-4 h-4 ${isActive ? "text-accent-foreground" : "text-muted-foreground"}`} />
-                                )}
-                                <span>{item.label}</span>
-                              </Link>
-                            )
-                          })}
+                                >
+                                  {Icon && (
+                                    <Icon className={`w-4 h-4 ${isActive ? "text-accent-foreground" : "text-muted-foreground"}`} />
+                                  )}
+                                  <span>{item.label}</span>
+                                </Link>
+                              )
+                            })}
+                          </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                </nav>
+                      ))}
+                    </div>
+                  </nav>
 
-                <div className="p-4 border-t border-slate-200/50 mt-auto">
-                  <Link
-                    href="/signup"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <Button
-                      variant="outline"
-                      className="w-full text-white bg-accent hover:bg-accent/90"
+                  <div className="p-4 border-t border-slate-200/50 mt-auto">
+                    <Link
+                      href="/signup"
+                      onClick={() => setMobileMenuOpen(false)}
                     >
-                      Get API Key
-                    </Button>
-                  </Link>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
+                      <Button
+                        variant="outline"
+                        className="w-full text-white bg-accent hover:bg-accent/90"
+                      >
+                        Get API Key
+                      </Button>
+                    </Link>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
+          )}
         </div>
       </div>
     </header>

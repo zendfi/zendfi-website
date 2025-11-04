@@ -122,21 +122,12 @@ export default function SolutionsPage() {
                             viewport={{ once: true, margin: "-100px" }}
                         >
                             {/* Sticky Icon Card */}
-                            <motion.div
-                                className="lg:sticky lg:top-32"
-                                whileHover={{ scale: 1.05 }}
-                                transition={{ duration: 0.3 }}
-                            >
-                                <div className="relative p-12 rounded-3xl bg-gradient-to-br from-violet-500/10 to-purple-500/10 border border-violet-500/20 backdrop-blur-sm overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-40 h-40 bg-violet-500/20 rounded-full blur-3xl" />
-                                    <div className="relative">
-                                        <div className="w-20 h-20 rounded-2xl bg-violet-500 flex items-center justify-center mb-6">
-                                            <CreditCard className="text-white w-10 h-10" />
-                                        </div>
-                                        <h3 className="text-2xl font-bold text-foreground">
-                                            Flexible Payment Options
-                                        </h3>
+                            <motion.div className="lg:sticky lg:top-32">
+                                <div className="p-12 rounded-3xl bg-white border border-gray-200 shadow-md">
+                                    <div className="w-20 h-20 rounded-2xl bg-accent/80 flex items-center justify-center mb-6">
+                                        <CreditCard className="text-white w-10 h-10" />
                                     </div>
+                                    <h3 className="text-2xl font-bold">Flexible Payment Options</h3>
                                 </div>
                             </motion.div>
 
@@ -281,17 +272,16 @@ export default function SolutionsPage() {
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <div className="relative p-12 rounded-3xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 backdrop-blur-sm overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl" />
-                                    <div className="relative">
-                                        <div className="w-20 h-20 rounded-2xl bg-blue-500 flex items-center justify-center mb-6">
-                                            <Share2 className="text-white w-10 h-10" />
-                                        </div>
-                                        <h3 className="text-2xl font-bold text-foreground">
-                                            Seamless Checkout Experience
-                                        </h3>
+
+                                <div className="p-12 rounded-3xl bg-white border border-gray-200 shadow-md">
+                                    <div className="w-20 h-20 rounded-2xl bg-accent/80 flex items-center justify-center mb-6">
+                                        <Share2 className="text-white w-10 h-10" />
                                     </div>
+                                    <h3 className="text-2xl font-bold text-foreground">
+                                        Seamless Checkout Experience
+                                    </h3>
                                 </div>
+
                             </motion.div>
                         </motion.div>
                     </div>
@@ -313,10 +303,9 @@ export default function SolutionsPage() {
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <div className="relative p-12 rounded-3xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 backdrop-blur-sm overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-40 h-40 bg-green-500/20 rounded-full blur-3xl" />
+                                <div className="relative p-12 rounded-3xl bg-white border border-gray-200 shadow-md">
                                     <div className="relative">
-                                        <div className="w-20 h-20 rounded-2xl bg-green-500 flex items-center justify-center mb-6">
+                                        <div className="w-20 h-20 rounded-2xl bg-accent/80 flex items-center justify-center mb-6">
                                             <Layers className="text-white w-10 h-10" />
                                         </div>
                                         <h3 className="text-2xl font-bold text-foreground">
@@ -402,11 +391,11 @@ export default function SolutionsPage() {
                                         Join thousands of businesses already powered by ZendFi.
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                        <Link href={"/signup"}> 
-                                        <Button size="lg" className="bg-white text-accent hover:bg-white/90 group">
-                                            Get Started Free
-                                            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                        </Button>
+                                        <Link href={"/signup"}>
+                                            <Button size="lg" className="bg-white text-accent hover:bg-white/90 group">
+                                                Get Started Free
+                                                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                            </Button>
                                         </Link>
                                         <ScheduleDemoButton />
                                     </div>
@@ -434,27 +423,19 @@ export default function SolutionsPage() {
     )
 }
 
-/* Enhanced Feature Card Component */
 function FeatureCard({
     title,
     desc,
-    id,
-    gradient,
-    border,
     index,
     badge
 }: {
     title: string
     desc: string
-    id?: string
-    gradient?: string
-    border?: string
     index: number
     badge?: string
 }) {
     return (
         <motion.div
-            id={id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.05 }}
@@ -462,26 +443,20 @@ function FeatureCard({
             whileHover={{ scale: 1.02, y: -2 }}
             className="group"
         >
-            <div className={`relative p-6 rounded-2xl bg-gradient-to-br ${gradient || "from-violet-500/10 to-purple-500/10"} border ${border || "border-violet-500/20"} backdrop-blur-sm overflow-hidden transition-all duration-300`}>
-                {/* Hover Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-
+            <div className="relative p-6 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-white/60 backdrop-blur-[1px] transition-all duration-500 rounded-2xl" />
                 <div className="relative flex gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-violet-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-6 h-6 text-indigo-600 flex-shrink-0 mt-0.5" />
                     <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
-                            <h3 className="font-semibold text-lg text-foreground">
-                                {title}
-                            </h3>
+                            <h3 className="font-semibold text-lg">{title}</h3>
                             {badge && (
-                                <span className="px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-600 dark:text-violet-400 text-xs font-medium">
+                                <span className="px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 text-xs font-medium">
                                     {badge}
                                 </span>
                             )}
                         </div>
-                        <p className="text-muted-foreground leading-relaxed">
-                            {desc}
-                        </p>
+                        <p className="text-gray-600 leading-relaxed">{desc}</p>
                     </div>
                 </div>
             </div>

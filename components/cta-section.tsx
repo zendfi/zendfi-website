@@ -7,12 +7,12 @@ import Image from "next/image"
 
 export function CTASection() {
   return (
-    <section className="py-24 bg-muted/30">
+    <section className="py-24">
       <div className="container mx-auto px-6 lg:px-12 flex flex-col items-center text-center lg:text-left lg:flex-row lg:justify-between gap-12">
 
         {/* Left Section */}
         <div className="flex-1 space-y-6">
-          <h2 className="text-4xl font-bold text-foreground">Explore Zendfi</h2>
+          <h2 className="text-4xl font-bold text-accent">Explore Zendfi</h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0">
             Cross-border payments reinvented for speed, affordability, and seamless global access.
           </p>

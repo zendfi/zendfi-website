@@ -1,3 +1,4 @@
+import { DevSection } from "@/components/dev-section"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { Suspense, lazy } from "react"
@@ -84,10 +85,10 @@ export default function Home() {
           <NetworkSection />
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
-          <SecuritySection />
+          <DevSection />
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
-          {/* <TestimonialSection /> */}
+          <SecuritySection />
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
           {/* <PartnersSection /> */}

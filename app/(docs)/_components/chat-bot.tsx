@@ -21,7 +21,7 @@ interface DocsChatProps {
 }
 
 // Gemini API Key - Replace with your actual key or use env var
-const GEMINI_API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY || ""
+const GEMINI_API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY
 
 // Initialize Gemini (only if key is provided)
 const genAI = GEMINI_API_KEY ? new GoogleGenerativeAI(GEMINI_API_KEY) : null

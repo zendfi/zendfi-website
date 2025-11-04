@@ -1096,7 +1096,7 @@ while (attempts < maxAttempts) {
           <h3 className="text-lg font-bold mb-3">Test on Devnet (Your Playground!)</h3>
           <ol className="space-y-2 text-muted-foreground list-decimal list-inside">
             <li>Set <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">SOLANA_NETWORK=devnet</code> in your <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">.env</code></li>
-            <li>Use devnet USDC mint: <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs text-xs">4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU</code></li>
+            <li>Use devnet USDC mint: <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU</code></li>
             <li>Get free devnet SOL/USDC from Solana Faucet - it's like Monopoly money, but fun!</li>
           </ol>
         </Card>
