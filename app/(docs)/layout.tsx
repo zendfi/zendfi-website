@@ -26,7 +26,7 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
       title: "API & Integration",
       id: "api-integration",
       items: [
-        { label: "API Reference", href: "/docs/api", icon: Code },
+        { label: "Create Payment", href: "/docs/api", icon: Code },
         { label: "Payment Links", href: "/docs/payment-links", icon: Zap },
         { label: "Webhooks", href: "/docs/webhooks", icon: Zap },
       ]
