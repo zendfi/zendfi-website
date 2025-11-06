@@ -20,30 +20,30 @@ export default function GettingStarted() {
       custody: "Non-custodial",
       color: "primary"
     },
-    {
-      id: "simple",
-      name: "Managed Wallet",
-      icon: Zap,
-      badge: "Fastest",
-      tagline: "One click, you're done",
-      description: "We handle everything for you. Just create your account and start accepting payments immediately.",
-      perfect: "Businesses who want to get started in seconds",
-      setupTime: "Instant",
-      custody: "Custodial",
-      color: "blue-500"
-    },
-    {
-      id: "mnemonic",
-      name: "Recovery Phrase",
-      icon: Clock,
-      badge: "Traditional",
-      tagline: "Standard crypto wallet",
-      description: "Get a traditional 12-word recovery phrase. Compatible with all major crypto wallets.",
-      perfect: "Users familiar with crypto wallets",
-      setupTime: "Instant",
-      custody: "Custodial",
-      color: "purple-500"
-    },
+    // {
+    //   id: "simple",
+    //   name: "Managed Wallet",
+    //   icon: Zap,
+    //   badge: "Fastest",
+    //   tagline: "One click, you're done",
+    //   description: "We handle everything for you. Just create your account and start accepting payments immediately.",
+    //   perfect: "Businesses who want to get started in seconds",
+    //   setupTime: "Instant",
+    //   custody: "Custodial",
+    //   color: "blue-500"
+    // },
+    // {
+    //   id: "mnemonic",
+    //   name: "Recovery Phrase",
+    //   icon: Clock,
+    //   badge: "Traditional",
+    //   tagline: "Standard crypto wallet",
+    //   description: "Get a traditional 12-word recovery phrase. Compatible with all major crypto wallets.",
+    //   perfect: "Users familiar with crypto wallets",
+    //   setupTime: "Instant",
+    //   custody: "Custodial",
+    //   color: "purple-500"
+    // },
     {
       id: "own",
       name: "Your Own Wallet",
