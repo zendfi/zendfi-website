@@ -139,7 +139,7 @@ export function HeroSection() {
 
 
       {/* Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-15">
         <div className="max-w-5xl mx-auto">
           {/* Heading */}
           <motion.div
