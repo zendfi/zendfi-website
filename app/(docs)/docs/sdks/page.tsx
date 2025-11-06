@@ -46,7 +46,7 @@ console.log(payment.checkout_url);
       </section>
 
       {/* Python SDK */}
-      <section className="space-y-4">
+      {/* <section className="space-y-4">
         <h2 className="text-xl md:text-2xl font-bold text-foreground">Python SDK</h2>
 
         <Card className="p-4 md:p-6 bg-card border border-border">
@@ -85,10 +85,10 @@ print(transfer.id)`}</pre>
             <li>Webhook event parsing</li>
           </ul>
         </Card>
-      </section>
+      </section> */}
 
       {/* Go SDK */}
-      <section className="space-y-4">
+      {/* <section className="space-y-4">
         <h2 className="text-xl md:text-2xl font-bold text-foreground">Go SDK</h2>
 
         <Card className="p-4 md:p-6 bg-card border border-border">
@@ -135,7 +135,7 @@ func main() {
             <li>Webhook signature verification</li>
           </ul>
         </Card>
-      </section>
+      </section> */}
 
       {/* Common Patterns */}
       <section className="space-y-4">
