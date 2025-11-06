@@ -55,8 +55,8 @@ export function DevSection() {
                 </div>
 
                 {/* Tabbed Interface Section */}
-                <div className="bg-white rounded-2xl border-2 border-accent overflow-hidden">
-                    {/* Tab Buttons */}
+                {/* <div className="bg-white rounded-2xl border-2 border-accent overflow-hidden">
+                   
                     <div className="border-b-2 border-accent flex flex-col sm:flex-row">
                         <button
                             onClick={() => setActiveTab('dashboard')}
@@ -80,7 +80,6 @@ export function DevSection() {
                         </button>
                     </div>
 
-                    {/* Tab Content */}
                     <div className="p-4 md:p-8">
                         {activeTab === 'dashboard' ? (
                             <div className="w-full">
@@ -94,7 +93,6 @@ export function DevSection() {
                             </div>
                         ) : (
                             <div className="space-y-6">
-                                {/* SDK Header */}
                                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6 md:mb-8">
                                     <div>
                                         <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Python SDK Integration</h3>
@@ -104,16 +102,15 @@ export function DevSection() {
                                         <button className="px-3 md:px-4 py-2 bg-accent/10 text-accent rounded-lg text-xs md:text-sm font-medium hover:bg-accent/20 transition-colors whitespace-nowrap">
                                             Python
                                         </button>
-                                        {/* <button className="px-3 md:px-4 py-2 text-gray-600 rounded-lg text-xs md:text-sm font-medium hover:bg-accent/5 transition-colors whitespace-nowrap">
+                                        <button className="px-3 md:px-4 py-2 text-gray-600 rounded-lg text-xs md:text-sm font-medium hover:bg-accent/5 transition-colors whitespace-nowrap">
                                             Node.js
                                         </button>
                                         <button className="px-3 md:px-4 py-2 text-gray-600 rounded-lg text-xs md:text-sm font-medium hover:bg-accent/5 transition-colors whitespace-nowrap">
                                             PHP
-                                        </button> */}
+                                        </button>
                                     </div>
                                 </div>
                                 
-                                {/* Code Block */}
                                 <div className="bg-gray-900 rounded-xl overflow-hidden border-2 border-accent">
                                     <div className="flex items-center justify-between px-4 md:px-6 py-3 bg-gray-800 border-b border-gray-700">
                                         <div className="flex items-center gap-2 md:gap-3">
@@ -157,7 +154,6 @@ export function DevSection() {
                                     </div>
                                 </div>
 
-                                {/* Feature Cards */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
                                     <div className="bg-accent/5 p-5 md:p-6 rounded-lg border-2 border-accent">
                                         <div className="text-2xl md:text-3xl mb-2">⚡</div>
@@ -178,7 +174,7 @@ export function DevSection() {
                             </div>
                         )}
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
     );
