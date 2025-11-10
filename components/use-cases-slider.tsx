@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useCallback, useEffect, useState } from "react"
@@ -6,6 +5,7 @@ import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
 import { ShoppingCart, Repeat, Shield, CreditCard, FileText, Gamepad2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 const useCases = [
   {
@@ -90,6 +90,7 @@ const useCases = [
 
 export function UseCasesSlider() {
   const [selectedIndex, setSelectedIndex] = useState(0)
+  const isMobile = useIsMobile()
   
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
@@ -97,11 +98,16 @@ export function UseCasesSlider() {
       align: 'start',
       skipSnaps: false,
       dragFree: false,
+      // Reduce drag threshold on mobile for better performance
+      ...(isMobile && { 
+        containScroll: 'trimSnaps',
+        slidesToScroll: 1 
+      })
     },
     [Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })]
   )
 
-  const scrollTo = useCallback((index) => {
+  const scrollTo = useCallback((index: number) => {
     if (emblaApi) emblaApi.scrollTo(index)
   }, [emblaApi])
 
@@ -142,10 +148,13 @@ export function UseCasesSlider() {
                 const Icon = useCase.icon
                 return (
                   <div key={index} className="flex-[0_0_100%] min-w-0 px-4">
-                    <div className="relative backdrop-blur-sm rounded-3xl p-10 md:p-16 min-h-[500px] md:min-h-[600px]">
-                      <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                    {/* Remove backdrop-blur on mobile for better performance */}
+                    <div className={`relative rounded-3xl p-6 md:p-10 lg:p-16 min-h-[450px] md:min-h-[500px] lg:min-h-[600px] ${
+                      isMobile ? 'bg-background/95' : 'backdrop-blur-sm'
+                    }`}>
+                      <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
                         {/* Left Side - Info */}
-                        <div className="space-y-6 md:space-y-8">
+                        <div className="space-y-4 md:space-y-6 lg:space-y-8">
                           {/* Icon */}
                           <div className={`w-16 h-16 rounded-2xl bg-background/80 flex items-center justify-center ${useCase.iconColor}`}>
                             <Icon className="w-8 h-8" />
