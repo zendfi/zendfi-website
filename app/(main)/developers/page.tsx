@@ -135,11 +135,9 @@ const payment = await zendfi.createPayment({
   amount: 100,
   currency: 'USD',
   description: 'Premium subscription',
-  customer_email: 'customer@example.com'
 });
 
-console.log(payment.checkout_url);
-console.log(payment.status);`
+console.log(payment.checkout_url);`
 
   return (
     <main className="min-h-screen bg-background">
