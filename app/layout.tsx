@@ -69,26 +69,26 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://zendfi.tech",
     siteName: "ZendFi",
-    title: "ZendFi — Complete Crypto Payment Infrastructure",
+    title: "ZendFi | Seven lines of code. Boom. Payments live.",
     description: "Accept crypto payments with subscriptions, escrows, installments, and invoices. MPC wallets with passkey security. USDC, SOL, USDT. Developer-first API.",
     images: [
       {
         url: "/preview.png",
         width: 1200,
         height: 630,
-        alt: "ZendFi - Complete Crypto Payment Infrastructure for Developers",
+        alt: "ZendFi | Seven lines of code. Boom. Payments live.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ZendFi — Complete Crypto Payment Infrastructure",
+    title: "ZendFi | Seven lines of code. Boom. Payments live.",
     description: "Accept crypto payments with subscriptions, escrows, installments, and invoices. MPC wallets with passkey security. USDC, SOL, USDT. Developer-first API.",
     images: ["/preview.png"],
     creator: "@ZendfiHQ",
   },
   verification: {
-    google: "your-google-verification-code", // Replace with actual verification code
+    google: "your-google-verification-code",
   },
   alternates: {
     canonical: "https://zendfi.tech",
