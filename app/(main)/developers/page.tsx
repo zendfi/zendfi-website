@@ -128,19 +128,17 @@ export default function DevelopersPage() {
     },
   ]
 
-  const codeSnippet = `import { ZendFi } from '@zendfi/sdk';
+  const codeSnippet = `import { zendfi } from '@zendfi/sdk';
 
-const zendfi = new ZendFi({
-  apiKey: 'your_api_key'
-});
-
-// Create a payment
-const payment = await zendfi.payments.create({
+// Create a payment (auto-configured from env)
+const payment = await zendfi.createPayment({
   amount: 100,
   currency: 'USD',
-  recipient: 'wallet_address'
+  description: 'Premium subscription',
+  customer_email: 'customer@example.com'
 });
 
+console.log(payment.checkout_url);
 console.log(payment.status);`
 
   return (
