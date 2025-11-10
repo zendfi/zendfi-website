@@ -3,8 +3,7 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Bot, Menu, X, ChevronRight, Book, Code, Zap, Shield, Wallet, Terminal, Package, RefreshCw, Calendar, FileText, Users } from "lucide-react"
+import { Menu, X, ChevronRight, Book, Code, Zap, Shield, Wallet, Terminal, Package, RefreshCw, Calendar, FileText, Users } from "lucide-react"
 import { DocsHeader } from "./_components/DocsHeader"
 import { DocsSidebar } from "./_components/Chat-sider"
 import { docData } from "@/lib/doc-json"
@@ -55,7 +54,7 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-background">
-      <DocsHeader />
+      <DocsHeader onChatToggle={() => setIsChatOpen(!isChatOpen)} />
       
       {/* Left Sidebar - Fixed position */}
       <aside
@@ -115,21 +114,10 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
 
       {/* Main Content - Fixed margin for header and sidebar */}
       <main className="pt-16 md:ml-64 min-h-screen">
-        <div className="max-w-5xl p-4 sm:p-6 lg:p-10 pb-20">
+        <div className="max-w-5xl p-4 sm:p-6 lg:p-10">
           {children}
         </div>
       </main>
-
-      {/* Chatbot Toggle Button - Fixed bottom right */}
-      <Button
-        variant="outline"
-        size="sm"
-        onClick={() => setIsChatOpen(!isChatOpen)}
-        className="fixed bottom-4 right-4 z-50 shadow-lg hover:text-accent"
-      >
-        <Bot className="w-4 h-4 mr-2" />
-        Docs Chat
-      </Button>
 
       {/* Chatbot Sidebar - Slides in from right */}
       <DocsSidebar 

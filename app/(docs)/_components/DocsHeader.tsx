@@ -1,6 +1,6 @@
 "use client"
 
-import { Headset, Menu, Book, Code, Zap, Shield, Wallet, Terminal, Package, RefreshCw, Calendar, FileText, Users } from "lucide-react"
+import { Bot, Menu, Book, Code, Zap, Shield, Wallet, Terminal, Package, RefreshCw, Calendar, FileText, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
@@ -18,7 +18,11 @@ import {
 } from "@/components/ui/sheet"
 import { useIsMobile } from "@/hooks/use-mobile"
 
-export const DocsHeader = () => {
+interface DocsHeaderProps {
+  onChatToggle?: () => void
+}
+
+export const DocsHeader = ({ onChatToggle }: DocsHeaderProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
   const isMobile = useIsMobile()
@@ -77,9 +81,18 @@ export const DocsHeader = () => {
             />
           </Link>
 
-          {/* Desktop: Search + API Key Button */}
+          {/* Desktop: Search + Chat + API Key Button */}
           <div className="hidden md:flex items-center justify-between gap-3 ">
-            <DocsSearch docsData={docData as any} />
+            <DocsSearch docsData={docData} />
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={onChatToggle}
+              className="hover:text-accent transition-colors"
+            >
+              <Bot className="w-4 h-4 mr-2" />
+              Docs Chat
+            </Button>
             <Link href="/signup">
               <Button
                 variant="outline"
@@ -91,10 +104,18 @@ export const DocsHeader = () => {
             </Link>
           </div>
 
-          {/* Mobile: Search + Menu Trigger */}
+          {/* Mobile: Search + Chat + Menu Trigger */}
           {isMobile && (
             <div className="flex md:hidden items-center gap-2">
-              <DocsSearch docsData={docData as any} />
+              <DocsSearch docsData={docData} />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={onChatToggle}
+                className="border rounded bg-gray-100"
+              >
+                <Bot className="w-5 h-5 text-foreground" />
+              </Button>
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
                   <Button

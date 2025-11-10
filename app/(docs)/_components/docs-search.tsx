@@ -17,7 +17,7 @@ interface SearchResult {
 }
 
 interface DocsSearchProps {
-  docsData: any[]
+  docsData: any
 }
 
 export function DocsSearch({ docsData }: DocsSearchProps) {
@@ -67,8 +67,11 @@ export function DocsSearch({ docsData }: DocsSearchProps) {
     const results: SearchResult[] = []
     let resultId = 0
 
-    docsData.forEach((doc) => {
-      const docIcon = getIcon(doc.route, doc.title)
+    // Ensure docsData is an array
+    const dataArray = Array.isArray(docsData) ? docsData : []
+
+    dataArray.forEach((doc) => {
+      const docIcon = getIcon(doc.route || '', doc.title || '')
 
       // Add main document
       results.push({
