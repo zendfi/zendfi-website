@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"  
 import { QueryProvider } from "@/providers/query-provider"
+import { SmoothScroll } from "@/components/smooth-scroll"
 
 const jakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -27,23 +28,31 @@ const jakartaSansBold = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL('https://zendfi.tech'),
   title: {
-    default: "Zendfi - The Future of Global Crypto Payments",
-    template: "%s | Zendfi"
+    default: "ZendFi | Seven lines of code. Boom. Payments live.",
+    template: "%s | ZendFi"
   },
-  description: "Seamless cross-border payments powered by crypto. Fast, secure, and affordable infrastructure for businesses and individuals to send and receive money globally in minutes.",
+  description: "Complete crypto payment infrastructure with payments, subscriptions, escrows, installments, and invoices. Accept USDC, SOL, and USDT with MPC wallets or your own. Built for developers, trusted by businesses.",
   keywords: [
-    "crypto payments",
-    "international transfers",
-    "remittance",
-    "send money Nigeria",
-    "fast transfers",
-    "Zendfi",
-    "financial services",
-    "cross-border payments"
+    "crypto payments API",
+    "USDC payments",
+    "Solana payments",
+    "crypto subscriptions",
+    "escrow payments",
+    "crypto invoicing",
+    "installment payments",
+    "payment API",
+    "MPC wallet",
+    "passkey authentication",
+    "cryptocurrency infrastructure",
+    "blockchain payments",
+    "web3 payments",
+    "developer API",
+    "payment gateway",
+    "ZendFi"
   ],
-  authors: [{ name: "Zendfi" }],
-  creator: "Zendfi",
-  publisher: "Zendfi",
+  authors: [{ name: "ZendFi" }],
+  creator: "ZendFi",
+  publisher: "ZendFi",
   robots: {
     index: true,
     follow: true,
@@ -59,22 +68,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://zendfi.tech",
-    siteName: "Zendfi",
-    title: "Zendfi — The Future of Global Crypto Payments",
-    description: "Seamless cross-border payments powered by crypto. Fast, secure, and affordable infrastructure for businesses and individuals to send and receive money globally in minutes.",
+    siteName: "ZendFi",
+    title: "ZendFi — Complete Crypto Payment Infrastructure",
+    description: "Accept crypto payments with subscriptions, escrows, installments, and invoices. MPC wallets with passkey security. USDC, SOL, USDT. Developer-first API.",
     images: [
       {
         url: "/preview.png",
         width: 1200,
         height: 630,
-        alt: "Zendfi - Say hello to frictionless international transfers",
+        alt: "ZendFi - Complete Crypto Payment Infrastructure for Developers",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zendfi — The Future of Global Crypto Payments",
-    description: "Seamless cross-border payments powered by crypto. Fast, secure, and affordable infrastructure for businesses and individuals to send and receive money globally in minutes.",
+    title: "ZendFi — Complete Crypto Payment Infrastructure",
+    description: "Accept crypto payments with subscriptions, escrows, installments, and invoices. MPC wallets with passkey security. USDC, SOL, USDT. Developer-first API.",
     images: ["/preview.png"],
     creator: "@ZendfiHQ",
   },
@@ -108,6 +117,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`font-sans ${jakartaSans.variable} ${jakartaSansBold.variable}`}>
+        <SmoothScroll />
         <QueryProvider>
           <Suspense fallback={null}>{children}</Suspense>
         </QueryProvider>

@@ -20,30 +20,6 @@ export default function GettingStarted() {
       custody: "Non-custodial",
       color: "primary"
     },
-    // {
-    //   id: "simple",
-    //   name: "Managed Wallet",
-    //   icon: Zap,
-    //   badge: "Fastest",
-    //   tagline: "One click, you're done",
-    //   description: "We handle everything for you. Just create your account and start accepting payments immediately.",
-    //   perfect: "Businesses who want to get started in seconds",
-    //   setupTime: "Instant",
-    //   custody: "Custodial",
-    //   color: "blue-500"
-    // },
-    // {
-    //   id: "mnemonic",
-    //   name: "Recovery Phrase",
-    //   icon: Clock,
-    //   badge: "Traditional",
-    //   tagline: "Standard crypto wallet",
-    //   description: "Get a traditional 12-word recovery phrase. Compatible with all major crypto wallets.",
-    //   perfect: "Users familiar with crypto wallets",
-    //   setupTime: "Instant",
-    //   custody: "Custodial",
-    //   color: "purple-500"
-    // },
     {
       id: "own",
       name: "Your Own Wallet",
@@ -282,6 +258,170 @@ export default function GettingStarted() {
               </div>
             </div>
 
+            {/* Complete Response Schema */}
+            <div className="border-t pt-6">
+              <h4 className="font-semibold mb-4">📋 Complete Response Schema</h4>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b">
+                      <th className="text-left py-2 px-3">Field</th>
+                      <th className="text-left py-2 px-3">Type</th>
+                      <th className="text-left py-2 px-3">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y">
+                    <tr>
+                      <td className="py-2 px-3 font-mono text-xs">merchant_id</td>
+                      <td className="py-2 px-3 text-muted-foreground">string</td>
+                      <td className="py-2 px-3">Your unique merchant identifier</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2 px-3 font-mono text-xs">api_key</td>
+                      <td className="py-2 px-3 text-muted-foreground">string</td>
+                      <td className="py-2 px-3">🔑 Your API authentication key (shown only once!)</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2 px-3 font-mono text-xs">name</td>
+                      <td className="py-2 px-3 text-muted-foreground">string</td>
+                      <td className="py-2 px-3">Your business name</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2 px-3 font-mono text-xs">email</td>
+                      <td className="py-2 px-3 text-muted-foreground">string</td>
+                      <td className="py-2 px-3">Your business email</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2 px-3 font-mono text-xs">wallet_address</td>
+                      <td className="py-2 px-3 text-muted-foreground">string</td>
+                      <td className="py-2 px-3">Solana wallet address for receiving settlements</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2 px-3 font-mono text-xs">wallet_type</td>
+                      <td className="py-2 px-3 text-muted-foreground">string</td>
+                      <td className="py-2 px-3">"mpc_passkey" or "own" - type of wallet used</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2 px-3 font-mono text-xs">settlement_preference</td>
+                      <td className="py-2 px-3 text-muted-foreground">string</td>
+                      <td className="py-2 px-3">"auto_usdc" or "direct_token" - how you receive payments</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2 px-3 font-mono text-xs">webhook_url</td>
+                      <td className="py-2 px-3 text-muted-foreground">string | null</td>
+                      <td className="py-2 px-3">Your webhook endpoint (if provided)</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2 px-3 font-mono text-xs">webhook_secret</td>
+                      <td className="py-2 px-3 text-muted-foreground">string | null</td>
+                      <td className="py-2 px-3">Secret for verifying webhook signatures</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2 px-3 font-mono text-xs">created_at</td>
+                      <td className="py-2 px-3 text-muted-foreground">string</td>
+                      <td className="py-2 px-3">ISO 8601 timestamp of account creation</td>
+                    </tr>
+                    <tr className="bg-purple-50 dark:bg-purple-950/20">
+                      <td className="py-2 px-3 font-mono text-xs">next_steps</td>
+                      <td className="py-2 px-3 text-muted-foreground">object | null</td>
+                      <td className="py-2 px-3">🔐 For MPC Passkey: Setup instructions and URLs</td>
+                    </tr>
+                    <tr className="bg-purple-50 dark:bg-purple-950/20">
+                      <td className="py-2 px-3 font-mono text-xs">message</td>
+                      <td className="py-2 px-3 text-muted-foreground">string</td>
+                      <td className="py-2 px-3">Success message with setup instructions</td>
+                    </tr>
+                    <tr className="bg-purple-50 dark:bg-purple-950/20">
+                      <td className="py-2 px-3 font-mono text-xs">security_note</td>
+                      <td className="py-2 px-3 text-muted-foreground">string</td>
+                      <td className="py-2 px-3">Security information about your wallet type</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="mt-4 bg-purple-50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800 rounded-lg p-4">
+                <p className="text-sm font-semibold text-purple-900 dark:text-purple-100 mb-2">
+                  💡 MPC Passkey Wallets
+                </p>
+                <p className="text-sm text-purple-800 dark:text-purple-200 mb-3">
+                  If you chose <code className="bg-purple-100 dark:bg-purple-900 px-1 rounded">wallet_generation_method: "mpc_passkey"</code>, 
+                  you'll receive a <code className="bg-purple-100 dark:bg-purple-900 px-1 rounded">next_steps</code> object with the passkey setup URL and API endpoints.
+                </p>
+                <p className="text-sm text-purple-800 dark:text-purple-200">
+                  ⚡ <strong>Next Step:</strong> Visit the passkey_setup_url or call the WebAuthn API endpoints to activate your wallet (see below).
+                </p>
+              </div>
+            </div>
+
+            {/* Response Examples */}
+            <div className="border-t pt-6">
+              <h4 className="font-semibold mb-4">📦 Example Responses</h4>
+              
+              <div className="space-y-4">
+                {/* MPC Passkey Response */}
+                <div>
+                  <p className="text-sm font-medium mb-2">MPC Passkey Wallet (Requires WebAuthn Setup)</p>
+                  <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs">
+                    <code>{`{
+  "merchant": {
+    "id": "44ced244-50d6-46b8-ad81-804ad1f30a76",
+    "name": "My Store",
+    "wallet_address": "",
+    "wallet_type": "mpc",
+    "settlement_preference": "autousdc",
+    "wallet_generation_method": "mpc_passkey"
+  },
+  "api_keys": {
+    "test": "zfi_test_6394b3b506faed70b833f0507cfa4a887d1cb1dcdafb703a8edfd00578e8864d",
+    "live": "zfi_live_e7c1db5a84a980807a0fe2f65040d78c1ec18cc301745fa15de61d0fc2e041dc"
+  },
+  "message": "Merchant created with non-custodial MPC wallet! Complete passkey setup to activate auto-settlements. Use test API key for devnet, live API key for mainnet.",
+  "security_note": "Non-custodial MPC wallet secured by your device biometrics (Face ID/Touch ID). We never hold your keys!",
+  "next_steps": {
+    "passkey_setup_url": "https://api.zendfi.tech/merchants/44ced244-50d6-46b8-ad81-804ad1f30a76/setup-passkey",
+    "setup_required": true,
+    "estimated_time": "5 seconds with Face ID/Touch ID",
+    "api_endpoints": {
+      "register_start": "/api/v1/webauthn/register/start",
+      "register_finish": "/api/v1/webauthn/register/finish"
+    }
+  },
+  "warning": "Store this API key securely. It will not be shown again."
+}`}</code>
+                  </pre>
+                </div>
+
+                {/* Own Wallet Response */}
+                <div>
+                  <p className="text-sm font-medium mb-2">Own Wallet (Ready to Use Immediately)</p>
+                  <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs">
+                    <code>{`{
+  "merchant": {
+    "id": "def456ghi789",
+    "name": "My Store",
+    "wallet_address": "9xKBN4tF2vxUqLrXpE3mDwY7zQsN8rW6vH5jC4kM1pT2",
+    "wallet_type": "external",
+    "settlement_preference": "autousdc",
+    "wallet_generation_method": "provided"
+  },
+  "api_keys": {
+    "test": "zfi_test_abcd1234...",
+    "live": "zfi_live_efgh5678..."
+  },
+  "message": "Merchant created with your provided wallet address.",
+  "security_note": "You control your wallet private keys directly.",
+  "next_steps": {
+    "setup_required": false
+  },
+  "warning": "Store this API key securely. It will not be shown again."
+}`}</code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+
             <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
               <p className="text-sm font-semibold text-amber-900 dark:text-amber-100 mb-1">
                 🔐 Important: Save your API key!
@@ -296,6 +436,226 @@ export default function GettingStarted() {
               <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg text-sm">
                 <code>POST https://api.zendfi.tech/api/v1/merchants</code>
               </pre>
+            </div>
+          </div>
+        </Card>
+      </div>
+
+      {/* WebAuthn Flow for MPC Passkey Wallets */}
+      <div className="space-y-6">
+        <div>
+          <h2 className="text-3xl font-bold mb-2">🔐 Complete MPC Passkey Setup</h2>
+          <p className="text-lg text-muted-foreground">
+            If you chose MPC Passkey wallet, complete this one-time setup to activate your wallet. 
+            This uses your device's biometric security (Face ID, Touch ID, Windows Hello).
+          </p>
+        </div>
+
+        <Card className="p-8">
+          <div className="space-y-6">
+            {/* Visual Flow */}
+            <div>
+              <h3 className="font-semibold mb-4">How WebAuthn Wallet Setup Works</h3>
+              <div className="grid md:grid-cols-5 gap-3">
+                <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">1️⃣</div>
+                  <p className="text-sm font-semibold mb-1">Call API</p>
+                  <p className="text-xs text-muted-foreground">Create merchant with mpc_passkey</p>
+                </div>
+                <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">2️⃣</div>
+                  <p className="text-sm font-semibold mb-1">Receive Challenge</p>
+                  <p className="text-xs text-muted-foreground">Get webauthn_options from response</p>
+                </div>
+                <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">3️⃣</div>
+                  <p className="text-sm font-semibold mb-1">Create Credential</p>
+                  <p className="text-xs text-muted-foreground">Use navigator.credentials.create()</p>
+                </div>
+                <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">4️⃣</div>
+                  <p className="text-sm font-semibold mb-1">Approve</p>
+                  <p className="text-xs text-muted-foreground">Face ID / Touch ID / PIN</p>
+                </div>
+                <div className="bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">✅</div>
+                  <p className="text-sm font-semibold mb-1">Wallet Active</p>
+                  <p className="text-xs text-muted-foreground">Ready to accept payments!</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Code Implementation */}
+            <div className="border-t pt-6">
+              <h3 className="font-semibold mb-4">💻 Complete Browser Integration</h3>
+              
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm font-medium mb-2">Step 1: Create Merchant and Get WebAuthn Options</p>
+                  <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs">
+                    <code>{`const response = await fetch('https://api.zendfi.tech/api/v1/merchants', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    name: 'My Store',
+    email: 'hello@mystore.com',
+    business_address: '123 Main St, SF, CA',
+    wallet_generation_method: 'mpc_passkey'
+  })
+});
+
+const data = await response.json();
+console.log('Merchant ID:', data.merchant_id);
+console.log('API Key:', data.api_key); // Save this!
+
+// You'll get webauthn_options to complete setup
+const webauthnOptions = data.webauthn_options;`}</code>
+                  </pre>
+                </div>
+
+                <div>
+                  <p className="text-sm font-medium mb-2">Step 2: Complete WebAuthn Challenge</p>
+                  <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs">
+                    <code>{`// Convert base64 challenge to Uint8Array
+function base64ToUint8Array(base64: string): Uint8Array {
+  const binaryString = atob(base64);
+  const bytes = new Uint8Array(binaryString.length);
+  for (let i = 0; i < binaryString.length; i++) {
+    bytes[i] = binaryString.charCodeAt(i);
+  }
+  return bytes;
+}
+
+// Prepare options for browser API
+const credentialOptions = {
+  publicKey: {
+    ...webauthnOptions.publicKey,
+    challenge: base64ToUint8Array(webauthnOptions.publicKey.challenge),
+    user: {
+      ...webauthnOptions.publicKey.user,
+      id: base64ToUint8Array(webauthnOptions.publicKey.user.id)
+    }
+  }
+};
+
+// Create the credential (triggers Face ID/Touch ID/PIN)
+try {
+  const credential = await navigator.credentials.create(credentialOptions);
+  
+  if (!credential) {
+    throw new Error('WebAuthn credential creation was cancelled');
+  }
+
+  console.log('✅ Wallet credential created successfully!');
+  console.log('Your wallet is now active and ready to receive payments');
+  
+  // The wallet address is automatically generated on ZendFi's side
+  // You can start accepting payments immediately
+  
+} catch (error) {
+  console.error('Failed to create wallet credential:', error);
+  // Handle errors (user cancelled, device not supported, etc.)
+}`}</code>
+                  </pre>
+                </div>
+
+                <div>
+                  <p className="text-sm font-medium mb-2">Step 3: Verify Wallet is Active (Optional)</p>
+                  <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs">
+                    <code>{`// Check your merchant status
+const merchantResponse = await fetch(
+  \`https://api.zendfi.tech/api/v1/merchants/\${data.merchant_id}\`,
+  {
+    headers: {
+      'Authorization': \`Bearer \${data.api_key}\`
+    }
+  }
+);
+
+const merchantData = await merchantResponse.json();
+console.log('Wallet Address:', merchantData.wallet_address);
+console.log('Wallet Status:', merchantData.wallet_status); // "active"
+
+// Now you can start creating payments!`}</code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+
+            {/* Why WebAuthn Card */}
+            <div className="border-t pt-6">
+              <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-950/20 dark:to-blue-950/20 border border-purple-200 dark:border-purple-800 rounded-lg p-6">
+                <h4 className="font-semibold mb-3">🛡️ Why WebAuthn MPC Wallets Are Superior</h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-sm font-semibold text-green-700 dark:text-green-400 mb-2">✅ With MPC Passkey (WebAuthn)</p>
+                    <ul className="text-sm space-y-1 text-muted-foreground">
+                      <li>✓ No seed phrases to lose or write down</li>
+                      <li>✓ Biometric security (Face ID, Touch ID)</li>
+                      <li>✓ Non-custodial (you own the keys)</li>
+                      <li>✓ Works across all your devices</li>
+                      <li>✓ Phishing resistant</li>
+                      <li>✓ Recovery through device backup</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-red-700 dark:text-red-400 mb-2">❌ Traditional Wallets</p>
+                    <ul className="text-sm space-y-1 text-muted-foreground">
+                      <li>✗ Must store 12-24 word seed phrases</li>
+                      <li>✗ Easy to lose or steal seed phrase</li>
+                      <li>✗ No recovery if seed is lost</li>
+                      <li>✗ Complex for non-crypto users</li>
+                      <li>✗ Vulnerable to phishing attacks</li>
+                      <li>✗ Manual backup required</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Pro Tips */}
+            <div className="border-t pt-6">
+              <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+                <p className="text-sm font-semibold text-blue-900 dark:text-blue-100 mb-3">
+                  💡 Pro Tips for WebAuthn Integration
+                </p>
+                <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-2">
+                  <li>
+                    <strong>1. Check Browser Support:</strong> Use <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">if (!window.PublicKeyCredential)</code> to verify WebAuthn is available
+                  </li>
+                  <li>
+                    <strong>2. Handle User Cancellation:</strong> Users can cancel the biometric prompt - provide clear error messages
+                  </li>
+                  <li>
+                    <strong>3. Test on Multiple Devices:</strong> Face ID (iOS), Touch ID (Mac), Windows Hello all work differently
+                  </li>
+                  <li>
+                    <strong>4. Save API Key First:</strong> Always save the API key before completing WebAuthn (in case user cancels)
+                  </li>
+                  <li>
+                    <strong>5. Show Clear Instructions:</strong> Tell users they'll see a biometric prompt (reduces confusion)
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Browser Support */}
+            <div className="border-t pt-6">
+              <h4 className="font-semibold mb-3">🌐 Browser & Device Support</h4>
+              <div className="grid md:grid-cols-3 gap-3">
+                <div className="bg-white dark:bg-slate-900 border rounded-lg p-3">
+                  <p className="font-semibold text-sm mb-2">✅ Desktop</p>
+                  <p className="text-xs text-muted-foreground">Chrome, Safari, Edge, Firefox<br/>Windows Hello, Touch ID</p>
+                </div>
+                <div className="bg-white dark:bg-slate-900 border rounded-lg p-3">
+                  <p className="font-semibold text-sm mb-2">✅ Mobile</p>
+                  <p className="text-xs text-muted-foreground">iOS Safari, Android Chrome<br/>Face ID, Touch ID, Fingerprint</p>
+                </div>
+                <div className="bg-white dark:bg-slate-900 border rounded-lg p-3">
+                  <p className="font-semibold text-sm mb-2">✅ Hardware Keys</p>
+                  <p className="text-xs text-muted-foreground">YubiKey, Titan Security Key<br/>USB, NFC, Bluetooth</p>
+                </div>
+              </div>
             </div>
           </div>
         </Card>
@@ -526,22 +886,6 @@ function getCodeExample(walletType: string) {
     "email": "hello@mystore.com",
     "business_address": "123 Main St, SF, CA",
     "wallet_generation_method": "mpc_passkey"
-  }'`,
-    simple: `curl -X POST https://api.zendfi.tech/api/v1/merchants \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "name": "My Store",
-    "email": "hello@mystore.com",
-    "business_address": "123 Main St, SF, CA",
-    "wallet_generation_method": "simple"
-  }'`,
-    mnemonic: `curl -X POST https://api.zendfi.tech/api/v1/merchants \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "name": "My Store",
-    "email": "hello@mystore.com",
-    "business_address": "123 Main St, SF, CA",
-    "wallet_generation_method": "mnemonic"
   }'`,
     own: `curl -X POST https://api.zendfi.tech/api/v1/merchants \\
   -H "Content-Type: application/json" \\

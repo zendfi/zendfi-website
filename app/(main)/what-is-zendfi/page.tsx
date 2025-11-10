@@ -18,48 +18,48 @@ export default function AboutPage() {
     const reasons = [
         {
             number: "01",
-            title: "Faster Than Banks",
-            desc: "Traditional transfers take days — ZendFi settles cross-border payments in minutes using secure blockchain infrastructure.",
-            icon: Zap,
+            title: "Stripe-Level DX",
+            desc: "Clean APIs, comprehensive docs, and SDKs that just work. No blockchain complexity leaking through.",
+            icon: Code2,
             gradient: "from-accent/80/20 to-purple-300/20",
             iconColor: "text-accent/50",
-            feat: ["Instant Settlements (400ms)", "No Settlement Holds"],
+            feat: ["7-line integration", "TypeScript/Python/Rust SDKs"],
         },
         {
             number: "02",
-            title: "Built for Global Builders",
-            desc: "Designed for businesses and developers building across borders, especially in emerging markets like Africa.",
+            title: "Built for Scale",
+            desc: "Production-ready infrastructure with enterprise features: webhooks, batch processing, real-time analytics.",
             icon: Globe2,
             gradient: "from-blue-200/20 to-cyan-300/20",
             iconColor: "text-blue-500",
-            feat: ["Global by Default (190+ countries)", "Payment Links & Invoices"],
+            feat: ["99.9% Uptime SLA", "20+ Webhook Events"],
         },
         {
             number: "03",
-            title: "Lower Fees, Greater Access",
-            desc: "By removing middlemen, ZendFi cuts transfer costs up to 75%, making international payments affordable for everyone.",
+            title: "0.6% All-Inclusive",
+            desc: "No setup fees. No monthly minimums. No hidden charges. Just transparent pricing that beats Stripe by 80%.",
             icon: TrendingDown,
             gradient: "from-green-200/20 to-emerald-300/20",
             iconColor: "text-green-500",
-            feat: ["0.5% Transaction Fee", "Zero Chargebacks"],
+            feat: ["0.6% flat rate", "Zero chargebacks"],
         },
         {
             number: "04",
-            title: "Reliable & Compliant",
-            desc: "We partner with regulated financial providers to ensure every transaction is compliant, secure, and fully transparent.",
+            title: "Non-Custodial Security",
+            desc: "Your funds, your keys. We never hold your money. Every payment goes straight to your wallet.",
             icon: Shield,
             gradient: "from-amber-200/20 to-orange-300/20",
             iconColor: "text-amber-500",
-            feat: ["Strong Encryption", "99.95% Uptime SLA"],
+            feat: ["Self-custody wallets", "Instant settlements"],
         },
         {
             number: "05",
-            title: "Developer-First",
-            desc: "Our easy-to-use APIs and SDKs allow you to integrate payment solutions into your apps in minutes, not weeks.",
-            icon: Code2,
+            title: "Everything You Need",
+            desc: "Payment links, invoices, subscriptions, escrows, split payments—features Stripe charges extra for, all built-in.",
+            icon: Zap,
             gradient: "from-pink-200/20 to-rose-300/20",
             iconColor: "text-pink-500",
-            feat: ["10-Minute Integration", "Open Source SDKs (TS, Python, Rust)"],
+            feat: ["Advanced payment types", "Hosted checkout pages"],
         },
     ];
 
@@ -99,15 +99,15 @@ export default function AboutPage() {
                         </motion.div>
 
                         <motion.h1
-                            className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-br from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent"
+                            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-tight text-balance bg-gradient-to-br from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.8 }}
                         >
-                            The Future of
+                            The Payment SDK
                             <br />
                             <span className="bg-gradient-to-r from-accent/80 to-accent bg-clip-text text-transparent">
-                                Global Payments
+                                Developers Actually Want
                             </span>
                         </motion.h1>
 
@@ -117,27 +117,36 @@ export default function AboutPage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
                         >
-                            Bridging traditional finance and blockchain technology to make
-                            payments instant, affordable, and borderless for everyone.
+                            Accept crypto payments in seven lines of code. No blockchain degree required. Just ridiculously good developer experience.
                         </motion.p>
 
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5, duration: 0.8 }}
-                            className="flex flex-col sm:flex-row gap-4 justify-center"
+                            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-16"
                         >
-                            <Link href="/pricing">
-                                <Button size="lg" className="bg-accent text-white group hover:bg-accent">
-                                    See Pricing
-                                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                </Button>
-                            </Link>
-                            <Link href={"/developers"}>
-                                <Button size="lg" variant="outline" className="border-2 hover:text-accent">
-                                    Learn More
-                                </Button>
-                            </Link>
+                            <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
+                                <Link href="/signup">
+                                    <Button 
+                                        size="lg" 
+                                        className="bg-accent hover:bg-accent/90 text-white font-semibold px-8 py-6 text-lg w-full sm:w-auto"
+                                    >
+                                        Get Started Free
+                                    </Button>
+                                </Link>
+                            </motion.div>
+                            <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
+                                <Link href="/docs">
+                                    <Button 
+                                        size="lg" 
+                                        variant="outline" 
+                                        className="border-2 border-accent text-accent hover:bg-accent/10 font-semibold px-8 py-6 text-lg transition-all duration-300 w-full sm:w-auto"
+                                    >
+                                        View Live Demo
+                                    </Button>
+                                </Link>
+                            </motion.div>
                         </motion.div>
 
                         {/* Stats Bar */}
@@ -145,12 +154,11 @@ export default function AboutPage() {
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.7, duration: 0.8 }}
-                            className="grid grid-cols-3 gap-8 mt-20 pt-12 border-t border-border/50"
+                            className="grid grid-cols-2 gap-8 mt-20 pt-12 border-t border-border/30"
                         >
                             {[
-                                { value: "75%", label: "Lower Fees" },
-                                { value: "<5min", label: "Settlement Time" },
-                                { value: "150+", label: "Countries" }
+                                { value: "99.9%", label: "Uptime" },
+                                { value: "<400ms", label: "Settlement" }
                             ].map((stat, i) => (
                                 <div key={i} className="text-center">
                                     <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-accent/70 to-accent/80 bg-clip-text text-transparent mb-2">
@@ -173,34 +181,33 @@ export default function AboutPage() {
                     >
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <motion.div
-                                className="relative p-10 md:p-14 rounded-3xl bg-background border-2 border-border"
+                                className="relative p-10 md:p-14 rounded-3xl bg-background"
                                 initial={{ opacity: 0, x: -40 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.8, delay: 0.2 }}
                                 viewport={{ once: true }}
                             >
                                 <div className="relative">
-                                    <span className="inline-block px-4 py-1.5 rounded-full border-2 border-violet-600 text-violet-600 text-sm font-semibold mb-6">
-                                        Our Story
+                                    <span className="inline-block px-4 py-1.5 rounded-full border border-violet-600 text-violet-600 text-sm font-semibold mb-6">
+                                        Our Mission
                                     </span>
 
                                     <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-                                        Building for a
+                                        Built for Developers,
                                         <br />
-                                        Borderless World
+                                        By Developers
                                     </h2>
 
                                     <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
                                         <p>
-                                            ZendFi started with a simple question: why should sending money
-                                            across borders be slow and expensive? After watching individuals and
-                                            businesses wait days for funds to clear, we built a system that
-                                            works at the speed of modern life.
+                                            ZendFi started because we were frustrated. Integrating crypto payments
+                                            meant wrestling with confusing docs, fragmented tools, and APIs that
+                                            assumed you had a PhD in blockchain.
                                         </p>
                                         <p>
-                                            By combining regulated banking infrastructure with blockchain
-                                            technology, ZendFi makes global payments instant, secure, and
-                                            inclusive for builders, creators, and businesses worldwide.
+                                            We built the SDK we wished existed: clean, simple, powerful. Seven lines
+                                            of code to accept payments. Stripe-level DX. Enterprise features included.
+                                            No blockchain complexity leaking through.
                                         </p>
                                     </div>
 
@@ -231,13 +238,15 @@ export default function AboutPage() {
                             transition={{ duration: 0.8 }}
                             viewport={{ once: true }}
                         >
-                            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-                                Why Choose ZendFi
-                            </h2>
-                            <p className="text-xl text-muted-foreground leading-relaxed">
-                                We designed ZendFi to give businesses and developers a faster, more
-                                intelligent way to move money globally — without friction.
-                            </p>
+                                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+                                    Everything Stripe Has.
+                                    <br />
+                                    Plus Features They Don't.
+                                </h2>
+                                <p className="text-xl text-muted-foreground leading-relaxed">
+                                    We give you Stripe's developer experience with crypto's advantages: instant
+                                    settlements, zero chargebacks, and fees 80% lower.
+                                </p>
                         </motion.div>
 
                         <div className="space-y-6">
@@ -263,10 +272,10 @@ export default function AboutPage() {
 
                             <div className="relative z-10 max-w-2xl mx-auto">
                                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                                    Ready to Transform Your Payments?
+                                    Ready to Build with ZendFi?
                                 </h2>
                                 <p className="text-xl text-white/90 mb-8">
-                                    Join thousands of businesses already using ZendFi to power their global transactions.
+                                    Get started in minutes with our SDK. No credit card required.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                     <Link href={"/signup"}>
@@ -310,7 +319,7 @@ function InteractiveReasonCard({ reason, index }: { reason: any; index: number }
             transition={{ type: "spring", stiffness: 200, damping: 25 }}
             className="group"
         >
-            <div className="relative p-8 md:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-sm transition-all duration-500">
+            <div className="relative p-8 md:p-10 rounded-3xl transition-all duration-500 hover:-translate-y-1">
 
                 <div className="relative grid md:grid-cols-[auto_1fr_auto] gap-8 items-center">
                     {/* Left side */}
@@ -318,7 +327,7 @@ function InteractiveReasonCard({ reason, index }: { reason: any; index: number }
                         <motion.div
                             whileHover={{ rotate: 15, scale: 1.1 }}
                             transition={{ duration: 0.4 }}
-                            className="w-20 h-20 rounded-2xl bg-violet-50 dark:bg-violet-950/30 border border-gray-200 dark:border-zinc-800 flex items-center justify-center transition-all duration-300"
+                            className="w-20 h-20 rounded-2xl bg-violet-50 dark:bg-violet-950/30 flex items-center justify-center transition-all duration-300"
                         >
                             <reason.icon className={`w-10 h-10 ${reason.iconColor}`} />
                         </motion.div>
@@ -342,8 +351,7 @@ function InteractiveReasonCard({ reason, index }: { reason: any; index: number }
                                 <div
                                     key={i}
                                     className="inline-flex items-center gap-2 px-3 py-1 rounded-full 
-               bg-gray-50 dark:bg-zinc-800 border border-gray-200 
-               dark:border-zinc-700 text-sm"
+               bg-gray-50 dark:bg-zinc-800 text-sm"
                                 >
                                     <CheckCircle2 className="w-4 h-4 text-violet-600" />
                                     <span className="font-medium text-gray-800 dark:text-zinc-300">

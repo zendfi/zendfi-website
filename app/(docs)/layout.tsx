@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Bot, Menu, X, ChevronRight, Book, Code, Zap, Shield, Wallet, Terminal, Package } from "lucide-react"
+import { Bot, Menu, X, ChevronRight, Book, Code, Zap, Shield, Wallet, Terminal, Package, RefreshCw, Calendar, FileText, Users } from "lucide-react"
 import { DocsHeader } from "./_components/DocsHeader"
 import { DocsSidebar } from "./_components/Chat-sider"
 import { docData } from "@/lib/doc-json"
@@ -26,7 +26,12 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
       title: "API & Integration",
       id: "api-integration",
       items: [
-        { label: "Create Payment", href: "/docs/api", icon: Code },
+        { label: "Payments", href: "/docs/api", icon: Code },
+        { label: "Payment Splits", href: "/docs/advanced", icon: Users },
+        { label: "Subscriptions", href: "/docs/api/subscriptions", icon: RefreshCw },
+        { label: "Escrows", href: "/docs/api/escrows", icon: Shield },
+        { label: "Installments", href: "/docs/api/installments", icon: Calendar },
+        { label: "Invoices", href: "/docs/api/invoices", icon: FileText },
         { label: "Payment Links", href: "/docs/payment-links", icon: Zap },
         { label: "Webhooks", href: "/docs/webhooks", icon: Zap },
       ]
@@ -36,7 +41,6 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
       id: "features",
       items: [
         { label: "Wallet Management", href: "/docs/wallet-management", icon: Wallet },
-        { label: "Advanced Features", href: "/docs/advanced", icon: Shield },
       ]
     },
     {
@@ -50,15 +54,16 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
   ]
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background">
       <DocsHeader />
-      {/* Left Sidebar - hidden on mobile, fixed on desktop */}
+      
+      {/* Left Sidebar - Fixed position */}
       <aside
         className={`
           fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-white border-r border-border
-          overflow-y-auto transition-transform duration-300
-          ${isSidebarOpen ? "translate-x-0 z-50" : "-translate-x-full"}
-          md:translate-x-0 md:z-30
+          overflow-y-auto transition-transform duration-300 z-40
+          ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
+          md:translate-x-0
         `}
       >
         <nav className="p-4 space-y-6">
@@ -100,14 +105,22 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
         </nav>
       </aside>
 
-      {/* Main Content - Responsive margin, no space allocated for chat button */}
+      {/* Mobile sidebar overlay */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/20 z-30 md:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
+      {/* Main Content - Fixed margin for header and sidebar */}
       <main className="pt-16 md:ml-64 min-h-screen">
         <div className="max-w-5xl p-4 sm:p-6 lg:p-10 pb-20">
           {children}
         </div>
       </main>
 
-      {/* Chatbot Toggle Button - Fixed bottom right, absolute positioned */}
+      {/* Chatbot Toggle Button - Fixed bottom right */}
       <Button
         variant="outline"
         size="sm"
@@ -118,7 +131,7 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
         Docs Chat
       </Button>
 
-      {/* Chatbot Sidebar - Slides in from right, absolute positioned */}
+      {/* Chatbot Sidebar - Slides in from right */}
       <DocsSidebar 
         docData={docData} 
         isOpen={isChatOpen}

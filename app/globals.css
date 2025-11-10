@@ -3,6 +3,24 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ultra smooth scrolling with momentum (Safari-style) */
+* {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Smooth transitions on scroll-triggered elements */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -211,6 +229,33 @@
 }
 .animate-delay-400 {
   animation-delay: 0.4s;
+}
+
+/* Performance optimizations for smooth scrolling */
+* {
+  /* Enable hardware acceleration */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Optimize animations for 60fps */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Smooth page transitions */
+  body {
+    transition: opacity 0.3s ease-in-out;
+  }
+}
+
+/* Remove jank on scroll */
+main, section, div {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 .animate-delay-500 {
   animation-delay: 0.5s;

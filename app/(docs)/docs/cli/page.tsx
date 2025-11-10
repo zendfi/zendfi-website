@@ -1,190 +1,417 @@
-import { Card } from "@/components/ui/card"
-import { Zap, ArrowRight, CheckCircle2, Shield, BookOpen, MessageCircle, FileText } from "lucide-react"
+"use client";
 
-export default function CreateZendFiApp() {
+import { Card } from "@/components/ui/card";
+import { Terminal, Zap, Code2, Rocket, Settings, Webhook, Key, FileCode } from "lucide-react";
+
+export default function CLIDocumentation() {
   return (
-    <div className="space-y-6 md:space-y-8 max-w-5xl">
+    <div className="max-w-5xl mx-auto py-8 px-4 space-y-8">
+      {/* Header */}
       <div>
-        <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-2">
-          Create ZendFi App
-        </h1>
+        <div className="flex items-center gap-3 mb-4">
+          <Terminal className="h-8 w-8 text-primary" />
+          <h1 className="text-3xl md:text-4xl font-bold">ZendFi CLI & Scaffolding</h1>
+        </div>
         <p className="text-lg text-muted-foreground">
-          Create a ZendFi-powered crypto payment app in seconds.
+          Two powerful tools: <code className="bg-muted px-2 py-1 rounded text-sm">create-zendfi-app</code> for scaffolding projects and <code className="bg-muted px-2 py-1 rounded text-sm">zendfi</code> CLI for development utilities
         </p>
       </div>
 
-      {/* Usage */}
-      <Card className="p-6">
-        <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-          <Zap className="w-6 h-6" />
-          Usage
-        </h2>
-        <div className="space-y-4">
-          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>npx create-zendfi-app my-store</code>
-          </pre>
-          <p className="text-muted-foreground">Or with options:</p>
-          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>npx create-zendfi-app my-store --template nextjs-ecommerce --env production</code>
-          </pre>
-        </div>
-      </Card>
-
-      {/* Templates */}
-      <Card className="p-6">
-        <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-          <BookOpen className="w-6 h-6" />
-          Templates
-        </h2>
-        <div className="space-y-4">
-          <div>
-            <h3 className="text-lg font-bold mb-2">Next.js E-commerce (<code>nextjs-ecommerce</code>)</h3>
-            <p className="text-muted-foreground mb-2">Full-featured online store with:</p>
-            <ul className="space-y-1 text-sm text-muted-foreground list-disc list-inside">
-              <li>Product catalog page</li>
-              <li>Shopping cart</li>
-              <li>Crypto checkout with ZendFi</li>
-              <li>Order confirmation</li>
-              <li>Webhook handler</li>
-              <li>Admin dashboard integration</li>
-            </ul>
-          </div>
-          <div className="pt-4 border-t">
-            <h3 className="text-lg font-bold mb-2">Next.js SaaS (<code>nextjs-saas</code>) - Coming Soon</h3>
-            <p className="text-muted-foreground mb-2">SaaS application template with:</p>
-            <ul className="space-y-1 text-sm text-muted-foreground list-disc list-inside">
-              <li>User authentication</li>
-              <li>Subscription management</li>
-              <li>Usage tracking</li>
-              <li>Payment history</li>
-              <li>Admin portal</li>
-            </ul>
-          </div>
-          <div className="pt-4 border-t">
-            <h3 className="text-lg font-bold mb-2">Express API (<code>express-api</code>) - Coming Soon</h3>
-            <p className="text-muted-foreground mb-2">Backend API template with:</p>
-            <ul className="space-y-1 text-sm text-muted-foreground list-disc list-inside">
-              <li>REST API endpoints</li>
-              <li>Payment processing</li>
-              <li>Webhook handling</li>
-              <li>Database integration</li>
-              <li>Authentication middleware</li>
-            </ul>
-          </div>
-        </div>
-      </Card>
-
-      {/* Options */}
-      <Card className="p-6">
-        <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-          <Shield className="w-6 h-6" />
-          Options
-        </h2>
-        <ul className="space-y-2 text-sm text-muted-foreground list-disc list-inside">
-          <li><code>--template &lt;template&gt;</code> - Choose a template (default: interactive prompt)</li>
-          <li><code>--env &lt;environment&gt;</code> - Set environment (development/production)</li>
-          <li><code>--skip-install</code> - Skip dependency installation</li>
-          <li><code>--skip-git</code> - Skip git initialization</li>
-        </ul>
-      </Card>
-
       {/* Quick Start */}
-      <Card className="p-6">
-        <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-          <ArrowRight className="w-6 h-6" />
-          Quick Start
-        </h2>
-        <ol className="space-y-6 text-sm text-muted-foreground list-decimal list-inside">
-          <li>
-            <strong>Create your app</strong>
-            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 mt-2 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>npx create-zendfi-app my-store</code>
+      <Card className="p-6 bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-950/20 dark:to-purple-950/20 border-violet-200 dark:border-violet-800">
+        <div className="flex items-start gap-3">
+          <Zap className="h-6 w-6 text-violet-600 dark:text-violet-400 mt-1 flex-shrink-0" />
+          <div className="w-full">
+            <h3 className="text-lg font-semibold mb-2 text-violet-900 dark:text-violet-100">Quick Start</h3>
+            <p className="text-sm text-violet-800 dark:text-violet-200 mb-4">
+              Get started in seconds with our scaffolding tool or add ZendFi to an existing project!
+            </p>
+            <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
+              <code>{`# Scaffold a new project with template
+npx create-zendfi-app my-payment-app
+
+# Install CLI globally for development utilities
+npm install -g create-zendfi-app
+
+# Use CLI commands
+zendfi init                    # Add ZendFi to existing project
+zendfi test payment --amount 50
+zendfi webhooks listen`}</code>
             </pre>
-          </li>
-          <li>
-            <strong>Navigate to your project</strong>
-            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 mt-2 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>cd my-store</code>
-            </pre>
-          </li>
-          <li>
-            <strong>Add your ZendFi credentials</strong>
-            <p className="text-muted-foreground mb-2">Update <code>.env</code>:</p>
-            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>ZEND FI_API_KEY=your_api_key_here
-ZENDFI_WEBHOOK_SECRET=your_webhook_secret_here</code>
-            </pre>
-          </li>
-          <li>
-            <strong>Start development server</strong>
-            <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>npm run dev</code>
-            </pre>
-          </li>
-          <li>
-            <strong>Open your browser</strong>
-            <p className="text-muted-foreground mb-2">Visit <a href="http://localhost:3000" className="hover:text-primary transition-colors">http://localhost:3000</a></p>
-          </li>
-        </ol>
+          </div>
+        </div>
       </Card>
 
-      {/* Features */}
-      <Card className="p-6">
-        <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-          <CheckCircle2 className="w-6 h-6" />
-          Features
-        </h2>
-        <ul className="space-y-2 text-sm text-muted-foreground list-disc list-inside">
-          <li><strong>Zero Configuration</strong> - Works out of the box with ZendFi SDK</li>
-          <li><strong>Production Ready</strong> - HMAC webhook verification included</li>
-          <li><strong>Multiple Cryptocurrencies</strong> - Accept BTC, ETH, USDC, and more</li>
-          <li><strong>Mobile Responsive</strong> - Beautiful UI on all devices</li>
-          <li><strong>Fast Setup</strong> - From zero to accepting payments in 2 minutes</li>
-          <li><strong>Admin Dashboard</strong> - Embedded ZendFi dashboard for managing payments</li>
-        </ul>
-      </Card>
+      {/* Part 1: create-zendfi-app (Scaffolding) */}
+      <section>
+        <div className="flex items-center gap-2 mb-4">
+          <Rocket className="h-6 w-6 text-primary" />
+          <h2 className="text-3xl font-bold">Part 1: create-zendfi-app</h2>
+        </div>
+        <p className="text-muted-foreground mb-6">
+          Scaffold a new ZendFi-powered application with pre-built templates. No global installation required - use with <code className="bg-muted px-1 py-0.5 rounded text-sm">npx</code>.
+        </p>
 
-      {/* Documentation */}
-      <Card className="p-6">
-        <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-          <BookOpen className="w-6 h-6" />
-          Documentation
-        </h2>
-        <ul className="space-y-2 text-sm text-muted-foreground list-disc list-inside">
-          <li><a href="https://zendfi.tech/docs" className="hover:text-primary transition-colors">ZendFi Documentation</a></li>
-          <li><a href="https://zendfi.tech/docs/sdk" className="hover:text-primary transition-colors">SDK Reference</a></li>
-          <li><a href="https://zendfi.tech/docs/webhooks" className="hover:text-primary transition-colors">Webhook Guide</a></li>
-          <li><a href="https://zendfi.tech/docs/api" className="hover:text-primary transition-colors">API Reference</a></li>
-        </ul>
-      </Card>
+        <Card className="p-6 mb-6">
+          <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+            <FileCode className="h-5 w-5 text-primary" />
+            Create New Project
+          </h3>
+          
+          <div className="space-y-4">
+            <div>
+              <h4 className="font-semibold mb-2">Interactive Mode (Recommended)</h4>
+              <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
+                <code>{`npx create-zendfi-app my-app`}</code>
+              </pre>
+              <p className="text-sm text-muted-foreground mt-2">
+                Prompts you to choose a template and configure your project interactively.
+              </p>
+            </div>
 
-      {/* Support */}
-      <Card className="p-6">
-        <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-          <MessageCircle className="w-6 h-6" />
-          Support
-        </h2>
-        <ul className="space-y-2 text-sm text-muted-foreground list-disc list-inside">
-          <li><a href="https://zendfi.tech/docs" className="hover:text-primary transition-colors">Documentation</a></li>
-          <li><a href="https://discord.gg/zendfi" className="hover:text-primary transition-colors">Discord Community</a></li>
-          <li><a href="https://github.com/zendfi/zendfi-toolkit/issues" className="hover:text-primary transition-colors">Report Issues</a></li>
-          <li><a href="mailto:support@zendfi.tech" className="hover:text-primary transition-colors">Email Support</a></li>
-        </ul>
-      </Card>
+            <div>
+              <h4 className="font-semibold mb-2">With Template Flag</h4>
+              <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
+                <code>{`npx create-zendfi-app my-app --template nextjs-ecommerce`}</code>
+              </pre>
+              <p className="text-sm text-muted-foreground mt-2">
+                Directly specify a template to skip the selection prompt.
+              </p>
+            </div>
+          </div>
+        </Card>
 
-      {/* License */}
-      <Card className="p-6">
-        <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-          <FileText className="w-6 h-6" />
-          License
-        </h2>
-        <p className="text-sm text-muted-foreground">MIT © ZendFi</p>
-      </Card>
+        <Card className="p-6 mb-6">
+          <h3 className="text-xl font-semibold mb-4">Available Templates</h3>
+          
+          <div className="space-y-4">
+            <div className="border-l-4 border-blue-500 pl-4">
+              <h4 className="font-semibold text-blue-600 dark:text-blue-400">nextjs-ecommerce</h4>
+              <p className="text-sm text-muted-foreground mt-1">
+                Full-featured e-commerce store with product catalog, shopping cart, and checkout flow. Uses Next.js 14, TypeScript, and Tailwind CSS.
+              </p>
+            </div>
 
-      {/* Footer */}
-      <div className="text-center p-6 bg-muted rounded-md">
-        <p className="text-muted-foreground">Built with ❤️ by the ZendFi team</p>
-      </div>
+            <div className="border-l-4 border-purple-500 pl-4">
+              <h4 className="font-semibold text-purple-600 dark:text-purple-400">nextjs-saas</h4>
+              <p className="text-sm text-muted-foreground mt-1">
+                SaaS starter with subscription billing, user authentication, and dashboard. Includes recurring payments and usage tracking.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-green-500 pl-4">
+              <h4 className="font-semibold text-green-600 dark:text-green-400">express-api</h4>
+              <p className="text-sm text-muted-foreground mt-1">
+                Minimal Express.js API server with payment endpoints, webhook handling, and TypeScript support. Perfect for backend-only integrations.
+              </p>
+            </div>
+          </div>
+        </Card>
+
+        <Card className="p-6">
+          <h3 className="text-xl font-semibold mb-4">Command Options</h3>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-3 font-semibold">Option</th>
+                  <th className="text-left p-3 font-semibold">Description</th>
+                  <th className="text-left p-3 font-semibold">Default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">-t, --template</code></td>
+                  <td className="p-3">Template to use (nextjs-ecommerce, nextjs-saas, express-api)</td>
+                  <td className="p-3 text-muted-foreground">Interactive prompt</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">--env</code></td>
+                  <td className="p-3">Environment (development, production)</td>
+                  <td className="p-3 text-muted-foreground">development</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">-y, --yes</code></td>
+                  <td className="p-3">Skip confirmation prompts</td>
+                  <td className="p-3 text-muted-foreground">false</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">--skip-install</code></td>
+                  <td className="p-3">Skip dependency installation</td>
+                  <td className="p-3 text-muted-foreground">false</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">--skip-git</code></td>
+                  <td className="p-3">Skip git initialization</td>
+                  <td className="p-3 text-muted-foreground">false</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Card>
+      </section>
+
+      {/* Part 2: zendfi CLI (Development Utilities) */}
+      <section className="mt-12">
+        <div className="flex items-center gap-2 mb-4">
+          <Code2 className="h-6 w-6 text-primary" />
+          <h2 className="text-3xl font-bold">Part 2: zendfi CLI</h2>
+        </div>
+        <p className="text-muted-foreground mb-6">
+          Development utilities for testing payments, managing webhooks, and API keys. Install globally to access <code className="bg-muted px-1 py-0.5 rounded text-sm">zendfi</code> command.
+        </p>
+
+        <Card className="p-6 mb-6 bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
+          <h3 className="text-lg font-semibold mb-3 text-blue-900 dark:text-blue-100">Installation</h3>
+          <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
+            <code>{`npm install -g create-zendfi-app
+
+# Now you have access to 'zendfi' command
+zendfi --help`}</code>
+          </pre>
+        </Card>
+
+        {/* zendfi init */}
+        <Card className="p-6 mb-6">
+          <div className="flex items-center gap-2 mb-4">
+            <Settings className="h-5 w-5 text-primary" />
+            <h3 className="text-xl font-semibold">zendfi init</h3>
+          </div>
+          <p className="text-muted-foreground mb-4">
+            Add ZendFi to an existing project. Detects your framework and adds the necessary configuration.
+          </p>
+
+          <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
+            <code>{`# Navigate to your project
+cd my-existing-app
+
+# Add ZendFi
+zendfi init
+
+# With options
+zendfi init --framework nextjs --skip-install -y`}</code>
+          </pre>
+
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-3 font-semibold">Option</th>
+                  <th className="text-left p-3 font-semibold">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">--framework</code></td>
+                  <td className="p-3">Framework (nextjs, express, react)</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">--skip-install</code></td>
+                  <td className="p-3">Skip installing dependencies</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">-y, --yes</code></td>
+                  <td className="p-3">Skip confirmation prompts</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        {/* zendfi test payment */}
+        <Card className="p-6 mb-6">
+          <div className="flex items-center gap-2 mb-4">
+            <Zap className="h-5 w-5 text-primary" />
+            <h3 className="text-xl font-semibold">zendfi test payment</h3>
+          </div>
+          <p className="text-muted-foreground mb-4">
+            Create test payments quickly from the command line. Generates a checkout URL and optionally watches the payment status.
+          </p>
+
+          <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
+            <code>{`# Simple test payment
+zendfi test payment
+
+# With amount
+zendfi test payment --amount 50
+
+# Open in browser and watch status
+zendfi test payment --amount 100 --open --watch
+
+# Full example
+zendfi test payment \\
+  --amount 99.99 \\
+  --description "Test Product" \\
+  --email customer@example.com \\
+  --open \\
+  --watch`}</code>
+          </pre>
+
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-3 font-semibold">Option</th>
+                  <th className="text-left p-3 font-semibold">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">--amount</code></td>
+                  <td className="p-3">Payment amount in USD (e.g., 50, 99.99)</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">--description</code></td>
+                  <td className="p-3">Payment description/purpose</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">--email</code></td>
+                  <td className="p-3">Customer email address</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">--open</code></td>
+                  <td className="p-3">Open checkout URL in browser automatically</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">--watch</code></td>
+                  <td className="p-3">Watch payment status in real-time</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        {/* zendfi status */}
+        <Card className="p-6 mb-6">
+          <div className="flex items-center gap-2 mb-4">
+            <Terminal className="h-5 w-5 text-primary" />
+            <h3 className="text-xl font-semibold">zendfi status</h3>
+          </div>
+          <p className="text-muted-foreground mb-4">
+            Check the status of any payment by ID.
+          </p>
+
+          <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
+            <code>{`zendfi status pay_test_abc123xyz`}</code>
+          </pre>
+        </Card>
+
+        {/* zendfi webhooks listen */}
+        <Card className="p-6 mb-6">
+          <div className="flex items-center gap-2 mb-4">
+            <Webhook className="h-5 w-5 text-primary" />
+            <h3 className="text-xl font-semibold">zendfi webhooks listen</h3>
+          </div>
+          <p className="text-muted-foreground mb-4">
+            Listen for webhooks locally during development. Creates a local server and shows incoming webhook events in real-time.
+          </p>
+
+          <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
+            <code>{`# Listen on default port (3000)
+zendfi webhooks listen
+
+# Custom port
+zendfi webhooks listen --port 4000
+
+# Forward to your app
+zendfi webhooks listen --forward-to http://localhost:3000/api/webhooks`}</code>
+          </pre>
+
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-3 font-semibold">Option</th>
+                  <th className="text-left p-3 font-semibold">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">--port</code></td>
+                  <td className="p-3">Local port to listen on (default: 3000)</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-3"><code className="bg-muted px-2 py-1 rounded">--forward-to</code></td>
+                  <td className="p-3">Forward webhooks to this URL</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        {/* zendfi keys */}
+        <Card className="p-6">
+          <div className="flex items-center gap-2 mb-4">
+            <Key className="h-5 w-5 text-primary" />
+            <h3 className="text-xl font-semibold">zendfi keys</h3>
+          </div>
+          <p className="text-muted-foreground mb-4">
+            Manage your API keys from the command line.
+          </p>
+
+          <div className="space-y-4">
+            <div>
+              <h4 className="font-semibold mb-2">List all keys</h4>
+              <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
+                <code>{`zendfi keys list`}</code>
+              </pre>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-2">Create a new key</h4>
+              <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
+                <code>{`zendfi keys create --name "Production API" --mode live`}</code>
+              </pre>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-2">Rotate a key</h4>
+              <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
+                <code>{`zendfi keys rotate key_live_abc123xyz`}</code>
+              </pre>
+            </div>
+          </div>
+        </Card>
+      </section>
+
+      {/* Summary */}
+      <Card className="p-6 bg-gradient-to-br from-slate-50 to-gray-50 dark:from-slate-900/50 dark:to-gray-900/50">
+        <h3 className="text-xl font-semibold mb-4">Quick Reference</h3>
+        
+        <div className="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 className="font-semibold mb-3 flex items-center gap-2">
+              <Rocket className="h-4 w-4 text-blue-600" />
+              Scaffolding (npx)
+            </h4>
+            <div className="space-y-2 text-sm">
+              <div><code className="bg-muted px-2 py-1 rounded">npx create-zendfi-app my-app</code></div>
+              <p className="text-muted-foreground">Create new project with template</p>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-3 flex items-center gap-2">
+              <Code2 className="h-4 w-4 text-purple-600" />
+              CLI Utilities (global)
+            </h4>
+            <div className="space-y-2 text-sm">
+              <div><code className="bg-muted px-2 py-1 rounded">npm install -g create-zendfi-app</code></div>
+              <p className="text-muted-foreground">Then use <code className="bg-muted px-1 rounded">zendfi</code> commands</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 pt-6 border-t">
+          <p className="text-sm text-muted-foreground">
+            📚 For more examples and advanced usage, check out our{" "}
+            <a href="https://github.com/zendfi/zendfi-toolkit" className="text-primary hover:underline">
+              GitHub repository
+            </a>
+          </p>
+        </div>
+      </Card>
     </div>
-  )
+  );
 }

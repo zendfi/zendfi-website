@@ -44,16 +44,16 @@ export default function DevelopersPage() {
     },
     {
       number: "03",
-      title: "Initialize Transaction",
-      description: "Use our SDKs or REST API to create your first payment transaction",
+      title: "Create Payment",
+      description: "Use our SDK or REST API to create crypto payments in just a few lines of code",
       icon: Zap,
       gradient: "from-amber-500/20 to-orange-500/20",
       iconColor: "text-amber-500"
     },
     {
       number: "04",
-      title: "Process Payment",
-      description: "Send and receive funds globally with our secure infrastructure",
+      title: "Accept Payment",
+      description: "Users pay via hosted checkout or wallet connect. Funds settle instantly to your wallet",
       icon: Globe,
       gradient: "from-green-500/20 to-emerald-500/20",
       iconColor: "text-green-500"
@@ -71,58 +71,58 @@ export default function DevelopersPage() {
   const features = [
     {
       icon: Zap,
-      title: "Fast Integration",
-      description: "Get up and running in minutes with our comprehensive SDKs, REST APIs, and detailed documentation",
+      title: "2-Minute Integration",
+      description: "Get up and running in minutes with TypeScript/Python/Rust SDKs, comprehensive docs, and production templates",
       gradient: "from-violet-500/10 to-purple-500/10"
     },
     {
       icon: Globe,
-      title: "Global Coverage",
-      description: "Send and receive payments in 150+ countries with competitive exchange rates and instant settlement",
+      title: "Everything Built-In",
+      description: "Payment links, invoices, subscriptions, escrows, webhooks—all the features you need without extra charges",
       gradient: "from-blue-500/10 to-cyan-500/10"
     },
     {
       icon: Shield,
-      title: "Secure & Reliable",
-      description: "Enterprise-grade security with 99.9% uptime SLA, compliance, and instant transaction finality",
+      title: "Production-Ready",
+      description: "Enterprise-grade security with 99.9% uptime SLA, non-custodial wallets, and instant settlements (<400ms)",
       gradient: "from-green-500/10 to-emerald-500/10"
     },
   ]
 
   const useCases = [
     {
-      title: "Cross-Border Payroll",
-      description: "Pay employees and contractors worldwide in their local currency with minimal fees",
+      title: "E-commerce Stores",
+      description: "Accept crypto payments for digital products with instant settlements and zero chargebacks",
       icon: Globe,
       color: "text-violet-500"
     },
     {
-      title: "Merchant Checkout",
-      description: "Accept crypto-backed payments in your e-commerce platform seamlessly",
+      title: "SaaS Platforms",
+      description: "Set up recurring billing in USDC/USDT with lower fees than traditional processors",
       icon: Zap,
       color: "text-blue-500"
     },
     {
-      title: "P2P Transfers",
-      description: "Enable peer-to-peer payments with instant settlement and low costs",
+      title: "Marketplaces",
+      description: "Enable escrow payments with buyer/seller protection and automatic fund releases",
       icon: ArrowRight,
       color: "text-green-500"
     },
     {
-      title: "Subscription Billing",
-      description: "Automate recurring payments for SaaS and subscription services",
+      title: "Payment Links",
+      description: "Create shareable payment links for freelancers, creators, and service providers",
       icon: Clock,
       color: "text-amber-500"
     },
     {
-      title: "Marketplace Payouts",
-      description: "Distribute earnings to sellers and creators instantly",
+      title: "Split Payments",
+      description: "Automatically distribute revenue across multiple wallets for teams and DAOs",
       icon: Layers,
       color: "text-pink-500"
     },
     {
-      title: "Remittances",
-      description: "Send money home with competitive rates and fast delivery",
+      title: "Buy Now Pay Later",
+      description: "Offer installment plans while receiving full payment upfront",
       icon: ArrowRight,
       color: "text-purple-500"
     },
@@ -175,54 +175,55 @@ console.log(payment.status);`
             </motion.div>
 
             {/* Title */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 sm:mb-6 leading-tight">
-              <span className="bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
-                Build Global
+            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-tight text-balance mb-5 sm:mb-6">
+              <span className="bg-gradient-to-br from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent">
+                Seven lines of code.
               </span>
               <br />
               <span className="bg-accent bg-clip-text text-transparent">
-                Payment Solutions
+                Payments live.
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-              ZendFi provides powerful APIs and SDKs that let you send and receive crypto-backed fiat payments globally in under{" "}
-              <span className="text-accent font-semibold">15 minutes</span>.
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed">
+              The crypto payment SDK developers actually want to use. <span className="text-accent font-bold">0.6% all-inclusive.</span> No blockchain degree required.
             </p>
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full">
-              <Link href="/docs" className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  className="bg-accent text-white hover:bg-accent/90 w-full sm:w-auto group"
-                >
-                  Get Started
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
+              <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }} className="w-full sm:w-auto">
+                <Link href="/signup" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    className="bg-accent hover:bg-accent/90 text-white font-semibold px-8 py-6 text-lg w-full sm:w-auto"
+                  >
+                    Get Started Free
+                  </Button>
+                </Link>
+              </motion.div>
 
-              <Link href="/docs/api" className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 text-accent hover:text-accent w-full sm:w-auto"
-                >
-                  View API Docs
-                </Button>
-              </Link>
+              <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }} className="w-full sm:w-auto">
+                <Link href="/docs" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-2 border-accent text-accent hover:bg-accent/10 font-semibold px-8 py-6 text-lg transition-all duration-300 w-full sm:w-auto"
+                  >
+                    View Live Demo
+                  </Button>
+                </Link>
+              </motion.div>
             </div>
 
             {/* Quick Stats */}
-            <div className="grid grid-cols-3 sm:grid-cols-3 gap-6 mt-10 sm:mt-12 pt-8 border-t border-border/50 text-center sm:text-left">
+            <div className="grid grid-cols-2 gap-6 mt-10 sm:mt-12 pt-8 border-t border-border/30 text-center sm:text-left">
               {[
-                { value: "<15min", label: "Integration" },
-                { value: "150+", label: "Countries" },
                 { value: "99.9%", label: "Uptime" },
+                { value: "<400ms", label: "Settlement" },
               ].map((stat, i) => (
                 <div key={i}>
-                  <div className="text-xl sm:text-2xl font-bold text-foreground mb-1">
+                  <div className="text-2xl sm:text-3xl font-bold text-accent mb-1">
                     {stat.value}
                   </div>
                   <div className="text-xs sm:text-sm text-muted-foreground">

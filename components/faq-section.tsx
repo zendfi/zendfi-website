@@ -8,32 +8,47 @@ const faqs = [
   {
     question: "What is ZendFi?",
     answer:
-      "ZendFi is a next-generation fintech platform built on blockchain and banking infrastructure, enabling fast, low-cost international money transfers. It bridges traditional finance and crypto to make global payments seamless and borderless.",
+      "ZendFi is a fullstack crypto payment infrastructure for developers. We provide APIs for payments, subscriptions, escrows, installments, and invoices on Solana. Accept USDC, SOL, and USDT with MPC wallets (passkey authentication) or your own wallet.",
   },
   {
     question: "Who is ZendFi for?",
     answer:
-      "ZendFi is designed for individuals, freelancers, and businesses that need reliable, instant cross-border payments especially between Africa and the rest of the world.",
+      "ZendFi is built for developers, SaaS companies, marketplaces, freelancers, and businesses that want to accept crypto payments. Whether you're building a subscription service, marketplace with escrow, or need to send invoices - we've got you covered.",
+  },
+  {
+    question: "Do I need crypto wallets to get started?",
+    answer:
+      "No! With ZendFi's MPC wallets, customers just use Face ID or Touch ID - no wallet apps, seed phrases, or crypto knowledge needed. We handle everything behind the scenes. Customers/Payers click on a simple 'Pay' button and confirm the transfers in their wallets, we handle the blockchain complexity. It's as easy as Apple Pay, but with crypto.",
+  },
+  {
+    question: "How long does integration take?",
+    answer:
+      "Most developers integrate ZendFi in under 30 minutes! Simply create a merchant account (2 min), get API keys (instant), make your first payment (5 min). Our SDKs for JavaScript/TypeScript and CLI tools make it even faster. Full documentation with code examples included.",
   },
   {
     question: "How does ZendFi work?",
     answer:
-      "ZendFi uses secure digital payment rails to move money through cryptocurrency across borders in minutes. We handle the conversion in SOL, USDC and USDT based on your preference.",
+      "Integrate our API in minutes. Create a merchant account, get your API keys, and start accepting payments. We handle wallet generation (MPC with Face ID/Touch ID), payment processing, settlements, and webhooks. We help you setup non-custodial MPC wallets that can be secured using just their fingerprint - no seed phrases needed.",
   },
   {
-    question: "What makes ZendFi different?",
+    question: "What payment types does ZendFi support?",
     answer:
-      "ZendFi combines speed, simplicity, and scalability. Unlike traditional remittance services, ZendFi's infrastructure is built for real-time settlements, lower fees, and a developer-friendly system for easy integration all powered by the Solana blockchain.",
+      "ZendFi supports one-time payments, recurring subscriptions (monthly/yearly), escrow transactions for marketplaces, installment plans (buy now pay later), professional invoices with line items, and payment links. All with optional automatic USDC settlement and real-time webhooks.",
   },
   {
-    question: "Is ZendFi safe?",
+    question: "Can I test without real money?",
     answer:
-      "Absolutely. ZendFi operates with strict compliance and security standards, partnering with trusted global payment providers and regulated institutions to ensure every transaction is secure.",
+      "Yes! Every merchant account gets test mode API keys (zfi_test_...) and live mode keys (zfi_live_...). Test mode uses Solana devnet - create unlimited test payments without spending real money. Switch to live mode when ready with a single environment variable change.",
+  },
+  {
+    question: "Is ZendFi safe and secure?",
+    answer:
+      "Absolutely. We use MPC (Multi-Party Computation) wallets with passkey authentication (Face ID/Touch ID), end-to-end encryption, and industry-standard security. All transactions are on-chain and verifiable. We're non-custodial - you always control your funds.",
   },
   {
     question: "What does ZendFi cost?",
     answer:
-      "ZendFi keeps fees transparent and affordable - no hidden charges, just straightforward pricing designed to save you money on every transaction.",
+      "ZendFi is free to integrate - no setup fees or monthly charges. We only charge a small transaction fee when you get paid. Transparent pricing, no hidden costs. Check our documentation for current rates or contact us for enterprise pricing.",
   },
 ]
 
@@ -108,10 +123,10 @@ export function FAQSection() {
             </h3>
 
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Our support team is here to help you get the most out of ZendFi's payment infrastructure.
+              Our developer support team is here to help you integrate ZendFi's payment infrastructure.
             </p>
 
-            <Link href={"mailto:help@zendfi.tech"}>
+            <Link href={"mailto:support@zendfi.tech"}>
               <div
                
                 className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-accent/10 border border-accent/20 text-accent font-medium hover:bg-accent/20 transition-colors duration-300 cursor-pointer"

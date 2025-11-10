@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
 import { Code, Globe, Shield, Zap, Wallet, Webhook } from "lucide-react"
 
 export function NetworkSection() {
@@ -39,42 +38,45 @@ export function NetworkSection() {
   ]
 
   return (
-    <section className="py-14 relative overflow-hidden">
-
+    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-background via-secondary/5 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground">
-            Core Features
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            Everything You Need to Accept Payments
           </h2>
-          <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto leading-relaxed">
-            Built for developers, merchants, and enterprises ZendFi combines speed, security, and flexibility for seamless crypto payments.
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Built for developers who want Stripe-level infrastructure with crypto's advantages.
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, i) => (
+        {/* Stripe-Style Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
+          {features.map((feature, index) => (
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
+              className="group"
             >
-              <Card className="border-border bg-card/70 backdrop-blur-md transition-all duration-300 h-full">
-                <CardContent className="p-6 space-y-4">
-                  <div className="h-12 w-12 rounded-xl bg-accent/10 flex items-center justify-center">
-                    {feature.icon}
-                  </div>
-                  <h3 className="font-heading text-xl font-semibold text-foreground">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {feature.desc}
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="space-y-4">
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
+                  {feature.icon}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-semibold text-foreground">
+                  {feature.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-muted-foreground leading-relaxed">
+                  {feature.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>

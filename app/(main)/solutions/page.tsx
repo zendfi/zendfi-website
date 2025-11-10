@@ -50,7 +50,7 @@ export default function SolutionsPage() {
                                 </span>
                             </motion.div>
 
-                            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-15">
+                            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-tight text-balance mb-6">
                                 <span className="bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
                                     Everything You Need
                                 </span>
@@ -69,19 +69,29 @@ export default function SolutionsPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4 }}
-                                className="flex flex-col sm:flex-row gap-4 justify-center"
+                                className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
                             >
-                                <Link href={"/signup"}>
-                                    <Button size="lg" className="bg-accent text-white group hover:bg-accent">
-                                        Get Started
-                                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                    </Button>
-                                </Link>
-                                <Link href={"/docs"}>
-                                    <Button size="lg" variant="outline" className="border-2 hover:text-accent">
-                                        View Documentation
-                                    </Button>
-                                </Link>
+                                <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
+                                    <Link href="/signup">
+                                        <Button 
+                                            size="lg" 
+                                            className="bg-accent hover:bg-accent/90 text-white font-semibold px-8 py-6 text-lg w-full sm:w-auto"
+                                        >
+                                            Get Started Free
+                                        </Button>
+                                    </Link>
+                                </motion.div>
+                                <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
+                                    <Link href="/docs">
+                                        <Button 
+                                            size="lg" 
+                                            variant="outline" 
+                                            className="border-2 border-accent text-accent hover:bg-accent/10 font-semibold px-8 py-6 text-lg transition-all duration-300 w-full sm:w-auto"
+                                        >
+                                            View Live Demo
+                                        </Button>
+                                    </Link>
+                                </motion.div>
                             </motion.div>
 
                             {/* Key Metrics */}
@@ -89,12 +99,11 @@ export default function SolutionsPage() {
                                 initial={{ opacity: 0, y: 40 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.6 }}
-                                className="grid grid-cols-3 gap-8 mt-20 pt-12 border-t border-border/50"
+                                className="grid grid-cols-2 gap-8 mt-20 pt-12 border-t border-border/50"
                             >
                                 {[
-                                    { icon: Zap, value: "Instant", label: "Settlement" },
                                     { icon: Shield, value: "99.9%", label: "Uptime" },
-                                    { icon: Clock, value: "<3sec", label: "Confirmation" }
+                                    { icon: Clock, value: "<400ms", label: "Settlement" }
                                 ].map((metric, i) => (
                                     <div key={i} className="text-center">
                                         <metric.icon className="w-8 h-8 mx-auto mb-3 text-accent" />
@@ -123,7 +132,7 @@ export default function SolutionsPage() {
                         >
                             {/* Sticky Icon Card */}
                             <motion.div className="lg:sticky lg:top-32">
-                                <div className="p-12 rounded-3xl bg-white border border-gray-200 shadow-md">
+                                <div className="p-12 rounded-3xl bg-accent/5">
                                     <div className="w-20 h-20 rounded-2xl bg-accent/80 flex items-center justify-center mb-6">
                                         <CreditCard className="text-white w-10 h-10" />
                                     </div>
@@ -273,7 +282,7 @@ export default function SolutionsPage() {
                                 transition={{ duration: 0.3 }}
                             >
 
-                                <div className="p-12 rounded-3xl bg-white border border-gray-200 shadow-md">
+                                <div className="p-12 rounded-3xl bg-accent/5">
                                     <div className="w-20 h-20 rounded-2xl bg-accent/80 flex items-center justify-center mb-6">
                                         <Share2 className="text-white w-10 h-10" />
                                     </div>
@@ -303,7 +312,7 @@ export default function SolutionsPage() {
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <div className="relative p-12 rounded-3xl bg-white border border-gray-200 shadow-md">
+                                <div className="relative p-12 rounded-3xl bg-accent/5">
                                     <div className="relative">
                                         <div className="w-20 h-20 rounded-2xl bg-accent/80 flex items-center justify-center mb-6">
                                             <Layers className="text-white w-10 h-10" />
@@ -388,7 +397,6 @@ export default function SolutionsPage() {
                                     </h2>
                                     <p className="text-xl text-white/90 mb-10 leading-relaxed">
                                         Start accepting crypto, automate billing, and settle instantly — all in one place.
-                                        Join thousands of businesses already powered by ZendFi.
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                         <Link href={"/signup"}>
@@ -443,8 +451,7 @@ function FeatureCard({
             whileHover={{ scale: 1.02, y: -2 }}
             className="group"
         >
-            <div className="relative p-6 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-white/60 backdrop-blur-[1px] transition-all duration-500 rounded-2xl" />
+            <div className="relative p-6 rounded-2xl transition-all duration-300">
                 <div className="relative flex gap-4">
                     <CheckCircle2 className="w-6 h-6 text-indigo-600 flex-shrink-0 mt-0.5" />
                     <div className="flex-1">

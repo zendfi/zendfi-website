@@ -95,10 +95,53 @@ export default function Webhooks() {
           Webhook Events
         </h2>
         <p className="text-muted-foreground">
-          ZendFi sends webhooks for all important payment lifecycle events!
+          ZendFi sends webhooks for <strong>23 different event types</strong> across all product features! 🔔
         </p>
+
+        {/* Event Summary Card */}
+        <Card className="p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20">
+          <h3 className="text-lg font-bold mb-4">📊 Event Categories</h3>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-white dark:bg-slate-900 rounded-lg p-4">
+              <p className="text-2xl font-bold text-primary mb-1">4</p>
+              <p className="text-sm text-muted-foreground">Payment Events</p>
+            </div>
+            <div className="bg-white dark:bg-slate-900 rounded-lg p-4">
+              <p className="text-2xl font-bold text-primary mb-1">2</p>
+              <p className="text-sm text-muted-foreground">Settlement Events</p>
+            </div>
+            <div className="bg-white dark:bg-slate-900 rounded-lg p-4">
+              <p className="text-2xl font-bold text-primary mb-1">3</p>
+              <p className="text-sm text-muted-foreground">Withdrawal Events</p>
+            </div>
+            <div className="bg-white dark:bg-slate-900 rounded-lg p-4">
+              <p className="text-2xl font-bold text-primary mb-1">4</p>
+              <p className="text-sm text-muted-foreground">Subscription Events</p>
+            </div>
+            <div className="bg-white dark:bg-slate-900 rounded-lg p-4">
+              <p className="text-2xl font-bold text-primary mb-1">5</p>
+              <p className="text-sm text-muted-foreground">Escrow Events</p>
+            </div>
+            <div className="bg-white dark:bg-slate-900 rounded-lg p-4">
+              <p className="text-2xl font-bold text-primary mb-1">4</p>
+              <p className="text-sm text-muted-foreground">Installment Events</p>
+            </div>
+            <div className="bg-white dark:bg-slate-900 rounded-lg p-4">
+              <p className="text-2xl font-bold text-primary mb-1">2</p>
+              <p className="text-sm text-muted-foreground">Payment Link Events</p>
+            </div>
+            <div className="bg-white dark:bg-slate-900 rounded-lg p-4">
+              <p className="text-2xl font-bold text-primary mb-1">3</p>
+              <p className="text-sm text-muted-foreground">Invoice Events</p>
+            </div>
+          </div>
+        </Card>
+
+        {/* Payment Events */}
         <Card className="p-6">
-          <h3 className="text-lg font-bold mb-3">Available Event Types</h3>
+          <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
+            💳 Payment Events
+          </h3>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-sm">
               <thead>
@@ -110,29 +153,279 @@ export default function Webhooks() {
               </thead>
               <tbody>
                 <tr className="border-b">
-                  <td className="p-2"><code>PaymentCreated</code></td>
+                  <td className="p-2"><code className="text-xs">payment.created</code></td>
                   <td className="p-2">New payment was created</td>
                   <td className="p-2">Immediately after payment creation via API or payment link</td>
                 </tr>
                 <tr className="border-b">
-                  <td className="p-2"><code>PaymentConfirmed</code></td>
+                  <td className="p-2"><code className="text-xs">payment.confirmed</code></td>
                   <td className="p-2">Payment confirmed on-chain</td>
-                  <td className="p-2">After Solana transaction is verified (usually 30-60 seconds)</td>
+                  <td className="p-2">After Solana transaction is verified (~30-60 seconds)</td>
                 </tr>
                 <tr className="border-b">
-                  <td className="p-2"><code>PaymentFailed</code></td>
+                  <td className="p-2"><code className="text-xs">payment.failed</code></td>
                   <td className="p-2">Payment failed verification</td>
                   <td className="p-2">If transaction verification fails or times out</td>
                 </tr>
                 <tr className="border-b">
-                  <td className="p-2"><code>PaymentExpired</code></td>
+                  <td className="p-2"><code className="text-xs">payment.expired</code></td>
                   <td className="p-2">Payment expired without completion</td>
                   <td className="p-2">After 15-minute expiration window passes</td>
                 </tr>
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        {/* Settlement Events */}
+        <Card className="p-6">
+          <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
+            💰 Settlement Events
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
                 <tr className="border-b">
-                  <td className="p-2"><code>SettlementCompleted</code></td>
+                  <th className="text-left p-2 font-semibold">Event Type</th>
+                  <th className="text-left p-2 font-semibold">Description</th>
+                  <th className="text-left p-2 font-semibold">When It's Triggered</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">settlement.completed</code></td>
                   <td className="p-2">Funds settled to your wallet</td>
                   <td className="p-2">After auto-conversion or direct token settlement completes</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">settlement.failed</code></td>
+                  <td className="p-2">Settlement to your wallet failed</td>
+                  <td className="p-2">If settlement transaction fails (retry will be attempted)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        {/* Withdrawal Events */}
+        <Card className="p-6">
+          <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
+            🏦 Withdrawal Events
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-2 font-semibold">Event Type</th>
+                  <th className="text-left p-2 font-semibold">Description</th>
+                  <th className="text-left p-2 font-semibold">When It's Triggered</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">withdrawal.initiated</code></td>
+                  <td className="p-2">Withdrawal request created</td>
+                  <td className="p-2">When you request to withdraw funds from your balance</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">withdrawal.completed</code></td>
+                  <td className="p-2">Withdrawal processed successfully</td>
+                  <td className="p-2">After withdrawal transaction confirms on-chain</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">withdrawal.failed</code></td>
+                  <td className="p-2">Withdrawal failed</td>
+                  <td className="p-2">If withdrawal transaction fails or is rejected</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        {/* Subscription Events */}
+        <Card className="p-6">
+          <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
+            🔄 Subscription Events
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-2 font-semibold">Event Type</th>
+                  <th className="text-left p-2 font-semibold">Description</th>
+                  <th className="text-left p-2 font-semibold">When It's Triggered</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">subscription.created</code></td>
+                  <td className="p-2">New subscription created</td>
+                  <td className="p-2">When merchant or customer creates a subscription plan</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">subscription.cancelled</code></td>
+                  <td className="p-2">Subscription was cancelled</td>
+                  <td className="p-2">When merchant or customer cancels the subscription</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">subscription.renewed</code></td>
+                  <td className="p-2">Subscription payment successful</td>
+                  <td className="p-2">After successful automatic recurring payment</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">subscription.payment_failed</code></td>
+                  <td className="p-2">Subscription payment failed</td>
+                  <td className="p-2">If recurring payment fails (card declined, insufficient funds)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        {/* Escrow Events */}
+        <Card className="p-6">
+          <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
+            🔒 Escrow Events
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-2 font-semibold">Event Type</th>
+                  <th className="text-left p-2 font-semibold">Description</th>
+                  <th className="text-left p-2 font-semibold">When It's Triggered</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">escrow.created</code></td>
+                  <td className="p-2">New escrow created</td>
+                  <td className="p-2">When escrow agreement is created</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">escrow.funded</code></td>
+                  <td className="p-2">Escrow funded by buyer</td>
+                  <td className="p-2">When buyer deposits funds into escrow</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">escrow.released</code></td>
+                  <td className="p-2">Funds released to seller</td>
+                  <td className="p-2">When merchant approves and funds are sent to seller</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">escrow.refunded</code></td>
+                  <td className="p-2">Funds refunded to buyer</td>
+                  <td className="p-2">When escrow is cancelled and buyer gets refund</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">escrow.disputed</code></td>
+                  <td className="p-2">Escrow dispute raised</td>
+                  <td className="p-2">When buyer or seller raises a dispute</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        {/* Installment Events */}
+        <Card className="p-6">
+          <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
+            📅 Installment (BNPL) Events
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-2 font-semibold">Event Type</th>
+                  <th className="text-left p-2 font-semibold">Description</th>
+                  <th className="text-left p-2 font-semibold">When It's Triggered</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">installment.paid</code></td>
+                  <td className="p-2">Installment payment successful</td>
+                  <td className="p-2">When customer pays an installment on time</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">installment.late</code></td>
+                  <td className="p-2">Installment payment late</td>
+                  <td className="p-2">When payment due date passes without payment</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">installment.defaulted</code></td>
+                  <td className="p-2">Customer defaulted on plan</td>
+                  <td className="p-2">After multiple missed payments (configurable threshold)</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">installment.plan_completed</code></td>
+                  <td className="p-2">All installments paid</td>
+                  <td className="p-2">When customer completes final payment</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        {/* Payment Link Events */}
+        <Card className="p-6">
+          <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
+            🔗 Payment Link Events
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-2 font-semibold">Event Type</th>
+                  <th className="text-left p-2 font-semibold">Description</th>
+                  <th className="text-left p-2 font-semibold">When It's Triggered</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">payment_link.created</code></td>
+                  <td className="p-2">New payment link created</td>
+                  <td className="p-2">When you create a reusable payment link</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">payment_link.used</code></td>
+                  <td className="p-2">Payment link was used</td>
+                  <td className="p-2">Each time a customer pays via the link</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        {/* Invoice Events */}
+        <Card className="p-6">
+          <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
+            📄 Invoice Events
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-2 font-semibold">Event Type</th>
+                  <th className="text-left p-2 font-semibold">Description</th>
+                  <th className="text-left p-2 font-semibold">When It's Triggered</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">invoice.created</code></td>
+                  <td className="p-2">New invoice created</td>
+                  <td className="p-2">When you create an invoice for a customer</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">invoice.sent</code></td>
+                  <td className="p-2">Invoice sent to customer</td>
+                  <td className="p-2">When invoice is emailed or shared with customer</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code className="text-xs">invoice.paid</code></td>
+                  <td className="p-2">Invoice paid in full</td>
+                  <td className="p-2">When customer completes payment for the invoice</td>
                 </tr>
               </tbody>
             </table>
@@ -144,11 +437,11 @@ export default function Webhooks() {
       <div className="space-y-4">
         <h3 className="text-lg font-bold">Webhook Payload Structure</h3>
         <p className="text-muted-foreground mb-4">
-          Every webhook follows the same JSON structure:
+          Every webhook follows the same JSON structure. The <code className="bg-slate-200 dark:bg-slate-800 px-1 rounded">event</code> field indicates which event occurred:
         </p>
         <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
           <code>{`{
-  "event": "PaymentConfirmed",
+  "event": "payment.confirmed",
   "payment": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
     "merchant_id": "770e8400-e29b-41d4-a716-446655440001",
@@ -162,10 +455,24 @@ export default function Webhooks() {
       "customer_email": "customer@example.com"
     }
   },
-  "timestamp": "2025-10-27T10:30:45Z",
-  "signature": "t=1730053845,v1=a2f8c9d3e4b5a6c7d8e9f0a1b2c3d4e5..."
+  "timestamp": "2025-11-10T10:30:45Z",
+  "signature": "t=1731233445,v1=a2f8c9d3e4b5a6c7d8e9f0a1b2c3d4e5..."
 }`}</code>
         </pre>
+
+        <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+          <p className="text-sm font-semibold text-blue-900 dark:text-blue-100 mb-2">
+            💡 Event-Specific Payloads
+          </p>
+          <p className="text-sm text-blue-800 dark:text-blue-200">
+            Depending on the event type, you'll receive <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">payment</code>, 
+            <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">settlement</code>, 
+            <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">subscription</code>, 
+            <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">escrow</code>, 
+            <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">installment</code>, 
+            or <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">invoice</code> data objects.
+          </p>
+        </div>
 
         <Card className="p-6">
           <h4 className="text-lg font-bold mb-3">Payload Fields</h4>
@@ -413,6 +720,255 @@ export default function Webhooks() {
             <li>Update analytics dashboard</li>
             <li>Celebrate your sale!</li>
           </ul>
+        </Card>
+
+        {/* Subscription Events Examples */}
+        <div className="border-t pt-6">
+          <h4 className="text-lg font-bold mb-4">🔄 Subscription Event Examples</h4>
+        </div>
+
+        <Card className="p-6">
+          <h4 className="text-lg font-bold mb-3">subscription.created</h4>
+          <p className="text-muted-foreground mb-4">Sent when a new subscription plan is created.</p>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
+            <code>{`{
+  "event": "subscription.created",
+  "subscription": {
+    "id": "sub_8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d",
+    "merchant_id": "770e8400-e29b-41d4-a716-446655440001",
+    "customer_wallet": "Customer123...",
+    "plan_name": "Pro Monthly",
+    "amount_usd": 29.99,
+    "interval": "monthly",
+    "status": "active",
+    "next_billing_date": "2025-12-10T00:00:00Z",
+    "metadata": {
+      "customer_email": "user@example.com",
+      "plan_features": "unlimited_api_calls"
+    }
+  },
+  "timestamp": "2025-11-10T10:30:00Z",
+  "signature": "t=1731233400,v1=abc123..."
+}`}</code>
+          </pre>
+        </Card>
+
+        <Card className="p-6">
+          <h4 className="text-lg font-bold mb-3">subscription.renewed</h4>
+          <p className="text-muted-foreground mb-4">Sent when recurring payment succeeds (most important subscription event!).</p>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
+            <code>{`{
+  "event": "subscription.renewed",
+  "subscription": {
+    "id": "sub_8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d",
+    "merchant_id": "770e8400-e29b-41d4-a716-446655440001",
+    "payment_id": "pay_550e8400-e29b-41d4-a716-446655440000",
+    "amount_usd": 29.99,
+    "billing_cycle": 5,
+    "next_billing_date": "2026-01-10T00:00:00Z",
+    "status": "active"
+  },
+  "timestamp": "2025-12-10T00:05:00Z",
+  "signature": "t=1733788800,v1=def456..."
+}`}</code>
+          </pre>
+          <p className="text-sm text-muted-foreground"><strong>What To Do:</strong> Extend subscription access, send receipt, celebrate MRR!</p>
+        </Card>
+
+        {/* Escrow Events Examples */}
+        <div className="border-t pt-6">
+          <h4 className="text-lg font-bold mb-4">🔒 Escrow Event Examples</h4>
+        </div>
+
+        <Card className="p-6">
+          <h4 className="text-lg font-bold mb-3">escrow.funded</h4>
+          <p className="text-muted-foreground mb-4">Sent when buyer deposits funds into escrow.</p>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
+            <code>{`{
+  "event": "escrow.funded",
+  "escrow": {
+    "id": "esc_1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+    "merchant_id": "770e8400-e29b-41d4-a716-446655440001",
+    "buyer_wallet": "Buyer123...",
+    "seller_wallet": "Seller456...",
+    "amount_usd": 5000.00,
+    "status": "funded",
+    "release_conditions": "Delivery confirmation required",
+    "metadata": {
+      "contract_id": "CONTRACT-789",
+      "service": "Website Development"
+    }
+  },
+  "timestamp": "2025-11-10T11:00:00Z",
+  "signature": "t=1731235200,v1=ghi789..."
+}`}</code>
+          </pre>
+          <p className="text-sm text-muted-foreground"><strong>What To Do:</strong> Notify seller that funds are secured, begin work/service.</p>
+        </Card>
+
+        <Card className="p-6">
+          <h4 className="text-lg font-bold mb-3">escrow.released</h4>
+          <p className="text-muted-foreground mb-4">Sent when funds are released to seller after conditions met.</p>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
+            <code>{`{
+  "event": "escrow.released",
+  "escrow": {
+    "id": "esc_1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+    "amount_usd": 5000.00,
+    "seller_wallet": "Seller456...",
+    "status": "completed",
+    "released_at": "2025-11-15T10:30:00Z",
+    "transaction_signature": "5KzZ8LWvZh..."
+  },
+  "timestamp": "2025-11-15T10:30:00Z",
+  "signature": "t=1731667800,v1=jkl012..."
+}`}</code>
+          </pre>
+          <p className="text-sm text-muted-foreground"><strong>What To Do:</strong> Mark contract complete, send completion notifications, close ticket.</p>
+        </Card>
+
+        {/* Installment Events Examples */}
+        <div className="border-t pt-6">
+          <h4 className="text-lg font-bold mb-4">📅 Installment (BNPL) Event Examples</h4>
+        </div>
+
+        <Card className="p-6">
+          <h4 className="text-lg font-bold mb-3">installment.paid</h4>
+          <p className="text-muted-foreground mb-4">Sent when customer pays an installment on time.</p>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
+            <code>{`{
+  "event": "installment.paid",
+  "installment": {
+    "id": "inst_9a8b7c6d-5e4f-3a2b-1c0d-9e8f7a6b5c4d",
+    "plan_id": "plan_550e8400-e29b-41d4-a716-446655440000",
+    "customer_wallet": "Customer789...",
+    "installment_number": 2,
+    "total_installments": 4,
+    "amount_usd": 250.00,
+    "due_date": "2025-11-10T00:00:00Z",
+    "paid_at": "2025-11-09T15:30:00Z",
+    "remaining_balance": 500.00,
+    "status": "on_time"
+  },
+  "timestamp": "2025-11-09T15:30:00Z",
+  "signature": "t=1731167400,v1=mno345..."
+}`}</code>
+          </pre>
+          <p className="text-sm text-muted-foreground"><strong>What To Do:</strong> Update payment tracker, send "Payment received!" email.</p>
+        </Card>
+
+        <Card className="p-6">
+          <h4 className="text-lg font-bold mb-3">installment.late</h4>
+          <p className="text-muted-foreground mb-4">Sent when payment due date passes without payment.</p>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
+            <code>{`{
+  "event": "installment.late",
+  "installment": {
+    "id": "inst_9a8b7c6d-5e4f-3a2b-1c0d-9e8f7a6b5c4d",
+    "installment_number": 3,
+    "amount_usd": 250.00,
+    "due_date": "2025-12-10T00:00:00Z",
+    "days_overdue": 3,
+    "late_fee": 10.00,
+    "status": "late"
+  },
+  "timestamp": "2025-12-13T00:00:00Z",
+  "signature": "t=1733961600,v1=pqr678..."
+}`}</code>
+          </pre>
+          <p className="text-sm text-muted-foreground"><strong>What To Do:</strong> Send payment reminder, apply late fees, notify collections team.</p>
+        </Card>
+
+        {/* Invoice Events Examples */}
+        <div className="border-t pt-6">
+          <h4 className="text-lg font-bold mb-4">📄 Invoice Event Examples</h4>
+        </div>
+
+        <Card className="p-6">
+          <h4 className="text-lg font-bold mb-3">invoice.paid</h4>
+          <p className="text-muted-foreground mb-4">Sent when customer completes payment for an invoice.</p>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
+            <code>{`{
+  "event": "invoice.paid",
+  "invoice": {
+    "id": "inv_2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+    "invoice_number": "INV-2025-001",
+    "merchant_id": "770e8400-e29b-41d4-a716-446655440001",
+    "customer_email": "client@company.com",
+    "amount_usd": 1500.00,
+    "due_date": "2025-11-30T00:00:00Z",
+    "paid_at": "2025-11-10T14:20:00Z",
+    "status": "paid",
+    "line_items": [
+      { "description": "Website Design", "amount": 1000.00 },
+      { "description": "SEO Optimization", "amount": 500.00 }
+    ]
+  },
+  "timestamp": "2025-11-10T14:20:00Z",
+  "signature": "t=1731246000,v1=stu901..."
+}`}</code>
+          </pre>
+          <p className="text-sm text-muted-foreground"><strong>What To Do:</strong> Mark invoice paid, send receipt, update accounting software.</p>
+        </Card>
+
+        {/* Payment Link Events Examples */}
+        <div className="border-t pt-6">
+          <h4 className="text-lg font-bold mb-4">🔗 Payment Link Event Examples</h4>
+        </div>
+
+        <Card className="p-6">
+          <h4 className="text-lg font-bold mb-3">payment_link.used</h4>
+          <p className="text-muted-foreground mb-4">Sent each time a customer pays via your payment link.</p>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
+            <code>{`{
+  "event": "payment_link.used",
+  "payment_link": {
+    "id": "link_3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
+    "link_code": "donate-charity",
+    "payment_id": "pay_550e8400-e29b-41d4-a716-446655440000",
+    "amount_usd": 50.00,
+    "customer_wallet": "Donor123...",
+    "uses_count": 42,
+    "metadata": {
+      "campaign": "Holiday 2025",
+      "source": "instagram"
+    }
+  },
+  "timestamp": "2025-11-10T16:00:00Z",
+  "signature": "t=1731252000,v1=vwx234..."
+}`}</code>
+          </pre>
+          <p className="text-sm text-muted-foreground"><strong>What To Do:</strong> Track conversions by link, attribute revenue to campaigns.</p>
+        </Card>
+
+        {/* Withdrawal Events Examples */}
+        <div className="border-t pt-6">
+          <h4 className="text-lg font-bold mb-4">🏦 Withdrawal Event Examples</h4>
+        </div>
+
+        <Card className="p-6">
+          <h4 className="text-lg font-bold mb-3">withdrawal.completed</h4>
+          <p className="text-muted-foreground mb-4">Sent when you successfully withdraw funds from your ZendFi balance.</p>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
+            <code>{`{
+  "event": "withdrawal.completed",
+  "withdrawal": {
+    "id": "wd_4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a",
+    "merchant_id": "770e8400-e29b-41d4-a716-446655440001",
+    "amount_usd": 10000.00,
+    "token": "USDC",
+    "destination_wallet": "YourWallet123...",
+    "transaction_signature": "5KzZ8LWvZh...",
+    "fee_usd": 0.50,
+    "net_amount": 9999.50,
+    "status": "completed",
+    "completed_at": "2025-11-10T17:00:00Z"
+  },
+  "timestamp": "2025-11-10T17:00:00Z",
+  "signature": "t=1731254400,v1=yz0567..."
+}`}</code>
+          </pre>
+          <p className="text-sm text-muted-foreground"><strong>What To Do:</strong> Update balance display, log for accounting, celebrate cashout!</p>
         </Card>
       </div>
 

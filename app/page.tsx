@@ -1,6 +1,7 @@
 import { DevSection } from "@/components/dev-section"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
+import { UseCasesSlider } from "@/components/use-cases-slider"
 import { Suspense, lazy } from "react"
 
 const TestimonialSection = lazy(() =>
@@ -25,44 +26,85 @@ function SectionSkeleton() {
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "FinancialService",
-    "name": "Zendfi",
+    "@type": "SoftwareApplication",
+    "name": "ZendFi",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Cross-platform",
     "url": "https://zendfi.tech",
     "logo": "https://zendfi.tech/images/logo.png",
-    "description": "Seamless cross-border payments powered by crypto. Fast, secure, and affordable infrastructure for businesses and individuals to send and receive money globally in minutes.",
-    "serviceType": "Money Transfer Service",
-    "areaServed": [
-      {
-        "@type": "Country",
-        "name": "United States"
-      },
-      {
-        "@type": "Country", 
-        "name": "United Kingdom"
-      },
-      {
-        "@type": "Country",
-        "name": "Nigeria"
-      }
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Money Transfer Services",
-      "itemListElement": [
+    "description": "The crypto payment SDK developers actually want to use. Accept USDC, USDT, and SOL payments in seven lines of code with Stripe-level DX and 0.6% all-inclusive fees.",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "0",
+      "highPrice": "49",
+      "offerCount": "4",
+      "offers": [
         {
           "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "International Money Transfer",
-            "description": "Fast transfers from US/UK to Nigeria"
-          }
+          "name": "Developer Plan",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Free forever - Unlimited test payments with full API access"
+        },
+        {
+          "@type": "Offer",
+          "name": "Starter Plan",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "0.6% per transaction - Up to $10K/month"
+        },
+        {
+          "@type": "Offer",
+          "name": "Growth Plan",
+          "price": "49",
+          "priceCurrency": "USD",
+          "description": "$49/mo + 0.5% per transaction - $10K-$100K/month"
+        },
+        {
+          "@type": "Offer",
+          "name": "Enterprise Plan",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Custom pricing - $100K+/month with volume discounts"
         }
       ]
     },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "availableLanguage": ["English"]
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "ratingCount": "1"
+    },
+    "featureList": [
+      "Payment Links & Invoices",
+      "Recurring Subscriptions",
+      "Escrow & Split Payments",
+      "Buy Now Pay Later (BNPL)",
+      "Hosted Checkout Pages",
+      "20+ Webhook Events",
+      "TypeScript/Python/Rust SDKs",
+      "Non-custodial Wallets",
+      "99.9% Uptime SLA",
+      "< 400ms Settlement Time"
+    ],
+    "applicationSubCategory": "Payment Processing SDK",
+    "softwareVersion": "1.0",
+    "permissions": "API access for crypto payment processing",
+    "screenshot": "https://zendfi.tech/images/dashboard-preview.png",
+    "author": {
+      "@type": "Organization",
+      "name": "ZendFi"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "ZendFi",
+      "url": "https://zendfi.tech",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Developer Support",
+        "email": "support@zendfi.tech",
+        "availableLanguage": ["English"]
+      }
     }
   }
 
@@ -76,19 +118,20 @@ export default function Home() {
       <div className="">
         <HeroSection />
         <Suspense fallback={<SectionSkeleton />}>
-          <FeaturesSection />
+          <DevSection />
         </Suspense>
+        <UseCasesSlider />
         <Suspense fallback={<SectionSkeleton />}>
-          <StatisticsSection />
+          <FeaturesSection />
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
           <NetworkSection />
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
-          <DevSection />
+          <SecuritySection />
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
-          <SecuritySection />
+          <StatisticsSection />
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
           {/* <PartnersSection /> */}

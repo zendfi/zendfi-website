@@ -32,6 +32,14 @@ export default function APIReference() {
           </li>
           <li className="flex items-center gap-2">
             <ArrowRight className="w-4 h-4 text-primary" />
+            <a href="#customer-info" className="hover:text-primary transition-colors">Collect Customer Info</a>
+          </li>
+          <li className="flex items-center gap-2">
+            <ArrowRight className="w-4 h-4 text-primary" />
+            <a href="#build-transaction" className="hover:text-primary transition-colors">Build Transaction (Advanced)</a>
+          </li>
+          <li className="flex items-center gap-2">
+            <ArrowRight className="w-4 h-4 text-primary" />
             <a href="#pay-what-you-want" className="hover:text-primary transition-colors">Pay-What-You-Want Payments</a>
           </li>
           <li className="flex items-center gap-2">
@@ -41,6 +49,10 @@ export default function APIReference() {
           <li className="flex items-center gap-2">
             <ArrowRight className="w-4 h-4 text-primary" />
             <a href="#idempotency" className="hover:text-primary transition-colors">Idempotency</a>
+          </li>
+          <li className="flex items-center gap-2">
+            <ArrowRight className="w-4 h-4 text-primary" />
+            <a href="#errors" className="hover:text-primary transition-colors">Error Handling</a>
           </li>
           <li className="flex items-center gap-2">
             <ArrowRight className="w-4 h-4 text-primary" />
@@ -251,11 +263,27 @@ export default function APIReference() {
   "id": "550e8400-e29b-41d4-a716-446655440000",
   "amount": 99.99,
   "currency": "USD",
+  "token": "USDC",
+  "description": "Premium T-Shirt - Size L",
   "status": "Pending",
   "qr_code": "solana:6qWDyySDsrWbUqXCzwaxVYc47xTaZVUEdeC9apdo6Ewa?amount=99990000&spl-token=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&reference=550e8400-e29b-41d4-a716-446655440000&label=Zendfi%20Payment%20(USDC)&message=Payment%20550e8400-e29b-41d4-a716-446655440000",
   "payment_url": "https://api.zendfi.tech/pay/550e8400-e29b-41d4-a716-446655440000",
-  "expires_at": "2025-10-26T12:30:00.000Z",
-  "settlement_info": null
+  "mode": "live",
+  "expires_at": "2025-11-10T12:30:00.000Z",
+  "created_at": "2025-11-10T12:15:00.000Z",
+  "customer_wallet": null,
+  "transaction_signature": null,
+  "confirmed_at": null,
+  "metadata": {
+    "order_id": "order_12345",
+    "customer_email": "customer@example.com"
+  },
+  "settlement_info": {
+    "estimated_processing_time": "2025-11-10T13:00:00.000Z",
+    "batch_schedule": "Every 30 minutes",
+    "processing_message": "Estimated settlement in ~45 minutes after confirmation"
+  },
+  "split_ids": null
 }`}</code>
           </pre>
         </Card>
@@ -286,11 +314,24 @@ export default function APIReference() {
   "id": "payment_sol123",
   "amount": 50.00,
   "currency": "USD",
+  "token": "SOL",
+  "description": "Coffee Subscription Box",
   "status": "Pending",
   "qr_code": "solana:6qWDyySDsrWbUqXCzwaxVYc47xTaZVUEdeC9apdo6Ewa?amount=50000000000&reference=payment_sol123&label=Zendfi%20Payment%20(SOL)&message=Payment%20payment_sol123",
   "payment_url": "https://api.zendfi.tech/pay/payment_sol123",
-  "expires_at": "2025-10-26T12:30:00.000Z",
-  "settlement_info": null
+  "mode": "live",
+  "expires_at": "2025-11-10T12:30:00.000Z",
+  "created_at": "2025-11-10T12:15:00.000Z",
+  "customer_wallet": null,
+  "transaction_signature": null,
+  "confirmed_at": null,
+  "metadata": {},
+  "settlement_info": {
+    "estimated_processing_time": "2025-11-10T13:00:00.000Z",
+    "batch_schedule": "Every 30 minutes",
+    "processing_message": "Estimated settlement in ~45 minutes after confirmation"
+  },
+  "split_ids": null
 }`}</code>
           </pre>
         </Card>
@@ -328,11 +369,23 @@ export default function APIReference() {
   "id": "payment_pwyw123",
   "amount": 10.00,
   "currency": "USD",
+  "token": "USDC",
+  "description": "Support our open-source project",
   "status": "Pending",
   "qr_code": "solana:...",
   "payment_url": "https://api.zendfi.tech/pay/payment_pwyw123",
-  "expires_at": "2025-10-26T12:30:00.000Z",
-  "settlement_info": null
+  "mode": "live",
+  "expires_at": "2025-11-10T12:30:00.000Z",
+  "created_at": "2025-11-10T12:15:00.000Z",
+  "customer_wallet": null,
+  "transaction_signature": null,
+  "confirmed_at": null,
+  "metadata": {
+    "campaign": "winter_2025",
+    "source": "homepage"
+  },
+  "settlement_info": null,
+  "split_ids": null
 }`}</code>
           </pre>
 
@@ -372,11 +425,24 @@ export default function APIReference() {
   "id": "payment_evt123",
   "amount": 29.99,
   "currency": "USD",
+  "token": "USDC",
+  "description": "Event Ticket - VIP Pass",
   "status": "Pending",
   "qr_code": "solana:...",
   "payment_url": "https://api.zendfi.tech/pay/payment_evt123",
-  "expires_at": "2025-10-26T12:30:00.000Z",
-  "settlement_info": null
+  "mode": "live",
+  "expires_at": "2025-11-10T12:30:00.000Z",
+  "created_at": "2025-11-10T12:15:00.000Z",
+  "customer_wallet": null,
+  "transaction_signature": null,
+  "confirmed_at": null,
+  "metadata": {
+    "event_id": "evt_20251231",
+    "ticket_type": "vip",
+    "email": "customer@example.com"
+  },
+  "settlement_info": null,
+  "split_ids": null
 }`}</code>
           </pre>
 
@@ -387,7 +453,10 @@ export default function APIReference() {
 
         {/* Response Fields */}
         <Card className="p-6">
-          <h3 className="text-lg font-bold mb-3">Response Fields</h3>
+          <h3 className="text-lg font-bold mb-3">Complete Response Schema</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Here's EVERYTHING you get back when creating a payment. No surprises, complete transparency! 🎯
+          </p>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-sm">
               <thead>
@@ -406,45 +475,92 @@ export default function APIReference() {
                 <tr className="border-b">
                   <td className="p-2"><code>amount</code></td>
                   <td className="p-2">number</td>
-                  <td className="p-2">Payment amount in USD</td>
+                  <td className="p-2">Payment amount in specified currency</td>
                 </tr>
                 <tr className="border-b">
                   <td className="p-2"><code>currency</code></td>
                   <td className="p-2">string</td>
-                  <td className="p-2">Currency code (<code>USD</code>)</td>
+                  <td className="p-2">Currency code (currently <code>USD</code> only)</td>
+                </tr>
+                <tr className="border-b bg-green-50">
+                  <td className="p-2"><code>token</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">Crypto token used: <code>USDC</code> (default), <code>SOL</code>, or <code>USDT</code></td>
+                </tr>
+                <tr className="border-b bg-green-50">
+                  <td className="p-2"><code>description</code></td>
+                  <td className="p-2">string|null</td>
+                  <td className="p-2">Payment description (if provided)</td>
                 </tr>
                 <tr className="border-b">
                   <td className="p-2"><code>status</code></td>
                   <td className="p-2">string</td>
-                  <td className="p-2">Payment status</td>
+                  <td className="p-2"><code>Pending</code>, <code>Confirmed</code>, <code>Failed</code>, or <code>Expired</code></td>
                 </tr>
                 <tr className="border-b">
                   <td className="p-2"><code>qr_code</code></td>
                   <td className="p-2">string</td>
-                  <td className="p-2">Solana Pay QR code URI</td>
+                  <td className="p-2">Solana Pay QR code URI (show this to customers!)</td>
                 </tr>
                 <tr className="border-b">
                   <td className="p-2"><code>payment_url</code></td>
+                  <td className="p-2">string (URL)</td>
+                  <td className="p-2">Hosted payment page URL (or redirect customers here)</td>
+                </tr>
+                <tr className="border-b bg-yellow-50">
+                  <td className="p-2"><code>mode</code></td>
                   <td className="p-2">string</td>
-                  <td className="p-2">Hosted payment page URL</td>
+                  <td className="p-2"><code>"test"</code> or <code>"live"</code> - which network this payment uses (CRITICAL!)</td>
                 </tr>
                 <tr className="border-b">
                   <td className="p-2"><code>expires_at</code></td>
                   <td className="p-2">string (ISO 8601)</td>
-                  <td className="p-2">Payment expiration timestamp (15 minutes)</td>
+                  <td className="p-2">Payment expiration timestamp (15 minutes from creation)</td>
+                </tr>
+                <tr className="border-b bg-green-50">
+                  <td className="p-2"><code>created_at</code></td>
+                  <td className="p-2">string (ISO 8601)</td>
+                  <td className="p-2">When this payment was created</td>
+                </tr>
+                <tr className="border-b bg-green-50">
+                  <td className="p-2"><code>customer_wallet</code></td>
+                  <td className="p-2">string|null</td>
+                  <td className="p-2">Customer's Solana wallet address (filled after payment submitted)</td>
+                </tr>
+                <tr className="border-b bg-green-50">
+                  <td className="p-2"><code>transaction_signature</code></td>
+                  <td className="p-2">string|null</td>
+                  <td className="p-2">Solana transaction signature (filled after payment confirmed on-chain)</td>
+                </tr>
+                <tr className="border-b bg-green-50">
+                  <td className="p-2"><code>confirmed_at</code></td>
+                  <td className="p-2">string|null</td>
+                  <td className="p-2">When payment was confirmed on-chain (null until confirmed)</td>
+                </tr>
+                <tr className="border-b bg-green-50">
+                  <td className="p-2"><code>metadata</code></td>
+                  <td className="p-2">object</td>
+                  <td className="p-2">Your custom metadata (if provided in request)</td>
                 </tr>
                 <tr className="border-b">
                   <td className="p-2"><code>settlement_info</code></td>
                   <td className="p-2">object|null</td>
-                  <td className="p-2">Settlement details (if applicable)</td>
+                  <td className="p-2">Settlement details (estimated processing time, batch schedule)</td>
                 </tr>
                 <tr className="border-b">
                   <td className="p-2"><code>split_ids</code></td>
                   <td className="p-2">array|null</td>
-                  <td className="p-2">Array of split payment IDs (if splits enabled)</td>
+                  <td className="p-2">Array of split payment IDs (if <code>split_recipients</code> used)</td>
                 </tr>
               </tbody>
             </table>
+          </div>
+          
+          <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <p className="text-sm text-blue-900">
+              <strong>💡 Pro Tip:</strong> Fields highlighted in <span className="bg-green-200 px-1 rounded">green</span> are filled progressively as the payment moves through its lifecycle. 
+              The <span className="bg-yellow-200 px-1 rounded">mode</span> field is CRITICAL - it tells you which Solana network (testnet/mainnet) to verify the transaction on!
+            </p>
           </div>
         </Card>
 
@@ -805,6 +921,498 @@ export default function APIReference() {
         </div>
       </div>
 
+      {/* Customer Info Collection */}
+      <div id="customer-info" className="space-y-4">
+        <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2">
+          <Users className="w-6 h-6 text-primary" />
+          Collect Customer Information
+        </h2>
+        <p className="text-muted-foreground">
+          Need to collect customer details during checkout? Email, name, billing address, shipping info - we've got you covered! Perfect for e-commerce, invoices, and KYC. 📝
+        </p>
+
+        <Card className="p-6 bg-blue-50 border-blue-200">
+          <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
+            <Zap className="w-5 h-5 text-blue-600" />
+            Why Collect Customer Info?
+          </h3>
+          <ul className="space-y-2 text-sm text-muted-foreground list-disc list-inside">
+            <li><strong>E-commerce:</strong> Get shipping addresses for physical products</li>
+            <li><strong>Invoicing:</strong> Proper billing information for records</li>
+            <li><strong>Tax compliance:</strong> Meet your regional tax requirements</li>
+            <li><strong>Customer support:</strong> Easy communication via email</li>
+            <li><strong>Analytics:</strong> Better understand your customer base</li>
+          </ul>
+        </Card>
+
+        {/* Submit Customer Info */}
+        <Card className="p-6">
+          <h3 className="text-lg font-bold mb-2">Submit Customer Information</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            After creating a payment, collect customer details before or during checkout.
+          </p>
+
+          <h4 className="font-semibold mb-2">Endpoint</h4>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
+            <code>POST /api/v1/payments/:payment_id/customer-info</code>
+          </pre>
+
+          <h4 className="font-semibold mb-2">Authentication</h4>
+          <p className="text-sm text-muted-foreground mb-4">
+            ⚠️ <strong>No authentication required</strong> - this is a <strong>public endpoint</strong>. Customers can submit their own info!
+          </p>
+
+          <h4 className="font-semibold mb-3">Request Body</h4>
+          <div className="overflow-x-auto mb-4">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-2 font-semibold">Field</th>
+                  <th className="text-left p-2 font-semibold">Type</th>
+                  <th className="text-left p-2 font-semibold">Required</th>
+                  <th className="text-left p-2 font-semibold">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-2"><code>email</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2"><strong>Yes</strong></td>
+                  <td className="p-2">Customer email address</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>name</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">Full name</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>phone</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">Phone number</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>company</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">Company name</td>
+                </tr>
+                <tr className="border-b bg-blue-50">
+                  <td className="p-2" colSpan={4}><strong>Billing Address (all optional)</strong></td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>billing_address_line1</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">Street address</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>billing_address_line2</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">Apartment, suite, etc.</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>billing_city</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">City</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>billing_state</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">State/Province</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>billing_postal_code</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">ZIP/Postal code</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>billing_country</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">Country code (ISO 3166-1 alpha-2)</td>
+                </tr>
+                <tr className="border-b bg-green-50">
+                  <td className="p-2" colSpan={4}><strong>Shipping Address (all optional)</strong></td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>shipping_address_line1</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">Street address</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>shipping_address_line2</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">Apartment, suite, etc.</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>shipping_city</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">City</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>shipping_state</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">State/Province</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>shipping_postal_code</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">ZIP/Postal code</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>shipping_country</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">Country code (ISO 3166-1 alpha-2)</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>custom_fields</code></td>
+                  <td className="p-2">object</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">Your own custom data</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 className="font-semibold mb-2">Example Request</h4>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
+            <code>{`curl -X POST https://api.zendfi.tech/api/v1/payments/550e8400-e29b-41d4-a716-446655440000/customer-info \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "email": "customer@example.com",
+    "name": "Alex Thompson",
+    "phone": "+1-415-555-0123",
+    "company": "Tech Startup Inc",
+    "billing_address_line1": "123 Main Street",
+    "billing_address_line2": "Suite 400",
+    "billing_city": "San Francisco",
+    "billing_state": "CA",
+    "billing_postal_code": "94102",
+    "billing_country": "US",
+    "shipping_address_line1": "456 Oak Avenue",
+    "shipping_city": "Oakland",
+    "shipping_state": "CA",
+    "shipping_postal_code": "94612",
+    "shipping_country": "US",
+    "custom_fields": {
+      "newsletter_opt_in": true,
+      "referral_source": "twitter"
+    }
+  }'`}</code>
+          </pre>
+
+          <h4 className="font-semibold mb-2 mt-4">Response: 200 OK</h4>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
+            <code>{`{
+  "success": true,
+  "customer_id": "cus_abc123...",
+  "payment_id": "550e8400-e29b-41d4-a716-446655440000",
+  "message": "Customer information saved successfully"
+}`}</code>
+          </pre>
+        </Card>
+
+        {/* Get Customer Info */}
+        <Card className="p-6">
+          <h3 className="text-lg font-bold mb-2">Retrieve Customer Information</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Get the customer info associated with a payment.
+          </p>
+
+          <h4 className="font-semibold mb-2">Endpoint</h4>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
+            <code>GET /api/v1/payments/:payment_id/customer-info</code>
+          </pre>
+
+          <h4 className="font-semibold mb-2">Authentication</h4>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
+            <code>Authorization: Bearer YOUR_API_KEY</code>
+          </pre>
+
+          <h4 className="font-semibold mb-2">Example Request</h4>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
+            <code>{`curl -X GET https://api.zendfi.tech/api/v1/payments/550e8400-e29b-41d4-a716-446655440000/customer-info \\
+  -H "Authorization: Bearer zendfi_live_abc123..."`}</code>
+          </pre>
+
+          <h4 className="font-semibold mb-2 mt-4">Response: 200 OK</h4>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
+            <code>{`{
+  "id": "cus_abc123...",
+  "payment_id": "550e8400-e29b-41d4-a716-446655440000",
+  "email": "customer@example.com",
+  "name": "Alex Thompson",
+  "phone": "+1-415-555-0123",
+  "company": "Tech Startup Inc",
+  "billing_address_line1": "123 Main Street",
+  "billing_address_line2": "Suite 400",
+  "billing_city": "San Francisco",
+  "billing_state": "CA",
+  "billing_postal_code": "94102",
+  "billing_country": "US",
+  "shipping_address_line1": "456 Oak Avenue",
+  "shipping_address_line2": null,
+  "shipping_city": "Oakland",
+  "shipping_state": "CA",
+  "shipping_postal_code": "94612",
+  "shipping_country": "US",
+  "custom_fields": {
+    "newsletter_opt_in": true,
+    "referral_source": "twitter"
+  },
+  "ip_address": "192.168.1.100",
+  "user_agent": "Mozilla/5.0...",
+  "created_at": "2025-11-10T12:16:30.000Z",
+  "updated_at": "2025-11-10T12:16:30.000Z"
+}`}</code>
+          </pre>
+
+          <p className="text-sm text-muted-foreground mt-4">
+            💡 <strong>Privacy Note:</strong> Customer data is stored securely and only accessible to the merchant who created the payment. Always comply with GDPR, CCPA, and other privacy regulations!
+          </p>
+        </Card>
+
+        {/* Use Cases */}
+        <Card className="p-6 bg-gradient-to-r from-green-50 to-blue-50 border-green-200">
+          <h3 className="text-lg font-bold mb-3">Perfect Use Cases</h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 className="font-semibold text-sm mb-2">🛍️ E-commerce</h4>
+              <p className="text-xs text-muted-foreground">Collect shipping addresses for physical products. Billing info for invoices.</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-sm mb-2">📄 Invoicing</h4>
+              <p className="text-xs text-muted-foreground">Professional invoices need proper customer details.</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-sm mb-2">🎟️ Event Tickets</h4>
+              <p className="text-xs text-muted-foreground">Email tickets instantly. Know who's attending.</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-sm mb-2">💼 B2B Payments</h4>
+              <p className="text-xs text-muted-foreground">Company info for proper accounting.</p>
+            </div>
+          </div>
+        </Card>
+      </div>
+
+      {/* Build Transaction (Advanced) */}
+      <div id="build-transaction" className="space-y-4">
+        <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2">
+          <Shield className="w-6 h-6 text-primary" />
+          Build Solana Transaction (Advanced)
+        </h2>
+        <p className="text-muted-foreground">
+          For custom wallet integrations! If you're building your own payment UI or using a custom Solana wallet, this endpoint lets you programmatically build the transaction. Perfect for web3 natives! ⚡
+        </p>
+
+        <Card className="p-6 bg-yellow-50 border-yellow-200">
+          <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
+            <AlertCircle className="w-5 h-5 text-yellow-600" />
+            When to Use This?
+          </h3>
+          <ul className="space-y-2 text-sm text-muted-foreground list-disc list-inside">
+            <li><strong>Custom wallet integrations:</strong> Building your own checkout UI</li>
+            <li><strong>Mobile apps:</strong> Using Solana Mobile SDK</li>
+            <li><strong>Web3 apps:</strong> Using @solana/web3.js directly</li>
+            <li><strong>Programmatic payments:</strong> Automated payment systems</li>
+          </ul>
+          <p className="text-sm text-yellow-800 mt-3">
+            ⚠️ <strong>Not needed for most use cases!</strong> Our hosted payment pages and QR codes work out of the box. Only use this if you're building custom wallet integrations.
+          </p>
+        </Card>
+
+        <Card className="p-6">
+          <h3 className="text-lg font-bold mb-2">Endpoint</h3>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
+            <code>POST /api/v1/payments/:payment_id/build-transaction</code>
+          </pre>
+
+          <h3 className="text-lg font-bold mb-2">Authentication</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            ⚠️ <strong>No authentication required</strong> - this is a <strong>public endpoint</strong>. Customers can build transactions for their own payments!
+          </p>
+
+          <h3 className="text-lg font-bold mb-3">Request Body</h3>
+          <div className="overflow-x-auto mb-4">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-2 font-semibold">Field</th>
+                  <th className="text-left p-2 font-semibold">Type</th>
+                  <th className="text-left p-2 font-semibold">Required</th>
+                  <th className="text-left p-2 font-semibold">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-2"><code>customer_wallet</code></td>
+                  <td className="p-2">string</td>
+                  <td className="p-2"><strong>Yes</strong></td>
+                  <td className="p-2">Customer's Solana wallet address (public key)</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2"><code>amount_override</code></td>
+                  <td className="p-2">number</td>
+                  <td className="p-2">No</td>
+                  <td className="p-2">Custom amount (only for pay-what-you-want payments)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 className="font-semibold mb-2">Example Request</h4>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
+            <code>{`curl -X POST https://api.zendfi.tech/api/v1/payments/550e8400-e29b-41d4-a716-446655440000/build-transaction \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "customer_wallet": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU"
+  }'`}</code>
+          </pre>
+
+          <h4 className="font-semibold mb-2 mt-4">Response: 200 OK</h4>
+          <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
+            <code>{`{
+  "transaction": "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAHDRyx...",
+  "message": "Transaction built successfully",
+  "instructions": [
+    {
+      "program_id": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "keys": [...],
+      "data": "..."
+    }
+  ],
+  "recent_blockhash": "GHQwFusPAkJLrXR1SYeEKKtfNYvDC8qbN9m1h3z8fZ4w",
+  "fee_payer": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+  "required_signers": [
+    "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU"
+  ]
+}`}</code>
+          </pre>
+
+          <p className="text-sm text-muted-foreground mt-4">
+            The <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">transaction</code> field contains a base64-encoded serialized transaction ready to sign!
+          </p>
+        </Card>
+
+        {/* How to Use */}
+        <Card className="p-6">
+          <h3 className="text-lg font-bold mb-3">How to Use This Transaction</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Once you have the transaction, here's what to do with it:
+          </p>
+
+          <div className="space-y-4">
+            <div>
+              <h4 className="font-semibold text-sm mb-2">Step 1: Deserialize the Transaction</h4>
+              <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto font-mono text-xs">
+                <code>{`import { Transaction } from '@solana/web3.js';
+
+const transaction = Transaction.from(
+  Buffer.from(response.transaction, 'base64')
+);`}</code>
+              </pre>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-sm mb-2">Step 2: Sign with Customer's Wallet</h4>
+              <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto font-mono text-xs">
+                <code>{`// Using Phantom wallet
+const signedTransaction = await window.solana.signTransaction(transaction);
+
+// OR using Solana Wallet Adapter
+const signedTransaction = await wallet.signTransaction(transaction);`}</code>
+              </pre>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-sm mb-2">Step 3: Submit to ZendFi</h4>
+              <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto font-mono text-xs">
+                <code>{`const serialized = signedTransaction.serialize();
+const base64Tx = serialized.toString('base64');
+
+await fetch(\`/api/v1/payments/\${paymentId}/submit-transaction\`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ signed_transaction: base64Tx })
+});`}</code>
+              </pre>
+            </div>
+          </div>
+        </Card>
+
+        {/* Complete Example */}
+        <Card className="p-6 bg-blue-50 border-blue-200">
+          <h3 className="text-lg font-bold mb-3">Complete Integration Example</h3>
+          <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto font-mono text-xs">
+            <code>{`import { Connection, Transaction } from '@solana/web3.js';
+
+async function payWithCustomWallet(paymentId, customerWallet) {
+  // 1. Build transaction
+  const buildResponse = await fetch(
+    \`https://api.zendfi.tech/api/v1/payments/\${paymentId}/build-transaction\`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ customer_wallet: customerWallet })
+    }
+  );
+  const { transaction: txBase64 } = await buildResponse.json();
+
+  // 2. Deserialize
+  const transaction = Transaction.from(Buffer.from(txBase64, 'base64'));
+
+  // 3. Sign with wallet (Phantom example)
+  const signedTx = await window.solana.signTransaction(transaction);
+
+  // 4. Submit to ZendFi
+  const submitResponse = await fetch(
+    \`https://api.zendfi.tech/api/v1/payments/\${paymentId}/submit-transaction\`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        signed_transaction: signedTx.serialize().toString('base64')
+      })
+    }
+  );
+
+  const result = await submitResponse.json();
+  console.log('Payment submitted!', result);
+  
+  // 5. ZendFi will broadcast and confirm automatically
+  // You'll get a webhook when it's confirmed!
+  
+  return result;
+}`}</code>
+          </pre>
+        </Card>
+
+        {/* Pro Tips */}
+        <Card className="p-6 bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200">
+          <h3 className="text-lg font-bold mb-3">💡 Pro Tips</h3>
+          <ul className="space-y-2 text-sm text-muted-foreground list-disc list-inside">
+            <li><strong>Error handling:</strong> Always wrap in try-catch. Wallets can reject signatures!</li>
+            <li><strong>Pay-what-you-want:</strong> Include <code>amount_override</code> for PWYW payments</li>
+            <li><strong>Transaction expires:</strong> Transactions are only valid for ~2 minutes. Build fresh if needed!</li>
+            <li><strong>No double-signing:</strong> ZendFi handles submission to Solana. You just sign!</li>
+            <li><strong>Use webhooks:</strong> Don't poll. Listen for <code>payment.confirmed</code> webhook</li>
+          </ul>
+        </Card>
+      </div>
+
       {/* Pay-What-You-Want */}
       <div id="pay-what-you-want" className="space-y-4">
         <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2">
@@ -1079,6 +1687,456 @@ while (attempts < maxAttempts) {
               </li>
             </ul>
           </Card>
+        </div>
+      </div>
+
+      {/* Error Handling */}
+      <div id="errors" className="space-y-4">
+        <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2">
+          <AlertCircle className="w-6 h-6 text-primary" />
+          Error Handling (Know What Went Wrong!)
+        </h2>
+        <p className="text-muted-foreground">
+          When things go wrong (and they sometimes do!), ZendFi provides clear, actionable error messages to help you debug quickly. All errors follow a consistent JSON format.
+        </p>
+
+        {/* Error Response Format */}
+        <Card className="p-6">
+          <h3 className="text-lg font-bold mb-4">Error Response Format</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            All error responses follow this structure:
+          </p>
+          <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs">
+            <code>{`{
+  "error": "Resource not found",
+  "message": "Payment with ID 550e8400-e29b-41d4-a716-446655440000 not found",
+  "code": "PAYMENT_NOT_FOUND"
+}`}</code>
+          </pre>
+          <div className="mt-4">
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="text-left p-2 font-semibold">Field</th>
+                    <th className="text-left p-2 font-semibold">Type</th>
+                    <th className="text-left p-2 font-semibold">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">error</code></td>
+                    <td className="p-2 text-muted-foreground">string</td>
+                    <td className="p-2">Human-readable error summary</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">message</code></td>
+                    <td className="p-2 text-muted-foreground">string</td>
+                    <td className="p-2">Detailed error explanation with context</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">code</code></td>
+                    <td className="p-2 text-muted-foreground">string</td>
+                    <td className="p-2">Machine-readable error code (use this for programmatic handling)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </Card>
+
+        {/* HTTP Status Codes */}
+        <Card className="p-6">
+          <h3 className="text-lg font-bold mb-4">HTTP Status Codes</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-2 font-semibold">Status Code</th>
+                  <th className="text-left p-2 font-semibold">Meaning</th>
+                  <th className="text-left p-2 font-semibold">When You'll See It</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b bg-green-50 dark:bg-green-950/20">
+                  <td className="p-2"><code className="text-xs">200 OK</code></td>
+                  <td className="p-2">✅ Success</td>
+                  <td className="p-2">Request succeeded (GET, updates)</td>
+                </tr>
+                <tr className="border-b bg-green-50 dark:bg-green-950/20">
+                  <td className="p-2"><code className="text-xs">201 Created</code></td>
+                  <td className="p-2">✅ Resource created</td>
+                  <td className="p-2">Payment/merchant/subscription created successfully</td>
+                </tr>
+                <tr className="border-b bg-yellow-50 dark:bg-yellow-950/20">
+                  <td className="p-2"><code className="text-xs">400 Bad Request</code></td>
+                  <td className="p-2">⚠️ Invalid input</td>
+                  <td className="p-2">Missing required fields, invalid data format</td>
+                </tr>
+                <tr className="border-b bg-yellow-50 dark:bg-yellow-950/20">
+                  <td className="p-2"><code className="text-xs">401 Unauthorized</code></td>
+                  <td className="p-2">🔒 Authentication failed</td>
+                  <td className="p-2">Missing/invalid API key, expired key</td>
+                </tr>
+                <tr className="border-b bg-yellow-50 dark:bg-yellow-950/20">
+                  <td className="p-2"><code className="text-xs">404 Not Found</code></td>
+                  <td className="p-2">❌ Resource not found</td>
+                  <td className="p-2">Payment/merchant/subscription doesn't exist</td>
+                </tr>
+                <tr className="border-b bg-yellow-50 dark:bg-yellow-950/20">
+                  <td className="p-2"><code className="text-xs">409 Conflict</code></td>
+                  <td className="p-2">⚠️ Duplicate/conflict</td>
+                  <td className="p-2">Idempotency key mismatch, payment already confirmed</td>
+                </tr>
+                <tr className="border-b bg-yellow-50 dark:bg-yellow-950/20">
+                  <td className="p-2"><code className="text-xs">410 Gone</code></td>
+                  <td className="p-2">⏰ Expired</td>
+                  <td className="p-2">Payment expired (15-minute window passed)</td>
+                </tr>
+                <tr className="border-b bg-red-50 dark:bg-red-950/20">
+                  <td className="p-2"><code className="text-xs">500 Internal Server Error</code></td>
+                  <td className="p-2">💥 Server error</td>
+                  <td className="p-2">Something went wrong on our end (please contact support)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        {/* Common Error Codes */}
+        <Card className="p-6">
+          <h3 className="text-lg font-bold mb-4">Common Error Codes</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Use these <code className="bg-slate-200 dark:bg-slate-800 px-1 rounded">code</code> values to handle errors programmatically:
+          </p>
+
+          {/* Authentication Errors */}
+          <div className="mb-6">
+            <h4 className="font-semibold mb-3 flex items-center gap-2">
+              <span className="text-red-500">🔒</span> Authentication Errors (401)
+            </h4>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="text-left p-2 font-semibold">Error Code</th>
+                    <th className="text-left p-2 font-semibold">Message</th>
+                    <th className="text-left p-2 font-semibold">Solution</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">MISSING_AUTH_HEADER</code></td>
+                    <td className="p-2">Authorization header is required</td>
+                    <td className="p-2">Add <code className="text-xs">Authorization: Bearer {`{api_key}`}</code> header</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">INVALID_AUTH_FORMAT</code></td>
+                    <td className="p-2">Must use Bearer token format</td>
+                    <td className="p-2">Format: <code className="text-xs">Bearer zfi_live_sk_...</code></td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">INVALID_KEY_FORMAT</code></td>
+                    <td className="p-2">API key must start with zfi_test_ or zfi_live_</td>
+                    <td className="p-2">Use the full API key from merchant creation response</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">INVALID_API_KEY</code></td>
+                    <td className="p-2">API key is invalid or revoked</td>
+                    <td className="p-2">Regenerate API key or check for typos</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Validation Errors */}
+          <div className="mb-6">
+            <h4 className="font-semibold mb-3 flex items-center gap-2">
+              <span className="text-yellow-500">⚠️</span> Validation Errors (400)
+            </h4>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="text-left p-2 font-semibold">Error Code</th>
+                    <th className="text-left p-2 font-semibold">Message</th>
+                    <th className="text-left p-2 font-semibold">Solution</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">INVALID_AMOUNT</code></td>
+                    <td className="p-2">Amount must be greater than 0</td>
+                    <td className="p-2">Provide positive number for <code className="text-xs">amount</code></td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">INVALID_CURRENCY</code></td>
+                    <td className="p-2">Unsupported currency</td>
+                    <td className="p-2">Use USD (more currencies coming soon!)</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">INVALID_TOKEN</code></td>
+                    <td className="p-2">Unsupported payment token</td>
+                    <td className="p-2">Use USDC, SOL, or omit for customer choice</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">INVALID_WALLET_ADDRESS</code></td>
+                    <td className="p-2">Invalid Solana wallet address format</td>
+                    <td className="p-2">Provide valid base58-encoded Solana address</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">INVALID_WEBHOOK_URL</code></td>
+                    <td className="p-2">Webhook URL must be valid HTTPS</td>
+                    <td className="p-2">Use valid HTTPS URL (HTTP not allowed in production)</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">INVALID_DESCRIPTION</code></td>
+                    <td className="p-2">Description too long or contains invalid characters</td>
+                    <td className="p-2">Max 500 characters, avoid special characters</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">INVALID_PWYW_CONFIG</code></td>
+                    <td className="p-2">Pay-what-you-want config invalid</td>
+                    <td className="p-2">Ensure min ≤ suggested ≤ max, all positive</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Resource Errors */}
+          <div className="mb-6">
+            <h4 className="font-semibold mb-3 flex items-center gap-2">
+              <span className="text-blue-500">📦</span> Resource Errors (404)
+            </h4>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="text-left p-2 font-semibold">Error Code</th>
+                    <th className="text-left p-2 font-semibold">Message</th>
+                    <th className="text-left p-2 font-semibold">Solution</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">PAYMENT_NOT_FOUND</code></td>
+                    <td className="p-2">Payment doesn't exist</td>
+                    <td className="p-2">Check payment ID, may have been deleted</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">MERCHANT_NOT_FOUND</code></td>
+                    <td className="p-2">Merchant account doesn't exist</td>
+                    <td className="p-2">Verify merchant ID or recreate account</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">SUBSCRIPTION_NOT_FOUND</code></td>
+                    <td className="p-2">Subscription doesn't exist</td>
+                    <td className="p-2">Check subscription ID or create new one</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">ESCROW_NOT_FOUND</code></td>
+                    <td className="p-2">Escrow doesn't exist</td>
+                    <td className="p-2">Verify escrow ID</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">INVOICE_NOT_FOUND</code></td>
+                    <td className="p-2">Invoice doesn't exist</td>
+                    <td className="p-2">Check invoice ID or create new invoice</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* State Errors */}
+          <div className="mb-6">
+            <h4 className="font-semibold mb-3 flex items-center gap-2">
+              <span className="text-purple-500">⏰</span> State & Timing Errors
+            </h4>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="text-left p-2 font-semibold">Error Code</th>
+                    <th className="text-left p-2 font-semibold">HTTP Status</th>
+                    <th className="text-left p-2 font-semibold">Message</th>
+                    <th className="text-left p-2 font-semibold">Solution</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">PAYMENT_EXPIRED</code></td>
+                    <td className="p-2">410 Gone</td>
+                    <td className="p-2">Payment expired (15-min window passed)</td>
+                    <td className="p-2">Create new payment</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">PAYMENT_ALREADY_CONFIRMED</code></td>
+                    <td className="p-2">409 Conflict</td>
+                    <td className="p-2">Payment already confirmed, can't modify</td>
+                    <td className="p-2">Payment is immutable after confirmation</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">IDEMPOTENCY_KEY_MISMATCH</code></td>
+                    <td className="p-2">409 Conflict</td>
+                    <td className="p-2">Same key used with different request body</td>
+                    <td className="p-2">Use same request body or new idempotency key</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">ESCROW_ALREADY_RELEASED</code></td>
+                    <td className="p-2">409 Conflict</td>
+                    <td className="p-2">Escrow funds already released</td>
+                    <td className="p-2">Cannot refund released escrow</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2"><code className="text-xs">SUBSCRIPTION_ALREADY_CANCELLED</code></td>
+                    <td className="p-2">409 Conflict</td>
+                    <td className="p-2">Subscription already cancelled</td>
+                    <td className="p-2">Create new subscription instead</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </Card>
+
+        {/* Error Handling Best Practices */}
+        <Card className="p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20">
+          <h3 className="text-lg font-bold mb-4">💡 Error Handling Best Practices</h3>
+          <div className="space-y-4">
+            <div>
+              <p className="font-semibold mb-2">1. Always Check HTTP Status First</p>
+              <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
+                <code>{`if (response.status >= 400) {
+  const error = await response.json();
+  console.error(\`Error [\${error.code}]: \${error.message}\`);
+  
+  // Handle specific errors
+  switch (error.code) {
+    case 'INVALID_API_KEY':
+      // Refresh API key
+      break;
+    case 'PAYMENT_EXPIRED':
+      // Create new payment
+      break;
+    default:
+      // Show generic error to user
+  }
+}`}</code>
+              </pre>
+            </div>
+
+            <div>
+              <p className="font-semibold mb-2">2. Use Error Codes for Logic, Messages for Logging</p>
+              <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
+                <code>{`// ✅ Good - use code for logic
+if (error.code === 'PAYMENT_NOT_FOUND') {
+  redirectToCreatePayment();
+}
+
+// ❌ Bad - don't parse messages
+if (error.message.includes('not found')) { // Fragile!
+  redirectToCreatePayment();
+}`}</code>
+              </pre>
+            </div>
+
+            <div>
+              <p className="font-semibold mb-2">3. Implement Retry Logic for 500 Errors</p>
+              <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
+                <code>{`async function createPaymentWithRetry(data, maxRetries = 3) {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      const response = await fetch('/api/v1/payments', {
+        method: 'POST',
+        headers: { 
+          'Authorization': \`Bearer \${apiKey}\`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      
+      if (response.status === 500) {
+        await sleep(1000 * Math.pow(2, i)); // Exponential backoff
+        continue;
+      }
+      
+      return await response.json();
+    } catch (error) {
+      if (i === maxRetries - 1) throw error;
+    }
+  }
+}`}</code>
+              </pre>
+            </div>
+
+            <div>
+              <p className="font-semibold mb-2">4. Show User-Friendly Messages</p>
+              <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
+                <code>{`const friendlyErrors = {
+  INVALID_AMOUNT: "Please enter a valid payment amount",
+  PAYMENT_EXPIRED: "This payment link expired. We'll create a new one!",
+  INVALID_API_KEY: "Authentication failed. Please contact support.",
+  PAYMENT_NOT_FOUND: "Payment not found. It may have been cancelled."
+};
+
+const userMessage = friendlyErrors[error.code] || "Something went wrong. Please try again.";
+showNotification(userMessage);`}</code>
+              </pre>
+            </div>
+          </div>
+        </Card>
+
+        {/* Example Error Responses */}
+        <div>
+          <h3 className="text-lg font-bold mb-4">📋 Example Error Responses</h3>
+          <div className="space-y-4">
+            <div>
+              <p className="text-sm font-medium mb-2">Missing API Key (401)</p>
+              <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
+                <code>{`{
+  "error": "Missing authentication",
+  "message": "Authorization header is required",
+  "code": "MISSING_AUTH_HEADER"
+}`}</code>
+              </pre>
+            </div>
+
+            <div>
+              <p className="text-sm font-medium mb-2">Invalid Amount (400)</p>
+              <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
+                <code>{`{
+  "error": "Validation failed",
+  "message": "Invalid payment amount: Amount must be greater than 0",
+  "code": "INVALID_AMOUNT"
+}`}</code>
+              </pre>
+            </div>
+
+            <div>
+              <p className="text-sm font-medium mb-2">Payment Expired (410)</p>
+              <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
+                <code>{`{
+  "error": "Resource expired",
+  "message": "Payment expired after 15-minute window",
+  "code": "PAYMENT_EXPIRED"
+}`}</code>
+              </pre>
+            </div>
+
+            <div>
+              <p className="text-sm font-medium mb-2">Idempotency Key Conflict (409)</p>
+              <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
+                <code>{`{
+  "error": "Idempotency key mismatch",
+  "message": "This idempotency key was used with different request parameters",
+  "code": "IDEMPOTENCY_KEY_MISMATCH"
+}`}</code>
+              </pre>
+            </div>
+          </div>
         </div>
       </div>
 

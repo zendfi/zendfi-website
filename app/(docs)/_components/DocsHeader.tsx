@@ -1,6 +1,6 @@
 "use client"
 
-import { Headset, Menu, Book, Code, Zap, Shield, Wallet, Terminal, Package } from "lucide-react"
+import { Headset, Menu, Book, Code, Zap, Shield, Wallet, Terminal, Package, RefreshCw, Calendar, FileText, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
@@ -35,7 +35,12 @@ export const DocsHeader = () => {
       title: "API & Integration",
       id: "api-integration",
       items: [
-        { label: "Create Payment", href: "/docs/api", icon: Code },
+        { label: "Payments", href: "/docs/api", icon: Code },
+        { label: "Payment Splits", href: "/docs/advanced", icon: Users },
+        { label: "Subscriptions", href: "/docs/api/subscriptions", icon: RefreshCw },
+        { label: "Escrows", href: "/docs/api/escrows", icon: Shield },
+        { label: "Installments", href: "/docs/api/installments", icon: Calendar },
+        { label: "Invoices", href: "/docs/api/invoices", icon: FileText },
         { label: "Payment Links", href: "/docs/payment-links", icon: Zap },
         { label: "Webhooks", href: "/docs/webhooks", icon: Zap },
       ]
@@ -45,7 +50,6 @@ export const DocsHeader = () => {
       id: "features",
       items: [
         { label: "Wallet Management", href: "/docs/wallet-management", icon: Wallet },
-        { label: "Advanced Features", href: "/docs/advanced", icon: Shield },
       ]
     },
     {

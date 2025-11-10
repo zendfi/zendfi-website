@@ -212,7 +212,6 @@ export const docData = [
           }
         }
       },
-
       {
         "id": 2,
         "route": "/docs/api",
