@@ -442,6 +442,7 @@ export default function GettingStarted() {
       </div>
 
       {/* WebAuthn Flow for MPC Passkey Wallets */}
+{/* 
       <div className="space-y-6">
         <div>
           <h2 className="text-3xl font-bold mb-2">🔐 Complete MPC Passkey Setup</h2>
@@ -453,7 +454,6 @@ export default function GettingStarted() {
 
         <Card className="p-8">
           <div className="space-y-6">
-            {/* Visual Flow */}
             <div>
               <h3 className="font-semibold mb-4">How WebAuthn Wallet Setup Works</h3>
               <div className="grid md:grid-cols-5 gap-3">
@@ -485,7 +485,6 @@ export default function GettingStarted() {
               </div>
             </div>
 
-            {/* Code Implementation */}
             <div className="border-t pt-6">
               <h3 className="font-semibold mb-4">💻 Complete Browser Integration</h3>
               
@@ -582,7 +581,6 @@ console.log('Wallet Status:', merchantData.wallet_status); // "active"
               </div>
             </div>
 
-            {/* Why WebAuthn Card */}
             <div className="border-t pt-6">
               <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-950/20 dark:to-blue-950/20 border border-purple-200 dark:border-purple-800 rounded-lg p-6">
                 <h4 className="font-semibold mb-3">🛡️ Why WebAuthn MPC Wallets Are Superior</h4>
@@ -613,7 +611,6 @@ console.log('Wallet Status:', merchantData.wallet_status); // "active"
               </div>
             </div>
 
-            {/* Pro Tips */}
             <div className="border-t pt-6">
               <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
                 <p className="text-sm font-semibold text-blue-900 dark:text-blue-100 mb-3">
@@ -639,7 +636,6 @@ console.log('Wallet Status:', merchantData.wallet_status); // "active"
               </div>
             </div>
 
-            {/* Browser Support */}
             <div className="border-t pt-6">
               <h4 className="font-semibold mb-3">🌐 Browser & Device Support</h4>
               <div className="grid md:grid-cols-3 gap-3">
@@ -659,7 +655,8 @@ console.log('Wallet Status:', merchantData.wallet_status); // "active"
             </div>
           </div>
         </Card>
-      </div>
+      </div> */}
+
 
       {/* Step 3: Accept Payments */}
       <div className="space-y-6">
@@ -740,7 +737,7 @@ console.log('Wallet Status:', merchantData.wallet_status); // "active"
                 Customers pay in SOL or USDC, you always receive stable USDC. No volatility risk.
               </p>
               <div className="bg-muted/50 rounded p-3 text-xs">
-                <span className="font-semibold">Fee:</span> 0.5% + minimal swap fees
+                <span className="font-semibold">Fee:</span> 0.6% + minimal swap fees
               </div>
             </div>
 
@@ -753,7 +750,7 @@ console.log('Wallet Status:', merchantData.wallet_status); // "active"
                 Receive payments in the exact token your customer pays with. Perfect for crypto enthusiasts.
               </p>
               <div className="bg-muted/50 rounded p-3 text-xs">
-                <span className="font-semibold">Fee:</span> 0.5% flat
+                <span className="font-semibold">Fee:</span> 0.6% flat
               </div>
             </div>
           </div>

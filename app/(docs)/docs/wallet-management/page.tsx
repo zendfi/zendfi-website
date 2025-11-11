@@ -70,7 +70,7 @@ export default function WalletManagement() {
             </ul>
           </Card>
 
-          <Card className="p-4">
+          {/* <Card className="p-4">
             <h3 className="text-lg font-bold mb-2">2. BIP39 Mnemonic Wallet</h3>
             <ul className="space-y-1 text-sm text-muted-foreground list-disc list-inside">
               <li><strong>Custodial</strong>: ZendFi manages the key</li>
@@ -78,9 +78,9 @@ export default function WalletManagement() {
               <li><strong>Cannot export</strong>: Key stays secure on server</li>
               <li><strong>Cannot withdraw via API</strong>: Contact support for withdrawals</li>
             </ul>
-          </Card>
+          </Card> */}
 
-          <Card className="p-4">
+          {/* <Card className="p-4">
             <h3 className="text-lg font-bold mb-2">3. Simple Deterministic Wallet</h3>
             <ul className="space-y-1 text-sm text-muted-foreground list-disc list-inside">
               <li><strong>Custodial</strong>: ZendFi manages the key</li>
@@ -88,10 +88,10 @@ export default function WalletManagement() {
               <li><strong>Cannot export</strong>: Key stays secure on server</li>
               <li><strong>Cannot withdraw via API</strong>: Contact support for withdrawals</li>
             </ul>
-          </Card>
+          </Card> */}
 
           <Card className="p-4">
-            <h3 className="text-lg font-bold mb-2">4. Bring Your Own Wallet</h3>
+            <h3 className="text-lg font-bold mb-2">2. Bring Your Own Wallet</h3>
             <ul className="space-y-1 text-sm text-muted-foreground list-disc list-inside">
               <li><strong>Non-custodial</strong>: You manage your own wallet (Phantom, Solflare, Ledger)</li>
               <li><strong>No key management</strong>: Use your existing wallet</li>
