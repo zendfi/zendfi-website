@@ -100,16 +100,18 @@ export function UseCasesSlider() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
       loop: true,
-      align: 'start',
+      align: 'center',
       skipSnaps: false,
       dragFree: false,
-      // Reduce drag threshold on mobile for better performance
-      ...(isMobile && { 
-        containScroll: 'trimSnaps',
-        slidesToScroll: 1 
-      })
+      duration: 25,
+      containScroll: 'trimSnaps'
     },
-    [Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })]
+    [Autoplay({ 
+      delay: 5000, 
+      stopOnInteraction: true, 
+      stopOnMouseEnter: true,
+      stopOnFocusIn: true
+    })]
   )
 
   const scrollTo = useCallback((index: number) => {
@@ -132,53 +134,50 @@ export function UseCasesSlider() {
   }, [emblaApi])
 
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-secondary/5">
+    <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-background to-secondary/5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 leading-tight">
             Built for Every
             <span className="block text-accent">Use Case</span>
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
             From e-commerce to enterprise, ZendFi powers payments for businesses of all sizes.
           </p>
         </div>
 
         {/* Embla Carousel */}
         <div className="relative max-w-7xl mx-auto">
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex touch-pan-y">
+          <div className="overflow-hidden -mx-4 sm:mx-0" ref={emblaRef}>
+            <div className="flex will-change-transform">
               {useCases.map((useCase, index) => {
                 const Icon = useCase.icon
                 return (
-                  <div key={index} className="flex-[0_0_100%] min-w-0 px-4">
-                    {/* Remove backdrop-blur on mobile for better performance */}
-                    <div className={`relative rounded-3xl p-6 md:p-10 lg:p-16 min-h-[450px] md:min-h-[500px] lg:min-h-[600px] ${
-                      isMobile ? 'bg-background/95' : 'backdrop-blur-sm'
-                    }`}>
-                      <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+                  <div key={index} className="flex-[0_0_100%] min-w-0 pl-4 pr-4">
+                    <div className="relative rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 lg:p-16 min-h-[500px] sm:min-h-[450px] md:min-h-[500px] lg:min-h-[600px] bg-background/95 border border-border/50">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-16 items-start md:items-center h-full">
                         {/* Left Side - Info */}
-                        <div className="space-y-4 md:space-y-6 lg:space-y-8">
+                        <div className="space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8">
                           {/* Icon */}
-                          <div className={`w-16 h-16 rounded-2xl bg-background/80 flex items-center justify-center ${useCase.iconColor}`}>
-                            <Icon className="w-8 h-8" />
+                          <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-background/80 flex items-center justify-center ${useCase.iconColor} border border-border/30 transition-transform duration-200`}>
+                            <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
                           </div>
 
                           {/* Title */}
-                          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
                             {useCase.title}
                           </h3>
 
                           {/* Description */}
-                          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                          <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
                             {useCase.description}
                           </p>
 
                           {/* Example */}
-                          <div className="pt-6 border-t border-border/30">
-                            <p className="text-sm font-semibold text-accent mb-3">USE CASES:</p>
-                            <p className="text-base text-muted-foreground italic">
+                          <div className="pt-4 sm:pt-6 border-t border-border/30">
+                            <p className="text-xs sm:text-sm font-semibold text-accent mb-2 sm:mb-3">USE CASES:</p>
+                            <p className="text-sm sm:text-base text-muted-foreground italic">
                               {useCase.example}
                             </p>
                           </div>
@@ -186,21 +185,21 @@ export function UseCasesSlider() {
 
                         {/* Right Side - Code Example */}
                         <div className="relative h-full flex items-center">
-                          <div className="bg-gray-900 rounded-xl overflow-hidden border border-accent/20 w-full">
+                          <div className="bg-gray-900 rounded-lg sm:rounded-xl overflow-hidden border border-accent/20 w-full shadow-lg">
                             {/* Terminal Header */}
-                            <div className="flex items-center justify-between px-4 py-3 bg-gray-800 border-b border-gray-700">
-                              <div className="flex gap-2">
-                                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                            <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border-b border-gray-700">
+                              <div className="flex gap-1.5 sm:gap-2">
+                                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
+                                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
+                                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
                               </div>
-                              <span className="text-gray-400 text-xs">example.ts</span>
+                              <span className="text-gray-400 text-[10px] sm:text-xs">example.ts</span>
                             </div>
 
                             {/* Code */}
-                            <div className="p-6">
-                              <pre className="text-sm leading-relaxed">
-                                <code className="text-gray-300 font-mono">
+                            <div className="p-3 sm:p-4 md:p-6 overflow-x-auto">
+                              <pre className="text-xs sm:text-sm leading-relaxed">
+                                <code className="text-gray-300 font-mono whitespace-pre">
                                   {useCase.code}
                                 </code>
                               </pre>
@@ -208,7 +207,7 @@ export function UseCasesSlider() {
                           </div>
 
                           {/* Floating Badge */}
-                          <div className="absolute -top-4 -right-4 bg-accent text-white px-4 py-2 rounded-full text-sm font-semibold">
+                          <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-accent text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold shadow-lg">
                             {index + 1} of {useCases.length}
                           </div>
                         </div>
@@ -221,12 +220,12 @@ export function UseCasesSlider() {
           </div>
 
           {/* Navigation Dots */}
-          <div className="flex items-center justify-center gap-2 mt-8">
+          <div className="flex items-center justify-center gap-2 mt-6 sm:mt-8">
             {useCases.map((_, index) => (
               <button
                 key={index}
                 onClick={() => scrollTo(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-300 ease-out ${
                   index === selectedIndex 
                     ? "bg-accent w-8" 
                     : "bg-border hover:bg-accent/50 w-2"
@@ -237,21 +236,21 @@ export function UseCasesSlider() {
           </div>
 
           {/* Use Case Labels */}
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-3 mt-8">
+          <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-2 sm:gap-3 mt-6 sm:mt-8">
             {useCases.map((useCase, index) => {
               const UseCaseIcon = useCase.icon
               return (
                 <button
                   key={index}
                   onClick={() => scrollTo(index)}
-                  className={`flex flex-col items-center gap-2 p-3 rounded-xl transition-all duration-300 ${
+                  className={`flex flex-col items-center gap-1.5 sm:gap-2 p-2 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-200 ease-out ${
                     index === selectedIndex
-                      ? "bg-accent/10 border-2 border-accent"
-                      : "bg-background/50 border border-border hover:border-accent/50"
+                      ? "bg-accent/10 border-2 border-accent scale-105"
+                      : "bg-background/50 border border-border hover:border-accent/50 hover:scale-105"
                   }`}
                 >
-                  <UseCaseIcon className={`w-5 h-5 ${index === selectedIndex ? useCase.iconColor : "text-muted-foreground"}`} />
-                  <span className={`text-xs font-medium text-center ${
+                  <UseCaseIcon className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-200 ${index === selectedIndex ? useCase.iconColor : "text-muted-foreground"}`} />
+                  <span className={`text-[10px] sm:text-xs font-medium text-center leading-tight transition-colors duration-200 ${
                     index === selectedIndex ? "text-accent" : "text-muted-foreground"
                   }`}>
                     {useCase.title.split(" ")[0]}
@@ -263,12 +262,12 @@ export function UseCasesSlider() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="inline-flex flex-col items-center gap-4">
-            <p className="text-lg text-muted-foreground">
+        <div className="text-center mt-12 sm:mt-16">
+          <div className="inline-flex flex-col items-center gap-3 sm:gap-4">
+            <p className="text-base sm:text-lg text-muted-foreground">
               Ready to build your use case?
             </p>
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-white font-semibold px-8">
+            <Button size="lg" className="bg-accent hover:bg-accent/90 text-white font-semibold px-6 sm:px-8 text-sm sm:text-base transition-all duration-200">
               Get Started Free
             </Button>
           </div>

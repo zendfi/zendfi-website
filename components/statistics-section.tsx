@@ -6,7 +6,7 @@ import Image from "next/image"
 export function StatisticsSection() {
   return (
     <section className="py-14">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Left side - Image */}
@@ -31,6 +31,7 @@ export function StatisticsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true }}
+            className="p-4"
           >
             <h2 className="font-heading text-4xl font-bold text-accent mb-6 text-balance">
               Built on proven technology, designed for the future

@@ -56,7 +56,7 @@ const plans = [
       "Custom branding",
       "Multi-merchant support",
     ],
-    buttonText: "Start Free Trial",
+    buttonText: "Contact Sales",
     buttonLink: "mailto:sales@zendfi.tech",
     popular: true,
   },
@@ -85,8 +85,8 @@ export function Pricing() {
   return (
     <section className="relative bg-background text-foreground">
         <Header />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center mt-5 py-24">
-        <div className="max-w-3xl mx-auto space-y-8 mb-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center  py-24">
+        <div className="max-w-3xl mx-auto space-y-8 mb-12 mt-15">
           <h2 className="text-4xl sm:text-5xl font-bold text-slate-900">
             Start Free. Scale Smart.
           </h2>

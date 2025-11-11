@@ -382,7 +382,7 @@ RESPONSE FORMAT:
                 
                 {/* Hint */}
                 <p className="text-xs text-muted-foreground mt-2 text-center">
-                    💡 Tip: Ask specific questions about API endpoints, webhooks, or wallet setup
+                    Tip: Ask specific questions about API endpoints, webhooks, or wallet setup
                 </p>
             </div>
         </div>

@@ -8,18 +8,21 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Ultra smooth scrolling with momentum (Safari-style) */
-* {
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
+/* Remove problematic global overflow settings */
+body {
+  -webkit-overflow-scrolling: auto !important;
 }
 
-/* Smooth transitions on scroll-triggered elements */
+/* Allow smooth scroll only where needed */
 @media (prefers-reduced-motion: no-preference) {
-  * {
+  html {
     scroll-behavior: smooth;
   }
 }
+
+/* ------------------------------------------------ */
+/* THEME COLORS                                     */
+/* ------------------------------------------------ */
 
 :root {
   --background: oklch(1 0 0);
@@ -92,8 +95,11 @@ html {
   --sidebar-ring: oklch(0.439 0 0);
 }
 
+/* ------------------------------------------------ */
+/* FONTS + BASE LAYER                               */
+/* ------------------------------------------------ */
+
 @theme inline {
-  /* Updated font variables for Jakarta Sans */
   --font-sans: var(--font-jakarta-sans);
   --font-heading: var(--font-jakarta-sans-bold);
   --font-mono: var(--font-geist-mono);
@@ -143,19 +149,16 @@ html {
     @apply bg-background text-foreground;
   }
 
-  /* Adding smooth scroll behavior and global animations */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Smooth transitions for interactive elements */
   a,
   button {
     transition: all 0.3s ease;
   }
 }
 
-/* Adding custom animation keyframes for smooth flow effects */
+/* ------------------------------------------------ */
+/* ANIMATIONS                                       */
+/* ------------------------------------------------ */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -200,24 +203,19 @@ html {
   }
 }
 
-/* Adding utility classes for smooth animations */
+/* Utility animations */
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
 }
-
 .animate-slide-in-left {
   animation: slideInLeft 0.6s ease-out forwards;
 }
-
 .animate-slide-in-right {
   animation: slideInRight 0.6s ease-out forwards;
 }
-
 .animate-scale-in {
   animation: scaleIn 0.5s ease-out forwards;
 }
-
-/* Staggered animation delays */
 .animate-delay-100 {
   animation-delay: 0.1s;
 }
@@ -230,53 +228,51 @@ html {
 .animate-delay-400 {
   animation-delay: 0.4s;
 }
+.animate-delay-500 {
+  animation-delay: 0.5s;
+}
 
-/* Performance optimizations for smooth scrolling */
+/* ------------------------------------------------ */
+/* PERFORMANCE FIXES + RESPONSIVENESS               */
+/* ------------------------------------------------ */
+
+/* Enable hardware acceleration for smooth rendering */
 * {
-  /* Enable hardware acceleration */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Optimize animations for 60fps */
+/* Avoid breaking sticky positioning */
+main,
+section,
+div {
+  /* will-change: auto !important; */
+  backface-visibility: visible !important;
+  -webkit-backface-visibility: visible !important;
+}
+
+/* Optimize for 60fps where motion is allowed */
 @media (prefers-reduced-motion: no-preference) {
   * {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
-  /* Smooth page transitions */
   body {
     transition: opacity 0.3s ease-in-out;
   }
 }
 
-/* Remove jank on scroll */
-main, section, div {
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-/* Mobile Performance Optimizations */
+/* Mobile Optimizations */
 @media (max-width: 768px) {
-  /* Disable will-change on mobile to save memory */
-  main, section, div {
-    will-change: auto;
-  }
-  
-  /* Reduce backdrop-filter complexity on mobile */
   [class*="backdrop-blur"] {
     backdrop-filter: none;
     background-color: rgba(var(--background), 0.95);
   }
-  
-  /* Optimize touch scrolling on iOS */
+
   * {
     -webkit-overflow-scrolling: touch;
   }
-  
-  /* Reduce animation complexity on mobile */
+
   @media (prefers-reduced-motion: no-preference) {
     * {
       animation-duration: 0.3s !important;
@@ -285,7 +281,7 @@ main, section, div {
   }
 }
 
-/* Respect user's reduced motion preference */
+/* Respect user's motion settings */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -297,20 +293,19 @@ main, section, div {
   }
 }
 
-.animate-delay-500 {
-  animation-delay: 0.5s;
-}
+/* ------------------------------------------------ */
+/* FONT SIZE ADJUSTMENTS                            */
+/* ------------------------------------------------ */
 
 @layer utilities {
-  /* Increase all font sizes by approximately 0.5 units */
-  .text-xs { font-size: 0.8125rem; } /* was 0.75rem */
-  .text-sm { font-size: 0.9375rem; } /* was 0.875rem */
-  .text-base { font-size: 1.0625rem; } /* was 1rem */
-  .text-lg { font-size: 1.1875rem; } /* was 1.125rem */
-  .text-xl { font-size: 1.3125rem; } /* was 1.25rem */
-  .text-2xl { font-size: 1.5625rem; } /* was 1.5rem */
-  .text-3xl { font-size: 1.9375rem; } /* was 1.875rem */
-  .text-4xl { font-size: 2.3125rem; } /* was 2.25rem */
-  .text-5xl { font-size: 3.0625rem; } /* was 3rem */
-  .text-6xl { font-size: 3.8125rem; } /* was 3.75rem */
+  .text-xs { font-size: 0.8125rem; }
+  .text-sm { font-size: 0.9375rem; }
+  .text-base { font-size: 1.0625rem; }
+  .text-lg { font-size: 1.1875rem; }
+  .text-xl { font-size: 1.3125rem; }
+  .text-2xl { font-size: 1.5625rem; }
+  .text-3xl { font-size: 1.9375rem; }
+  .text-4xl { font-size: 2.3125rem; }
+  .text-5xl { font-size: 3.0625rem; }
+  .text-6xl { font-size: 3.8125rem; }
 }

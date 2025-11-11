@@ -148,7 +148,7 @@ export function HeroSection() {
           >
             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-tight text-balance">
               <span className="block bg-gradient-to-br from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent">Seven lines of code.</span>
-              <span className="text-accent block">Boom. Payments live.</span>
+              <span className="text-accent block">Boom! Payments live.</span>
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-600 dark:text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium px-2">
@@ -179,7 +179,7 @@ export function HeroSection() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-accent text-accent hover:bg-accent/10 font-semibold px-8 py-6 text-lg transition-all duration-300 w-full sm:w-auto"
+                  className="border-2 border-accent text-accent font-semibold hover:bg-transparent hover:text-accent px-8 py-6 text-lg transition-all duration-300 w-full sm:w-auto"
                 >
                   View Live Demo
                 </Button>

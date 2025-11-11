@@ -74,17 +74,15 @@ export default function AboutPage() {
                     style={{ opacity, scale }}
                 />
 
-                {/* Animated Grid Background */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
-
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Hero */}
                     <motion.section
-                        className="relative text-center max-w-4xl mx-auto pt-24 pb-20 md:pt-32 md:pb-28"
+                        className="relative text-center max-w-4xl mx-auto pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden"
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
+                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
                         {/* Floating Badge */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -128,9 +126,9 @@ export default function AboutPage() {
                         >
                             <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
                                 <Link href="/signup">
-                                    <Button 
-                                        size="lg" 
-                                        className="bg-accent hover:bg-accent/90 text-white font-semibold px-8 py-6 text-lg w-full sm:w-auto"
+                                    <Button
+                                        size="lg"
+                                        className="bg-accent hover:bg-accent/90 font-semibold text-white px-8 py-6 text-lg w-full sm:w-auto"
                                     >
                                         Get Started Free
                                     </Button>
@@ -138,10 +136,10 @@ export default function AboutPage() {
                             </motion.div>
                             <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
                                 <Link href="/docs">
-                                    <Button 
-                                        size="lg" 
-                                        variant="outline" 
-                                        className="border-2 border-accent text-accent hover:bg-accent/10 font-semibold px-8 py-6 text-lg transition-all duration-300 w-full sm:w-auto"
+                                    <Button
+                                        size="lg"
+                                        variant="outline"
+                                        className="border-2 border-accent text-accent font-semibold hover:text-accent px-8 py-6 text-lg transition-all duration-300 w-full sm:w-auto"
                                     >
                                         View Live Demo
                                     </Button>
@@ -161,10 +159,10 @@ export default function AboutPage() {
                                 { value: "<400ms", label: "Settlement" }
                             ].map((stat, i) => (
                                 <div key={i} className="text-center">
-                                    <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-accent/70 to-accent/80 bg-clip-text text-transparent mb-2">
+                                    <div className="text-xl md:text-3xl font-bold bg-gradient-to-r from-accent/70 to-accent/80 bg-clip-text text-transparent mb-2">
                                         {stat.value}
                                     </div>
-                                    <div className="text-sm text-muted-foreground">
+                                    <div className="text-xs text-muted-foreground">
                                         {stat.label}
                                     </div>
                                 </div>
@@ -188,7 +186,7 @@ export default function AboutPage() {
                                 viewport={{ once: true }}
                             >
                                 <div className="relative">
-                                    <span className="inline-block px-4 py-1.5 rounded-full border border-violet-600 text-violet-600 text-sm font-semibold mb-6">
+                                    <span className="inline-block px-4 py-1.5 rounded-full border border-accent text-accent text-sm mb-6">
                                         Our Mission
                                     </span>
 
@@ -212,7 +210,7 @@ export default function AboutPage() {
                                     </div>
 
                                     {/* Decorative corner accent */}
-                                    <div className="absolute top-0 right-0 w-24 h-24 border-t-4 border-r-4 border-violet-600 rounded-tr-3xl opacity-20" />
+                                    <div className="absolute top-0 right-0 w-24 h-24 border-t-4 border-r-4 border-accent rounded-tr-3xl opacity-20" />
                                 </div>
                             </motion.div>
 
@@ -238,15 +236,15 @@ export default function AboutPage() {
                             transition={{ duration: 0.8 }}
                             viewport={{ once: true }}
                         >
-                                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-                                    Everything Stripe Has.
-                                    <br />
-                                    Plus Features They Don't.
-                                </h2>
-                                <p className="text-xl text-muted-foreground leading-relaxed">
-                                    We give you Stripe's developer experience with crypto's advantages: instant
-                                    settlements, zero chargebacks, and fees 80% lower.
-                                </p>
+                            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+                                Everything Stripe Has.
+                                <br />
+                                Plus Features They Don't.
+                            </h2>
+                            <p className="text-xl text-muted-foreground leading-relaxed">
+                                We give you Stripe's developer experience with crypto's advantages: instant
+                                settlements, zero chargebacks, and fees 80% lower.
+                            </p>
                         </motion.div>
 
                         <div className="space-y-6">
@@ -257,35 +255,34 @@ export default function AboutPage() {
                     </section>
 
 
+                </div>
                     {/* CTA Section */}
                     <motion.section
-                        className="py-20 md:py-28"
+                        className=""
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <div className="relative rounded-3xl bg-gradient-to-br from-accent/60 to-accent/60 p-12 md:p-16 text-center overflow-hidden">
-                            {/* Decorative Elements */}
-                            <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-                            <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+                        <div className="relativ bg-accent/20 p-12 md:p-16 text-center overflow-hidden">
+                 
 
                             <div className="relative z-10 max-w-2xl mx-auto">
-                                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                                <h2 className="text-3xl md:text-5xl font-bold text-slate-700 mb-6">
                                     Ready to Build with ZendFi?
                                 </h2>
-                                <p className="text-xl text-white/90 mb-8">
+                                <p className="text-xl text-slate-700/90 mb-8">
                                     Get started in minutes with our SDK. No credit card required.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                     <Link href={"/signup"}>
-                                    <Button size="lg" className="bg-white text-accent/60 hover:bg-white/90">
-                                        Get Started
-                                        <ArrowRight className="ml-2 w-4 h-4" />
-                                    </Button>
+                                        <Button size="lg" className="bg-transparent border border-accent text-accent hover:bg-transparent/90 group">
+                                            Get Started
+                                            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                        </Button>
                                     </Link>
-                                    <Button size="lg" variant="outline" className="border-white/30 text-white bg-white/10">
-                                        <Link href={"mailto:hello@zendfi.tech"}>
+                                    <Button size="lg" variant="outline" className="border-white/30 text-white bg-accent">
+                                        <Link href={"mailto:sales@zendfi.tech"}>
                                             Contact Sales
                                         </Link>
                                     </Button>
@@ -293,7 +290,6 @@ export default function AboutPage() {
                             </div>
                         </div>
                     </motion.section>
-                </div>
             </main>
 
             {/* <TestimonialSection /> */}
@@ -339,7 +335,7 @@ function InteractiveReasonCard({ reason, index }: { reason: any; index: number }
 
                     {/* Middle content */}
                     <div className="space-y-3">
-                        <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white group-hover:text-violet-600 transition-colors duration-300">
+                        <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white group-hover:text-accent transition-colors duration-300">
                             {reason.title}
                         </h3>
                         <p className="text-lg text-gray-600 dark:text-zinc-400 leading-relaxed">
@@ -353,7 +349,7 @@ function InteractiveReasonCard({ reason, index }: { reason: any; index: number }
                                     className="inline-flex items-center gap-2 px-3 py-1 rounded-full 
                bg-gray-50 dark:bg-zinc-800 text-sm"
                                 >
-                                    <CheckCircle2 className="w-4 h-4 text-violet-600" />
+                                    <CheckCircle2 className="w-4 h-4 text-accent" />
                                     <span className="font-medium text-gray-800 dark:text-zinc-300">
                                         {feature}
                                     </span>

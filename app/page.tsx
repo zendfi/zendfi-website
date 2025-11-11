@@ -115,7 +115,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Header />
-      <div className="">
+      <div className="relative">
         <HeroSection />
         <Suspense fallback={<SectionSkeleton />}>
           <DevSection />

@@ -3,7 +3,22 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, ChevronRight, Book, Code, Zap, Shield, Wallet, Terminal, Package, RefreshCw, Calendar, FileText, Users } from "lucide-react"
+import {
+  ChevronRight,
+  Book,
+  Code,
+  Zap,
+  Shield,
+  Wallet,
+  Terminal,
+  Package,
+  RefreshCw,
+  Calendar,
+  FileText,
+  Users,
+  Webhook,
+
+} from "lucide-react"
 import { DocsHeader } from "./_components/DocsHeader"
 import { DocsSidebar } from "./_components/Chat-sider"
 import { docData } from "@/lib/doc-json"
@@ -11,15 +26,13 @@ import { docData } from "@/lib/doc-json"
 function DocsLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const [isChatOpen, setIsChatOpen] = useState(false)
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [ isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   const navigationSections = [
     {
       title: "Getting Started",
       id: "getting-started",
-      items: [
-        { label: "Getting Started", href: "/docs", icon: Book },
-      ]
+      items: [{ label: "Getting Started", href: "/docs", icon: Book }],
     },
     {
       title: "API & Integration",
@@ -32,15 +45,13 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
         { label: "Installments", href: "/docs/api/installments", icon: Calendar },
         { label: "Invoices", href: "/docs/api/invoices", icon: FileText },
         { label: "Payment Links", href: "/docs/payment-links", icon: Zap },
-        { label: "Webhooks", href: "/docs/webhooks", icon: Zap },
-      ]
+        { label: "Webhooks", href: "/docs/webhooks", icon: Webhook },
+      ],
     },
     {
       title: "Features",
       id: "features",
-      items: [
-        { label: "Wallet Management", href: "/docs/wallet-management", icon: Wallet },
-      ]
+      items: [{ label: "Wallet Management", href: "/docs/wallet-management", icon: Wallet }],
     },
     {
       title: "Developer Tools",
@@ -48,21 +59,25 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
       items: [
         { label: "SDKs & Libraries", href: "/docs/sdks", icon: Package },
         { label: "CLI", href: "/docs/cli", icon: Terminal },
-      ]
-    }
+      ],
+    },
   ]
 
   return (
-    <div className="min-h-screen bg-background">
-      <DocsHeader onChatToggle={() => setIsChatOpen(!isChatOpen)} />
-      
-      {/* Left Sidebar - Fixed position */}
-      <aside
+    <div className="flex flex-col min-h-screen bg-background text-foreground">
+      {/* Header */}
+      <header className="bg-white z-40 border-b">
+          <DocsHeader onChatToggle={() => setIsChatOpen(!isChatOpen)} />
+      </header>
+
+      <div className="flex flex-1 relative">
+        {/* Sidebar */}
+        <aside
         className={`
-          fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-white border-r border-border
-          overflow-y-auto transition-transform duration-300 z-40
-          ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
-          md:translate-x-0
+          fixed left-0 top-16 h-[calc(100vh-4rem)] w-68 bg-white border-r border-border
+          overflow-y-auto transition-transform duration-300
+          ${isSidebarOpen ? "translate-x-0 z-50" : "-translate-x-full"}
+          md:translate-x-0 md:z-30
         `}
       >
         <nav className="p-4 space-y-6">
@@ -103,28 +118,19 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
           ))}
         </nav>
       </aside>
+        <main className=" md:ml-64 min-h-screen pt-20 sm:pt-24 md:pt-16">
+          <div className="max-w-screen lg:max-w-5xl mx-auto flex-1 p-4 sm:p-6 lg:p-10">
+            {children}
+          </div>
+        </main>
 
-      {/* Mobile sidebar overlay */}
-      {isSidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black/20 z-30 md:hidden"
-          onClick={() => setIsSidebarOpen(false)}
+        {/* Chat Sidebar */}
+        <DocsSidebar
+          docData={docData}
+          isOpen={isChatOpen}
+          onToggle={() => setIsChatOpen(!isChatOpen)}
         />
-      )}
-
-      {/* Main Content - Fixed margin for header and sidebar */}
-      <main className="pt-16 md:ml-64 min-h-screen">
-        <div className="max-w-5xl p-4 sm:p-6 lg:p-10">
-          {children}
-        </div>
-      </main>
-
-      {/* Chatbot Sidebar - Slides in from right */}
-      <DocsSidebar 
-        docData={docData} 
-        isOpen={isChatOpen}
-        onToggle={() => setIsChatOpen(!isChatOpen)}
-      />
+      </div>
     </div>
   )
 }

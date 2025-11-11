@@ -37,7 +37,7 @@ export default function GettingStarted() {
   const selectedOption = walletOptions.find(w => w.id === selectedWallet)
 
   return (
-    <div className="space-y-12 max-w-6xl mx-auto p-6">
+    <div className="space-y-12 max-w-6xl mx-auto">
       {/* Hero Section */}
       <div className="text- space-y-2">
         <h1 className="text-3xl md:text-4xl font-bold">Getting Started</h1>

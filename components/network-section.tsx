@@ -39,7 +39,7 @@ export function NetworkSection() {
 
   return (
     <section className="py-24 relative overflow-hidden bg-gradient-to-b from-background via-secondary/5 to-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <h2 className="font-heading text-4xl lg:text-5xl font-bold text-foreground mb-4">
@@ -51,7 +51,7 @@ export function NetworkSection() {
         </div>
 
         {/* Stripe-Style Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -59,9 +59,9 @@ export function NetworkSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group"
+              className="group relative"
             >
-              <div className="space-y-4">
+              <div className="space-y-4 p-8">
                 {/* Icon */}
                 <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
                   {feature.icon}

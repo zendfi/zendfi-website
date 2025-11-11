@@ -256,8 +256,6 @@ console.log(payment.checkout_url);`
                 <Copy className="w-4 h-4 text-slate-400 group-hover:text-white" />
               </button>
 
-              {/* Glow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-purple-600 rounded-2xl opacity-20 blur-xl -z-10" />
             </div>
           </motion.div>
         </div>
@@ -294,7 +292,7 @@ console.log(payment.checkout_url);`
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <Card className={`p-8 h-full  border border-border/50 hover:border-border transition-all`}>
+                  <Card className={`p-8 h-full bg-none border border-border/50 hover:border-border transition-all`}>
                     <div className="w-14 h-14 rounded-2xl bg-accent/70 flex items-center justify-center mb-6">
                       <Icon className="w-7 h-7 text-white" />
                     </div>
@@ -424,7 +422,7 @@ console.log(payment.checkout_url);`
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.03, y: -4 }}
                 >
-                  <Card className="p-6 h-full bg-background border border-border/50 hover:border-violet-500/30 hover:shadow-lg transition-all group">
+                  <Card className="p-6 h-full bg- border border-border/50 hover:border-violet-500/30 hover:shadow-lg transition-all group">
                     <div className="flex items-start gap-4 mb-4">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500/10 to-purple-500/10 flex items-center justify-center flex-shrink-0 transition-transform">
                         <Icon className={`w-6 h-6 ${useCase.color}`} />
