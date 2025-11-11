@@ -15,9 +15,10 @@ const useCases = [
     example: "Selling courses, software, templates, digital downloads",
     gradient: "from-purple-500/10 to-pink-500/10",
     iconColor: "text-purple-500",
-    code: `const payment = await zendfi.payments.create({
-  amount: 99_00, // $99
-  currency: 'USDC',
+    code: `const payment = await zendfi.createPayment({
+  amount: 99.00,
+  currency: 'USD',
+  token: 'USDC',
   description: 'Premium Course'
 });`
   },
@@ -28,10 +29,11 @@ const useCases = [
     example: "Monthly/annual plans, metered billing, usage-based pricing",
     gradient: "from-blue-500/10 to-cyan-500/10",
     iconColor: "text-blue-500",
-    code: `const subscription = await zendfi.subscriptions.create({
-  amount: 29_99,
-  interval: 'monthly',
-  customer: 'cus_abc123'
+    code: `const plan = await zendfi.createSubscriptionPlan({
+  name: 'Premium Monthly',
+  amount: 29.99,
+  currency: 'USD',
+  interval: 'monthly'
 });`
   },
   {
@@ -41,10 +43,11 @@ const useCases = [
     example: "Freelance platforms, NFT marketplaces, peer-to-peer trading",
     gradient: "from-green-500/10 to-emerald-500/10",
     iconColor: "text-green-500",
-    code: `const escrow = await zendfi.escrows.create({
-  amount: 500_00,
-  seller: 'seller_xyz',
-  releaseCondition: 'ManualApproval'
+    code: `const escrow = await zendfi.createEscrow({
+  buyer_wallet: '7xKBN...pT2',
+  seller_wallet: '8yLMQ...qW3',
+  amount: 500.00,
+  release_conditions: { type: 'manual_approval' }
 });`
   },
   {
@@ -54,10 +57,11 @@ const useCases = [
     example: "Split payments over 3, 6, or 12 months",
     gradient: "from-amber-500/10 to-orange-500/10",
     iconColor: "text-amber-500",
-    code: `const installment = await zendfi.installments.create({
-  totalAmount: 1200_00,
-  numberOfPayments: 6,
-  frequency: 'monthly'
+    code: `const plan = await zendfi.createInstallmentPlan({
+  customer_email: 'customer@example.com',
+  total_amount: 1200.00,
+  installment_count: 6,
+  payment_frequency_days: 30
 });`
   },
   {
@@ -67,10 +71,10 @@ const useCases = [
     example: "Agency work, consulting, B2B services, contract work",
     gradient: "from-indigo-500/10 to-violet-500/10",
     iconColor: "text-indigo-500",
-    code: `const invoice = await zendfi.invoices.create({
-  amount: 5000_00,
-  dueDate: '2025-12-31',
-  items: [{ name: 'Web Design', price: 5000_00 }]
+    code: `const invoice = await zendfi.createInvoice({
+  customer_email: 'client@company.com',
+  due_date: '2025-12-31',
+  items: [{ description: 'Web Design', unit_price: 5000.00 }]
 });`
   },
   {
@@ -80,9 +84,10 @@ const useCases = [
     example: "Game credits, premium features, virtual goods, consumables",
     gradient: "from-rose-500/10 to-red-500/10",
     iconColor: "text-rose-500",
-    code: `const payment = await zendfi.payments.create({
-  amount: 4_99,
-  currency: 'USDC',
+    code: `const payment = await zendfi.createPayment({
+  amount: 4.99,
+  currency: 'USD',
+  token: 'USDC',
   metadata: { itemId: 'gold_pack_1000' }
 });`
   },
