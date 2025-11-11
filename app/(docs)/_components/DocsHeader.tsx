@@ -1,6 +1,6 @@
 "use client"
 
-import { Bot, Menu, Book, Code, Zap, Shield, Wallet, Terminal, Package, RefreshCw, Calendar, FileText, Users } from "lucide-react"
+import { Bot, Menu, Book, Code, Zap, Shield, Wallet, Terminal, Package, RefreshCw, Calendar, FileText, Users, Webhook } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
@@ -16,7 +16,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { useIsMobile } from "@/hooks/use-mobile"
+// Removed runtime mobile detection to avoid conditional unmounting glitches
 
 interface DocsHeaderProps {
   onChatToggle?: () => void
@@ -25,7 +25,6 @@ interface DocsHeaderProps {
 export const DocsHeader = ({ onChatToggle }: DocsHeaderProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
-  const isMobile = useIsMobile()
 
   const navigationSections = [
     {
@@ -46,7 +45,7 @@ export const DocsHeader = ({ onChatToggle }: DocsHeaderProps) => {
         { label: "Installments", href: "/docs/api/installments", icon: Calendar },
         { label: "Invoices", href: "/docs/api/invoices", icon: FileText },
         { label: "Payment Links", href: "/docs/payment-links", icon: Zap },
-        { label: "Webhooks", href: "/docs/webhooks", icon: Zap },
+        { label: "Webhooks", href: "/docs/webhooks", icon: Webhook },
       ]
     },
     {
@@ -67,8 +66,8 @@ export const DocsHeader = ({ onChatToggle }: DocsHeaderProps) => {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-md">
-      <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-12">
+    <header className="w-full fixed flex-1 border-b bg-white">
+      <div className="mx-auto flex-1 w-full px-4 sm:px-6 lg:px-12">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <Image
@@ -88,7 +87,7 @@ export const DocsHeader = ({ onChatToggle }: DocsHeaderProps) => {
               variant="outline"
               size="sm"
               onClick={onChatToggle}
-              className="hover:text-accent transition-colors"
+              className="hover:text-accent transition-colors p-[18px]"
             >
               <Bot className="w-4 h-4 mr-2" />
               Docs Chat
@@ -105,8 +104,7 @@ export const DocsHeader = ({ onChatToggle }: DocsHeaderProps) => {
           </div>
 
           {/* Mobile: Search + Chat + Menu Trigger */}
-          {isMobile && (
-            <div className="flex md:hidden items-center gap-2">
+          <div className="flex items-center gap-2 md:hidden">
               <DocsSearch docsData={docData} />
               <Button
                 variant="ghost"
@@ -128,7 +126,7 @@ export const DocsHeader = ({ onChatToggle }: DocsHeaderProps) => {
                   </Button>
                 </SheetTrigger>
 
-                <SheetContent side="left" className="w-64 p-0 flex flex-col">
+                <SheetContent side="left" className="w-72 sm:w-80 h-full p-0 flex flex-col">
                   <SheetHeader className="p-6 pb-4 text-left border-b border-slate-200/50">
                     <SheetTitle className="text-sm font-semibold">Documentation</SheetTitle>
                     <SheetDescription className="sr-only">
@@ -189,8 +187,7 @@ export const DocsHeader = ({ onChatToggle }: DocsHeaderProps) => {
                   </div>
                 </SheetContent>
               </Sheet>
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </header>

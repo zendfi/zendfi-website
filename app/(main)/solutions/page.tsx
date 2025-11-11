@@ -20,10 +20,10 @@ import { ScheduleDemoButton } from "@/components/schedule-demo"
 
 export default function SolutionsPage() {
     return (
-        <div className="w-full min-h-screen flex flex-col bg-background">
+        <>
             <Header />
 
-            <main className="flex-1">
+            <main className="relative overflow-hidden lg:overflow-visible flex-1">
                 {/* HERO SECTION */}
                 <section className="relative overflow-hidden">
                     {/* Animated Background */}
@@ -75,7 +75,7 @@ export default function SolutionsPage() {
                                     <Link href="/signup">
                                         <Button 
                                             size="lg" 
-                                            className="bg-accent hover:bg-accent/90 text-white font-semibold px-8 py-6 text-lg w-full sm:w-auto"
+                                            className="bg-accent hover:bg-accent/90 text-white px-8 py-6 text-lg w-full sm:w-auto"
                                         >
                                             Get Started Free
                                         </Button>
@@ -86,7 +86,7 @@ export default function SolutionsPage() {
                                         <Button 
                                             size="lg" 
                                             variant="outline" 
-                                            className="border-2 border-accent text-accent hover:bg-accent/10 font-semibold px-8 py-6 text-lg transition-all duration-300 w-full sm:w-auto"
+                                            className="border-2 border-accent text-accent hover:text-accent px-8 py-6 text-lg transition-all duration-300 w-full sm:w-auto"
                                         >
                                             View Live Demo
                                         </Button>
@@ -107,7 +107,7 @@ export default function SolutionsPage() {
                                 ].map((metric, i) => (
                                     <div key={i} className="text-center">
                                         <metric.icon className="w-8 h-8 mx-auto mb-3 text-accent" />
-                                        <div className="text-2xl md:text-3xl font-bold text-foreground mb-1">
+                                        <div className="text-xl md:text-3xl font-bold text-foreground mb-1">
                                             {metric.value}
                                         </div>
                                         <div className="text-sm text-muted-foreground">
@@ -121,7 +121,7 @@ export default function SolutionsPage() {
                 </section>
 
                 {/* ADVANCED PAYMENT TYPES */}
-                <section id="payment-types" className="py-20 md:py-28 bg-gradient-to-b from-background to-muted/20">
+                <section id="payment-types" className="py-20 md:py-28 bg-gradient-to-b from-background to-muted/20 relative">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <motion.div
                             className="grid lg:grid-cols-[400px_1fr] gap-12 items-start"
@@ -131,7 +131,7 @@ export default function SolutionsPage() {
                             viewport={{ once: true, margin: "-100px" }}
                         >
                             {/* Sticky Icon Card */}
-                            <motion.div className="lg:sticky lg:top-32">
+                            <motion.div className="lg:sticky lg:top-32 lg:self-start">
                                 <div className="p-12 rounded-3xl bg-accent/5">
                                     <div className="w-20 h-20 rounded-2xl bg-accent/80 flex items-center justify-center mb-6">
                                         <CreditCard className="text-white w-10 h-10" />
@@ -209,7 +209,7 @@ export default function SolutionsPage() {
                 </section>
 
                 {/* HOSTED CHECKOUT PAGES */}
-                <section id="checkout" className="py-20 md:py-28 bg-background">
+                <section id="checkout" className="py-20 md:py-28 bg-background relative">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <motion.div
                             className="grid lg:grid-cols-[1fr_400px] gap-12 items-start"
@@ -277,7 +277,7 @@ export default function SolutionsPage() {
 
                             {/* Sticky Icon Card */}
                             <motion.div
-                                className="lg:sticky lg:top-32 order-1 lg:order-2"
+                                className="lg:sticky lg:top-32 lg:self-start order-1 lg:order-2"
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ duration: 0.3 }}
                             >
@@ -308,7 +308,7 @@ export default function SolutionsPage() {
                         >
                             {/* Sticky Icon Card */}
                             <motion.div
-                                className="lg:sticky lg:top-32"
+                                className="lg:sticky lg:top-32 lg:self-start"
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ duration: 0.3 }}
                             >
@@ -378,29 +378,29 @@ export default function SolutionsPage() {
                 </section>
 
                 {/* CTA SECTION */}
-                <section className="py-20 md:py-28">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <section className="">
+                    <div className="">
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: true }}
                         >
-                            <div className="relative rounded-3xl bg-gradient-to-br from-accent/60 to-accent/60 p-12 md:p-16 text-center overflow-hidden">
+                            <div className="relative  bg-accent/20 p-12 md:p-16 text-center overflow-hidden">
                                 {/* Decorative Elements */}
                                 <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
                                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
 
                                 <div className="relative z-10 max-w-3xl mx-auto">
-                                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                                    <h2 className="text-4xl md:text-5xl font-bold text-slate-700 mb-6">
                                         Build with ZendFi Today
                                     </h2>
-                                    <p className="text-xl text-white/90 mb-10 leading-relaxed">
+                                    <p className="text-xl text-slate-700/90 mb-10 leading-relaxed">
                                         Start accepting crypto, automate billing, and settle instantly — all in one place.
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                         <Link href={"/signup"}>
-                                            <Button size="lg" className="bg-white text-accent hover:bg-white/90 group">
+                                            <Button size="lg" className="bg-transparent border border-accent text-accent hover:bg-transparent/90 group">
                                                 Get Started Free
                                                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                             </Button>
@@ -409,7 +409,7 @@ export default function SolutionsPage() {
                                     </div>
 
                                     {/* Trust Indicators */}
-                                    <div className="mt-12 flex items-center justify-center gap-8 text-white/80 text-sm">
+                                    <div className="mt-12 flex items-center justify-center gap-8 text-slate-700 text-sm">
                                         <div className="flex items-center gap-2">
                                             <CheckCircle2 className="w-5 h-5" />
                                             <span>No credit card required</span>
@@ -427,7 +427,7 @@ export default function SolutionsPage() {
             </main>
 
             <Footer />
-        </div>
+        </>
     )
 }
 
