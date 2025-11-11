@@ -237,9 +237,9 @@ export default function AboutPage() {
                             viewport={{ once: true }}
                         >
                             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-                                Everything Stripe Has.
+                                Imagine Stripe...
                                 <br />
-                                Plus Features They Don't.
+                                But with crypto superpowers.
                             </h2>
                             <p className="text-xl text-muted-foreground leading-relaxed">
                                 We give you Stripe's developer experience with crypto's advantages: instant
