@@ -3,18 +3,13 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { motion } from "framer-motion"
 
 export function CTASection() {
   return (
     <section className="w-full">
       {/* CTA Section */}
-      <motion.section
-        className=""
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+      <section
+
       >
         <div className="relativ bg-accent/20 p-12 md:p-16 text-center overflow-hidden">
 
@@ -41,7 +36,7 @@ export function CTASection() {
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
     </section>
   )
 }

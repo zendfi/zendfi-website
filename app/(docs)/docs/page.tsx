@@ -740,7 +740,7 @@ console.log('Wallet Status:', merchantData.wallet_status); // "active"
                 Customers pay in SOL or USDC, you always receive stable USDC. No volatility risk.
               </p>
               <div className="bg-muted/50 rounded p-3 text-xs">
-                <span className="font-semibold">Fee:</span> 0.5% + minimal swap fees
+                <span className="font-semibold">Fee:</span> 0.6% + minimal swap fees
               </div>
             </div>
 
@@ -753,7 +753,7 @@ console.log('Wallet Status:', merchantData.wallet_status); // "active"
                 Receive payments in the exact token your customer pays with. Perfect for crypto enthusiasts.
               </p>
               <div className="bg-muted/50 rounded p-3 text-xs">
-                <span className="font-semibold">Fee:</span> 0.5% flat
+                <span className="font-semibold">Fee:</span> 0.6% flat
               </div>
             </div>
           </div>

@@ -59,7 +59,7 @@ export default function Home() {
           "name": "Growth Plan",
           "price": "49",
           "priceCurrency": "USD",
-          "description": "$49/mo + 0.5% per transaction - $10K-$100K/month"
+          "description": "$49/mo + 0.6% per transaction - $10K-$100K/month"
         },
         {
           "@type": "Offer",

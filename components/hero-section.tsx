@@ -146,7 +146,7 @@ export function HeroSection() {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-center space-y-6 sm:space-y-8 mb-10 sm:mb-16"
           >
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-tight text-balance">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-tight text-balance">
               <span className="block bg-gradient-to-br from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent">Seven lines of code.</span>
               <span className="text-accent block">Boom! Payments live.</span>
             </h1>

@@ -144,12 +144,12 @@ export function UseCasesSlider() {
 
         {/* Embla Carousel */}
         <div className="relative max-w-7xl mx-auto">
-          <div className="overflow-hidden -mx-4 sm:mx-0" ref={emblaRef}>
+          <div className="overflow-hidden sm:mx-0" ref={emblaRef}>
             <div className="flex will-change-transform">
               {useCases.map((useCase, index) => {
                 const Icon = useCase.icon
                 return (
-                  <div key={index} className="flex-[0_0_100%] min-w-0 pl-4 pr-4">
+                  <div key={index} className="flex-[0_0_100%] min-w-0 pl-2 pr-2 mx-auto">
                     <div className="relative rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 lg:p-16 min-h-[500px] sm:min-h-[450px] md:min-h-[500px] lg:min-h-[600px] bg-background/95 border border-border/50">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-16 items-start md:items-center h-full">
                         {/* Left Side - Info */}

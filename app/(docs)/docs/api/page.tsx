@@ -555,10 +555,10 @@ export default function APIReference() {
               </tbody>
             </table>
           </div>
-          
+
           <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
             <p className="text-sm text-blue-900">
-              <strong>💡 Pro Tip:</strong> Fields highlighted in <span className="bg-green-200 px-1 rounded">green</span> are filled progressively as the payment moves through its lifecycle. 
+              <strong>💡 Pro Tip:</strong> Fields highlighted in <span className="bg-green-200 px-1 rounded">green</span> are filled progressively as the payment moves through its lifecycle.
               The <span className="bg-yellow-200 px-1 rounded">mode</span> field is CRITICAL - it tells you which Solana network (testnet/mainnet) to verify the transaction on!
             </p>
           </div>
@@ -1401,14 +1401,14 @@ async function payWithCustomWallet(paymentId, customerWallet) {
         </Card>
 
         {/* Pro Tips */}
-        <Card className="p-6 bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200">
+        <Card className="p-6 border">
           <h3 className="text-lg font-bold mb-3">💡 Pro Tips</h3>
           <ul className="space-y-2 text-sm text-muted-foreground list-disc list-inside">
             <li><strong>Error handling:</strong> Always wrap in try-catch. Wallets can reject signatures!</li>
-            <li><strong>Pay-what-you-want:</strong> Include <code>amount_override</code> for PWYW payments</li>
+            <li><strong>Pay-what-you-want:</strong> Include <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">amount_override</code> for PWYW payments</li>
             <li><strong>Transaction expires:</strong> Transactions are only valid for ~2 minutes. Build fresh if needed!</li>
             <li><strong>No double-signing:</strong> ZendFi handles submission to Solana. You just sign!</li>
-            <li><strong>Use webhooks:</strong> Don't poll. Listen for <code>payment.confirmed</code> webhook</li>
+            <li><strong>Use webhooks:</strong> Don't poll. Listen for <code className="bg-slate-100 border rounded-sm font-mono text-gray-600 px-[5px] py-[2px] text-xs">payment.confirmed</code> webhook</li>
           </ul>
         </Card>
       </div>
@@ -2225,49 +2225,40 @@ showNotification(userMessage);`}</code>
           <div className="flex items-start gap-3">
             <ArrowRight className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
             <div>
-              <p className="font-semibold">Payment Links</p>
+              <Link href={"/docs/payment-links"}>
+                <p className="font-semibold">Payment Links</p>
+              </Link>
               <p className="text-sm text-muted-foreground">Create reusable payment pages - Share one link everywhere!</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <ArrowRight className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
             <div>
-              <p className="font-semibold">Webhooks</p>
+              <Link href={"/docs/webhooks"}>
+                <p className="font-semibold">Webhooks</p>
+              </Link>
               <p className="text-sm text-muted-foreground">Handle payment events in real-time - Never miss a payment!</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <ArrowRight className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
             <div>
-              <p className="font-semibold">Wallet Management</p>
+              <Link href={"/docs/wallwt-management"}>
+                <p className="font-semibold">Wallet Management</p>
+              </Link>
               <p className="text-sm text-muted-foreground">Export keys, withdraw funds - Full control of your money!</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <ArrowRight className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
             <div>
-              <p className="font-semibold">Advanced Features</p>
+              <Link href={"/docs/advanced"}>
+                <p className="font-semibold">Advanced Features</p>
+              </Link>
               <p className="text-sm text-muted-foreground">Subscriptions, escrows, installments - Level up your game!</p>
             </div>
           </div>
         </div>
-      </Card>
-
-      {/* Need Help */}
-      <Card className="p-6 text-center bg-gradient-to-r from-primary/10 to-primary/5">
-        <h2 className="text-xl font-bold mb-3">Need Help? We're Here for You!</h2>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <span> <Link href="mailto:support@zendfi.tech" className="hover:underline hover:text-accent cursor-pointer">support@zendfi.tech</Link> - Real humans who actually reply!</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span>Discord Community - Join fellow builders!</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span>Video Tutorials - See it in action!</span>
-          </div>
-        </div>
-        <p className="mt-4 font-semibold text-primary">Happy building! You're doing amazing!</p>
       </Card>
     </div>
   )

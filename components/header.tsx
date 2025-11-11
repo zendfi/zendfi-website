@@ -93,7 +93,7 @@ export function Header() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? 'sticky bg-white border-b border-border/50 shadow-sm'
+          ? 'bg-white/80 backdrop-blur-xl border-b border-border/50 shadow-sm'
           : 'bg-transparent'
       }`}
     >

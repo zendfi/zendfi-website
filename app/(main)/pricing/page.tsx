@@ -46,7 +46,7 @@ const plans = [
     name: "Growth",
     highlight: "Most Popular",
     price: "$49/mo",
-    description: "+ 0.5% per transaction",
+    description: "+ 0.6% per transaction",
     limit: "$10K-$100K/month",
     features: [
       "Everything in Starter",

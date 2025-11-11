@@ -149,7 +149,7 @@ What happens next?
 
 What makes Zendfi different?
 ⚡ Under 15 minutes: Lightning-fast transfers
-💰 0.5% fees: Transparent, low-cost pricing
+💰 0.6% fees: Transparent, low-cost pricing
 🔒 Bank-grade security: Your money is protected
 🌍 US/UK to Nigeria: Seamless cross-border payments
 

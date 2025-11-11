@@ -264,11 +264,7 @@ div {
 
 /* Mobile Optimizations */
 @media (max-width: 768px) {
-  [class*="backdrop-blur"] {
-    backdrop-filter: none;
-    background-color: rgba(var(--background), 0.95);
-  }
-
+ 
   * {
     -webkit-overflow-scrolling: touch;
   }
