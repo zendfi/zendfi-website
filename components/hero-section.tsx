@@ -152,7 +152,7 @@ export function HeroSection() {
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-600 dark:text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium px-2">
-              The crypto payment SDK developers actually want to use. <span className="text-accent font-bold">0.6% all-inclusive.</span> No blockchain degree required.
+              The crypto payment SDK developers actually want to use. 0.6% all-inclusive. <span className="text-accent font-bold">Gas fees on us.</span> No blockchain degree required.
             </p>
           </motion.div>
 
