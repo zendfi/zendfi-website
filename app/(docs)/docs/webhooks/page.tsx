@@ -439,8 +439,8 @@ export default function Webhooks() {
         <p className="text-muted-foreground mb-4">
           Every webhook follows the same JSON structure. The <code className="bg-slate-200 dark:bg-slate-800 px-1 rounded">event</code> field indicates which event occurred:
         </p>
-        <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-          <code>{`{
+        <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mt-10">
+          <code className="language-json mt-5">{`{
   "event": "payment.confirmed",
   "payment": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
@@ -561,7 +561,7 @@ export default function Webhooks() {
           <h4 className="text-lg font-bold mb-3">PaymentCreated Event</h4>
           <p className="text-muted-foreground mb-4">Sent immediately when a payment is created (via API or payment link).</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "event": "PaymentCreated",
   "payment": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
@@ -593,7 +593,7 @@ export default function Webhooks() {
           <h4 className="text-lg font-bold mb-3">PaymentConfirmed Event</h4>
           <p className="text-muted-foreground mb-4">Sent when payment is verified on Solana blockchain (usually 30-60 seconds after customer pays).</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "event": "PaymentConfirmed",
   "payment": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
@@ -628,7 +628,7 @@ export default function Webhooks() {
           <h4 className="text-lg font-bold mb-3">PaymentFailed Event</h4>
           <p className="text-muted-foreground mb-4">Sent when payment verification fails (invalid transaction, insufficient funds, etc.).</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "event": "PaymentFailed",
   "payment": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
@@ -661,7 +661,7 @@ export default function Webhooks() {
           <h4 className="text-lg font-bold mb-3">PaymentExpired Event</h4>
           <p className="text-muted-foreground mb-4">Sent when the 15-minute payment window expires without customer completing payment.</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "event": "PaymentExpired",
   "payment": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
@@ -694,7 +694,7 @@ export default function Webhooks() {
           <h4 className="text-lg font-bold mb-3">SettlementCompleted Event</h4>
           <p className="text-muted-foreground mb-4">Sent when funds are settled to your wallet (after auto-conversion to USDC if enabled).</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "event": "SettlementCompleted",
   "payment": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
@@ -731,7 +731,7 @@ export default function Webhooks() {
           <h4 className="text-lg font-bold mb-3">subscription.created</h4>
           <p className="text-muted-foreground mb-4">Sent when a new subscription plan is created.</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "event": "subscription.created",
   "subscription": {
     "id": "sub_8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d",
@@ -757,7 +757,7 @@ export default function Webhooks() {
           <h4 className="text-lg font-bold mb-3">subscription.renewed</h4>
           <p className="text-muted-foreground mb-4">Sent when recurring payment succeeds (most important subscription event!).</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "event": "subscription.renewed",
   "subscription": {
     "id": "sub_8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d",
@@ -784,7 +784,7 @@ export default function Webhooks() {
           <h4 className="text-lg font-bold mb-3">escrow.funded</h4>
           <p className="text-muted-foreground mb-4">Sent when buyer deposits funds into escrow.</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "event": "escrow.funded",
   "escrow": {
     "id": "esc_1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
@@ -810,7 +810,7 @@ export default function Webhooks() {
           <h4 className="text-lg font-bold mb-3">escrow.released</h4>
           <p className="text-muted-foreground mb-4">Sent when funds are released to seller after conditions met.</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "event": "escrow.released",
   "escrow": {
     "id": "esc_1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
@@ -836,7 +836,7 @@ export default function Webhooks() {
           <h4 className="text-lg font-bold mb-3">installment.paid</h4>
           <p className="text-muted-foreground mb-4">Sent when customer pays an installment on time.</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "event": "installment.paid",
   "installment": {
     "id": "inst_9a8b7c6d-5e4f-3a2b-1c0d-9e8f7a6b5c4d",
@@ -861,7 +861,7 @@ export default function Webhooks() {
           <h4 className="text-lg font-bold mb-3">installment.late</h4>
           <p className="text-muted-foreground mb-4">Sent when payment due date passes without payment.</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "event": "installment.late",
   "installment": {
     "id": "inst_9a8b7c6d-5e4f-3a2b-1c0d-9e8f7a6b5c4d",
@@ -888,7 +888,7 @@ export default function Webhooks() {
           <h4 className="text-lg font-bold mb-3">invoice.paid</h4>
           <p className="text-muted-foreground mb-4">Sent when customer completes payment for an invoice.</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "event": "invoice.paid",
   "invoice": {
     "id": "inv_2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
@@ -920,7 +920,7 @@ export default function Webhooks() {
           <h4 className="text-lg font-bold mb-3">payment_link.used</h4>
           <p className="text-muted-foreground mb-4">Sent each time a customer pays via your payment link.</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "event": "payment_link.used",
   "payment_link": {
     "id": "link_3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
@@ -950,7 +950,7 @@ export default function Webhooks() {
           <h4 className="text-lg font-bold mb-3">withdrawal.completed</h4>
           <p className="text-muted-foreground mb-4">Sent when you successfully withdraw funds from your ZendFi balance.</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "event": "withdrawal.completed",
   "withdrawal": {
     "id": "wd_4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a",
@@ -999,7 +999,7 @@ export default function Webhooks() {
           <h3 className="text-lg font-bold mb-3">How Signature Verification Works</h3>
           <ol className="space-y-2 text-muted-foreground list-decimal list-inside">
             <li>Extract timestamp <code>t</code> from signature</li>
-            <li>Construct signed payload: <code>{`"{timestamp}:{webhook_json}"`}</code></li>
+            <li>Construct signed payload: <code className="language-json mt-5">{`"{timestamp}:{webhook_json}"`}</code></li>
             <li>Compute HMAC-SHA256 using your webhook secret</li>
             <li>Compare computed signature with provided <code>v1</code> signature</li>
             <li>Check timestamp is within 5 minutes (replay protection)</li>
@@ -1102,7 +1102,7 @@ export default function Webhooks() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Example Request</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/webhooks/verify \\
+            <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/webhooks/verify \\
   -H "Authorization: Bearer zfi_test_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -1116,7 +1116,7 @@ export default function Webhooks() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">Example Response (Valid)</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "valid": true,
   "message": "Webhook signature is valid",
   "timestamp_age_seconds": 3
@@ -1127,7 +1127,7 @@ export default function Webhooks() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">Example Response (Expired)</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "valid": false,
   "message": "Webhook signature expired (420 seconds old, max 300)",
   "timestamp_age_seconds": 420
@@ -1138,7 +1138,7 @@ export default function Webhooks() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">Example Response (Invalid)</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "valid": false,
   "message": "Webhook signature is invalid",
   "timestamp_age_seconds": 5
@@ -1171,7 +1171,7 @@ export default function Webhooks() {
 
           <p className="text-muted-foreground mb-4">Returns an array of webhook event objects (up to 50 most recent).</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`[
+            <code className="language-json mt-5">{`[
   {
     "id": "660e8400-e29b-41d4-a716-446655440002",
     "payment_id": "550e8400-e29b-41d4-a716-446655440000",
@@ -1294,7 +1294,7 @@ export default function Webhooks() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Manual Retry Endpoint</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`POST /api/v1/webhooks/{webhook_id}/retry`}</code>
+            <code className="language-json mt-5">{`POST /api/v1/webhooks/{webhook_id}/retry`}</code>
           </pre>
           <h4 className="text-md font-semibold mb-2">URL Parameters</h4>
           <div className="overflow-x-auto mb-4">
@@ -1318,13 +1318,13 @@ export default function Webhooks() {
 
           <h4 className="font-semibold mb-2">Example Request</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/webhooks/660e8400-e29b-41d4-a716-446655440002/retry \\
+            <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/webhooks/660e8400-e29b-41d4-a716-446655440002/retry \\
   -H "Authorization: Bearer zfi_test_abc123..."`}</code>
           </pre>
 
           <h4 className="font-semibold mb-2">Example Response</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "message": "Webhook retry triggered",
   "webhook_id": "660e8400-e29b-41d4-a716-446655440002"
 }`}</code>
@@ -1371,7 +1371,7 @@ export default function Webhooks() {
           </pre>
           <p className="text-sm text-muted-foreground mb-4"><strong>Note:</strong> This is an admin endpoint. Contact support for access.</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`[
+            <code className="language-json mt-5">{`[
   {
     "id": "880e8400-e29b-41d4-a716-446655440004",
     "webhook_event_id": "660e8400-e29b-41d4-a716-446655440002",
@@ -1398,10 +1398,10 @@ export default function Webhooks() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">DLQ Entry Details</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`GET /admin/webhooks/dlq/{dlq_id}`}</code>
+            <code className="language-json mt-5">{`GET /admin/webhooks/dlq/{dlq_id}`}</code>
           </pre>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "dlq_entry": {
     "id": "880e8400-e29b-41d4-a716-446655440004",
     "webhook_event_id": "660e8400-e29b-41d4-a716-446655440002",
@@ -1448,18 +1448,18 @@ export default function Webhooks() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Resolve DLQ Entry</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`POST /admin/webhooks/dlq/{dlq_id}/resolve`}</code>
+            <code className="language-json mt-5">{`POST /admin/webhooks/dlq/{dlq_id}/resolve`}</code>
           </pre>
           <h4 className="font-semibold mb-2">Request:</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm mb-4">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "resolution_status": "resolved",
   "resolution_notes": "Fixed webhook URL and manually retried"
 }`}</code>
           </pre>
           <h4 className="font-semibold mb-2">Response:</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "message": "DLQ entry resolved",
   "dlq_id": "880e8400-e29b-41d4-a716-446655440004",
   "status": "resolved"
@@ -1487,7 +1487,7 @@ export default function Webhooks() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Step 2: Update Your Webhook URL</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X PATCH https://api.zendfi.tech/api/v1/merchants/me \\
+            <code className="language-bash mt-5">{`curl -X PATCH https://api.zendfi.tech/api/v1/merchants/me \\
   -H "Authorization: Bearer zfi_test_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -1499,7 +1499,7 @@ export default function Webhooks() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Step 3: Create Test Payment</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
+            <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
   -H "Authorization: Bearer zfi_test_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -1541,7 +1541,7 @@ export default function Webhooks() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Node.js/Express: Complete Webhook Handler</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`const express = require('express');
+            <code className="language-json mt-5">{`const express = require('express');
 const crypto = require('crypto');
 
 const app = express();
@@ -1719,7 +1719,7 @@ app.listen(3000, () => {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Python/Flask: Webhook Handler with Signature Verification</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`from flask import Flask, request, jsonify
+            <code className="language-json mt-5">{`from flask import Flask, request, jsonify
 import hmac
 import hashlib
 import time
@@ -1985,3 +1985,4 @@ if __name__ == '__main__':
     </div>
   )
 }
+

@@ -207,7 +207,7 @@ export default function AdvancedFeatures() {
           <p className="text-muted-foreground mb-4">Perfect for platforms like Etsy, Gumroad, or any marketplace!</p>
           <h5 className="font-medium mb-2">Request:</h5>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
+<code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
   -H "Authorization: Bearer zfi_test_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -244,7 +244,7 @@ export default function AdvancedFeatures() {
           </pre>
           <h5 className="font-medium mb-2">Response:</h5>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`{
+<code className="language-json mt-5">{`{
   "id": "550e8400-e29b-41d4-a716-446655440000",
   "amount": 100.00,
   "currency": "USD",
@@ -276,7 +276,7 @@ export default function AdvancedFeatures() {
           <p className="text-muted-foreground mb-4">Great for referral programs and affiliate marketing!</p>
           <h5 className="font-medium mb-2">Request:</h5>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
+<code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
   -H "Authorization: Bearer zfi_test_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -312,7 +312,7 @@ export default function AdvancedFeatures() {
           </pre>
           <h5 className="font-medium mb-2">Response:</h5>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`{
+<code className="language-json mt-5">{`{
   "id": "990e8400-e29b-41d4-a716-446655440004",
   "amount": 299.99,
   "currency": "USD",
@@ -349,7 +349,7 @@ export default function AdvancedFeatures() {
           <p className="text-muted-foreground mb-4">Perfect for music, podcasts, or collaborative content!</p>
           <h5 className="font-medium mb-2">Request:</h5>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
+<code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
   -H "Authorization: Bearer zfi_live_xyz789..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -391,7 +391,7 @@ export default function AdvancedFeatures() {
           </pre>
           <h5 className="font-medium mb-2">Response:</h5>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`{
+<code className="language-json mt-5">{`{
   "id": "dd0e8400-e29b-41d4-a716-446655440008",
   "amount": 9.99,
   "currency": "USD",
@@ -449,7 +449,7 @@ export default function AdvancedFeatures() {
           <h4 className="font-semibold mb-2">400 Bad Request - Invalid Split Configuration</h4>
           <p className="text-muted-foreground mb-2"><strong>Total percentages don&apos;t equal 100%:</strong></p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`{
+<code className="language-json mt-5">{`{
   "error": "Invalid split configuration",
   "details": "Total percentages must equal 100%, got 95%",
   "field": "split_recipients"
@@ -458,7 +458,7 @@ export default function AdvancedFeatures() {
           <p className="text-sm text-muted-foreground mb-4"><strong>Solution:</strong> Ensure all percentages add up to exactly 100.</p>
           <p className="text-muted-foreground mb-2"><strong>Fixed amounts exceed payment total:</strong></p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`{
+<code className="language-json mt-5">{`{
   "error": "Invalid split configuration",
   "details": "Total fixed amounts ($120.00) exceed payment amount ($100.00)",
   "field": "split_recipients"
@@ -467,7 +467,7 @@ export default function AdvancedFeatures() {
           <p className="text-sm text-muted-foreground mb-4"><strong>Solution:</strong> Fixed amounts must leave room for percentage-based splits.</p>
           <p className="text-muted-foreground mb-2"><strong>Invalid wallet address:</strong></p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`{
+<code className="language-json mt-5">{`{
   "error": "Invalid split configuration",
   "details": "Invalid Solana wallet address: invalid_address",
   "field": "split_recipients[0].recipient_wallet"
@@ -476,7 +476,7 @@ export default function AdvancedFeatures() {
           <p className="text-sm text-muted-foreground mb-4"><strong>Solution:</strong> All recipient wallets must be valid base58 Solana addresses.</p>
           <p className="text-muted-foreground mb-2"><strong>Duplicate wallets:</strong></p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`{
+<code className="language-json mt-5">{`{
   "error": "Invalid split configuration",
   "details": "Duplicate wallet address: 7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
   "field": "split_recipients"
@@ -485,7 +485,7 @@ export default function AdvancedFeatures() {
           <p className="text-sm text-muted-foreground mb-4"><strong>Solution:</strong> Each recipient must have a unique wallet address.</p>
           <p className="text-muted-foreground mb-2"><strong>Too many recipients:</strong></p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`{
+<code className="language-json mt-5">{`{
   "error": "Invalid split configuration",
   "details": "Maximum 10 split recipients allowed, got 15",
   "field": "split_recipients"
@@ -494,7 +494,7 @@ export default function AdvancedFeatures() {
           <p className="text-sm text-muted-foreground mb-4"><strong>Solution:</strong> Limit splits to 10 recipients per payment.</p>
           <p className="text-muted-foreground mb-2"><strong>Missing required field:</strong></p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`{
+<code className="language-json mt-5">{`{
   "error": "Invalid split configuration",
   "details": "Either percentage or fixed_amount_usd is required",
   "field": "split_recipients[1]"
@@ -551,7 +551,7 @@ export default function AdvancedFeatures() {
           <h4 className="font-semibold mb-2">Split Webhook Events</h4>
           <h5 className="font-medium mb-2">Split Completed:</h5>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`{
+<code className="language-json mt-5">{`{
   "event": "SplitCompleted",
   "split": {
     "id": "660e8400-e29b-41d4-a716-446655440001",
@@ -570,7 +570,7 @@ export default function AdvancedFeatures() {
           </pre>
           <h5 className="font-medium mb-2">Split Failed:</h5>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`{
+<code className="language-json mt-5">{`{
   "event": "SplitFailed",
   "split": {
     "id": "770e8400-e29b-41d4-a716-446655440002",
@@ -586,7 +586,7 @@ export default function AdvancedFeatures() {
           <h3 className="text-xl font-semibold mb-4">Code Examples</h3>
           <h4 className="font-semibold mb-2">Node.js: Create Payment with Splits</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`const axios = require('axios');
+<code className="language-json mt-5">{`const axios = require('axios');
 
 const ZENDFI_API_KEY = process.env.ZENDFI_API_KEY;
 
@@ -673,7 +673,7 @@ async function createMarketplacePayment(orderData) {
           </pre>
           <h4 className="font-semibold mb-2">Python: Affiliate Payment with Fixed Commission</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code>{`import requests
+<code className="language-java mt-5script">{`import requests
 import os
 
 ZENDFI_API_KEY = os.getenv('ZENDFI_API_KEY')
@@ -852,3 +852,4 @@ if __name__ == '__main__':
     </div>
   )
 }
+

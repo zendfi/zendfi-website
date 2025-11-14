@@ -181,12 +181,12 @@ export default function WalletManagement() {
             <p className="text-muted-foreground mb-4">Perfect for monitoring your funds!</p>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`curl https://api.zendfi.tech/api/v1/merchants/me/wallet \\
+              <code className="language-bash mt-5">{`curl https://api.zendfi.tech/api/v1/merchants/me/wallet \\
   -H "Authorization: Bearer zfi_test_abc123..."`}</code>
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "wallet_address": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
   "wallet_type": "mpc",
   "sol_balance": 0.5,
@@ -212,12 +212,12 @@ export default function WalletManagement() {
             <p className="text-muted-foreground mb-4">For custodial wallets.</p>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`curl https://api.zendfi.tech/api/v1/merchants/me/wallet \\
+              <code className="language-bash mt-5">{`curl https://api.zendfi.tech/api/v1/merchants/me/wallet \\
   -H "Authorization: Bearer zfi_live_xyz789..."`}</code>
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "wallet_address": "9yKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsW",
   "wallet_type": "custodial",
   "sol_balance": 2.35,
@@ -243,12 +243,12 @@ export default function WalletManagement() {
             <p className="text-muted-foreground mb-4">For your own wallet like Phantom.</p>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`curl https://api.zendfi.tech/api/v1/merchants/me/wallet \\
+              <code className="language-bash mt-5">{`curl https://api.zendfi.tech/api/v1/merchants/me/wallet \\
   -H "Authorization: Bearer zfi_live_def456..."`}</code>
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "wallet_address": "BxKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsY",
   "wallet_type": "external",
   "sol_balance": 10.5,
@@ -388,7 +388,7 @@ export default function WalletManagement() {
             <p className="text-muted-foreground mb-4"><strong>Important:</strong> You must complete passkey authentication first to get the signature data. This typically happens in your frontend using the WebAuthn API.</p>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`curl -X POST https://api.zendfi.tech/api/v1/merchants/me/wallet/export \\
+              <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/merchants/me/wallet/export \\
   -H "Authorization: Bearer zfi_test_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -402,7 +402,7 @@ export default function WalletManagement() {
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "wallet_address": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
   "private_key_base58": "5Kz8LWvZh7NYjJvPhHGYnNrB2rKqb2nnU6NJR4zHYQZ3k2PxMhR7vA8sB9cC0dD1eE2fF3gG4hH5iI6jJ7kK8lL9",
   "public_key": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
@@ -433,7 +433,7 @@ export default function WalletManagement() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">400 Bad Request - No MPC Wallet</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "error": "MPC wallet not found",
   "message": "This merchant doesn't have an MPC wallet. Only MPC wallets support key export."
 }`}</code>
@@ -444,7 +444,7 @@ export default function WalletManagement() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">401 Unauthorized - Invalid Passkey</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "error": "Failed to export key: Invalid passkey signature"
 }`}</code>
             </pre>
@@ -458,7 +458,7 @@ export default function WalletManagement() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">500 Internal Server Error</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "error": "Failed to export key: Failed to combine shards"
 }`}</code>
             </pre>
@@ -614,7 +614,7 @@ export default function WalletManagement() {
             <h4 className="text-lg font-bold mb-3">Example 1: Withdraw SOL to Phantom Wallet</h4>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`curl -X POST https://api.zendfi.tech/api/v1/merchants/me/wallet/withdraw \\
+              <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/merchants/me/wallet/withdraw \\
   -H "Authorization: Bearer zfi_test_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -631,7 +631,7 @@ export default function WalletManagement() {
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "success": true,
   "transaction_signature": "5KzZ8LWvZh7NYjJvPhHGYnNrB2rKqb2nnU6NJR4zHYQZ3k2PxMhR7vA8sB9cC0dD1eE2fF3gG4hH5iI6jJ7kK8",
   "from_address": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
@@ -657,7 +657,7 @@ export default function WalletManagement() {
             <h4 className="text-lg font-bold mb-3">Example 2: Withdraw USDC to Exchange</h4>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`curl -X POST https://api.zendfi.tech/api/v1/merchants/me/wallet/withdraw \\
+              <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/merchants/me/wallet/withdraw \\
   -H "Authorization: Bearer zfi_live_xyz789..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -674,7 +674,7 @@ export default function WalletManagement() {
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "success": true,
   "transaction_signature": "6LzZ8LWvZh7NYjJvPhHGYnNrB2rKqb2nnU6NJR4zHYQZ3k2PxMhR7vA8sB9cC0dD1eE2fF3gG4hH5iI6jJ7kK9",
   "from_address": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
@@ -700,7 +700,7 @@ export default function WalletManagement() {
             <h4 className="text-lg font-bold mb-3">Example 3: Withdraw Small Amount for Testing</h4>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`curl -X POST https://api.zendfi.tech/api/v1/merchants/me/wallet/withdraw \\
+              <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/merchants/me/wallet/withdraw \\
   -H "Authorization: Bearer zfi_test_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -717,7 +717,7 @@ export default function WalletManagement() {
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "success": true,
   "transaction_signature": "7LzZ8LWvZh7NYjJvPhHGYnNrB2rKqb2nnU6NJR4zHYQZ3k2PxMhR7vA8sB9cC0dD1eE2fF3gG4hH5iI6jJ7kL0",
   "from_address": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
@@ -745,7 +745,7 @@ export default function WalletManagement() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">400 Bad Request - Invalid Amount</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "error": "Amount must be greater than 0"
 }`}</code>
             </pre>
@@ -755,7 +755,7 @@ export default function WalletManagement() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">400 Bad Request - Invalid Address</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "error": "Invalid destination address"
 }`}</code>
             </pre>
@@ -768,7 +768,7 @@ export default function WalletManagement() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">400 Bad Request - No MPC Wallet</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "error": "MPC wallet not found",
   "message": "This merchant doesn't have an MPC wallet."
 }`}</code>
@@ -779,7 +779,7 @@ export default function WalletManagement() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">401 Unauthorized - Invalid Passkey</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "error": "Withdrawal failed: Invalid passkey signature"
 }`}</code>
             </pre>
@@ -792,7 +792,7 @@ export default function WalletManagement() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">500 Internal Server Error - Insufficient Balance</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "error": "Withdrawal failed: Insufficient balance"
 }`}</code>
             </pre>
@@ -845,7 +845,7 @@ export default function WalletManagement() {
           <Card className="p-6">
             <h4 className="text-lg font-bold mb-3">1. Get Passkey Setup Page</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`GET /merchants/{merchant_id}/setup-passkey`}</code>
+              <code className="language-json mt-5">{`GET /merchants/{merchant_id}/setup-passkey`}</code>
             </pre>
             <p className="text-sm text-muted-foreground mb-4"><strong>Authentication:</strong> None (public URL)</p>
             <p className="text-sm text-muted-foreground mb-4"><strong>What It Does:</strong></p>
@@ -866,12 +866,12 @@ export default function WalletManagement() {
           <Card className="p-6">
             <h4 className="text-lg font-bold mb-3">2. Check Passkey Status</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`GET /api/merchants/{merchant_id}/passkey-status`}</code>
+              <code className="language-json mt-5">{`GET /api/merchants/{merchant_id}/passkey-status`}</code>
             </pre>
             <p className="text-sm text-muted-foreground mb-4"><strong>Authentication:</strong> None (public endpoint for merchant onboarding)</p>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "has_passkey": true,
   "has_mpc_wallet": true,
   "wallet_address": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU"
@@ -891,7 +891,7 @@ export default function WalletManagement() {
             </pre>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "merchant_id": "550e8400-e29b-41d4-a716-446655440000",
   "email": "merchant@example.com",
   "display_name": "Awesome Coffee Shop"
@@ -899,7 +899,7 @@ export default function WalletManagement() {
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "challenge_id": "660e8400-e29b-41d4-a716-446655440001",
   "options": {
     "challenge": "abc123...",
@@ -929,7 +929,7 @@ export default function WalletManagement() {
             </pre>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "challenge_id": "660e8400-e29b-41d4-a716-446655440001",
   "credential": {
     "id": "ABC123...XYZ789",
@@ -944,7 +944,7 @@ export default function WalletManagement() {
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "credential_id": "ABC123...XYZ789",
   "success": true
 }`}</code>
@@ -968,13 +968,13 @@ export default function WalletManagement() {
             </pre>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "merchant_id": "550e8400-e29b-41d4-a716-446655440000"
 }`}</code>
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "challenge_id": "770e8400-e29b-41d4-a716-446655440002",
   "options": {
     "challenge": "def456...",
@@ -997,7 +997,7 @@ export default function WalletManagement() {
             </pre>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "challenge_id": "770e8400-e29b-41d4-a716-446655440002",
   "credential": {
     "id": "ABC123...XYZ789",
@@ -1014,7 +1014,7 @@ export default function WalletManagement() {
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "success": true,
   "credential_id": "ABC123...XYZ789",
   "authenticator_data": [73, 150, 13, 229, ...],
@@ -1074,7 +1074,7 @@ export default function WalletManagement() {
         <Card className="p-6 border-primary/50">
           <h3 className="text-lg font-bold mb-3">Step 1: Create MPC Wallet (Devnet)</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/merchants \\
+            <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/merchants \\
   -H "Content-Type: application/json" \\
   -d '{
     "name": "Test Merchant",
@@ -1103,7 +1103,7 @@ export default function WalletManagement() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Step 3: Check Wallet Balance</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl https://api.zendfi.tech/api/v1/merchants/me/wallet \\
+            <code className="language-bash mt-5">{`curl https://api.zendfi.tech/api/v1/merchants/me/wallet \\
   -H "Authorization: Bearer YOUR_API_KEY"`}</code>
           </pre>
           <p className="text-sm text-muted-foreground">You should see:
@@ -1121,7 +1121,7 @@ export default function WalletManagement() {
           <h3 className="text-lg font-bold mb-3">Step 5: Test Withdrawal</h3>
           <p className="text-sm text-muted-foreground mb-4">Use the WebAuthn authentication flow to get a passkey signature, then:</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/merchants/me/wallet/withdraw \\
+            <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/merchants/me/wallet/withdraw \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -1152,7 +1152,7 @@ export default function WalletManagement() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Node.js: Check Balance and Withdraw</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`const axios = require('axios');
+            <code className="language-json mt-5">{`const axios = require('axios');
 
 const ZENDFI_API_KEY = process.env.ZENDFI_API_KEY;
 const BASE_URL = 'https://api.zendfi.tech';
@@ -1235,7 +1235,7 @@ async function withdrawFunds(toAddress, amount, token, passkeySignature) {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Python: Complete Wallet Management</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`import requests
+            <code className="language-java mt-5script">{`import requests
 import os
 
 ZENDFI_API_KEY = os.getenv('ZENDFI_API_KEY')

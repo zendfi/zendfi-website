@@ -241,7 +241,7 @@ export default function APIReference() {
 
           <h4 className="font-semibold mb-2">Request:</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
+            <code className="language-bash mt-10">{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
   -H "Authorization: Bearer zendfi_live_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -259,7 +259,7 @@ export default function APIReference() {
 
           <h4 className="font-semibold mb-2">Response: 200 OK</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-10">{`{
   "id": "550e8400-e29b-41d4-a716-446655440000",
   "amount": 99.99,
   "currency": "USD",
@@ -297,7 +297,7 @@ export default function APIReference() {
 
           <h4 className="font-semibold mb-2">Request:</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
+            <code className="language-bash mt-10">{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
   -H "Authorization: Bearer zendfi_live_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -310,7 +310,7 @@ export default function APIReference() {
 
           <h4 className="font-semibold mb-2">Response: 200 OK</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-10">{`{
   "id": "payment_sol123",
   "amount": 50.00,
   "currency": "USD",
@@ -345,7 +345,7 @@ export default function APIReference() {
 
           <h4 className="font-semibold mb-2">Request:</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
+            <code className="language-bash mt-10">{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
   -H "Authorization: Bearer zendfi_live_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -365,7 +365,7 @@ export default function APIReference() {
 
           <h4 className="font-semibold mb-2">Response: 200 OK</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-10">{`{
   "id": "payment_pwyw123",
   "amount": 10.00,
   "currency": "USD",
@@ -403,7 +403,7 @@ export default function APIReference() {
 
           <h4 className="font-semibold mb-2">Request:</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
+            <code className="language-bash mt-10">{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
   -H "Authorization: Bearer zendfi_live_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -421,7 +421,7 @@ export default function APIReference() {
 
           <h4 className="font-semibold mb-2">Response: 200 OK</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-10">{`{
   "id": "payment_evt123",
   "amount": 29.99,
   "currency": "USD",
@@ -571,7 +571,7 @@ export default function APIReference() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">400 Bad Request - Invalid Amount</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-10">{`{
   "error": {
     "message": "Invalid payment amount: Amount must be between $0.01 and $10,000.00",
     "field": "amount",
@@ -584,7 +584,7 @@ export default function APIReference() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">400 Bad Request - Invalid Currency</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-10">{`{
   "error": {
     "message": "Only USD currency is supported",
     "field": "currency",
@@ -597,7 +597,7 @@ export default function APIReference() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">400 Bad Request - Invalid Token</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-10">{`{
   "error": {
     "message": "Unsupported token. Supported tokens: USDC, SOL, USDT",
     "field": "token",
@@ -610,7 +610,7 @@ export default function APIReference() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">400 Bad Request - Invalid PWYW Config</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-10">{`{
   "error": {
     "message": "Invalid pay-what-you-want configuration: minimum_amount is required when allow_custom_amount is true",
     "field": "pwyw_config"
@@ -622,7 +622,7 @@ export default function APIReference() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">400 Bad Request - Invalid Description</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-10">{`{
   "error": {
     "message": "Invalid description: Description cannot exceed 500 characters",
     "field": "description"
@@ -634,7 +634,7 @@ export default function APIReference() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">401 Unauthorized</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-10">{`{
   "error": "unauthorized",
   "message": "Invalid or missing API key"
 }`}</code>
@@ -644,7 +644,7 @@ export default function APIReference() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">429 Too Many Requests - Limits Exceeded</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-10">{`{
   "error": {
     "message": "Payment limits exceeded",
     "details": "You have exceeded your daily volume, payment amount, or rate limits",
@@ -675,7 +675,7 @@ export default function APIReference() {
           <Card className="p-4">
             <h4 className="font-semibold mb-2">500 Internal Server Error</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-10">{`{
   "error": {
     "message": "Failed to create payment"
   }
@@ -728,13 +728,13 @@ export default function APIReference() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Example Request</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X GET https://api.zendfi.tech/api/v1/payments/550e8400-e29b-41d4-a716-446655440000 \\
+            <code className="language-bash mt-10">{`curl -X GET https://api.zendfi.tech/api/v1/payments/550e8400-e29b-41d4-a716-446655440000 \\
   -H "Authorization: Bearer zendfi_live_abc123..."`}</code>
           </pre>
 
           <h3 className="text-lg font-bold mb-3">Response: 200 OK</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-10">{`{
   "id": "550e8400-e29b-41d4-a716-446655440000",
   "merchant_id": "merchant_abc123",
   "amount": 99.99,
@@ -763,7 +763,7 @@ export default function APIReference() {
         <Card className="p-4">
           <h3 className="text-lg font-bold mb-2">Error Response - 404 Not Found</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-10">{`{
   "error": "payment_not_found",
   "message": "No payment found with ID: 550e8400-e29b-41d4-a716-446655440000"
 }`}</code>
@@ -784,7 +784,7 @@ export default function APIReference() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-2">Endpoint</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>GET /api/v1/payments/:id/status</code>
+            <code className="lanua">GET /api/v1/payments/:id/status</code>
           </pre>
 
           <h3 className="text-lg font-bold mb-2">Authentication</h3>
@@ -814,7 +814,7 @@ export default function APIReference() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Example Request</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X GET https://api.zendfi.tech/api/v1/payments/550e8400-e29b-41d4-a716-446655440000/status \\
+            <code className="language-bash mt-10">{`curl -X GET https://api.zendfi.tech/api/v1/payments/550e8400-e29b-41d4-a716-446655440000/status \\
   -H "Authorization: Bearer zendfi_live_abc123..."`}</code>
           </pre>
         </Card>
@@ -822,7 +822,7 @@ export default function APIReference() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Response: 200 OK - Pending</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-10">{`{
   "id": "550e8400-e29b-41d4-a716-446655440000",
   "status": "Pending",
   "amount": 99.99,
@@ -837,7 +837,7 @@ export default function APIReference() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Response: 200 OK - Confirmed</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-10">{`{
   "id": "550e8400-e29b-41d4-a716-446655440000",
   "status": "Confirmed",
   "amount": 99.99,
@@ -1088,7 +1088,7 @@ export default function APIReference() {
 
           <h4 className="font-semibold mb-2">Example Request</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/payments/550e8400-e29b-41d4-a716-446655440000/customer-info \\
+            <code className="language-bash mt-10">{`curl -X POST https://api.zendfi.tech/api/v1/payments/550e8400-e29b-41d4-a716-446655440000/customer-info \\
   -H "Content-Type: application/json" \\
   -d '{
     "email": "customer@example.com",
@@ -1115,7 +1115,7 @@ export default function APIReference() {
 
           <h4 className="font-semibold mb-2 mt-4">Response: 200 OK</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-10">{`{
   "success": true,
   "customer_id": "cus_abc123...",
   "payment_id": "550e8400-e29b-41d4-a716-446655440000",
@@ -1143,13 +1143,13 @@ export default function APIReference() {
 
           <h4 className="font-semibold mb-2">Example Request</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X GET https://api.zendfi.tech/api/v1/payments/550e8400-e29b-41d4-a716-446655440000/customer-info \\
+            <code className="language-bash mt-10">{`curl -X GET https://api.zendfi.tech/api/v1/payments/550e8400-e29b-41d4-a716-446655440000/customer-info \\
   -H "Authorization: Bearer zendfi_live_abc123..."`}</code>
           </pre>
 
           <h4 className="font-semibold mb-2 mt-4">Response: 200 OK</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-10">{`{
   "id": "cus_abc123...",
   "payment_id": "550e8400-e29b-41d4-a716-446655440000",
   "email": "customer@example.com",
@@ -1275,7 +1275,7 @@ export default function APIReference() {
 
           <h4 className="font-semibold mb-2">Example Request</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/payments/550e8400-e29b-41d4-a716-446655440000/build-transaction \\
+            <code className="language-bash mt-10">{`curl -X POST https://api.zendfi.tech/api/v1/payments/550e8400-e29b-41d4-a716-446655440000/build-transaction \\
   -H "Content-Type: application/json" \\
   -d '{
     "customer_wallet": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU"
@@ -1284,7 +1284,7 @@ export default function APIReference() {
 
           <h4 className="font-semibold mb-2 mt-4">Response: 200 OK</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-10">{`{
   "transaction": "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAHDRyx...",
   "message": "Transaction built successfully",
   "instructions": [
@@ -1318,7 +1318,7 @@ export default function APIReference() {
             <div>
               <h4 className="font-semibold text-sm mb-2">Step 1: Deserialize the Transaction</h4>
               <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto font-mono text-xs">
-                <code>{`import { Transaction } from '@solana/web3.js';
+                <code className="language-java mt-10script">{`import { Transaction } from '@solana/web3.js';
 
 const transaction = Transaction.from(
   Buffer.from(response.transaction, 'base64')
@@ -1329,7 +1329,7 @@ const transaction = Transaction.from(
             <div>
               <h4 className="font-semibold text-sm mb-2">Step 2: Sign with Customer's Wallet</h4>
               <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto font-mono text-xs">
-                <code>{`// Using Phantom wallet
+                <code className="language-json mt-10">{`// Using Phantom wallet
 const signedTransaction = await window.solana.signTransaction(transaction);
 
 // OR using Solana Wallet Adapter
@@ -1340,7 +1340,7 @@ const signedTransaction = await wallet.signTransaction(transaction);`}</code>
             <div>
               <h4 className="font-semibold text-sm mb-2">Step 3: Submit to ZendFi</h4>
               <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto font-mono text-xs">
-                <code>{`const serialized = signedTransaction.serialize();
+                <code className="language-json mt-10">{`const serialized = signedTransaction.serialize();
 const base64Tx = serialized.toString('base64');
 
 await fetch(\`/api/v1/payments/\${paymentId}/submit-transaction\`, {
@@ -1357,7 +1357,7 @@ await fetch(\`/api/v1/payments/\${paymentId}/submit-transaction\`, {
         <Card className="p-6 bg-blue-50 border-blue-200">
           <h3 className="text-lg font-bold mb-3">Complete Integration Example</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto font-mono text-xs">
-            <code>{`import { Connection, Transaction } from '@solana/web3.js';
+            <code className="language-java mt-10script">{`import { Connection, Transaction } from '@solana/web3.js';
 
 async function payWithCustomWallet(paymentId, customerWallet) {
   // 1. Build transaction
@@ -1436,7 +1436,7 @@ async function payWithCustomWallet(paymentId, customerWallet) {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Configuration</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-10">{`{
   "amount": 10.00,
   "currency": "USD",
   "allow_custom_amount": true,
@@ -1475,7 +1475,7 @@ async function payWithCustomWallet(paymentId, customerWallet) {
           <Card className="p-6">
             <h4 className="font-semibold mb-2">Donations (Support a Cause! ❤️):</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-10">{`{
   "allow_custom_amount": true,
   "minimum_amount": 5.00,
   "suggested_amount": 25.00,
@@ -1487,7 +1487,7 @@ async function payWithCustomWallet(paymentId, customerWallet) {
           <Card className="p-6">
             <h4 className="font-semibold mb-2">Tips for Service (Show Some Love! 💝):</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-10">{`{
   "allow_custom_amount": true,
   "minimum_amount": 0.50,
   "maximum_amount": 100.00,
@@ -1500,7 +1500,7 @@ async function payWithCustomWallet(paymentId, customerWallet) {
           <Card className="p-6">
             <h4 className="font-semibold mb-2">Flexible Pricing (You Decide the Value! 💎):</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-10">{`{
   "allow_custom_amount": true,
   "minimum_amount": 10.00,
   "maximum_amount": 50.00,
@@ -1550,7 +1550,7 @@ async function payWithCustomWallet(paymentId, customerWallet) {
         <Card className="p-6 border-primary/50">
           <h3 className="text-lg font-bold mb-3">Quick Example (See It in Action!)</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-10">{`{
   "amount": 100.00,
   "currency": "USD",
   "description": "Marketplace Sale",
@@ -1619,7 +1619,7 @@ async function payWithCustomWallet(paymentId, customerWallet) {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Usage</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
+            <code className="language-bash mt-10">{`curl -X POST https://api.zendfi.tech/api/v1/payments \\
   -H "Authorization: Bearer zendfi_live_abc123..." \\
   -H "Content-Type: application/json" \\
   -H "Idempotency-Key: checkout_session_abc123_attempt1" \\
@@ -1637,7 +1637,7 @@ async function payWithCustomWallet(paymentId, customerWallet) {
           <Card className="p-6">
             <h4 className="font-semibold mb-2">Generate Unique Keys:</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`// Node.js example
+              <code className="language-json mt-10">{`// Node.js example
 const idempotencyKey = \`checkout_\${sessionId}_\${Date.now()}_\${Math.random()}\`;`}</code>
             </pre>
           </Card>
@@ -1645,7 +1645,7 @@ const idempotencyKey = \`checkout_\${sessionId}_\${Date.now()}_\${Math.random()}
           <Card className="p-6">
             <h4 className="font-semibold mb-2">Retry with Same Key:</h4>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`// Retry logic
+              <code className="language-json mt-10">{`// Retry logic
 let attempts = 0;
 const maxAttempts = 3;
 const idempotencyKey = generateUniqueKey();
@@ -1707,7 +1707,7 @@ while (attempts < maxAttempts) {
             All error responses follow this structure:
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs">
-            <code>{`{
+            <code className="language-json mt-10">{`{
   "error": "Resource not found",
   "message": "Payment with ID 550e8400-e29b-41d4-a716-446655440000 not found",
   "code": "PAYMENT_NOT_FOUND"
@@ -2009,7 +2009,7 @@ while (attempts < maxAttempts) {
             <div>
               <p className="font-semibold mb-2">1. Always Check HTTP Status First</p>
               <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
-                <code>{`if (response.status >= 400) {
+                <code className="language-json mt-10">{`if (response.status >= 400) {
   const error = await response.json();
   console.error(\`Error [\${error.code}]: \${error.message}\`);
   
@@ -2031,7 +2031,7 @@ while (attempts < maxAttempts) {
             <div>
               <p className="font-semibold mb-2">2. Use Error Codes for Logic, Messages for Logging</p>
               <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
-                <code>{`// ✅ Good - use code for logic
+                <code className="language-json mt-10">{`// ✅ Good - use code for logic
 if (error.code === 'PAYMENT_NOT_FOUND') {
   redirectToCreatePayment();
 }
@@ -2046,7 +2046,7 @@ if (error.message.includes('not found')) { // Fragile!
             <div>
               <p className="font-semibold mb-2">3. Implement Retry Logic for 500 Errors</p>
               <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
-                <code>{`async function createPaymentWithRetry(data, maxRetries = 3) {
+                <code className="language-json mt-10">{`async function createPaymentWithRetry(data, maxRetries = 3) {
   for (let i = 0; i < maxRetries; i++) {
     try {
       const response = await fetch('/api/v1/payments', {
@@ -2075,7 +2075,7 @@ if (error.message.includes('not found')) { // Fragile!
             <div>
               <p className="font-semibold mb-2">4. Show User-Friendly Messages</p>
               <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
-                <code>{`const friendlyErrors = {
+                <code className="language-json mt-10">{`const friendlyErrors = {
   INVALID_AMOUNT: "Please enter a valid payment amount",
   PAYMENT_EXPIRED: "This payment link expired. We'll create a new one!",
   INVALID_API_KEY: "Authentication failed. Please contact support.",
@@ -2096,7 +2096,7 @@ showNotification(userMessage);`}</code>
             <div>
               <p className="text-sm font-medium mb-2">Missing API Key (401)</p>
               <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
-                <code>{`{
+                <code className="language-json mt-10">{`{
   "error": "Missing authentication",
   "message": "Authorization header is required",
   "code": "MISSING_AUTH_HEADER"
@@ -2107,7 +2107,7 @@ showNotification(userMessage);`}</code>
             <div>
               <p className="text-sm font-medium mb-2">Invalid Amount (400)</p>
               <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
-                <code>{`{
+                <code className="language-json mt-10">{`{
   "error": "Validation failed",
   "message": "Invalid payment amount: Amount must be greater than 0",
   "code": "INVALID_AMOUNT"
@@ -2118,7 +2118,7 @@ showNotification(userMessage);`}</code>
             <div>
               <p className="text-sm font-medium mb-2">Payment Expired (410)</p>
               <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
-                <code>{`{
+                <code className="language-json mt-10">{`{
   "error": "Resource expired",
   "message": "Payment expired after 15-minute window",
   "code": "PAYMENT_EXPIRED"
@@ -2129,7 +2129,7 @@ showNotification(userMessage);`}</code>
             <div>
               <p className="text-sm font-medium mb-2">Idempotency Key Conflict (409)</p>
               <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto text-xs">
-                <code>{`{
+                <code className="language-json mt-10">{`{
   "error": "Idempotency key mismatch",
   "message": "This idempotency key was used with different request parameters",
   "code": "IDEMPOTENCY_KEY_MISMATCH"
@@ -2263,3 +2263,5 @@ showNotification(userMessage);`}</code>
     </div>
   )
 }
+
+

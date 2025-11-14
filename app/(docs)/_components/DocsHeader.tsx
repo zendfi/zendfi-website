@@ -66,7 +66,7 @@ export const DocsHeader = ({ onChatToggle }: DocsHeaderProps) => {
   ]
 
   return (
-    <header className="w-full fixed flex-1 border-b bg-white">
+    <header className="w-full fixed flex-1 border-b bg-white z-[99999]">
       <div className="mx-auto flex-1 w-full px-4 sm:px-6 lg:px-12">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">

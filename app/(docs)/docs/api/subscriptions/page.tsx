@@ -197,7 +197,7 @@ export default function SubscriptionsAPIPage() {
         <h3 className="text-xl font-semibold mb-3">Example 1: Monthly SaaS Plan with Trial</h3>
         <h4 className="font-medium mb-2">Request:</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X POST https://api.zendfi.tech/api/v1/subscription-plans \\
+          <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/subscription-plans \\
   -H "Authorization: Bearer zfi_live_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -217,7 +217,7 @@ export default function SubscriptionsAPIPage() {
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-6">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "id": "plan_abc123def456",
   "merchant_id": "merchant_xyz789",
   "name": "Pro Plan - Monthly",
@@ -237,7 +237,7 @@ export default function SubscriptionsAPIPage() {
         <h3 className="text-xl font-semibold mb-3">Example 2: Annual Plan with Discount</h3>
         <h4 className="font-medium mb-2">Request:</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X POST https://api.zendfi.tech/api/v1/subscription-plans \\
+          <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/subscription-plans \\
   -H "Authorization: Bearer zfi_live_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -257,7 +257,7 @@ export default function SubscriptionsAPIPage() {
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "id": "plan_annual_xyz",
   "merchant_id": "merchant_xyz789",
   "name": "Pro Plan - Annual",
@@ -294,13 +294,13 @@ export default function SubscriptionsAPIPage() {
 
         <h4 className="font-medium mb-2">Example Request</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X GET https://api.zendfi.tech/api/v1/subscription-plans \\
+          <code className="language-bash mt-5">{`curl -X GET https://api.zendfi.tech/api/v1/subscription-plans \\
   -H "Authorization: Bearer zfi_live_abc123..."`}</code>
         </pre>
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`[
+          <code className="language-json mt-5">{`[
   {
     "id": "plan_abc123def456",
     "merchant_id": "merchant_xyz789",
@@ -349,12 +349,12 @@ export default function SubscriptionsAPIPage() {
 
         <h4 className="font-medium mb-2">Example Request</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X GET https://api.zendfi.tech/api/v1/subscription-plans/plan_abc123def456`}</code>
+          <code className="language-bash mt-5">{`curl -X GET https://api.zendfi.tech/api/v1/subscription-plans/plan_abc123def456`}</code>
         </pre>
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "id": "plan_abc123def456",
   "merchant_id": "merchant_xyz789",
   "name": "Pro Plan - Monthly",
@@ -426,7 +426,7 @@ export default function SubscriptionsAPIPage() {
 
         <h4 className="font-medium mb-2">Example Request</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X POST https://api.zendfi.tech/api/v1/subscriptions \\
+          <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/subscriptions \\
   -H "Content-Type: application/json" \\
   -d '{
     "plan_id": "plan_abc123def456",
@@ -441,7 +441,7 @@ export default function SubscriptionsAPIPage() {
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "id": "sub_xyz789abc123",
   "plan_id": "plan_abc123def456",
   "plan_name": "Pro Plan - Monthly",
@@ -487,12 +487,12 @@ export default function SubscriptionsAPIPage() {
 
         <h4 className="font-medium mb-2">Example Request</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X GET https://api.zendfi.tech/api/v1/subscriptions/sub_xyz789abc123`}</code>
+          <code className="language-bash mt-5">{`curl -X GET https://api.zendfi.tech/api/v1/subscriptions/sub_xyz789abc123`}</code>
         </pre>
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "id": "sub_xyz789abc123",
   "plan_id": "plan_abc123def456",
   "plan_name": "Pro Plan - Monthly",
@@ -552,7 +552,7 @@ export default function SubscriptionsAPIPage() {
         <h3 className="text-xl font-semibold mb-3">Example 1: Cancel Immediately</h3>
         <h4 className="font-medium mb-2">Request:</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X POST https://api.zendfi.tech/api/v1/subscriptions/sub_xyz789abc123/cancel \\
+          <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/subscriptions/sub_xyz789abc123/cancel \\
   -H "Content-Type: application/json" \\
   -d '{
     "cancel_at_period_end": false,
@@ -562,7 +562,7 @@ export default function SubscriptionsAPIPage() {
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-6">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "message": "Subscription cancelled successfully",
   "subscription_id": "sub_xyz789abc123",
   "cancel_at_period_end": false
@@ -572,7 +572,7 @@ export default function SubscriptionsAPIPage() {
         <h3 className="text-xl font-semibold mb-3">Example 2: Cancel at Period End</h3>
         <h4 className="font-medium mb-2">Request:</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X POST https://api.zendfi.tech/api/v1/subscriptions/sub_xyz789abc123/cancel \\
+          <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/subscriptions/sub_xyz789abc123/cancel \\
   -H "Content-Type: application/json" \\
   -d '{
     "cancel_at_period_end": true,
@@ -582,7 +582,7 @@ export default function SubscriptionsAPIPage() {
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "message": "Subscription cancelled successfully",
   "subscription_id": "sub_xyz789abc123",
   "cancel_at_period_end": true
@@ -701,7 +701,7 @@ export default function SubscriptionsAPIPage() {
 
         <h3 className="text-xl font-semibold mt-6 mb-3">Example Webhook Payload</h3>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "event": "subscription.renewed",
   "timestamp": "2025-11-09T12:10:05Z",
   "data": {
@@ -763,3 +763,4 @@ export default function SubscriptionsAPIPage() {
     </div>
   );
 }
+

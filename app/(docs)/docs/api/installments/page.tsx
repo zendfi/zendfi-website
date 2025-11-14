@@ -202,7 +202,7 @@ export default function InstallmentsAPIPage() {
         <h3 className="text-xl font-semibold mb-3">Example: 3-Month Payment Plan for MacBook</h3>
         <h4 className="font-medium mb-2">Request:</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X POST https://api.zendfi.tech/api/v1/installment-plans \\
+          <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/installment-plans \\
   -H "Authorization: Bearer zfi_live_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -223,7 +223,7 @@ export default function InstallmentsAPIPage() {
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "plan_id": "install_abc123def456",
   "status": "active"
 }`}</code>
@@ -261,13 +261,13 @@ export default function InstallmentsAPIPage() {
 
         <h4 className="font-medium mb-2">Example Request</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X GET https://api.zendfi.tech/api/v1/installment-plans/install_abc123def456 \\
+          <code className="language-bash mt-5">{`curl -X GET https://api.zendfi.tech/api/v1/installment-plans/install_abc123def456 \\
   -H "Authorization: Bearer zfi_live_abc123..."`}</code>
         </pre>
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "id": "install_abc123def456",
   "merchant_id": "merchant_xyz789",
   "customer_wallet": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
@@ -357,7 +357,7 @@ export default function InstallmentsAPIPage() {
 
         <h4 className="font-medium mb-2">Example Request</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`curl -X GET "https://api.zendfi.tech/api/v1/installment-plans?limit=20&offset=0" \\
+          <code className="language-bash mt-5">{`curl -X GET "https://api.zendfi.tech/api/v1/installment-plans?limit=20&offset=0" \\
   -H "Authorization: Bearer zfi_live_abc123..."`}</code>
         </pre>
       </section>
@@ -376,7 +376,7 @@ export default function InstallmentsAPIPage() {
 
         <h4 className="font-medium mb-2">Example Request</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`curl -X GET https://api.zendfi.tech/api/v1/customers/7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU/installment-plans`}</code>
+          <code className="language-bash mt-5">{`curl -X GET https://api.zendfi.tech/api/v1/customers/7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU/installment-plans`}</code>
         </pre>
       </section>
 
@@ -399,13 +399,13 @@ export default function InstallmentsAPIPage() {
 
         <h4 className="font-medium mb-2">Example Request</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X POST https://api.zendfi.tech/api/v1/installment-plans/install_abc123def456/cancel \\
+          <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/installment-plans/install_abc123def456/cancel \\
   -H "Authorization: Bearer zfi_live_abc123..."`}</code>
         </pre>
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "message": "Installment plan cancelled successfully",
   "plan_id": "install_abc123def456"
 }`}</code>
@@ -512,7 +512,7 @@ export default function InstallmentsAPIPage() {
 
         <h3 className="text-xl font-semibold mt-6 mb-3">Example Webhook Payload</h3>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "event": "installment.paid",
   "timestamp": "2025-10-27T10:30:05Z",
   "data": {
@@ -612,3 +612,4 @@ export default function InstallmentsAPIPage() {
     </div>
   );
 }
+

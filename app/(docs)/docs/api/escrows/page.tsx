@@ -196,7 +196,7 @@ export default function EscrowsAPIPage() {
             <h4 className="font-semibold mb-2">1. Manual Approval</h4>
             <p className="text-sm text-muted-foreground mb-2">Requires specific wallet to approve release</p>
             <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto font-mono text-xs">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "type": "manual_approval",
   "approver": "wallet_address",
   "approved": false
@@ -208,7 +208,7 @@ export default function EscrowsAPIPage() {
             <h4 className="font-semibold mb-2">2. Time-Based (Auto-release)</h4>
             <p className="text-sm text-muted-foreground mb-2">Automatically releases funds after specified date</p>
             <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto font-mono text-xs">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "type": "time_based",
   "release_after": "2025-11-01T00:00:00Z"
 }`}</code>
@@ -219,7 +219,7 @@ export default function EscrowsAPIPage() {
             <h4 className="font-semibold mb-2">3. Multi-Signature Confirmation</h4>
             <p className="text-sm text-muted-foreground mb-2">Requires multiple approvals before release</p>
             <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto font-mono text-xs">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "type": "confirmation_required",
   "confirmations_needed": 2,
   "confirmed_by": []
@@ -231,7 +231,7 @@ export default function EscrowsAPIPage() {
             <h4 className="font-semibold mb-2">4. Milestone-Based</h4>
             <p className="text-sm text-muted-foreground mb-2">Release tied to specific project milestone completion</p>
             <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto font-mono text-xs">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "type": "milestone",
   "description": "Website delivered and approved",
   "approved": false,
@@ -244,7 +244,7 @@ export default function EscrowsAPIPage() {
         <h3 className="text-xl font-semibold mb-3">Example: Freelance Project Escrow</h3>
         <h4 className="font-medium mb-2">Request:</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X POST https://api.zendfi.tech/api/v1/escrows \\
+          <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/escrows \\
   -H "Authorization: Bearer zfi_live_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -269,7 +269,7 @@ export default function EscrowsAPIPage() {
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "id": "escrow_abc123def456",
   "payment_id": "payment_xyz789",
   "buyer_wallet": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
@@ -320,13 +320,13 @@ export default function EscrowsAPIPage() {
 
         <h4 className="font-medium mb-2">Example Request</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X GET https://api.zendfi.tech/api/v1/escrows/escrow_abc123def456 \\
+          <code className="language-bash mt-5">{`curl -X GET https://api.zendfi.tech/api/v1/escrows/escrow_abc123def456 \\
   -H "Authorization: Bearer zfi_live_abc123..."`}</code>
         </pre>
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "id": "escrow_abc123def456",
   "payment_id": "payment_xyz789",
   "merchant_id": "merchant_123",
@@ -395,7 +395,7 @@ export default function EscrowsAPIPage() {
 
         <h4 className="font-medium mb-2">Example Request</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`curl -X GET "https://api.zendfi.tech/api/v1/escrows?limit=20&offset=0" \\
+          <code className="language-bash mt-5">{`curl -X GET "https://api.zendfi.tech/api/v1/escrows?limit=20&offset=0" \\
   -H "Authorization: Bearer zfi_live_abc123..."`}</code>
         </pre>
       </section>
@@ -441,7 +441,7 @@ export default function EscrowsAPIPage() {
 
         <h4 className="font-medium mb-2">Example Request</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X POST https://api.zendfi.tech/api/v1/escrows/escrow_abc123def456/approve \\
+          <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/escrows/escrow_abc123def456/approve \\
   -H "Authorization: Bearer zfi_live_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -451,7 +451,7 @@ export default function EscrowsAPIPage() {
 
         <h4 className="font-medium mb-2">Response: 200 OK (Fully Released)</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "status": "released",
   "transaction_signature": "5KzZ8LWvZh7NYjJvPhHGYnNrB2rKqb2...",
   "message": "Escrow funds released to seller"
@@ -460,7 +460,7 @@ export default function EscrowsAPIPage() {
 
         <h4 className="font-medium mb-2">Response: 200 OK (Approval Recorded, Waiting for More)</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "status": "approved",
   "message": "Approval recorded, waiting for additional confirmations"
 }`}</code>
@@ -508,7 +508,7 @@ export default function EscrowsAPIPage() {
 
         <h4 className="font-medium mb-2">Example Request</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X POST https://api.zendfi.tech/api/v1/escrows/escrow_abc123def456/refund \\
+          <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/escrows/escrow_abc123def456/refund \\
   -H "Authorization: Bearer zfi_live_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -518,7 +518,7 @@ export default function EscrowsAPIPage() {
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "status": "refunded",
   "transaction_signature": "3k8n5TY89VvD2kRfV4iqmLKtSWFjDnMoRcWr4dJYKPcH...",
   "message": "Escrow funds refunded to buyer",
@@ -568,7 +568,7 @@ export default function EscrowsAPIPage() {
 
         <h4 className="font-medium mb-2">Example Request</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`curl -X POST https://api.zendfi.tech/api/v1/escrows/escrow_abc123def456/dispute \\
+          <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/escrows/escrow_abc123def456/dispute \\
   -H "Authorization: Bearer zfi_live_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -578,7 +578,7 @@ export default function EscrowsAPIPage() {
 
         <h4 className="font-medium mb-2">Response: 200 OK</h4>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "status": "disputed",
   "message": "Dispute raised successfully. ZendFi support will review within 24 hours.",
   "dispute_id": "dispute_abc123",
@@ -713,7 +713,7 @@ export default function EscrowsAPIPage() {
 
         <h3 className="text-xl font-semibold mt-6 mb-3">Example Webhook Payload</h3>
         <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-          <code>{`{
+          <code className="language-json mt-5">{`{
   "event": "escrow.funded",
   "timestamp": "2025-10-26T14:30:05Z",
   "data": {
@@ -774,3 +774,4 @@ export default function EscrowsAPIPage() {
     </div>
   );
 }
+

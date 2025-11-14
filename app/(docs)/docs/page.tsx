@@ -193,7 +193,7 @@ export default function GettingStarted() {
                   </span>
                 </div>
                 <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs">
-                  <code>{getCodeExample(selectedWallet)}</code>
+                  <code className="language-bash mt-10">{getCodeExample(selectedWallet)}</code>
                 </pre>
               </div>
             </div>
@@ -364,7 +364,7 @@ export default function GettingStarted() {
                 <div>
                   <p className="text-sm font-medium mb-2">MPC Passkey Wallet (Requires WebAuthn Setup)</p>
                   <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs">
-                    <code>{`{
+                    <code className="language-json mt-10">{`{
   "merchant": {
     "id": "44ced244-50d6-46b8-ad81-804ad1f30a76",
     "name": "My Store",
@@ -397,7 +397,7 @@ export default function GettingStarted() {
                 <div>
                   <p className="text-sm font-medium mb-2">Own Wallet (Ready to Use Immediately)</p>
                   <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs">
-                    <code>{`{
+                    <code className="language-json mt-10">{`{
   "merchant": {
     "id": "def456ghi789",
     "name": "My Store",
@@ -434,7 +434,7 @@ export default function GettingStarted() {
             <div>
               <p className="text-sm font-semibold mb-3">API Endpoint:</p>
               <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg text-sm">
-                <code>POST https://api.zendfi.tech/api/v1/merchants</code>
+                <code className="language-bash mt-5">POST https://api.zendfi.tech/api/v1/merchants</code>
               </pre>
             </div>
           </div>
@@ -492,7 +492,7 @@ export default function GettingStarted() {
                 <div>
                   <p className="text-sm font-medium mb-2">Step 1: Create Merchant and Get WebAuthn Options</p>
                   <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs">
-                    <code>{`const response = await fetch('https://api.zendfi.tech/api/v1/merchants', {
+                    <code className="language-json">{`const response = await fetch('https://api.zendfi.tech/api/v1/merchants', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -515,7 +515,7 @@ const webauthnOptions = data.webauthn_options;`}</code>
                 <div>
                   <p className="text-sm font-medium mb-2">Step 2: Complete WebAuthn Challenge</p>
                   <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs">
-                    <code>{`// Convert base64 challenge to Uint8Array
+                    <code className="language-json">{`// Convert base64 challenge to Uint8Array
 function base64ToUint8Array(base64: string): Uint8Array {
   const binaryString = atob(base64);
   const bytes = new Uint8Array(binaryString.length);
@@ -561,7 +561,7 @@ try {
                 <div>
                   <p className="text-sm font-medium mb-2">Step 3: Verify Wallet is Active (Optional)</p>
                   <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs">
-                    <code>{`// Check your merchant status
+                    <code className="language-json">{`// Check your merchant status
 const merchantResponse = await fetch(
   \`https://api.zendfi.tech/api/v1/merchants/\${data.merchant_id}\`,
   {
@@ -671,7 +671,7 @@ console.log('Wallet Status:', merchantData.wallet_status); // "active"
           <Card className="p-6">
             <h3 className="font-bold text-lg mb-4">Create a Payment</h3>
             <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs mb-4">
-              <code>{`POST /api/v1/payments
+              <code className="language-json mt-10">{`POST /api/v1/payments
 
 {
   "amount": 50.00,

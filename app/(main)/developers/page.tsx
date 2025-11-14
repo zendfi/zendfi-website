@@ -23,6 +23,7 @@ import Link from "next/link"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { useState } from "react"
 
 export default function DevelopersPage() {
   const steps = [
@@ -139,6 +140,8 @@ const payment = await zendfi.createPayment({
 
 console.log(payment.checkout_url);`
 
+  const [copied, setCopied] = useState(false)
+
   return (
     <main className="min-h-screen bg-background">
       <Header />
@@ -183,7 +186,7 @@ console.log(payment.checkout_url);`
 
             {/* Description */}
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed">
-              The crypto payment SDK developers actually want to use. <span className="text-accent font-bold">0.6% all-inclusive.</span> No blockchain degree required.
+              The crypto payment SDK developers actually want to use. 0.6% all-inclusive. <span className="text-accent font-bold">Gas Fees on us.</span> No blockchain degree required.
             </p>
 
             {/* Buttons */}
@@ -235,7 +238,7 @@ console.log(payment.checkout_url);`
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative mt-12 lg:mt-0"
+            className="relative mt-12 lg:mt-0 min-w-0"
           >
             <div className="relative rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-4 sm:p-6 shadow-2xl border border-slate-700/50 overflow-hidden">
               {/* Window Controls */}
@@ -247,14 +250,31 @@ console.log(payment.checkout_url);`
               </div>
 
               {/* Code */}
-              <pre className="text-xs sm:text-sm text-slate-300 font-mono leading-relaxed overflow-x-auto max-h-[400px] md:max-h-[500px]">
-                <code>{codeSnippet}</code>
-              </pre>
+                <pre className="relative w-full max-w-full min-w-0 text-xs sm:text-sm text-slate-300 font-mono leading-relaxed overflow-x-auto max-h-[400px] md:max-h-[500px] pr-12 sm:pr-14">
+                  <code className="language-js whitespace-pre">{codeSnippet}</code>
+                </pre>
 
-              {/* Copy Button */}
-              <button className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-lg bg-slate-700/50 hover:bg-slate-700 transition-colors group">
-                <Copy className="w-4 h-4 text-slate-400 group-hover:text-white" />
-              </button>
+                {/* Copy Button */}
+                <button
+                  type="button"
+                  onClick={async () => {
+                    try {
+                      await navigator.clipboard.writeText(codeSnippet)
+                      setCopied(true)
+                      setTimeout(() => setCopied(false), 2000)
+                    } catch (e) {
+                      /* ignore */
+                    }
+                  }}
+                  aria-label="Copy code"
+                  className="absolute top-3 right-3 sm:top-6 sm:right-6 p-2 rounded-lg bg-slate-700/60 hover:bg-slate-700 transition-colors group z-20 hidden sm:inline-flex"
+                >
+                  {copied ? (
+                    <Check className="w-4 h-4 text-green-400" />
+                  ) : (
+                    <Copy className="w-4 h-4 text-slate-200 group-hover:text-white" />
+                  )}
+                </button>
 
             </div>
           </motion.div>

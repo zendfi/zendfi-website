@@ -26,7 +26,7 @@ export default function SDKDocumentation() {
               Install the SDK and create your first payment in 2 minutes!
             </p>
             <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-              <code>{`npm install @zendfi/sdk
+              <code className="language-json mt-5">{`npm install @zendfi/sdk
 
 import { zendfi } from '@zendfi/sdk';
 
@@ -100,12 +100,12 @@ console.log(payment.checkout_url);`}</code>
             Set your API key in <code className="bg-muted px-2 py-1 rounded">.env</code> file and use the default singleton instance:
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-            <code>{`# .env
+            <code className="language-json mt-5">{`# .env
 ZENDFI_API_KEY=zfi_test_your_key_here
 ZENDFI_MODE=test  # 'test' or 'live'`}</code>
           </pre>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`import { zendfi } from '@zendfi/sdk';
+            <code className="language-java mt-5script">{`import { zendfi } from '@zendfi/sdk';
 
 // Auto-configured from environment variables
 const payment = await zendfi.createPayment({ amount: 50 });`}</code>
@@ -121,7 +121,7 @@ const payment = await zendfi.createPayment({ amount: 50 });`}</code>
             Create a custom instance with your own configuration:
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`import { ZendFiClient } from '@zendfi/sdk';
+            <code className="language-java mt-5script">{`import { ZendFiClient } from '@zendfi/sdk';
 
 const zendfi = new ZendFiClient({
   apiKey: 'zfi_test_your_key_here',
@@ -193,7 +193,7 @@ const zendfi = new ZendFiClient({
             Create a new one-time payment
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const payment = await zendfi.createPayment({
+            <code className="language-json mt-5">{`const payment = await zendfi.createPayment({
   amount: 100.00,
   currency: 'USD',           // Default: 'USD'
   token: 'USDC',             // 'USDC', 'SOL', or 'USDT'
@@ -219,7 +219,7 @@ console.log(payment.id);                // 'pay_abc123'`}</code>
             Retrieve a payment by ID
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const payment = await zendfi.getPayment('pay_abc123');
+            <code className="language-json mt-5">{`const payment = await zendfi.getPayment('pay_abc123');
 
 console.log(payment.status);                 // 'pending' | 'confirmed' | 'failed'
 console.log(payment.amount_usd);             // 100.00
@@ -233,7 +233,7 @@ console.log(payment.transaction_signature);  // Solana tx signature`}</code>
             List all payments with pagination
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const response = await zendfi.listPayments({
+            <code className="language-json mt-5">{`const response = await zendfi.listPayments({
   page: 1,
   limit: 50,
   status: 'confirmed',         // Optional: filter by status
@@ -259,7 +259,7 @@ console.log(response.pages);         // Total pages`}</code>
             Create a recurring subscription plan
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const plan = await zendfi.createSubscriptionPlan({
+            <code className="language-json mt-5">{`const plan = await zendfi.createSubscriptionPlan({
   name: 'Premium Monthly',
   description: 'Access to all premium features',
   amount: 29.99,
@@ -280,7 +280,7 @@ console.log(plan.subscription_url);`}</code>
             Subscribe a customer to a plan
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const subscription = await zendfi.createSubscription({
+            <code className="language-json mt-5">{`const subscription = await zendfi.createSubscription({
   plan_id: 'plan_abc123',
   customer_email: 'customer@example.com'
 });
@@ -294,7 +294,7 @@ console.log(subscription.checkout_url);      // Send to customer`}</code>
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3">getSubscription()</h3>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const subscription = await zendfi.getSubscription('sub_abc123');`}</code>
+            <code className="language-json mt-5">{`const subscription = await zendfi.getSubscription('sub_abc123');`}</code>
           </pre>
         </Card>
 
@@ -304,7 +304,7 @@ console.log(subscription.checkout_url);      // Send to customer`}</code>
             Cancel a customer's subscription
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const subscription = await zendfi.cancelSubscription('sub_abc123');
+            <code className="language-json mt-5">{`const subscription = await zendfi.cancelSubscription('sub_abc123');
 
 console.log(subscription.status);  // 'cancelled'`}</code>
           </pre>
@@ -321,7 +321,7 @@ console.log(subscription.status);  // 'cancelled'`}</code>
             Create an escrow transaction for marketplace payments
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const escrow = await zendfi.createEscrow({
+            <code className="language-json mt-5">{`const escrow = await zendfi.createEscrow({
   buyer_email: 'buyer@example.com',
   seller_email: 'seller@example.com',
   amount: 2500.00,
@@ -339,14 +339,14 @@ console.log(escrow.status);            // 'pending_payment'`}</code>
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3">getEscrow()</h3>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const escrow = await zendfi.getEscrow('escrow_abc123');`}</code>
+            <code className="language-json mt-5">{`const escrow = await zendfi.getEscrow('escrow_abc123');`}</code>
           </pre>
         </Card>
 
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3">listEscrows()</h3>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const escrows = await zendfi.listEscrows({
+            <code className="language-json mt-5">{`const escrows = await zendfi.listEscrows({
   limit: 50,
   offset: 0
 });`}</code>
@@ -359,7 +359,7 @@ console.log(escrow.status);            // 'pending_payment'`}</code>
             Release funds to seller (buyer approves)
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const result = await zendfi.approveEscrow('escrow_abc123', {
+            <code className="language-json mt-5">{`const result = await zendfi.approveEscrow('escrow_abc123', {
   approver_wallet: '7xKBN4tF2vxUqLrXpE3mDwY7zQsN8rW6vH5jC4kM1pT2'
 });
 
@@ -373,7 +373,7 @@ console.log(result.transaction_signature);`}</code>
             Refund funds to buyer (seller initiates or admin)
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const result = await zendfi.refundEscrow('escrow_abc123', {
+            <code className="language-json mt-5">{`const result = await zendfi.refundEscrow('escrow_abc123', {
   reason: 'Buyer requested cancellation'
 });`}</code>
           </pre>
@@ -385,7 +385,7 @@ console.log(result.transaction_signature);`}</code>
             Raise a dispute for mediation
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const dispute = await zendfi.disputeEscrow('escrow_abc123', {
+            <code className="language-json mt-5">{`const dispute = await zendfi.disputeEscrow('escrow_abc123', {
   raised_by: 'buyer',        // 'buyer' | 'seller'
   reason: 'Product not delivered as described'
 });
@@ -405,7 +405,7 @@ console.log(dispute.dispute_id);`}</code>
             Split a purchase into multiple payments
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const plan = await zendfi.createInstallmentPlan({
+            <code className="language-json mt-5">{`const plan = await zendfi.createInstallmentPlan({
   customer_email: 'customer@example.com',
   total_amount: 900.00,
   installment_count: 3,              // 3 payments
@@ -423,14 +423,14 @@ console.log(plan.status);              // 'pending_first_payment'`}</code>
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3">getInstallmentPlan()</h3>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const plan = await zendfi.getInstallmentPlan('plan_abc123');`}</code>
+            <code className="language-json mt-5">{`const plan = await zendfi.getInstallmentPlan('plan_abc123');`}</code>
           </pre>
         </Card>
 
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3">listInstallmentPlans()</h3>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const plans = await zendfi.listInstallmentPlans({
+            <code className="language-json mt-5">{`const plans = await zendfi.listInstallmentPlans({
   limit: 50,
   offset: 0
 });`}</code>
@@ -443,7 +443,7 @@ console.log(plan.status);              // 'pending_first_payment'`}</code>
             Get all installment plans for a specific customer
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const plans = await zendfi.listCustomerInstallmentPlans(
+            <code className="language-json mt-5">{`const plans = await zendfi.listCustomerInstallmentPlans(
   '7xKBN4tF2vxUqLrXpE3mDwY7zQsN8rW6vH5jC4kM1pT2'
 );`}</code>
           </pre>
@@ -452,7 +452,7 @@ console.log(plan.status);              // 'pending_first_payment'`}</code>
         <Card className="p-6">
           <h3 className="text-xl font-semibold mb-3">cancelInstallmentPlan()</h3>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const result = await zendfi.cancelInstallmentPlan('plan_abc123');
+            <code className="language-json mt-5">{`const result = await zendfi.cancelInstallmentPlan('plan_abc123');
 
 console.log(result.message);`}</code>
           </pre>
@@ -469,7 +469,7 @@ console.log(result.message);`}</code>
             Create a professional invoice with line items
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const invoice = await zendfi.createInvoice({
+            <code className="language-json mt-5">{`const invoice = await zendfi.createInvoice({
   customer_email: 'client@company.com',
   customer_name: 'Acme Corp',
   due_date: '2024-12-31',
@@ -498,14 +498,14 @@ console.log(invoice.payment_url);      // Send to customer`}</code>
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3">getInvoice()</h3>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const invoice = await zendfi.getInvoice('inv_abc123');`}</code>
+            <code className="language-json mt-5">{`const invoice = await zendfi.getInvoice('inv_abc123');`}</code>
           </pre>
         </Card>
 
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3">listInvoices()</h3>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const invoices = await zendfi.listInvoices();`}</code>
+            <code className="language-json mt-5">{`const invoices = await zendfi.listInvoices();`}</code>
           </pre>
         </Card>
 
@@ -515,7 +515,7 @@ console.log(invoice.payment_url);      // Send to customer`}</code>
             Send invoice to customer via email
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const result = await zendfi.sendInvoice('inv_abc123');
+            <code className="language-json mt-5">{`const result = await zendfi.sendInvoice('inv_abc123');
 
 console.log(result.sent_to);           // 'client@company.com'
 console.log(result.payment_url);`}</code>
@@ -533,7 +533,7 @@ console.log(result.payment_url);`}</code>
             Create a shareable checkout URL for products/services
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const link = await zendfi.createPaymentLink({
+            <code className="language-json mt-5">{`const link = await zendfi.createPaymentLink({
   name: 'Premium Course Access',
   description: 'Lifetime access to all courses',
   amount: 299.00,
@@ -551,14 +551,14 @@ console.log(link.link_code);           // 'link_abc123'`}</code>
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3">getPaymentLink()</h3>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const link = await zendfi.getPaymentLink('link_abc123');`}</code>
+            <code className="language-json mt-5">{`const link = await zendfi.getPaymentLink('link_abc123');`}</code>
           </pre>
         </Card>
 
         <Card className="p-6">
           <h3 className="text-xl font-semibold mb-3">listPaymentLinks()</h3>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`const links = await zendfi.listPaymentLinks();`}</code>
+            <code className="language-json mt-5">{`const links = await zendfi.listPaymentLinks();`}</code>
           </pre>
         </Card>
       </section>
@@ -576,7 +576,7 @@ console.log(link.link_code);           // 'link_abc123'`}</code>
             Verify webhook signatures to ensure they're from ZendFi
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`// In your webhook handler (e.g., /api/webhooks)
+            <code className="language-json mt-5">{`// In your webhook handler (e.g., /api/webhooks)
 import { zendfi } from '@zendfi/sdk';
 
 export async function POST(request: Request) {
@@ -624,7 +624,7 @@ export async function POST(request: Request) {
             The SDK provides typed errors for different scenarios:
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`import { zendfi, isZendFiError } from '@zendfi/sdk';
+            <code className="language-java mt-5script">{`import { zendfi, isZendFiError } from '@zendfi/sdk';
 
 try {
   const payment = await zendfi.createPayment({
@@ -673,7 +673,7 @@ try {
             Modify requests/responses or add custom logging:
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code>{`import { ZendFiClient } from '@zendfi/sdk';
+            <code className="language-java mt-5script">{`import { ZendFiClient } from '@zendfi/sdk';
 
 const zendfi = new ZendFiClient({ apiKey: 'your_key' });
 

@@ -241,7 +241,7 @@ export default function PaymentLinks() {
             <p className="text-muted-foreground mb-4">Perfect for selling a product or service!</p>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`curl -X POST https://api.zendfi.tech/api/v1/payment-links \\
+              <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/payment-links \\
   -H "Authorization: Bearer zfi_test_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -258,7 +258,7 @@ export default function PaymentLinks() {
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "id": "550e8400-e29b-41d4-a716-446655440000",
   "link_code": "pyl_hk3n7x9m2q",
   "payment_url": "https://zendfi.tech/pay/link/pyl_hk3n7x9m2q",
@@ -290,7 +290,7 @@ export default function PaymentLinks() {
             <p className="text-muted-foreground mb-4">Great for events with limited capacity!</p>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`curl -X POST https://api.zendfi.tech/api/v1/payment-links \\
+              <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/payment-links \\
   -H "Authorization: Bearer zfi_test_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -309,7 +309,7 @@ export default function PaymentLinks() {
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "id": "660e8400-e29b-41d4-a716-446655440001",
   "link_code": "pyl_event_conf2025",
   "payment_url": "https://zendfi.tech/pay/link/pyl_event_conf2025",
@@ -341,7 +341,7 @@ export default function PaymentLinks() {
             <p className="text-muted-foreground mb-4">Accept SOL instead of stablecoins!</p>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`curl -X POST https://api.zendfi.tech/api/v1/payment-links \\
+              <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/payment-links \\
   -H "Authorization: Bearer zfi_test_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -359,7 +359,7 @@ export default function PaymentLinks() {
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "id": "770e8400-e29b-41d4-a716-446655440002",
   "link_code": "pyl_membership_nov2025",
   "payment_url": "https://zendfi.tech/pay/link/pyl_membership_nov2025",
@@ -391,7 +391,7 @@ export default function PaymentLinks() {
             <p className="text-muted-foreground mb-4">Perfect for creators and influencers!</p>
             <h5 className="font-semibold mb-2">Request:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`curl -X POST https://api.zendfi.tech/api/v1/payment-links \\
+              <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/payment-links \\
   -H "Authorization: Bearer zfi_test_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -408,7 +408,7 @@ export default function PaymentLinks() {
             </pre>
             <h5 className="font-semibold mb-2">Response:</h5>
             <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-              <code>{`{
+              <code className="language-json mt-5">{`{
   "id": "880e8400-e29b-41d4-a716-446655440003",
   "link_code": "pyl_coffee_tip",
   "payment_url": "https://zendfi.tech/pay/link/pyl_coffee_tip",
@@ -449,7 +449,7 @@ export default function PaymentLinks() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-2">Endpoint</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`GET /api/v1/payment-links/{link_code}`}</code>
+            <code className="language-json mt-5">{`GET /api/v1/payment-links/{link_code}`}</code>
           </pre>
 
           <h3 className="text-lg font-bold mb-2">Authentication</h3>
@@ -481,12 +481,12 @@ export default function PaymentLinks() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Example Request</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl https://api.zendfi.tech/api/v1/payment-links/pyl_hk3n7x9m2q`}</code>
+            <code className="language-bash mt-5">{`curl https://api.zendfi.tech/api/v1/payment-links/pyl_hk3n7x9m2q`}</code>
           </pre>
 
           <h3 className="text-lg font-bold mb-3">Example Response</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "id": "550e8400-e29b-41d4-a716-446655440000",
   "link_code": "pyl_hk3n7x9m2q",
   "payment_url": "https://zendfi.tech/pay/link/pyl_hk3n7x9m2q",
@@ -521,7 +521,7 @@ export default function PaymentLinks() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-2">Endpoint</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`POST /api/v1/payment-links/{link_code}/pay`}</code>
+            <code className="language-json mt-5">{`POST /api/v1/payment-links/{link_code}/pay`}</code>
           </pre>
 
           <h3 className="text-lg font-bold mb-2">Authentication</h3>
@@ -650,12 +650,12 @@ export default function PaymentLinks() {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Example Request</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/payment-links/pyl_hk3n7x9m2q/pay`}</code>
+            <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/payment-links/pyl_hk3n7x9m2q/pay`}</code>
           </pre>
 
           <h3 className="text-lg font-bold mb-3">Example Response</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "payment_id": "990e8400-e29b-41d4-a716-446655440004",
   "merchant_name": "Awesome Coffee Shop",
   "amount_usd": 49.99,
@@ -696,7 +696,7 @@ export default function PaymentLinks() {
           <h4 className="font-semibold mb-2">400 Bad Request</h4>
           <p className="text-muted-foreground mb-3">Link is invalid or inactive.</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "error": "Invalid payment link parameters",
   "details": "Amount must be greater than 0"
 }`}</code>
@@ -707,7 +707,7 @@ export default function PaymentLinks() {
           <h4 className="font-semibold mb-2">404 Not Found</h4>
           <p className="text-muted-foreground mb-3">Payment link doesn't exist.</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "error": "Payment link not found",
   "details": "No payment link found with code: pyl_invalid123"
 }`}</code>
@@ -718,7 +718,7 @@ export default function PaymentLinks() {
           <h4 className="font-semibold mb-2">410 Gone</h4>
           <p className="text-muted-foreground mb-3">Payment link has expired or reached max uses.</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "error": "Payment link no longer available",
   "details": "This payment link has expired or reached its usage limit"
 }`}</code>
@@ -728,7 +728,7 @@ export default function PaymentLinks() {
         <Card className="p-4">
           <h4 className="font-semibold mb-2">Expired Link:</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "error": "Payment link expired",
   "details": "This link expired on 2025-11-30T23:59:59Z"
 }`}</code>
@@ -738,7 +738,7 @@ export default function PaymentLinks() {
         <Card className="p-4">
           <h4 className="font-semibold mb-2">Max Uses Reached:</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "error": "Payment link capacity reached",
   "details": "This link has been used 100 times (maximum allowed)"
 }`}</code>
@@ -749,7 +749,7 @@ export default function PaymentLinks() {
           <h4 className="font-semibold mb-2">500 Internal Server Error</h4>
           <p className="text-muted-foreground mb-3">Something went wrong on our end.</p>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`{
+            <code className="language-json mt-5">{`{
   "error": "Internal server error",
   "details": "Failed to create payment from link. Please try again."
 }`}</code>
@@ -823,7 +823,7 @@ https://zendfi.tech/checkout/pyl_hk3n7x9m2q</code>
                 Embed in Email
               </h4>
               <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-                <code>{`<a href="https://zendfi.tech/checkout/pyl_hk3n7x9m2q">
+                <code className="language-json mt-5">{`<a href="https://zendfi.tech/checkout/pyl_hk3n7x9m2q">
   Click here to complete your payment
 </a>`}</code>
               </pre>
@@ -961,7 +961,7 @@ https://zendfi.tech/checkout/pyl_hk3n7x9m2q</code>
         <Card className="p-6 border-primary/50">
           <h3 className="text-lg font-bold mb-3">Step 1: Create Test Link on Devnet</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/payment-links \\
+            <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/payment-links \\
   -H "Authorization: Bearer zfi_test_abc123..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -988,7 +988,7 @@ https://zendfi.tech/checkout/pyl_hk3n7x9m2q</code>
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Step 3: Create Payment Session</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`curl -X POST https://api.zendfi.tech/api/v1/payment-links/YOUR_LINK_CODE/pay`}</code>
+            <code className="language-bash mt-5">{`curl -X POST https://api.zendfi.tech/api/v1/payment-links/YOUR_LINK_CODE/pay`}</code>
           </pre>
         </Card>
 
@@ -1011,7 +1011,7 @@ https://zendfi.tech/checkout/pyl_hk3n7x9m2q</code>
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Node.js/Express: Create & Share Payment Link</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`const express = require('express');
+            <code className="language-json mt-5">{`const express = require('express');
 const axios = require('axios');
 
 const app = express();
@@ -1097,7 +1097,7 @@ app.listen(3000, () => {
         <Card className="p-6">
           <h3 className="text-lg font-bold mb-3">Python/Flask: Event Ticketing with Payment Links</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-            <code>{`from flask import Flask, request, jsonify
+            <code className="language-json mt-5">{`from flask import Flask, request, jsonify
 import requests
 import os
 from datetime import datetime, timedelta
