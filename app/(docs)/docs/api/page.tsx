@@ -1318,7 +1318,7 @@ export default function APIReference() {
             <div>
               <h4 className="font-semibold text-sm mb-2">Step 1: Deserialize the Transaction</h4>
               <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto font-mono text-xs">
-                <code className="language-java mt-10script">{`import { Transaction } from '@solana/web3.js';
+                <code className="language-javascript mt-10">{`import { Transaction } from '@solana/web3.js';
 
 const transaction = Transaction.from(
   Buffer.from(response.transaction, 'base64')
@@ -1357,7 +1357,7 @@ await fetch(\`/api/v1/payments/\${paymentId}/submit-transaction\`, {
         <Card className="p-6 bg-blue-50 border-blue-200">
           <h3 className="text-lg font-bold mb-3">Complete Integration Example</h3>
           <pre className="bg-slate-900 text-slate-100 p-3 rounded-lg overflow-x-auto font-mono text-xs">
-            <code className="language-java mt-10script">{`import { Connection, Transaction } from '@solana/web3.js';
+            <code className="language-javascript mt-10">{`import { Connection, Transaction } from '@solana/web3.js';
 
 async function payWithCustomWallet(paymentId, customerWallet) {
   // 1. Build transaction

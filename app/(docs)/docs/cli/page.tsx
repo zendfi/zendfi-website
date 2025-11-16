@@ -27,7 +27,7 @@ export default function CLIDocumentation() {
               Get started in seconds with our scaffolding tool or add ZendFi to an existing project!
             </p>
             <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-              <code className="language-json mt-5">{`# Scaffold a new project with template
+              <code className="language-Bash mt-5">{`# Scaffold a new project with template
 npx create-zendfi-app my-payment-app
 
 # Install CLI globally for development utilities
@@ -62,7 +62,7 @@ zendfi webhooks listen`}</code>
             <div>
               <h4 className="font-semibold mb-2">Interactive Mode (Recommended)</h4>
               <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-                <code className="language-json mt-5">{`npx create-zendfi-app my-app`}</code>
+                <code className="language-Bash mt-5">{`npx create-zendfi-app my-app`}</code>
               </pre>
               <p className="text-sm text-muted-foreground mt-2">
                 Prompts you to choose a template and configure your project interactively.
@@ -72,7 +72,7 @@ zendfi webhooks listen`}</code>
             <div>
               <h4 className="font-semibold mb-2">With Template Flag</h4>
               <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-                <code className="language-json mt-5">{`npx create-zendfi-app my-app --template nextjs-ecommerce`}</code>
+                <code className="language-Bash mt-5">{`npx create-zendfi-app my-app --template nextjs-ecommerce`}</code>
               </pre>
               <p className="text-sm text-muted-foreground mt-2">
                 Directly specify a template to skip the selection prompt.
@@ -165,7 +165,7 @@ zendfi webhooks listen`}</code>
         <Card className="p-6 mb-6 bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
           <h3 className="text-lg font-semibold mb-3 text-blue-900 dark:text-blue-100">Installation</h3>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code className="language-json mt-5">{`npm install -g create-zendfi-app
+            <code className="language-Bash mt-5">{`npm install -g create-zendfi-app
 
 # Now you have access to 'zendfi' command
 zendfi --help`}</code>
@@ -183,7 +183,7 @@ zendfi --help`}</code>
           </p>
 
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-            <code className="language-json mt-5">{`# Navigate to your project
+            <code className="language-Bash mt-5">{`# Navigate to your project
 cd my-existing-app
 
 # Add ZendFi
@@ -230,7 +230,7 @@ zendfi init --framework nextjs --skip-install -y`}</code>
           </p>
 
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-            <code className="language-json mt-5">{`# Simple test payment
+            <code className="language-Bash mt-5">{`# Simple test payment
 zendfi test payment
 
 # With amount
@@ -293,7 +293,7 @@ zendfi test payment \\
           </p>
 
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code className="language-json mt-5">{`zendfi status pay_test_abc123xyz`}</code>
+            <code className="language-Bash mt-5">{`zendfi status pay_test_abc123xyz`}</code>
           </pre>
         </Card>
 
@@ -308,7 +308,7 @@ zendfi test payment \\
           </p>
 
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm mb-4">
-            <code className="language-json mt-5">{`# Listen on default port (3000)
+            <code className="language-Bash mt-5">{`# Listen on default port (3000)
 zendfi webhooks listen
 
 # Custom port
@@ -354,21 +354,21 @@ zendfi webhooks listen --forward-to http://localhost:3000/api/webhooks`}</code>
             <div>
               <h4 className="font-semibold mb-2">List all keys</h4>
               <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-                <code className="language-json mt-5">{`zendfi keys list`}</code>
+                <code className="language-Bash mt-5">{`zendfi keys list`}</code>
               </pre>
             </div>
 
             <div>
               <h4 className="font-semibold mb-2">Create a new key</h4>
               <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-                <code className="language-json mt-5">{`zendfi keys create --name "Production API" --mode live`}</code>
+                <code className="language-Bash mt-5">{`zendfi keys create --name "Production API" --mode live`}</code>
               </pre>
             </div>
 
             <div>
               <h4 className="font-semibold mb-2">Rotate a key</h4>
               <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-                <code className="language-json mt-5">{`zendfi keys rotate key_live_abc123xyz`}</code>
+                <code className="language-Bash mt-5">{`zendfi keys rotate key_live_abc123xyz`}</code>
               </pre>
             </div>
           </div>

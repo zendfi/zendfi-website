@@ -105,7 +105,7 @@ ZENDFI_API_KEY=zfi_test_your_key_here
 ZENDFI_MODE=test  # 'test' or 'live'`}</code>
           </pre>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code className="language-java mt-5script">{`import { zendfi } from '@zendfi/sdk';
+            <code className="language-javascript mt-5">{`import { zendfi } from '@zendfi/sdk';
 
 // Auto-configured from environment variables
 const payment = await zendfi.createPayment({ amount: 50 });`}</code>
@@ -121,7 +121,7 @@ const payment = await zendfi.createPayment({ amount: 50 });`}</code>
             Create a custom instance with your own configuration:
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code className="language-java mt-5script">{`import { ZendFiClient } from '@zendfi/sdk';
+            <code className="language-javascript mt-5">{`import { ZendFiClient } from '@zendfi/sdk';
 
 const zendfi = new ZendFiClient({
   apiKey: 'zfi_test_your_key_here',
@@ -624,7 +624,7 @@ export async function POST(request: Request) {
             The SDK provides typed errors for different scenarios:
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code className="language-java mt-5script">{`import { zendfi, isZendFiError } from '@zendfi/sdk';
+            <code className="language-javascript mt-5">{`import { zendfi, isZendFiError } from '@zendfi/sdk';
 
 try {
   const payment = await zendfi.createPayment({
@@ -673,7 +673,7 @@ try {
             Modify requests/responses or add custom logging:
           </p>
           <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto font-mono text-sm">
-            <code className="language-java mt-5script">{`import { ZendFiClient } from '@zendfi/sdk';
+            <code className="language-javascript mt-5">{`import { ZendFiClient } from '@zendfi/sdk';
 
 const zendfi = new ZendFiClient({ apiKey: 'your_key' });
 

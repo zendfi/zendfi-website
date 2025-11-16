@@ -673,7 +673,7 @@ async function createMarketplacePayment(orderData) {
           </pre>
           <h4 className="font-semibold mb-2">Python: Affiliate Payment with Fixed Commission</h4>
           <pre className="bg-slate-900 text-slate-100 p-3 md:p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm">
-<code className="language-java mt-5script">{`import requests
+<code className="language-javascript mt-5">{`import requests
 import os
 
 ZENDFI_API_KEY = os.getenv('ZENDFI_API_KEY')
