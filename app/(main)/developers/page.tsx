@@ -174,7 +174,7 @@ console.log(payment.checkout_url);`
             </motion.div>
 
             {/* Title */}
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-tight text-balance mb-5 sm:mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight text-balance mb-5 sm:mb-6">
               <span className="bg-gradient-to-br from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent">
                 Seven lines of code.
               </span>
@@ -251,7 +251,7 @@ console.log(payment.checkout_url);`
 
               {/* Code */}
                 <pre className="relative w-full max-w-full min-w-0 text-xs sm:text-sm text-slate-300 font-mono leading-relaxed overflow-x-auto max-h-[400px] md:max-h-[500px] pr-12 sm:pr-14">
-                  <code className="language-js whitespace-pre">{codeSnippet}</code>
+                  <span className="font-mono text-xs">{codeSnippet}</span>
                 </pre>
 
                 {/* Copy Button */}
@@ -310,13 +310,12 @@ console.log(payment.checkout_url);`
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
                 >
-                  <Card className={`p-8 h-full bg-none border border-border/50 hover:border-border transition-all`}>
-                    <div className="w-14 h-14 rounded-2xl bg-accent/70 flex items-center justify-center mb-6">
+                  <Card className={`p-8 h-full bg-trnansparent border-none transition-all`}>
+                    <div className="w-14 h-14 rounded-2xl bg-accent/70 flex items-center justify-center mb-1">
                       <Icon className="w-7 h-7 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                    <h3 className="text-xl font-semibold text-foreground">
                       {feature.title}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
@@ -442,7 +441,7 @@ console.log(payment.checkout_url);`
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.03, y: -4 }}
                 >
-                  <Card className="p-6 h-full bg- border border-border/50 hover:border-violet-500/30 hover:shadow-lg transition-all group">
+                  <Card className="p-6 h-full bg-transparent border-none transition-all group">
                     <div className="flex items-start gap-4 mb-4">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500/10 to-purple-500/10 flex items-center justify-center flex-shrink-0 transition-transform">
                         <Icon className={`w-6 h-6 ${useCase.color}`} />

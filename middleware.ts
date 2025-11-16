@@ -8,7 +8,6 @@ export function middleware(request: NextRequest) {
 
   const { pathname } = request.nextUrl;
 
-  const isAuthPage = pathname.startsWith('/signup') || pathname.startsWith('/sign-in');
   const isProtectedPage = pathname.startsWith('/dashboard');
   const isAdminPage = pathname.startsWith('/admin');
 
@@ -29,17 +28,11 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  if (isAuthPage && isAuthenticated) {
-    const redirectUrl = new URL('/dashboard', request.url);
-    return NextResponse.redirect(redirectUrl);
-  }
-
   return NextResponse.next();
 }
 
 export const config = {
   matcher: [
-    '/dashboard/:path*',
     '/signup',
     '/sign-in',
     '/admin/:path*',

@@ -84,12 +84,12 @@ export function Footer() {
             <h3 className="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">INSIGHTS</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-xs text-gray-400 hover:text-white transition-colors">
-                  Executive Insights
+                <a href="/demos" className="text-xs text-gray-400 hover:text-white transition-colors">
+                  Live Demo
                 </a>
               </li>
               <li>
-                <a href="#" className="text-xs text-gray-400 hover:text-white transition-colors">
+                <a href="https://github.com/zendfi" className="text-xs text-gray-400 hover:text-white transition-colors">
                   Github
                 </a>
               </li>

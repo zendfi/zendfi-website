@@ -96,18 +96,12 @@ export default function AboutPage() {
                                 </span>
                             </motion.div>
 
-                            <motion.h1
-                                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-tight text-balance bg-gradient-to-br from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3, duration: 0.8 }}
-                            >
-                                The Payment SDK
-                                <br />
-                                <span className="bg-gradient-to-r from-accent/80 to-accent bg-clip-text text-transparent">
-                                    Developers Actually Want
-                                </span>
-                            </motion.h1>
+                                <h1
+                                    className="text-4xl font-medium tracking-tight leading-tight text-balance"
+                                >
+                                    <span className="block bg-gradient-to-br from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent"> The Payment SDK</span>
+                                    <span className="bg-accent bg-clip-text text-transparent"> Developers Actually Want</span>
+                                </h1>
 
                             <motion.p
                                 className="text-xl md:text-2xl text-muted-foreground mb-10 leading-relaxed"
@@ -238,7 +232,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+                        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 text-foreground">
                             Imagine Stripe...
                             <br />
                             But with crypto superpowers.
@@ -267,7 +261,7 @@ export default function AboutPage() {
 
 
                         <div className="relative z-10 max-w-2xl mx-auto">
-                            <h2 className="text-3xl md:text-5xl font-bold text-slate-700 mb-6">
+                            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-slate-700 mb-6">
                                 Ready to Build with ZendFi?
                             </h2>
                             <p className="text-xl text-slate-700/90 mb-8">

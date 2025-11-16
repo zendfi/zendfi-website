@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Plus_Jakarta_Sans } from "next/font/google"
+import { Poppins } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"  
@@ -8,20 +8,11 @@ import { QueryProvider } from "@/providers/query-provider"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import CodeEnhancerWrapper from '@/components/code-enhancer-wrapper'
 
-const jakartaSans = Plus_Jakarta_Sans({
+const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-jakarta-sans",
-  weight: ["400", "500", "600", "700"],
-  preload: true,
-  fallback: ["system-ui", "arial"],
-})
-
-const jakartaSansBold = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-jakarta-sans-bold",
-  weight: ["700", "800"],
+  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700", "800"],
   preload: true,
   fallback: ["system-ui", "arial"],
 })
@@ -126,7 +117,7 @@ export default function RootLayout({
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
       </head>
-      <body className={`font-sans ${jakartaSans.variable} ${jakartaSansBold.variable}`}>
+      <body className={`font-sans ${poppins.variable}`}>
         <SmoothScroll />
         <QueryProvider>
           <CodeEnhancerWrapper />
