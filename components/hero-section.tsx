@@ -175,13 +175,13 @@ export function HeroSection() {
             </motion.div>
 
             <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
-              <Link href="/docs">
+              <Link href="/demos">
                 <Button
                   variant="outline"
                   size="lg"
                   className="border-2 border-accent text-accent font-semibold hover:bg-transparent hover:text-accent px-8 py-6 text-lg transition-all duration-300 w-full sm:w-auto"
                 >
-                  View Live Demo
+                  View Demo
                 </Button>
               </Link>
             </motion.div>

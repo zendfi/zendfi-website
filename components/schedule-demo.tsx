@@ -23,7 +23,8 @@ export function ScheduleDemoButton() {
     <Link href={calendarUrl} target="_blank">
       <Button
         size="lg"
-        className="bg-accent max-w-60 text-primary-foreground hover:bg-accent/90 hover:shadow-primary/20 transition-all duration-300 w-full sm:w-auto"
+        variant="outline"
+        className="hover:text-accent hover:bg-transparent hover:shadow-primary/20 transition-all duration-300 w-full "
       >
         Schedule a Demo
         <svg
