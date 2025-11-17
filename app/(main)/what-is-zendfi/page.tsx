@@ -173,7 +173,7 @@ export default function AboutPage() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true, margin: "-100px" }}
                 >
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    <div id="our-story" className="grid lg:grid-cols-2 gap-12 items-center">
                         <motion.div
                             className="relative p-10 md:p-14 rounded-3xl bg-background"
                             initial={{ opacity: 0, x: -40 }}
@@ -201,7 +201,7 @@ export default function AboutPage() {
                                     <p>
                                         We built the SDK we wished existed: clean, simple, powerful. Seven lines
                                         of code to accept payments. Stripe-level DX. Enterprise features included.
-                                        No blockchain complexity leaking through.
+                                        Zero gas fees. No blockchain complexity leaking through.
                                     </p>
                                 </div>
 

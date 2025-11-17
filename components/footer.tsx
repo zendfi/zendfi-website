@@ -67,12 +67,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-xs text-gray-400 hover:text-white transition-colors">
-                  Careers
+                <a href="/what-is-zendfi#our-story" className="text-xs text-gray-400 hover:text-white transition-colors">
+                  Our Story
                 </a>
               </li>
               <li>
-                <a href="#" className="text-xs text-gray-400 hover:text-white transition-colors">
+                <a href="/what-is-zendfi" className="text-xs text-gray-400 hover:text-white transition-colors">
                   Meet the Team
                 </a>
               </li>
@@ -94,8 +94,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-xs text-gray-400 hover:text-white transition-colors">
-                  Community
+                <a href="https://blog.zendfi.tech" className="text-xs text-gray-400 hover:text-white transition-colors">
+                  Blog
                 </a>
               </li>
             </ul>

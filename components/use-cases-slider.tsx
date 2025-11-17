@@ -155,7 +155,7 @@ export function UseCasesSlider() {
                 const Icon = useCase.icon
                 return (
                   <div key={index} className="flex-[0_0_100%] min-w-0 pl-2 pr-2 mx-auto">
-                    <div className="relative rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 lg:p-16 min-h-[500px] sm:min-h-[450px] md:min-h-[500px] lg:min-h-[600px] bg-background/95 border border-border/50">
+                    <div className="relative rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 lg:p-16 min-h-[400px] sm:min-h-[350px] md:min-h-[400px] lg:min-h-[400px] bg-background/95 border border-border/50">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-16 items-start md:items-center h-full">
                         {/* Left Side - Info */}
                         <div className="space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8">
