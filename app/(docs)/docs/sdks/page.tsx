@@ -45,7 +45,7 @@ console.log(payment.checkout_url);`}</code>
       {/* Installation */}
       <section>
         <h2 className="text-3xl font-bold mb-4">Installation</h2>
-        
+
         <Card className="p-6">
           <div className="space-y-4">
             <div>
@@ -90,7 +90,7 @@ console.log(payment.checkout_url);`}</code>
       {/* Initialization */}
       <section>
         <h2 className="text-3xl font-bold mb-4">Initialization</h2>
-        
+
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
             <Code2 className="h-5 w-5 text-primary" />
@@ -186,7 +186,7 @@ const zendfi = new ZendFiClient({
       {/* Payments API */}
       <section>
         <h2 className="text-3xl font-bold mb-4">Payments</h2>
-        
+
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3">createPayment()</h3>
           <p className="text-sm text-muted-foreground mb-4">
@@ -252,7 +252,7 @@ console.log(response.pages);         // Total pages`}</code>
       {/* Subscriptions API */}
       <section>
         <h2 className="text-3xl font-bold mb-4">Subscriptions</h2>
-        
+
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3">createSubscriptionPlan()</h3>
           <p className="text-sm text-muted-foreground mb-4">
@@ -312,9 +312,8 @@ console.log(subscription.status);  // 'cancelled'`}</code>
       </section>
 
       {/* Escrows API */}
-      <section>
+      {/* <section>
         <h2 className="text-3xl font-bold mb-4">Escrows</h2>
-        
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3">createEscrow()</h3>
           <p className="text-sm text-muted-foreground mb-4">
@@ -393,12 +392,12 @@ console.log(result.transaction_signature);`}</code>
 console.log(dispute.dispute_id);`}</code>
           </pre>
         </Card>
-      </section>
+      </section> */}
 
       {/* Installments API */}
       <section>
         <h2 className="text-3xl font-bold mb-4">Installments (Buy Now, Pay Later)</h2>
-        
+
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3">createInstallmentPlan()</h3>
           <p className="text-sm text-muted-foreground mb-4">
@@ -462,7 +461,7 @@ console.log(result.message);`}</code>
       {/* Invoices API */}
       <section>
         <h2 className="text-3xl font-bold mb-4">Invoices</h2>
-        
+
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3">createInvoice()</h3>
           <p className="text-sm text-muted-foreground mb-4">
@@ -526,7 +525,7 @@ console.log(result.payment_url);`}</code>
       {/* Payment Links API */}
       <section>
         <h2 className="text-3xl font-bold mb-4">Payment Links</h2>
-        
+
         <Card className="p-6 mb-4">
           <h3 className="text-xl font-semibold mb-3">createPaymentLink()</h3>
           <p className="text-sm text-muted-foreground mb-4">
@@ -569,7 +568,7 @@ console.log(link.link_code);           // 'link_abc123'`}</code>
           <Shield className="h-7 w-7 text-primary" />
           Webhook Verification
         </h2>
-        
+
         <Card className="p-6">
           <h3 className="text-xl font-semibold mb-3">verifyWebhook()</h3>
           <p className="text-sm text-muted-foreground mb-4">
@@ -618,7 +617,7 @@ export async function POST(request: Request) {
       {/* Error Handling */}
       <section>
         <h2 className="text-3xl font-bold mb-4">Error Handling</h2>
-        
+
         <Card className="p-6">
           <p className="text-sm text-muted-foreground mb-4">
             The SDK provides typed errors for different scenarios:
@@ -667,7 +666,7 @@ try {
       {/* Interceptors */}
       <section>
         <h2 className="text-3xl font-bold mb-4">Advanced: Interceptors</h2>
-        
+
         <Card className="p-6">
           <p className="text-sm text-muted-foreground mb-4">
             Modify requests/responses or add custom logging:
@@ -703,7 +702,7 @@ zendfi.interceptors.error.use(async (error) => {
       {/* Summary */}
       <Card className="p-6 bg-gradient-to-br from-slate-50 to-gray-50 dark:from-slate-900/50 dark:to-gray-900/50">
         <h3 className="text-xl font-semibold mb-4">Quick Reference</h3>
-        
+
         <div className="grid md:grid-cols-2 gap-6 text-sm">
           <div>
             <h4 className="font-semibold mb-3">Payments</h4>
@@ -723,14 +722,14 @@ zendfi.interceptors.error.use(async (error) => {
             </ul>
           </div>
 
-          <div>
+          {/* <div>
             <h4 className="font-semibold mb-3">Escrows</h4>
             <ul className="space-y-1 text-muted-foreground">
               <li><code className="bg-muted px-1 rounded">createEscrow()</code></li>
               <li><code className="bg-muted px-1 rounded">approveEscrow(id)</code></li>
               <li><code className="bg-muted px-1 rounded">refundEscrow(id)</code></li>
             </ul>
-          </div>
+          </div> */}
 
           <div>
             <h4 className="font-semibold mb-3">Installments</h4>
@@ -759,10 +758,10 @@ zendfi.interceptors.error.use(async (error) => {
 
         <div className="mt-6 pt-6 border-t">
           <p className="text-sm text-muted-foreground">
-            📦 Package: <code className="bg-muted px-2 py-1 rounded">@zendfi/sdk</code> | 
+            📦 Package: <code className="bg-muted px-2 py-1 rounded">@zendfi/sdk</code> |
             📚 <a href="https://github.com/zendfi/zendfi-toolkit" className="text-primary hover:underline ml-2">
               GitHub
-            </a> | 
+            </a> |
             🐛 <a href="https://github.com/zendfi/zendfi-toolkit/issues" className="text-primary hover:underline ml-2">
               Report Issues
             </a>

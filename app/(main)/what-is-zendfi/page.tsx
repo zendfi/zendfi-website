@@ -104,7 +104,7 @@ export default function AboutPage() {
                                 </h1>
 
                             <motion.p
-                                className="text-xl md:text-2xl text-muted-foreground mb-10 leading-relaxed"
+                                className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4, duration: 0.8 }}

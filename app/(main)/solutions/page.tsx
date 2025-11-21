@@ -191,7 +191,8 @@ export default function SolutionsPage() {
                                             title: "Escrow",
                                             desc: "Protect both buyers and sellers with smart escrow contracts that release funds only when agreed conditions are met.",
                                             gradient: "from-amber-500/10 to-orange-500/10",
-                                            border: "border-amber-500/20"
+                                            border: "border-amber-500/20",
+                                            badge: "Coming Soon"
                                         },
                                         {
                                             title: "Installments",

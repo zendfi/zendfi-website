@@ -1753,215 +1753,215 @@ export const docData = [
               ]
             }
           },
-          {
-            "name": "Escrow Payments",
-            "status": "LIVE NOW",
-            "description": "Protect buyers and sellers! Hold funds in escrow until conditions are met - perfect for high-value transactions",
-            "features": [
-              "Funds held in secure escrow wallet",
-              "Multiple release conditions (manual approval, time-based, confirmations, milestones)",
-              "Approve release to seller",
-              "Refund to buyer",
-              "Dispute resolution workflow",
-              "Automatic time-based releases",
-              "Webhook events for escrow lifecycle"
-            ],
-            "endpoints": [
-              {
-                "name": "Create Escrow",
-                "method": "POST",
-                "path": "/api/v1/escrows",
-                "authentication": "Bearer YOUR_API_KEY",
-                "parameters": [
-                  {
-                    "name": "buyer_wallet",
-                    "type": "string",
-                    "required": true,
-                    "description": "Buyer's Solana wallet address"
-                  },
-                  {
-                    "name": "seller_wallet",
-                    "type": "string",
-                    "required": true,
-                    "description": "Seller's Solana wallet address"
-                  },
-                  {
-                    "name": "amount",
-                    "type": "number",
-                    "required": true,
-                    "description": "Escrow amount in USD (must be > 0)"
-                  },
-                  {
-                    "name": "currency",
-                    "type": "string",
-                    "required": true,
-                    "description": "Currency code ('USD' only)"
-                  },
-                  {
-                    "name": "token",
-                    "type": "string",
-                    "required": false,
-                    "description": "Token for payment ('USDC', 'SOL', 'USDT')"
-                  },
-                  {
-                    "name": "description",
-                    "type": "string",
-                    "required": false,
-                    "description": "Escrow description"
-                  },
-                  {
-                    "name": "release_conditions",
-                    "type": "object",
-                    "required": true,
-                    "description": "Conditions for releasing funds"
-                  },
-                  {
-                    "name": "metadata",
-                    "type": "object",
-                    "required": false,
-                    "description": "Custom key-value pairs"
-                  }
-                ]
-              },
-              {
-                "name": "Get Escrow",
-                "method": "GET",
-                "path": "/api/v1/escrows/:escrow_id",
-                "authentication": "Bearer YOUR_API_KEY"
-              },
-              {
-                "name": "List Escrows",
-                "method": "GET",
-                "path": "/api/v1/escrows",
-                "query_parameters": [
-                  {
-                    "name": "limit",
-                    "type": "number",
-                    "description": "Max results (default: 50, max: 100)"
-                  },
-                  {
-                    "name": "offset",
-                    "type": "number",
-                    "description": "Pagination offset (default: 0)"
-                  }
-                ]
-              },
-              {
-                "name": "Approve Escrow Release",
-                "method": "POST",
-                "path": "/api/v1/escrows/:escrow_id/approve",
-                "authentication": "Bearer YOUR_API_KEY",
-                "parameters": [
-                  {
-                    "name": "approver_wallet",
-                    "type": "string",
-                    "required": true,
-                    "description": "Wallet address of approver"
-                  }
-                ]
-              },
-              {
-                "name": "Refund Escrow",
-                "method": "POST",
-                "path": "/api/v1/escrows/:escrow_id/refund",
-                "authentication": "Bearer YOUR_API_KEY",
-                "parameters": [
-                  {
-                    "name": "reason",
-                    "type": "string",
-                    "required": true,
-                    "description": "Refund reason"
-                  }
-                ]
-              },
-              {
-                "name": "Dispute Escrow",
-                "method": "POST",
-                "path": "/api/v1/escrows/:escrow_id/dispute",
-                "authentication": "Bearer YOUR_API_KEY",
-                "parameters": [
-                  {
-                    "name": "reason",
-                    "type": "string",
-                    "required": true,
-                    "description": "Dispute reason (detailed)"
-                  }
-                ]
-              }
-            ],
-            "release_condition_types": [
-              {
-                "type": "manual_approval",
-                "fields": {
-                  "type": "manual_approval",
-                  "approver": "wallet_address",
-                  "approved": false
-                }
-              },
-              {
-                "type": "time_based",
-                "description": "Auto-release after date",
-                "fields": {
-                  "type": "time_based",
-                  "release_after": "2025-11-01T00:00:00Z"
-                }
-              },
-              {
-                "type": "confirmation_required",
-                "description": "Multiple approvals",
-                "fields": {
-                  "type": "confirmation_required",
-                  "confirmations_needed": 2,
-                  "confirmed_by": []
-                }
-              },
-              {
-                "type": "milestone",
-                "fields": {
-                  "type": "milestone",
-                  "description": "Website delivered and approved",
-                  "approved": false,
-                  "approved_by": null
-                }
-              }
-            ],
-            "statuses": [
-              {
-                "status": "pending",
-                "description": "Escrow created, waiting for buyer payment"
-              },
-              {
-                "status": "funded",
-                "description": "Payment received, funds held in escrow"
-              },
-              {
-                "status": "released",
-                "description": "Funds released to seller"
-              },
-              {
-                "status": "refunded",
-                "description": "Funds refunded to buyer"
-              },
-              {
-                "status": "disputed",
-                "description": "Dispute raised, under review"
-              },
-              {
-                "status": "cancelled",
-                "description": "Escrow cancelled"
-              }
-            ],
-            "automatic_monitoring": {
-              "description": "ZendFi automatically monitors escrow transactions! A background worker runs hourly to:",
-              "steps": [
-                "Check time-based release conditions",
-                "Auto-release funds when time condition met",
-                "Send email notifications to all parties",
-                "Trigger webhooks for status changes",
-                "Alert admins for disputed transactions"
-              ]
-            }
-          },
+          // {
+          //   "name": "Escrow Payments",
+          //   "status": "LIVE NOW",
+          //   "description": "Protect buyers and sellers! Hold funds in escrow until conditions are met - perfect for high-value transactions",
+          //   "features": [
+          //     "Funds held in secure escrow wallet",
+          //     "Multiple release conditions (manual approval, time-based, confirmations, milestones)",
+          //     "Approve release to seller",
+          //     "Refund to buyer",
+          //     "Dispute resolution workflow",
+          //     "Automatic time-based releases",
+          //     "Webhook events for escrow lifecycle"
+          //   ],
+          //   "endpoints": [
+          //     {
+          //       "name": "Create Escrow",
+          //       "method": "POST",
+          //       "path": "/api/v1/escrows",
+          //       "authentication": "Bearer YOUR_API_KEY",
+          //       "parameters": [
+          //         {
+          //           "name": "buyer_wallet",
+          //           "type": "string",
+          //           "required": true,
+          //           "description": "Buyer's Solana wallet address"
+          //         },
+          //         {
+          //           "name": "seller_wallet",
+          //           "type": "string",
+          //           "required": true,
+          //           "description": "Seller's Solana wallet address"
+          //         },
+          //         {
+          //           "name": "amount",
+          //           "type": "number",
+          //           "required": true,
+          //           "description": "Escrow amount in USD (must be > 0)"
+          //         },
+          //         {
+          //           "name": "currency",
+          //           "type": "string",
+          //           "required": true,
+          //           "description": "Currency code ('USD' only)"
+          //         },
+          //         {
+          //           "name": "token",
+          //           "type": "string",
+          //           "required": false,
+          //           "description": "Token for payment ('USDC', 'SOL', 'USDT')"
+          //         },
+          //         {
+          //           "name": "description",
+          //           "type": "string",
+          //           "required": false,
+          //           "description": "Escrow description"
+          //         },
+          //         {
+          //           "name": "release_conditions",
+          //           "type": "object",
+          //           "required": true,
+          //           "description": "Conditions for releasing funds"
+          //         },
+          //         {
+          //           "name": "metadata",
+          //           "type": "object",
+          //           "required": false,
+          //           "description": "Custom key-value pairs"
+          //         }
+          //       ]
+          //     },
+          //     {
+          //       "name": "Get Escrow",
+          //       "method": "GET",
+          //       "path": "/api/v1/escrows/:escrow_id",
+          //       "authentication": "Bearer YOUR_API_KEY"
+          //     },
+          //     {
+          //       "name": "List Escrows",
+          //       "method": "GET",
+          //       "path": "/api/v1/escrows",
+          //       "query_parameters": [
+          //         {
+          //           "name": "limit",
+          //           "type": "number",
+          //           "description": "Max results (default: 50, max: 100)"
+          //         },
+          //         {
+          //           "name": "offset",
+          //           "type": "number",
+          //           "description": "Pagination offset (default: 0)"
+          //         }
+          //       ]
+          //     },
+          //     {
+          //       "name": "Approve Escrow Release",
+          //       "method": "POST",
+          //       "path": "/api/v1/escrows/:escrow_id/approve",
+          //       "authentication": "Bearer YOUR_API_KEY",
+          //       "parameters": [
+          //         {
+          //           "name": "approver_wallet",
+          //           "type": "string",
+          //           "required": true,
+          //           "description": "Wallet address of approver"
+          //         }
+          //       ]
+          //     },
+          //     {
+          //       "name": "Refund Escrow",
+          //       "method": "POST",
+          //       "path": "/api/v1/escrows/:escrow_id/refund",
+          //       "authentication": "Bearer YOUR_API_KEY",
+          //       "parameters": [
+          //         {
+          //           "name": "reason",
+          //           "type": "string",
+          //           "required": true,
+          //           "description": "Refund reason"
+          //         }
+          //       ]
+          //     },
+          //     {
+          //       "name": "Dispute Escrow",
+          //       "method": "POST",
+          //       "path": "/api/v1/escrows/:escrow_id/dispute",
+          //       "authentication": "Bearer YOUR_API_KEY",
+          //       "parameters": [
+          //         {
+          //           "name": "reason",
+          //           "type": "string",
+          //           "required": true,
+          //           "description": "Dispute reason (detailed)"
+          //         }
+          //       ]
+          //     }
+          //   ],
+          //   "release_condition_types": [
+          //     {
+          //       "type": "manual_approval",
+          //       "fields": {
+          //         "type": "manual_approval",
+          //         "approver": "wallet_address",
+          //         "approved": false
+          //       }
+          //     },
+          //     {
+          //       "type": "time_based",
+          //       "description": "Auto-release after date",
+          //       "fields": {
+          //         "type": "time_based",
+          //         "release_after": "2025-11-01T00:00:00Z"
+          //       }
+          //     },
+          //     {
+          //       "type": "confirmation_required",
+          //       "description": "Multiple approvals",
+          //       "fields": {
+          //         "type": "confirmation_required",
+          //         "confirmations_needed": 2,
+          //         "confirmed_by": []
+          //       }
+          //     },
+          //     {
+          //       "type": "milestone",
+          //       "fields": {
+          //         "type": "milestone",
+          //         "description": "Website delivered and approved",
+          //         "approved": false,
+          //         "approved_by": null
+          //       }
+          //     }
+          //   ],
+          //   "statuses": [
+          //     {
+          //       "status": "pending",
+          //       "description": "Escrow created, waiting for buyer payment"
+          //     },
+          //     {
+          //       "status": "funded",
+          //       "description": "Payment received, funds held in escrow"
+          //     },
+          //     {
+          //       "status": "released",
+          //       "description": "Funds released to seller"
+          //     },
+          //     {
+          //       "status": "refunded",
+          //       "description": "Funds refunded to buyer"
+          //     },
+          //     {
+          //       "status": "disputed",
+          //       "description": "Dispute raised, under review"
+          //     },
+          //     {
+          //       "status": "cancelled",
+          //       "description": "Escrow cancelled"
+          //     }
+          //   ],
+          //   "automatic_monitoring": {
+          //     "description": "ZendFi automatically monitors escrow transactions! A background worker runs hourly to:",
+          //     "steps": [
+          //       "Check time-based release conditions",
+          //       "Auto-release funds when time condition met",
+          //       "Send email notifications to all parties",
+          //       "Trigger webhooks for status changes",
+          //       "Alert admins for disputed transactions"
+          //     ]
+          //   }
+          // },
           {
             "name": "Invoices",
             "status": "LIVE NOW",

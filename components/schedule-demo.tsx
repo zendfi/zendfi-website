@@ -24,7 +24,7 @@ export function ScheduleDemoButton() {
       <Button
         size="lg"
         variant="outline"
-        className="hover:text-accent hover:bg-transparent hover:shadow-primary/20 transition-all duration-300 w-full "
+        className="hover:text-accent text-white bg-accent hover:bg-transparent hover:shadow-primary/20 transition-all duration-300 w-full "
       >
         Schedule a Demo
         <svg

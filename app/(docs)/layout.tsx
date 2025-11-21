@@ -41,7 +41,7 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
         { label: "Payments", href: "/docs/api", icon: Code },
         { label: "Payment Splits", href: "/docs/advanced", icon: Users },
         { label: "Subscriptions", href: "/docs/api/subscriptions", icon: RefreshCw },
-        { label: "Escrows", href: "/docs/api/escrows", icon: Shield },
+        // { label: "Escrows", href: "/docs/api/escrows", icon: Shield },
         { label: "Installments", href: "/docs/api/installments", icon: Calendar },
         { label: "Invoices", href: "/docs/api/invoices", icon: FileText },
         { label: "Payment Links", href: "/docs/payment-links", icon: Zap },

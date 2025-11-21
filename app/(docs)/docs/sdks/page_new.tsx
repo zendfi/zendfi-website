@@ -239,7 +239,7 @@ console.log(subscription.next_billing_date);`}</code>
       </section>
 
       {/* Escrows API */}
-      <section>
+      {/* <section>
         <h2 className="text-3xl font-bold mb-4">Escrows</h2>
         
         <Card className="p-6 mb-4">
@@ -282,7 +282,7 @@ await zendfi.escrows.approve('escrow_abc123', {
 });`}</code>
           </pre>
         </Card>
-      </section>
+      </section> */}
 
       {/* Installments API */}
       <section>

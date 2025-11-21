@@ -808,7 +808,7 @@ if __name__ == '__main__':
               </Card>
             </Link>
 
-            <Link href="/docs/api/escrows" className="block group">
+            {/* <Link href="/docs/api/escrows" className="block group">
               <Card className="p-4 hover:shadow-lg transition-all duration-200 hover:border-primary">
                 <div className="flex items-center gap-3 mb-2">
                   <Shield className="h-5 w-5 text-green-600" />
@@ -819,7 +819,7 @@ if __name__ == '__main__':
                   Learn more <ArrowRight className="h-3 w-3" />
                 </p>
               </Card>
-            </Link>
+            </Link> */}
 
             <Link href="/docs/api/installments" className="block group">
               <Card className="p-4 hover:shadow-lg transition-all duration-200 hover:border-primary">

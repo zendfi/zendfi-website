@@ -207,7 +207,7 @@ console.log(payment.checkout_url);`
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-2 border-accent text-accent hover:bg-transparent font-semibold px-8 py-6 text-lg transition-all duration-300 w-full sm:w-auto"
+                    className="border-2 border-accent text-accent hover:bg-transparent hover:text-accent font-semibold px-8 py-6 text-lg transition-all duration-300 w-full sm:w-auto"
                   >
                     View Live Demo
                   </Button>

@@ -2255,7 +2255,7 @@ showNotification(userMessage);`}</code>
               <Link href={"/docs/advanced"}>
                 <p className="font-semibold">Advanced Features</p>
               </Link>
-              <p className="text-sm text-muted-foreground">Subscriptions, escrows, installments - Level up your game!</p>
+              <p className="text-sm text-muted-foreground">Subscriptions, installments - Level up your game!</p>
             </div>
           </div>
         </div>
