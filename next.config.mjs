@@ -19,6 +19,16 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   poweredByHeader: false,
+  async redirects() {
+    return [
+      // Redirect all /docs routes to docs.zendfi.tech
+      {
+        source: '/docs/:path*',
+        destination: 'https://docs.zendfi.tech/:path*',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig
