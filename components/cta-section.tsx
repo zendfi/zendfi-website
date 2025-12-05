@@ -11,14 +11,14 @@ export function CTASection() {
       <section
 
       >
-        <div className="relativ bg-accent/20 p-12 md:p-16 text-center overflow-hidden">
+        <div className="relativ bg-accent/20 dark:bg-transparent p-12 md:p-16 text-center overflow-hidden">
 
 
           <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-700 mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-700 dark:text-white mb-6">
               Ready to Build with ZendFi?
             </h2>
-            <p className="text-xl text-slate-700/90 mb-8">
+            <p className="text-xl text-slate-700/90 dark:text-white/80 mb-8">
               Get started in minutes with our SDK. No credit card required.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -28,7 +28,7 @@ export function CTASection() {
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="border-white/30 text-white bg-accent">
+              <Button size="lg" variant="outline" className="border-white/30 text-white bg-accent dark:bg-accent hover:bg-accent/90">
                 <Link href={"mailto:sales@zendfi.tech"}>
                   Contact Sales
                 </Link>

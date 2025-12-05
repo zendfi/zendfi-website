@@ -21,7 +21,7 @@ export function StatisticsSection() {
               alt="Solana2"
               width={720}
               height={720}
-              className="mx-auto"
+              className="mx-auto filter hue-rotate-[9deg] brightness-110"
             />
           </motion.div>
 

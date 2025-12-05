@@ -59,7 +59,7 @@ function NavigationMenuItem({
 }
 
 const navigationMenuTriggerStyle = cva(
-  "group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:text-accent data-[state=open]:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
+  "group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-slate-600 dark:text-gray-200/95 dark:hover:text-accent transition-colors hover:text-accent data-[state=open]:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
 )
 
 

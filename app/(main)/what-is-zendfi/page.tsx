@@ -153,7 +153,7 @@ export default function AboutPage() {
                                     { value: "<400ms", label: "Settlement" }
                                 ].map((stat, i) => (
                                     <div key={i} className="text-center">
-                                        <div className="text-xl md:text-3xl font-bold bg-gradient-to-r from-accent/70 to-accent/80 bg-clip-text text-transparent mb-2">
+                                        <div className="text-xl md:text-3xl font-bold text-accent dark:text-accent mb-2">
                                             {stat.value}
                                         </div>
                                         <div className="text-xs text-muted-foreground">
@@ -257,14 +257,14 @@ export default function AboutPage() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    <div className="relativ bg-accent/20 p-12 md:p-16 text-center overflow-hidden">
+                    <div className="relativ bg-accent/20 dark:bg-transparent p-12 md:p-16 text-center overflow-hidden">
 
 
                         <div className="relative z-10 max-w-2xl mx-auto">
-                            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-slate-700 mb-6">
+                            <h2 className="text-3xl dark:text-white font-bold text-slate-700 mb-6">
                                 Ready to Build with ZendFi?
                             </h2>
-                            <p className="text-xl text-slate-700/90 mb-8">
+                            <p className="text-xl text-slate-700/90 dark:text-white/80 mb-8">
                                 Get started in minutes with our SDK. No credit card required.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -274,7 +274,7 @@ export default function AboutPage() {
                                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                     </Button>
                                 </Link>
-                                <Button size="lg" variant="outline" className="border-white/30 text-white bg-accent">
+                                <Button size="lg" variant="outline" className="border-white/30 text-white bg-accent dark:bg-accent hover:bg-accent/90">
                                     <Link href={"mailto:sales@zendfi.tech"}>
                                         Contact Sales
                                     </Link>
@@ -321,7 +321,7 @@ function InteractiveReasonCard({ reason, index }: { reason: any; index: number }
                             <reason.icon className={`w-10 h-10 ${reason.iconColor}`} />
                         </motion.div>
 
-                        <span className="text-6xl font-bold text-gray-200 dark:text-zinc-700 group-hover:text-violet-500/30 transition-colors duration-300">
+                        <span className="text-6xl font-bold text-gray-200 dark:text-zinc-300 group-hover:text-violet-500/30 transition-colors duration-300">
                             {reason.number}
                         </span>
                     </div>
@@ -343,7 +343,7 @@ function InteractiveReasonCard({ reason, index }: { reason: any; index: number }
                bg-gray-50 dark:bg-zinc-800 text-sm"
                                 >
                                     <CheckCircle2 className="w-4 h-4 text-accent" />
-                                    <span className="font-medium text-gray-800 dark:text-zinc-300">
+                                    <span className="font-medium text-gray-800 dark:text-zinc-100">
                                         {feature}
                                     </span>
                                 </div>

@@ -203,7 +203,7 @@ console.log(payment.checkout_url);`
               </motion.div>
 
               <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }} className="w-full sm:w-auto">
-                <Link href="/docs" className="w-full sm:w-auto">
+                <Link href="/demos" className="w-full sm:w-auto">
                   <Button
                     size="lg"
                     variant="outline"
@@ -330,7 +330,7 @@ console.log(payment.checkout_url);`
       </section>
 
       {/* How It Works - Step by Step */}
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-20 md:py-28 bg-background dark:bg-transparent">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
@@ -475,7 +475,7 @@ console.log(payment.checkout_url);`
                 <h2 className="text-4xl md:text-5xl font-bold text-accent mb-6">
                   Ready to Get Started?
                 </h2>
-                <p className="text-xl text-slate-800 mb-10">
+                <p className="text-xl text-slate-800 dark:text-white/80 mb-10">
                   Join thousands of developers building the future of payments with ZendFi
                 </p>
 
@@ -501,7 +501,7 @@ console.log(payment.checkout_url);`
                 </div>
 
                 {/* Trust Indicators */}
-                <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-slate-800 text-sm">
+                <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-slate-800 dark:text-white/80 text-sm">
                   <div className="flex items-center gap-2">
                     <Check className="w-5 h-5" />
                     <span>Free to start</span>

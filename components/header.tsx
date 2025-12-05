@@ -22,6 +22,8 @@ import {
 import Image from 'next/image';
 import { Button } from './ui/button';
 import { motion } from 'framer-motion';
+import { ThemeToggle } from './theme-toggle';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const solutions = [
   {
@@ -63,12 +65,12 @@ const developers = [
   },
   {
     title: "API Reference",
-    href: "/docs/api",
+    href: "/docs/intro",
     description: "Detailed API endpoint documentation.",
   },
   {
     title: "SDKs & Libraries",
-    href: "/docs/sdks",
+    href: "/docs/developer-tools/sdks",
     description: "Official SDKs for popular programming languages.",
   },
 ]
@@ -93,7 +95,7 @@ export function Header() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? 'bg-white/80 backdrop-blur-xl border-b border-border/50 shadow-sm'
+          ? 'bg-white/80 dark:bg-transparent/80 backdrop-blur-xl border-b border-border/50 dark:border-white/10 shadow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -106,7 +108,7 @@ export function Header() {
                 alt="Zendfi Logo"
                 width={120}
                 height={32}
-                className="h-8 w-auto filter hue-rotate-[19deg] brightness-110"
+                className="h-8 w-auto filter hue-rotate-[19deg] dark:hue-rotate-[13deg] brightness-110"
                 priority
               />
             </Link>
@@ -118,7 +120,7 @@ export function Header() {
               <NavigationMenuList className='flex-wrap'>
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/what-is-zendfi" className='text-slate-500'>
+                    <Link href="/what-is-zendfi" className='text-slate-500 dark:text-gray-200/95 dark:hover:text-accent'>
                       What's ZendFi
                     </Link>
                   </NavigationMenuLink>
@@ -162,14 +164,14 @@ export function Header() {
 
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/pricing" className='text-slate-500'>
+                    <Link href="/pricing" className='text-slate-500 dark:text-gray-200/95 dark:hover:text-accent'>
                       Pricing
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/faqs" className='text-slate-500'>
+                    <Link href="/faqs" className='text-slate-500 dark:text-gray-200/95 dark:hover:text-accent'>
                       FAQs
                     </Link>
                   </NavigationMenuLink>
@@ -181,14 +183,15 @@ export function Header() {
 
           {/* CTA Buttons */}
           <div className="hidden sm:flex items-center space-x-3">
-            <Link href="/sign-in" className="px-4 py-2 text-base font-medium text-slate-600 hover:text-slate-900 transition-colors duration-200">
+            <ThemeToggle />
+            <Link href="/sign-in" className="px-4 py-2 text-base font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200">
               Sign In
             </Link>
             <Link href="/signup">
               <Button
                 variant="outline"
                 size="lg"
-                className="border-border max-w-60 transition-all duration-300 group bg-accent text-white cursor-pointer w-full sm:w-auto"
+                className="border-border max-w-60 transition-all duration-300 group bg-accent dark:bg-accent text-white cursor-pointer w-full sm:w-auto"
               >
                 Get Started <ExternalLink className="w-3.5 h-3.5 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Button>
@@ -199,14 +202,14 @@ export function Header() {
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="md:hidden">
               <button
-                className="p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
+                className="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors"
                 aria-label="Toggle navigation menu"
               >
                 <Menu className="w-6 h-6" />
               </button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-full sm:w-full p-0 overflow-y-auto">
-              <SheetHeader className="px-6 py-8 border-b border-slate-200">
+            <SheetContent side="left" className="w-full sm:w-full h-auto p-0 overflow-y-scroll bg-white dark:bg-black">
+              <SheetHeader className="px-6 py-8 border-b border-slate-200 dark:border-slate-800">
                 <SheetTitle className="text-left">
                   <Image
                     src="/images/logo.png"
@@ -225,7 +228,7 @@ export function Header() {
                 </div>
 
                 <div>
-                  <div className="font-semibold text-slate-600 mb-3">Solutions</div>
+                  <div className="font-semibold text-slate-600 dark:text-gray-200/95 mb-3">Solutions</div>
                   <div className="space-y-2">
                     {solutions.map((solution) => (
                       <MobileNavLink key={solution.title} href={solution.href} onClick={() => setIsOpen(false)}>
@@ -236,7 +239,7 @@ export function Header() {
                 </div>
 
                 <div>
-                  <div className="font-semibold text-slate-600 mb-3">Developers</div>
+                  <div className="font-semibold text-slate-600 dark:text-gray-200/95 mb-3">Developers</div>
                   <div className="space-y-2">
                     {developers.map((dev) => (
                       <MobileNavLink key={dev.title} href={dev.href} onClick={() => setIsOpen(false)}>
@@ -250,8 +253,12 @@ export function Header() {
                 <MobileNavLink href="/faqs" onClick={() => setIsOpen(false)}>FAQs</MobileNavLink>
               </nav>
 
-              <div className="px-6 pb-8 pt-6 border-t border-slate-200 space-y-3">
-                <Link href="/sign-in" onClick={() => setIsOpen(false)} className="block text-center px-4 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 rounded-xl transition-colors">
+              <div className="px-6 pb-8 pt-6 border-t border-slate-200 dark:border-slate-800 space-y-3">
+                <div className="flex items-center justify-between mb-3 pb-3 border-b border-slate-200 dark:border-slate-800">
+                  <span className="text-sm font-medium text-slate-600 dark:text-slate-400">Theme</span>
+                  <ThemeToggle />
+                </div>
+                <Link href="/sign-in" onClick={() => setIsOpen(false)} className="block text-center px-4 py-3 text-base font-medium text-white dark:text-gray-200/95 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-xl transition-colors">
                   Sign In
                 </Link>
                 <Link href="/signup" onClick={() => setIsOpen(false)} className="block text-center px-4 py-3 text-base font-semibold text-white bg-accent rounded-xl transition-all">
@@ -276,10 +283,10 @@ function ListItem({
     <li {...props}>
       <NavigationMenuLink asChild className='hover:bg-accent/10'>
         <Link href={href} className="group">
-          <div className="text-sm font-semibold text-slate-600 transition-colors">
+          <div className="text-sm font-semibold text-slate-600 dark:text-gray-200/95 transition-colors">
             {title}
           </div>
-          <p className="text-slate-600 text-sm leading-snug line-clamp-2 group-hover:text-slate-700 transition-colors">
+          <p className="text-slate-600 text-sm leading-snug line-clamp-2 dark:text-gray-500/95 group-hover:text-slate-700 transition-colors">
             {children}
           </p>
         </Link>
@@ -289,11 +296,12 @@ function ListItem({
 }
 
 function MobileNavLink({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) {
+  const isMobile = useIsMobile();
   return (
     <Link
       href={href}
       onClick={onClick}
-      className="block px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
+      className={`block px-3 py-2 text-sm font-medium text-slate-600 ${isMobile && "dark:text-gray-600/95"} dark:text-gray-200/95 hover:text-slate-900 dark:hover:text-accent-foreground hover:bg-slate-50 dark:hover:bg-slate-900 rounded-lg transition-colors`}
     >
       {children}
     </Link>

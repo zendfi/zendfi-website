@@ -197,7 +197,7 @@ export function UseCasesSlider() {
                             </div>
 
                             {/* Code */}
-                            <div className="p-3 sm:p-4 md:p-6 overflow-x-auto">
+                            <div className="p-3 sm:p-4 md:p-6 -mt-5 overflow-x-auto">
                               <pre className="text-sm sm:text-sm leading-relaxed">
                                 <div className="text-gray-300 font-mono ">
                                   {useCase.code}

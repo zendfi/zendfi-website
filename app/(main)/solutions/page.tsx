@@ -387,16 +387,13 @@ export default function SolutionsPage() {
                             transition={{ duration: 0.8 }}
                             viewport={{ once: true }}
                         >
-                            <div className="relative  bg-accent/20 p-12 md:p-16 text-center overflow-hidden">
-                                {/* Decorative Elements */}
-                                <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-                                <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-
+                            <div className="relative  bg-accent/20  dark:bg-transparent p-12 md:p-16 text-center overflow-hidden">
+                            
                                 <div className="relative z-10 max-w-3xl mx-auto">
-                                    <h2 className="text-4xl md:text-5xl font-bold text-slate-700 mb-6">
+                                    <h2 className="text-4xl md:text-5xl font-bold text-slate-700 dark:text-white mb-6">
                                         Build with ZendFi Today
                                     </h2>
-                                    <p className="text-xl text-slate-700/90 mb-10 leading-relaxed">
+                                    <p className="text-xl text-slate-700/90 dark:text-white/80 mb-10 leading-relaxed">
                                         Start accepting crypto, automate billing, and settle instantly — all in one place.
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -410,7 +407,7 @@ export default function SolutionsPage() {
                                     </div>
 
                                     {/* Trust Indicators */}
-                                    <div className="mt-12 flex items-center justify-center gap-8 text-slate-700 text-sm">
+                                    <div className="mt-12 flex items-center justify-center gap-8 text-slate-700 dark:text-white/80 text-sm">
                                         <div className="flex items-center gap-2">
                                             <CheckCircle2 className="w-5 h-5" />
                                             <span>No credit card required</span>
@@ -454,7 +451,7 @@ function FeatureCard({
         >
             <div className="relative p-6 rounded-2xl transition-all duration-300">
                 <div className="relative flex gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-indigo-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-6 h-6 text-indigo-600 dark:text-accent flex-shrink-0 mt-0.5" />
                     <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
                             <h3 className="font-semibold text-lg">{title}</h3>

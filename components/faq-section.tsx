@@ -87,7 +87,7 @@ export function FAQSection() {
                 onClick={() => toggleFAQ(index)}
                 className="w-full py-6 flex items-center justify-between text-left transition-all duration-200 ease-out"
               >
-                <h3 className="text-lg font-semibold text-slate-900 pr-8">{faq.question}</h3>
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white pr-8">{faq.question}</h3>
                 <ChevronDown
                   className={`w-5 h-5 text-slate-600 transition-all duration-200 ease-out flex-shrink-0 ${
                     openIndex === index ? "rotate-180 text-blue-600" : ""
@@ -101,7 +101,7 @@ export function FAQSection() {
                 }`}
               >
                 <div className="pb-6 pr-8 transform transition-transform duration-150 ease-out">
-                  <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
+                  <p className="text-slate-600 dark:text-white/80 leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
             </div>

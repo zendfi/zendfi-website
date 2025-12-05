@@ -7,15 +7,15 @@ export function DevSection() {
     const [activeTab, setActiveTab] = useState<'dashboard' | 'sdk'>('dashboard');
     
     return (
-        <section className="py-12 md:py-20 px-4 md:px-8">
+        <section className="py-12 md:py-20 px-4 md:px-12 dark:bg-transparent">
             <div className="max-w-7xl mx-auto">
                 {/* Top Cards Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
                     {/* Developer Toolkit Card */}
-                    <div className="p-8 md:p-12 rounded-2xl border-2 border-accent">
+                    <div className="p-8 md:p-12 rounded-2xl border-2 border-accent bg-white dark:bg-transparent">
                         <div className="text-xs md:text-sm font-semibold text-accent mb-3 tracking-wide">APIS AND SDKS</div>
-                        <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4"> Integrate in Minutes</h2>
-                        <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8">
+                        <h2 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4"> Integrate in Minutes</h2>
+                        <p className="text-base md:text-lg text-gray-600 dark:text-slate-400 mb-6 md:mb-8">
                         Our simple REST API and SDKs let you integrate global crypto payments in minutes, not months, without needing a blockchain team.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
@@ -33,10 +33,10 @@ export function DevSection() {
                     </div>
 
                     {/* Dashboard Card */}
-                    <div className="bg-white p-8 md:p-12 rounded-2xl border-2 border-accent">
+                    <div className="bg-white dark:bg-transparent p-8 md:p-12 rounded-2xl border-2 border-accent">
                         <div className="text-xs md:text-sm font-semibold text-accent mb-3 tracking-wide">INSTANT CASH FLOW</div>
-                        <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">Dashboard</h2>
-                        <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8">
+                        <h2 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">Dashboard</h2>
+                        <p className="text-base md:text-lg text-gray-600 dark:text-slate-400 mb-6 md:mb-8">
                         Manage your entire global revenue stream through a single, secure merchant dashboard.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3 md:gap-4">

@@ -1,3 +1,4 @@
+import { AipSection } from "@/components/aip-section"
 import { DevSection } from "@/components/dev-section"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
@@ -117,6 +118,7 @@ export default function Home() {
       <Header />
       <div className="relative">
         <HeroSection />
+        <AipSection />
         <Suspense fallback={<SectionSkeleton />}>
           <DevSection />
         </Suspense>
@@ -131,7 +133,7 @@ export default function Home() {
           <SecuritySection />
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
-          <StatisticsSection />
+          {/* <StatisticsSection /> */}
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
           {/* <PartnersSection /> */}

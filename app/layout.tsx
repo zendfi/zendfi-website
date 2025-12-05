@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"  
 import { QueryProvider } from "@/providers/query-provider"
+import { ThemeProvider } from "@/components/theme-provider"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import CodeEnhancerWrapper from '@/components/code-enhancer-wrapper'
 
@@ -98,7 +99,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -118,12 +119,14 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
       </head>
       <body className={`font-sans ${poppins.variable}`}>
-        <SmoothScroll />
-        <QueryProvider>
-          <CodeEnhancerWrapper />
-          <Suspense fallback={null}>{children}</Suspense>
-        </QueryProvider>
-        <Analytics />
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <SmoothScroll />
+          <QueryProvider>
+            <CodeEnhancerWrapper />
+            <Suspense fallback={null}>{children}</Suspense>
+          </QueryProvider>
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )

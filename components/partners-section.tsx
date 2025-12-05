@@ -74,7 +74,7 @@ export function PartnersSection() {
           {/* Interactive Partner Showcase */}
           <div className="relative max-w-4xl mx-auto">
             <div 
-              className="relative bg-white rounded-2xl shadow-xl p-8 md:p-12 border"
+              className="relative bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-8 md:p-12 border dark:border-slate-800"
               onMouseEnter={() => setIsAutoPlaying(false)}
               onMouseLeave={() => setIsAutoPlaying(true)}
             >
@@ -82,7 +82,7 @@ export function PartnersSection() {
               <div className="text-center space-y-8">
                 <div className="relative">
                   {/* Partner Logo */}
-                  <div className="w-72 h-36 mx-auto rounded-xl flex items-center justify-center bg-white p-6">
+                  <div className="w-72 h-36 mx-auto rounded-xl flex items-center justify-center bg-white dark:bg-slate-800 p-6">
                     <Image
                       src={partners[currentIndex].logo}
                       alt={`${partners[currentIndex].name} logo`}
@@ -155,11 +155,11 @@ export function PartnersSection() {
                     className={`group p-4 rounded-xl border transition-all ${
                       index === currentIndex
                         ? 'border-accent bg-accent/5 shadow-md'
-                        : 'border-border bg-white hover:border-accent/50 hover:shadow-sm'
+                        : 'border-border bg-white dark:bg-slate-900 dark:border-slate-800 hover:border-accent/50 hover:shadow-sm'
                     }`}
                   >
                     {/* Partner Logo */}
-                    <div className="w-full h-16 bg-white rounded-lg flex items-center justify-center mb-3 p-2">
+                    <div className="w-full h-16 bg-white dark:bg-slate-800 rounded-lg flex items-center justify-center mb-3 p-2">
                       <Image
                         src={partner.logo}
                         alt={`${partner.name} logo`}

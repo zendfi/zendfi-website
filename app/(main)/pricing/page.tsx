@@ -87,7 +87,7 @@ export function Pricing() {
         <Header />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center  py-24">
         <div className="max-w-3xl mx-auto space-y-8 mb-12 mt-15">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900">
+          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white">
             Start Free. Scale Smart.
           </h2>
           <p className="text-muted-foreground text-lg">

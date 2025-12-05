@@ -53,22 +53,22 @@ export function SecuritySection() {
           />
 
           {/* Floating badges */}
-          <div className="absolute top-4 left-4 bg-white/80 backdrop-blur-2xl border rounded-xl shadow-lg p-3 flex items-center space-x-2">
-            <div className="h-6 w-6 bg-green-100 rounded-full flex items-center justify-center">
-              <svg className="h-3.5 w-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="absolute top-4 left-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl border dark:border-slate-800 rounded-xl shadow-lg p-3 flex items-center space-x-2">
+            <div className="h-6 w-6 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
+              <svg className="h-3.5 w-3.5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <span className="text-sm font-medium text-foreground">Trusted Worldwide</span>
+            <span className="text-sm font-medium text-foreground dark:text-white">Trusted Worldwide</span>
           </div>
 
-          <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-2xl border rounded-xl shadow-lg p-3 flex items-center space-x-2">
-            <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center">
-              <svg className="h-3.5 w-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="absolute bottom-4 right-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl border dark:border-slate-800 rounded-xl shadow-lg p-3 flex items-center space-x-2">
+            <div className="h-6 w-6 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+              <svg className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" />
               </svg>
             </div>
-            <span className="text-sm font-medium text-foreground">Continuous Protection</span>
+            <span className="text-sm font-medium text-foreground dark:text-white">Continuous Protection</span>
           </div>
         </div>
       </div>
