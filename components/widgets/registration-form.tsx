@@ -167,7 +167,7 @@ export default function RegisterForm() {
         {isRegistering ? 'Creating Account...' : 'Create Merchant Account'}
       </button>
 
-      <div className="bg-yellow-50 border border-yellow-200 rounded p-3 text-sm">
+      <div className="bg-yellow-50 border border-yellow-200 rounded p-3 text-sm dark:bg-yellow-900/30 dark:border-yellow-800">
         <strong>⚠️ Important:</strong> Your API key will be shown only once after registration. 
         Make sure to save it securely!
       </div>

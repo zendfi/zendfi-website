@@ -203,7 +203,7 @@ export function HeroSection() {
               Get Started
             </motion.a>
             <motion.a
-              href="https://docs.zendfi.tech/aip-1/overview"
+              href="https://blog.zendfi.tech/article/agentic-intent-protocol"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className={`px-8 sm:px-10 py-4 rounded-xl border-2 border-accent/60 backdrop-blur-sm font-bold text-base sm:text-lg transition-all duration-200 flex items-center justify-center gap-2 ${isDark
