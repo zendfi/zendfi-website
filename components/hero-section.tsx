@@ -215,22 +215,7 @@ export function HeroSection() {
             </motion.a>
           </motion.div>
 
-          {/* HERO TEXT ALERT 🚨: SCROLL INDICATOR – The nudge at the bottom */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0, duration: 0.8 }}
-            className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
-          >
-            <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-              className="flex flex-col items-center gap-2 text-gray-500 dark:text-gray-500/70"
-            >
-              <ArrowDown className="w-5 h-5" />
-              <span className="text-xs font-medium tracking-wide">Scroll to Explore</span>
-            </motion.div>
-          </motion.div>
+          
         </div>
       </div>
     </section>
