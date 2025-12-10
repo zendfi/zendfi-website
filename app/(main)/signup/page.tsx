@@ -29,10 +29,10 @@ export default function RegistrationPage() {
           alt="Sign Up"
           fill
           className="object-cover object-center"
-          priority={false}
-          loading="lazy"
+          priority
           sizes="(max-width: 1024px) 0px, 50vw"
-          quality={70}
+          quality={85}
+          fetchPriority="high"
         />
       </div>
 

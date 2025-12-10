@@ -12,11 +12,98 @@ import {
     Zap,
     Clock,
     Shield,
-    Sparkles
+    Sparkles,
+    // New Icon for Agentic Intent
+    Wrench
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ScheduleDemoButton } from "@/components/schedule-demo"
+
+// --- NEW SECTION COMPONENT: Agentic Intent Protocol (AIP-1) ---
+
+function AgenticIntentSection() {
+    return (
+        <section id="agentic-intent" className="py-20 md:py-28 bg-gradient-to-b from-background to-muted/20 relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <motion.div
+                    className="grid lg:grid-cols-[400px_1fr] gap-12 items-start"
+                    initial={{ opacity: 0, y: 60 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                >
+                    {/* Sticky Icon Card (Matching the pattern of the other sections) */}
+                    <motion.div className="lg:sticky lg:top-32 lg:self-start">
+                        <div className="p-12 rounded-3xl bg-accent/5">
+                            <div className="w-20 h-20 rounded-2xl bg-accent/80 flex items-center justify-center mb-6">
+                                <Wrench className="text-white w-10 h-10" />
+                            </div>
+                            <h3 className="text-2xl font-bold">Autonomous Agent Payments</h3>
+                        </div>
+                    </motion.div>
+
+                    {/* Content */}
+                    <div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            className="mb-12"
+                        >
+                            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                                The Agentic Intent Protocol (AIP-1)
+                            </h2>
+                            <p className="text-xl text-muted-foreground leading-relaxed">
+                                AIP-1 solves the Agent Autonomy Trilemma, allowing AI agents to spend money independently while guaranteeing users retain complete cryptographic control of their funds.
+                                This is payments built for the future of AI.
+                            </p>
+                        </motion.div>
+
+                        <div className="grid gap-4">
+                            {[
+                                {
+                                    id: "aip-trilemma",
+                                    title: "Trilemma Solved: Autonomy + Non-Custody + Security",
+                                    desc: "Achieve all three essential properties simultaneously using threshold cryptography. Your agent acts without you, but always under your control.",
+                                    gradient: "from-violet-500/10 to-purple-500/10",
+                                    border: "border-violet-500/20"
+                                },
+                                {
+                                    id: "aip-noncustody",
+                                    title: "Distributed Non-Custody",
+                                    desc: "Your signing key is never held by a single party—not even Zendfi. It is securely managed by a decentralized network (Lit Protocol), ensuring maximum trust and security.",
+                                    gradient: "from-green-500/10 to-emerald-500/10",
+                                    border: "border-green-500/20"
+                                },
+                                {
+                                    id: "aip-intent",
+                                    title: "Intent-Based Spending",
+                                    desc: "Instead of approving every transaction, you define a broad financial intent (e.g., 'Agent can spend up to $100/day'). The agent operates autonomously within these secure, pre-approved bounds.",
+                                    gradient: "from-blue-500/10 to-cyan-500/10",
+                                    border: "border-blue-500/20"
+                                },
+                                {
+                                    id: "aip-security",
+                                    title: "Programmatic Spending Checks",
+                                    desc: "Every agent action is verified against your cryptographic conditions before the key is reconstructed for a single, momentary signature. Maximum security with zero human intervention.",
+                                    gradient: "from-pink-500/10 to-rose-500/10",
+                                    border: "border-pink-500/20"
+                                }
+                            ].map((feature, i) => (
+                                <FeatureCard key={i} {...feature} index={i} />
+                            ))}
+                        </div>
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    );
+}
+
+
+// --- MAIN SOLUTIONS PAGE COMPONENT ---
 
 export default function SolutionsPage() {
     return (
@@ -24,7 +111,7 @@ export default function SolutionsPage() {
             <Header />
 
             <main className="relative overflow-hidden lg:overflow-visible flex-1">
-                {/* HERO SECTION */}
+                {/* HERO SECTION (Retained) */}
                 <section className="relative overflow-hidden">
                     {/* Animated Background */}
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px]" />
@@ -120,7 +207,98 @@ export default function SolutionsPage() {
                     </div>
                 </section>
 
-                {/* ADVANCED PAYMENT TYPES */}
+                {/* --- INSERTED AIP-1 SECTION --- */}
+                <AgenticIntentSection />
+
+                  {/* HOSTED CHECKOUT PAGES (Existing Section - Retained) */}
+                <section id="checkout" className="py-20 md:py-28 bg-background relative">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <motion.div
+                            className="grid lg:grid-cols-[1fr_400px] gap-12 items-start"
+                            initial={{ opacity: 0, y: 60 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                        >
+                            {/* Content */}
+                            <div className="order-2 lg:order-1">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6 }}
+                                    viewport={{ once: true }}
+                                    className="mb-12"
+                                >
+                                    <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                                        Hosted Checkout Pages
+                                    </h2>
+                                    <p className="text-xl text-muted-foreground leading-relaxed">
+                                        Beautiful, secure, and mobile-optimized checkout pages out of the box.
+                                        No design or development needed.
+                                    </p>
+                                </motion.div>
+
+                                <div className="grid gap-4">
+                                    {[
+                                        {
+                                            title: "Mobile-Optimized Pages",
+                                            desc: "Every checkout adapts beautifully to all screens — fast, frictionless, and trustworthy.",
+                                            gradient: "from-violet-500/10 to-purple-500/10",
+                                            border: "border-violet-500/20"
+                                        },
+                                        {
+                                            title: "QR Code Payments",
+                                            desc: "Customers can instantly scan QR codes to pay via their preferred mobile wallets.",
+                                            gradient: "from-blue-500/10 to-cyan-500/10",
+                                            border: "border-blue-500/20"
+                                        },
+                                        {
+                                            title: "Wallet Integration",
+                                            desc: "Seamless connection to top wallets like Phantom, Solflare, and Backpack.",
+                                            gradient: "from-green-500/10 to-emerald-500/10",
+                                            border: "border-green-500/20"
+                                        },
+                                        {
+                                            title: "Pay-What-You-Want",
+                                            desc: "Allow customers to choose how much they want to pay — great for donations and community support.",
+                                            gradient: "from-pink-500/10 to-rose-500/10",
+                                            border: "border-pink-500/20"
+                                        },
+                                        {
+                                            title: "Custom Branding",
+                                            desc: "Add your logo, brand colors, and styles for a fully white-labeled experience.",
+                                            gradient: "from-amber-500/10 to-orange-500/10",
+                                            border: "border-amber-500/20",
+                                            badge: "Coming Soon"
+                                        }
+                                    ].map((feature, i) => (
+                                        <FeatureCard key={i} {...feature} index={i} />
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Sticky Icon Card */}
+                            <motion.div
+                                className="lg:sticky lg:top-32 lg:self-start order-1 lg:order-2"
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ duration: 0.3 }}
+                            >
+
+                                <div className="p-12 rounded-3xl bg-accent/5">
+                                    <div className="w-20 h-20 rounded-2xl bg-accent/80 flex items-center justify-center mb-6">
+                                        <Share2 className="text-white w-10 h-10" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-foreground">
+                                        Seamless Checkout Experience
+                                    </h3>
+                                </div>
+
+                            </motion.div>
+                        </motion.div>
+                    </div>
+                </section>
+                
+                {/* ADVANCED PAYMENT TYPES (Existing Section - Retained) */}
                 <section id="payment-types" className="py-20 md:py-28 bg-gradient-to-b from-background to-muted/20 relative">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <motion.div
@@ -209,8 +387,8 @@ export default function SolutionsPage() {
                     </div>
                 </section>
 
-                {/* HOSTED CHECKOUT PAGES */}
-                <section id="checkout" className="py-20 md:py-28 bg-background relative">
+                {/* INSTANT SETTLEMENTS (Existing Section - Retained) */}
+                <section className="py-20 md:py-28 bg-gradient-to-b from-muted/20 to-background">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <motion.div
                             className="grid lg:grid-cols-[1fr_400px] gap-12 items-start"
@@ -221,112 +399,6 @@ export default function SolutionsPage() {
                         >
                             {/* Content */}
                             <div className="order-2 lg:order-1">
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6 }}
-                                    viewport={{ once: true }}
-                                    className="mb-12"
-                                >
-                                    <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                                        Hosted Checkout Pages
-                                    </h2>
-                                    <p className="text-xl text-muted-foreground leading-relaxed">
-                                        Beautiful, secure, and mobile-optimized checkout pages out of the box.
-                                        No design or development needed.
-                                    </p>
-                                </motion.div>
-
-                                <div className="grid gap-4">
-                                    {[
-                                        {
-                                            title: "Mobile-Optimized Pages",
-                                            desc: "Every checkout adapts beautifully to all screens — fast, frictionless, and trustworthy.",
-                                            gradient: "from-violet-500/10 to-purple-500/10",
-                                            border: "border-violet-500/20"
-                                        },
-                                        {
-                                            title: "QR Code Payments",
-                                            desc: "Customers can instantly scan QR codes to pay via their preferred mobile wallets.",
-                                            gradient: "from-blue-500/10 to-cyan-500/10",
-                                            border: "border-blue-500/20"
-                                        },
-                                        {
-                                            title: "Wallet Integration",
-                                            desc: "Seamless connection to top wallets like Phantom, Solflare, and Backpack.",
-                                            gradient: "from-green-500/10 to-emerald-500/10",
-                                            border: "border-green-500/20"
-                                        },
-                                        {
-                                            title: "Pay-What-You-Want",
-                                            desc: "Allow customers to choose how much they want to pay — great for donations and community support.",
-                                            gradient: "from-pink-500/10 to-rose-500/10",
-                                            border: "border-pink-500/20"
-                                        },
-                                        {
-                                            title: "Custom Branding",
-                                            desc: "Add your logo, brand colors, and styles for a fully white-labeled experience.",
-                                            gradient: "from-amber-500/10 to-orange-500/10",
-                                            border: "border-amber-500/20",
-                                            badge: "Coming Soon"
-                                        }
-                                    ].map((feature, i) => (
-                                        <FeatureCard key={i} {...feature} index={i} />
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Sticky Icon Card */}
-                            <motion.div
-                                className="lg:sticky lg:top-32 lg:self-start order-1 lg:order-2"
-                                whileHover={{ scale: 1.05 }}
-                                transition={{ duration: 0.3 }}
-                            >
-
-                                <div className="p-12 rounded-3xl bg-accent/5">
-                                    <div className="w-20 h-20 rounded-2xl bg-accent/80 flex items-center justify-center mb-6">
-                                        <Share2 className="text-white w-10 h-10" />
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-foreground">
-                                        Seamless Checkout Experience
-                                    </h3>
-                                </div>
-
-                            </motion.div>
-                        </motion.div>
-                    </div>
-                </section>
-
-                {/* INSTANT SETTLEMENTS */}
-                <section className="py-20 md:py-28 bg-gradient-to-b from-muted/20 to-background">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <motion.div
-                            className="grid lg:grid-cols-[400px_1fr] gap-12 items-start"
-                            initial={{ opacity: 0, y: 60 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                        >
-                            {/* Sticky Icon Card */}
-                            <motion.div
-                                className="lg:sticky lg:top-32 lg:self-start"
-                                whileHover={{ scale: 1.05 }}
-                                transition={{ duration: 0.3 }}
-                            >
-                                <div className="relative p-12 rounded-3xl bg-accent/5">
-                                    <div className="relative">
-                                        <div className="w-20 h-20 rounded-2xl bg-accent/80 flex items-center justify-center mb-6">
-                                            <Layers className="text-white w-10 h-10" />
-                                        </div>
-                                        <h3 className="text-2xl font-bold text-foreground">
-                                            Lightning-Fast Settlements
-                                        </h3>
-                                    </div>
-                                </div>
-                            </motion.div>
-
-                            {/* Content */}
-                            <div>
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
@@ -374,11 +446,29 @@ export default function SolutionsPage() {
                                     ))}
                                 </div>
                             </div>
+
+                            {/* Sticky Icon Card */}
+                            <motion.div
+                                className="lg:sticky lg:top-32 lg:self-start order-1 lg:order-2"
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <div className="relative p-12 rounded-3xl bg-accent/5">
+                                    <div className="relative">
+                                        <div className="w-20 h-20 rounded-2xl bg-accent/80 flex items-center justify-center mb-6">
+                                            <Layers className="text-white w-10 h-10" />
+                                        </div>
+                                        <h3 className="text-2xl font-bold text-foreground">
+                                            Lightning-Fast Settlements
+                                        </h3>
+                                    </div>
+                                </div>
+                            </motion.div>
                         </motion.div>
                     </div>
                 </section>
 
-                {/* CTA SECTION */}
+                {/* CTA SECTION (Retained) */}
                 <section className="">
                     <div className="">
                         <motion.div
@@ -387,7 +477,7 @@ export default function SolutionsPage() {
                             transition={{ duration: 0.8 }}
                             viewport={{ once: true }}
                         >
-                            <div className="relative  bg-accent/20  dark:bg-transparent p-12 md:p-16 text-center overflow-hidden">
+                            <div className="relative bg-accent/20 dark:bg-transparent p-12 md:p-16 text-center overflow-hidden">
                             
                                 <div className="relative z-10 max-w-3xl mx-auto">
                                     <h2 className="text-4xl md:text-5xl font-bold text-slate-700 dark:text-white mb-6">
@@ -429,6 +519,7 @@ export default function SolutionsPage() {
     )
 }
 
+// Retaining FeatureCard for completeness of the solution
 function FeatureCard({
     title,
     desc,

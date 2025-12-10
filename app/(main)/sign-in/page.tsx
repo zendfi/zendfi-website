@@ -30,6 +30,9 @@ export default function LoginPage() {
           fill
           className="object-cover object-center"
           priority
+          sizes="(max-width: 1024px) 0px, 50vw"
+          quality={85}
+          fetchPriority="high"
         />
       </div>
 

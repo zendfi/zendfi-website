@@ -187,7 +187,7 @@ export function AipSection() {
                 src={phoneImg}
                 alt="AIP-1 Demo"
                 fill
-                className="object-contain drop-shadow-2xl"
+                className="object-contain drop-shadow-2xl filter hue-rotate-[20deg] dark:hue-rotate-[23deg] brightness-110"
                 priority
                 sizes="(max-width: 1024px) 100vw, 500px"
               />

@@ -21,7 +21,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL('https://zendfi.tech'),
   title: {
-    default: "ZendFi | Seven lines of code. Boom. Payments live.",
+    default: "ZendFi | One Integration. Every crypto payment experience.",
     template: "%s | ZendFi"
   },
   description: "Complete crypto payment infrastructure with payments, subscriptions, escrows, installments, and invoices. Accept USDC, SOL, and USDT with MPC wallets or your own. Built for developers, trusted by businesses.",
@@ -62,20 +62,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://zendfi.tech",
     siteName: "ZendFi",
-    title: "ZendFi | Seven lines of code. Boom. Payments live.",
+    title: "ZendFi | One Integration. Every crypto payment experience.",
     description: "Accept crypto payments with subscriptions, escrows, installments, and invoices. MPC wallets with passkey security. USDC, SOL, USDT. Developer-first API.",
     images: [
       {
         url: "/preview.png",
         width: 1200,
         height: 630,
-        alt: "ZendFi | Seven lines of code. Boom. Payments live.",
+        alt: "ZendFi | One Integration. Every crypto payment experience.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ZendFi | Seven lines of code. Boom. Payments live.",
+    title: "ZendFi | One Integration. Every crypto payment experience.",
     description: "Accept crypto payments with subscriptions, escrows, installments, and invoices. MPC wallets with passkey security. USDC, SOL, USDT. Developer-first API.",
     images: ["/preview.png"],
     creator: "@ZendfiHQ",
