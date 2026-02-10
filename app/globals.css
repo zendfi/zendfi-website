@@ -319,3 +319,42 @@
     --orb-glow: #a78bfa;
     --orb-soft: #d8b4fe;
   }
+
+  /* ------------------------------------------------ */
+  /* PAGE-SPECIFIC UTILITIES                          */
+  /* ------------------------------------------------ */
+
+  @layer utilities {
+    .zendfi-grid-pattern {
+      background-image:
+        linear-gradient(to right, color-mix(in oklab, oklch(0.9 0 0) 90%, transparent) 1px, transparent 1px),
+        linear-gradient(to bottom, color-mix(in oklab, oklch(0.9 0 0) 90%, transparent) 1px, transparent 1px);
+    }
+
+    .dark .zendfi-grid-pattern {
+      background-image:
+        linear-gradient(to right, color-mix(in oklab, oklch(0.32 0 0) 80%, transparent) 1px, transparent 1px),
+        linear-gradient(to bottom, color-mix(in oklab, oklch(0.32 0 0) 80%, transparent) 1px, transparent 1px);
+    }
+
+    .flat-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .flat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.10);
+    }
+
+    .dark .flat-card:hover {
+      box-shadow: 4px 4px 0px 0px rgba(255, 255, 255, 0.10);
+    }
+
+    .zendfi-hard-shadow {
+      box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+    }
+
+    .dark .zendfi-hard-shadow {
+      box-shadow: 8px 8px 0px 0px rgba(255, 255, 255, 1);
+    }
+  }

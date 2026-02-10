@@ -21,27 +21,10 @@ const nextConfig = {
   poweredByHeader: false,
   async redirects() {
     return [
-      // Redirect all requests coming to zendfi.tech (apex and www) to waitlist.zendfi.tech
-      {
-        source: '/:path*',
-        has: [
-          { type: 'host', value: 'zendfi.tech' },
-        ],
-        destination: 'https://waitlist.zendfi.tech/:path*',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [
-          { type: 'host', value: 'www.zendfi.tech' },
-        ],
-        destination: 'https://waitlist.zendfi.tech/:path*',
-        permanent: true,
-      },
       // Redirect all /docs routes to docs.zendfi.tech
       {
         source: '/docs/:path*',
-        destination: 'https://docs.zendfi.tech/:path*',
+        destination: 'https://docs.zendfi.tech/*',
         permanent: true,
       },
     ]
