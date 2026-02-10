@@ -110,37 +110,44 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Header />
       <div className="relative">
-        <HeroSection />
-        <AipSection />
-        <Suspense fallback={<SectionSkeleton />}>
-          <DevSection />
-        </Suspense>
-        <UseCasesSlider />
-        <Suspense fallback={<SectionSkeleton />}>
-          <FeaturesSection />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          <NetworkSection />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          <SecuritySection />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          {/* <StatisticsSection /> */}
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          {/* <PartnersSection /> */}
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton />}>
-          <CTASection />
-        </Suspense>
+        <section className="manifesto-section zendfi-grid-pattern">
+          <HeroSection />
+        </section>
+        <section className="manifesto-section">
+          <Suspense fallback={<SectionSkeleton />}>
+            <DevSection />
+          </Suspense>
+        </section>
+        <section className="manifesto-section">
+          <UseCasesSlider />
+        </section>
+        <section className="manifesto-section">
+          <Suspense fallback={<SectionSkeleton />}>
+            <FeaturesSection />
+          </Suspense>
+        </section>
+        <section className="manifesto-section">
+          <Suspense fallback={<SectionSkeleton />}>
+            <NetworkSection />
+          </Suspense>
+        </section>
+        <section className="manifesto-section">
+          <Suspense fallback={<SectionSkeleton />}>
+            <SecuritySection />
+          </Suspense>
+        </section>
+        <section className="manifesto-section">
+          <Suspense fallback={<SectionSkeleton />}>
+            <CTASection />
+          </Suspense>
+        </section>
         <Suspense fallback={<SectionSkeleton />}>
           <Footer />
         </Suspense>
