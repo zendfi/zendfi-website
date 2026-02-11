@@ -71,7 +71,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/what-is-zendfi" className="text-xs text-gray-400 hover:text-white transition-colors">
+                <a href="/what-is-zendfi/#visionaries" className="text-xs text-gray-400 hover:text-white transition-colors">
                   Meet the Team
                 </a>
               </li>

@@ -362,44 +362,46 @@ export function UseCasesSlider() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header */}
         <div className="text-center max-w-7xl mx-auto mb-10 sm:mb-14">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl lg:text-[3.5rem] font-extrabold text-foreground mb-4 sm:mb-5 leading-[1.1] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-4 sm:mb-5 leading-[1.1] tracking-tight">
             Built for Every{" "}
             <span className="text-accent">Use Case</span>
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto px-4">
             From e-commerce to enterprise, ZendFi powers payments for businesses of all sizes.
           </p>
         </div>
 
-        {/* Tab Navigation with sliding indicator */}
-        <div className="flex justify-center mb-10 sm:mb-12">
-          <div
-            ref={tabContainerRef}
-            className="relative inline-flex items-center rounded-2xl border border-border bg-background py-2 px-1 shadow-sm"
-          >
-            {/* Sliding pill indicator */}
+        {/* Tab Navigation with sliding indicator - Improved Mobile Responsiveness */}
+        <div className="flex justify-center mb-10 sm:mb-12 px-2">
+          <div className="w-full max-w-full overflow-x-auto pb-2 -mb-2 scrollbar-thin">
             <div
-              className="absolute top-1 bottom-1 rounded-2xl border border-border bg-muted/60 shadow-sm z-0 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
-              style={{
-                left: `${indicatorStyle.left}px`,
-                width: `${indicatorStyle.width}px`,
-              }}
-            />
+              ref={tabContainerRef}
+              className="relative inline-flex items-center rounded-xl sm:rounded-2xl border border-border bg-background py-1.5 sm:py-2 px-1 shadow-sm min-w-max mx-auto"
+            >
+              {/* Sliding pill indicator */}
+              <div
+                className="absolute top-1 bottom-1 rounded-xl sm:rounded-2xl border border-border bg-muted/60 shadow-sm z-0 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                style={{
+                  left: `${indicatorStyle.left}px`,
+                  width: `${indicatorStyle.width}px`,
+                }}
+              />
 
-            {useCases.map((uc, index) => (
-              <button
-                key={index}
-                ref={(el) => { tabRefs.current[index] = el }}
-                onClick={() => goTo(index)}
-                className={`relative z-10 rounded-full px-4 sm:px-5 py-2 text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
-                  index === activeIndex
-                    ? "text-accent"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {uc.tab}
-              </button>
-            ))}
+              {useCases.map((uc, index) => (
+                <button
+                  key={index}
+                  ref={(el) => { tabRefs.current[index] = el }}
+                  onClick={() => goTo(index)}
+                  className={`relative z-10 rounded-lg sm:rounded-full px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
+                    index === activeIndex
+                      ? "text-accent"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {uc.tab}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -409,7 +411,7 @@ export function UseCasesSlider() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="rounded-2xl sm:rounded-3xl bg-background border border-border/60 shadow-lg overflow-hidden relative">
+          <div className="rounded-xl sm:rounded-2xl lg:rounded-3xl bg-background border border-border/60 shadow-lg overflow-hidden relative">
             {/* Exiting slide */}
             {isAnimating && (
               <div className={`absolute inset-0 ${exitClass}`}>
@@ -428,13 +430,13 @@ export function UseCasesSlider() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-14 sm:mt-16">
-          <p className="text-base sm:text-lg text-muted-foreground mb-4">
+        <div className="text-center mt-12 sm:mt-14 md:mt-16">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-4">
             Ready to build your use case?
           </p>
           <Button
             size="lg"
-            className="bg-accent hover:bg-accent/90 text-white font-semibold px-8 text-sm sm:text-base rounded-lg transition-all duration-200"
+            className="bg-accent hover:bg-accent/90 text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg transition-all duration-200"
           >
             Get Started Free
           </Button>

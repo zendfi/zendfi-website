@@ -67,7 +67,7 @@ export default function WhatIsZendFiPage() {
         </section>
 
         {/* BORDERLESS WORLD */}
-        <section className="w-full py-24 bg-[#f4f4f5] dark:bg-[#110a18] border-y border-foreground/10">
+        <section id="our-story" className="w-full py-24 bg-[#f4f4f5] dark:bg-[#110a18] border-y border-foreground/10">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="grid lg:grid-cols-2 gap-16 xl:gap-20 items-start">
               <div>
@@ -213,7 +213,7 @@ export default function WhatIsZendFiPage() {
         </section>
 
         {/* VISIONARIES */}
-        <section className="w-full py-24 bg-[#f4f4f5] dark:bg-[#110a18] border-y border-foreground/10">
+        <section id="visionaries" className="w-full py-24 bg-[#f4f4f5] dark:bg-[#110a18] border-y border-foreground/10">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
               <div>
