@@ -4,9 +4,11 @@ import { Suspense, useRef, useEffect, useState, useMemo } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { OrbitControls, Icosahedron, MeshDistortMaterial, Stars } from "@react-three/drei"
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
-import { Sparkles, Zap, Layers, Orbit, ArrowDown } from "lucide-react"
+import { Sparkles, Zap, Layers, Orbit, ArrowDown, ExternalLink } from "lucide-react"
 import Orb from './ui-pro/orb';
 import * as THREE from "three"
+import { Button } from "./ui/button"
+import Link from "next/link"
 
 // Hook to detect dark mode based on Tailwind's dark class on document root
 export function useIsDark() {
@@ -130,39 +132,7 @@ export function HeroSection() {
 
   return (
     <section className="relative w-full h-[120vh] bg-white dark:bg-black overflow-hidden">
-      {/* Enhanced gradient overlay with mouse-reactive shimmer */}
-      <motion.div
-        className="absolute inset-0 z-5 pointer-events-none"
-        style={{
-          x: springX,
-          y: springY,
-          scale: scale,
-        }}
-        animate={{ opacity: [0.2, 0.4, 0.2] }}
-        transition={{ duration: 5, repeat: Infinity }}
-      >
-        <div className={`absolute top-1/2 right-1/4 transform translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[100px] ${isDark ? 'bg-violet-500/10' : 'bg-violet-500/5'}`} />
-      </motion.div>
-
-      {/* 3D Canvas - Full screen background */}
-      {isDark ? (
-        <Canvas className="absolute inset-0 z-10" camera={{ position: [0, 0, 5], fov: 50 }}>
-          <Scene isDark={isDark} />
-        </Canvas>
-      ) : (
-        <div className="absolute hidden sm:flex inset-0 z-0">
-          <Orb hue={50} hoverIntensity={0.3} />
-  <div
-  className="absolute bottom-0 left-0 w-full h-40
-             backdrop-blur-md pointer-events-none
-             bg-[linear-gradient(to_bottom,transparent,rgba(255,255,255,0.6),rgba(255,255,255,0.8),rgba(255,255,255,0.9),white)]"
-/>
-
-
-</div>
-
-      )}
-
+      <div className="absolute inset-0 bg-[size:40px_40px] zendfi-grid-pattern opacity-[0.45] pointer-events-none" />
 
       {/* Main Content - Centered */}
       <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
@@ -194,28 +164,21 @@ export function HeroSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center"
           >
-            <motion.a
-              href="/signup"
-              whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(139, 92, 246, 0.4)" }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 sm:px-10 py-4 rounded-xl text-white font-bold text-base sm:text-lg bg-accent"
-            >
-              Get Started
-            </motion.a>
-            <motion.a
-              href="https://blog.zendfi.tech/article/agentic-intent-protocol"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-8 sm:px-10 py-4 rounded-xl border-2 border-accent/60 backdrop-blur-sm font-bold text-base sm:text-lg transition-all duration-200 flex items-center justify-center gap-2 ${isDark
-                ? 'bg-transparent text-white hover:border-accent hover:bg-white/12'
-                : 'bg-transparent text-gray-900 hover:border-accent hover:bg-white'
-                }`}
-            >
-              Explore AIP-1
-            </motion.a>
+            <Link href="https://dashboard.zendfi.tech/login" target="_blank" rel="noopener noreferrer">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-accent max-w-60 p-6 hover:text-accent transition-all duration-300 group bg-transparent dark:bg-accent text-accent cursor-pointer w-full sm:w-auto"
+              >
+                Get Started <ExternalLink className="w-3.5 h-3.5 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Button>
+            </Link>
+            <Button size={"lg"} className="border-border max-w-60 p-6 transition-all hover:bg-accent duration-300 group bg-accent dark:bg-accent text-white cursor-pointer w-full sm:w-auto">
+              View Documentation
+            </Button>
           </motion.div>
 
-          
+
         </div>
       </div>
     </section>

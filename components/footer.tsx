@@ -9,20 +9,19 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Platform Column */}
-          <div className="lg:col-span-1">
-            <h3 className="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">PLATFORM</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-xs text-gray-400 hover:text-white transition-colors">
-                  Zendfi for Businesses
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-xs text-gray-400 hover:text-white transition-colors">
-                  Zendfi for Individuals
-                </a>
-              </li>
-            </ul>
+          <div className="lg:col-span-1 gap-2 space-y-3">
+            <div className="flex items-center gap-6">
+              <div className="flex items-center space-x-2">
+                <Image
+                  src="/images/logo.png"
+                  alt="Zendfi Logo"
+                  width={120}
+                  height={32}
+                  className="h-8 w-auto filter hue-rotate-[19deg] brightness-110"
+                />
+              </div>
+            </div>
+            <p className="text-xs text-gray-400">One integration. Every crypto payment experience.</p>
           </div>
 
           {/* Use Cases Column */}
@@ -84,6 +83,11 @@ export function Footer() {
             <h3 className="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">INSIGHTS</h3>
             <ul className="space-y-2">
               <li>
+                <a href="/faqs" className="text-xs text-gray-400 hover:text-white transition-colors">
+                  FAQs
+                </a>
+              </li>
+              <li>
                 <a href="/demos" className="text-xs text-gray-400 hover:text-white transition-colors">
                   Live Demo
                 </a>
@@ -120,11 +124,6 @@ export function Footer() {
                   Legal & Privacy
                 </a>
               </li>
-              <li>
-                <a href="#" className="text-xs text-gray-400 hover:text-white transition-colors">
-                  Your Privacy Cookies
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -151,16 +150,8 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
             {/* Logo */}
-            <div className="flex items-center gap-6">
-              <div className="flex items-center space-x-2">
-                <Image
-                  src="/images/logo.png"
-                  alt="Zendfi Logo"
-                  width={120}
-                  height={32}
-                  className="h-8 w-auto filter hue-rotate-[19deg] brightness-110"
-                />
-              </div>
+            <div className="flex items-center gap-6 text-xs text-gray-400">
+              &nbsp; {new Date().getFullYear()} ZendFi. All rights reserved.
             </div>
 
             {/* Social Media Icons */}

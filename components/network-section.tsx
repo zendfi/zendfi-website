@@ -80,12 +80,12 @@ export function NetworkSection() {
       desc: `Payment links, invoices, subscriptions, split payments, escrow, and installment options all in one platform.`,
       image: "/images/advanced2.png",
     },
-    {
-      icon: <Webhook className="h-6 w-6 text-accent" />,
-      title: "Reliable Webhooks",
-      desc: `5 retry attempts, exponential backoff, dead-letter queue, and HMAC verification ensure every event is delivered.`,
-      image: "/images/reliable_webhooks.png",
-    },
+    // {
+    //   icon: <Webhook className="h-6 w-6 text-accent" />,
+    //   title: "Reliable Webhooks",
+    //   desc: `5 retry attempts, exponential backoff, dead-letter queue, and HMAC verification ensure every event is delivered.`,
+    //   image: "/images/reliable_webhooks.png",
+    // },
   ]
 
   return (

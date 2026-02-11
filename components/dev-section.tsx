@@ -19,12 +19,12 @@ export function DevSection() {
                         Our simple REST API and SDKs let you integrate global crypto payments in minutes, not months, without needing a blockchain team.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                            <Link href={"/docs"} className="w-full sm:w-auto">
+                            <Link href={"https://docs.zendfi.tech"} className="w-full sm:w-auto">
                                 <button className="w-full sm:w-auto px-6 py-3 bg-accent text-white rounded-lg font-medium hover:bg-accent/90 transition-colors">
                                     Read docs
                                 </button>
                             </Link>
-                            <Link href={"/docs/api"} className="w-full sm:w-auto">
+                            <Link href={"https://docs.zendfi.tech"} className="w-full sm:w-auto">
                                 <button className="w-full sm:w-auto px-6 py-3 border-2 border-accent text-accent rounded-lg font-medium hover:border-accent/80 transition-colors">
                                     Learn more
                                 </button>
@@ -40,7 +40,7 @@ export function DevSection() {
                         Manage your entire global revenue stream through a single, secure merchant dashboard.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                            <Link href={"/signup"}>
+                            <Link href={"https://dashboard.zendfi.tech/login"} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                             <button className="w-full sm:w-auto px-6 py-3 bg-accent text-white rounded-lg font-medium hover:bg-accent/90 transition-colors">
                                 Get Started
                             </button>

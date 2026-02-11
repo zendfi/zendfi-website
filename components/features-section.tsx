@@ -41,7 +41,7 @@ export function FeaturesSection() {
     {
       icon: (<Fuel className="h-6 w-6 text-accent"/>),
       title: "Gasless Payments",
-      description: "Your users just want to pay. They don't care about gas fees or native tokens. Neither should you. We handle it!",
+      description: "Your users just want to pay. They don't care about gas fees or native tokens. Neither should you. We handle it!",
       highlight: "Gas fees on us."
     },
     {
@@ -57,16 +57,16 @@ export function FeaturesSection() {
   ]
 
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-secondary/5">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="text-center max-w-4xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 leading-tight tracking-tighter">
             Everything Stripe Has.
-            <span className="block text-accent">Plus Features They Don't.</span>
+            <span className="block text-[hsl(var(--color-accent))]">Plus Features They Don't.</span>
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl text-foreground/80 leading-relaxed max-w-3xl mx-auto font-medium">
             Stripe-level developer experience with crypto-level economics.
-            <span className="font-semibold text-foreground"> No compromises.</span>
+            <span className="font-bold text-foreground"> No compromises.</span>
           </p>
         </div>
         {/* Features Grid */}

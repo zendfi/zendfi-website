@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Menu, Zap, Lock, TrendingUp, Code, ExternalLink } from 'lucide-react';
+import { Menu, Zap, Lock, TrendingUp, Code, ArrowRight, ExternalLink } from 'lucide-react';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -33,21 +33,21 @@ const solutions = [
     icon: Zap,
   },
   {
-    title: "Subscriptions",
-    href: "/solutions#subscriptions",
-    description: "Automate recurring billing and subscriptions.",
+    title: "Advanced Options",
+    href: "/solutions#advanced",
+    description: "Do much more with our flexible payment options.",
     icon: TrendingUp,
   },
   {
-    title: "Requesting Bills",
-    href: "/solutions#payouts",
-    description: "Share links that accept crypto",
+    title: "NGN Onramp",
+    href: "/solutions#onramp",
+    description: "Seamless onramp for Nigerian customers with local payment methods.",
     icon: Lock,
   },
   {
-    title: "Installation",
-    href: "/solutions#installment",
-    description: "Powerful APIs for seamless integration.",
+    title: "Instant Settlements",
+    href: "/solutions#settlement",
+    description: "Get your funds instantly with our fast settlement options.",
     icon: Code,
   },
 ]
@@ -169,32 +169,26 @@ export function Header() {
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/faqs" className='text-slate-500 dark:text-gray-200/95 dark:hover:text-accent'>
-                      FAQs
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-
               </NavigationMenuList>
             </NavigationMenu>
           </nav>
 
           {/* CTA Buttons */}
           <div className="hidden sm:flex items-center space-x-3">
-            <ThemeToggle />
-            <Link href="/sign-in" className="px-4 py-2 text-base font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200">
+            {/* <ThemeToggle /> */}
+            {/* <Link href="/sign-in" className="px-4 py-2 text-base font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200">
               Sign In
-            </Link>
-            <Link href="/signup">
-              <Button
+            </Link> */}
+            <Link href="https://dashboard.zendfi.tech/login" target="_blank" rel="noopener noreferrer">
+               <Button
                 variant="outline"
                 size="lg"
                 className="border-border max-w-60 transition-all duration-300 group bg-accent dark:bg-accent text-white cursor-pointer w-full sm:w-auto"
               >
                 Get Started <ExternalLink className="w-3.5 h-3.5 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Button>
+             {/* <div className="w-full sm:w-auto border-2 border-foreground bg-background p-1 zendfi-hard-shadow hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-200">
+            </div> */}
             </Link>
           </div>
 
@@ -250,18 +244,13 @@ export function Header() {
                 </div>
 
                 <MobileNavLink href="/pricing" onClick={() => setIsOpen(false)}>Pricing</MobileNavLink>
-                <MobileNavLink href="/faqs" onClick={() => setIsOpen(false)}>FAQs</MobileNavLink>
               </nav>
 
               <div className="px-6 pb-8 pt-6 border-t border-slate-200 dark:border-slate-800 space-y-3">
-                <div className="flex items-center justify-between mb-3 pb-3 border-b border-slate-200 dark:border-slate-800">
-                  <span className="text-sm font-medium text-slate-600 dark:text-slate-400">Theme</span>
-                  <ThemeToggle />
-                </div>
-                <Link href="/sign-in" onClick={() => setIsOpen(false)} className="block text-center px-4 py-3 text-base font-medium text-white dark:text-gray-200/95 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-xl transition-colors">
-                  Sign In
-                </Link>
-                <Link href="/signup" onClick={() => setIsOpen(false)} className="block text-center px-4 py-3 text-base font-semibold text-white bg-accent rounded-xl transition-all">
+                  {/* <Link href="/sign-in" onClick={() => setIsOpen(false)} className="block text-center px-4 py-3 text-base font-medium text-white dark:text-gray-200/95 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-xl transition-colors">
+                    Sign In
+                  </Link> */}
+                <Link href="https://dashboard.zendfi.tech/login" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="block text-center px-4 py-3 text-base font-semibold text-white bg-accent rounded-xl transition-all">
                   Get Started
                 </Link>
               </div>

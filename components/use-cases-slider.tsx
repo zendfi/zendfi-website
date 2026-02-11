@@ -1,276 +1,443 @@
 "use client"
 
-import { useCallback, useEffect, useState } from "react"
-import useEmblaCarousel from "embla-carousel-react"
-import Autoplay from "embla-carousel-autoplay"
-import { ShoppingCart, Repeat, Shield, CreditCard, FileText, Gamepad2 } from "lucide-react"
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react"
+import { ShoppingCart, Repeat, Shield, CreditCard, Gamepad2, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useIsMobile } from "@/hooks/use-mobile"
 
 const useCases = [
   {
     icon: ShoppingCart,
-    title: "E-commerce Stores",
-    description: "Accept crypto for digital products with instant settlements and zero chargebacks.",
-    example: "Selling courses, software, templates, digital downloads",
-    gradient: "from-purple-500/10 to-pink-500/10",
-    iconColor: "text-purple-500",
+    tab: "E-commerce",
+    title: "E-commerce Payments",
+    description:
+      "Accept crypto for digital and physical products with instant settlements and zero chargebacks. Seamless checkout for your customers.",
+    iconBg: "bg-purple-100 dark:bg-purple-500/20",
+    iconColor: "text-purple-600 dark:text-purple-400",
     code: `const payment = await zendfi.createPayment({
+  customer_email: 'customer@example.com',
   amount: 99.00,
   currency: 'USD',
   token: 'USDC',
   description: 'Premium Course'
-});`
+});
+
+// Payment created successfully: pay_987654321`,
   },
   {
     icon: Repeat,
-    title: "SaaS Platforms",
-    description: "Recurring billing in USDC with lower fees than traditional subscription processors.",
-    example: "Monthly/annual plans, metered billing, usage-based pricing",
-    gradient: "from-blue-500/10 to-cyan-500/10",
-    iconColor: "text-blue-500",
+    tab: "SaaS",
+    title: "SaaS Subscriptions",
+    description:
+      "Recurring billing in USDC with lower fees than traditional subscription processors. Manage monthly and annual plans effortlessly.",
+    iconBg: "bg-blue-100 dark:bg-blue-500/20",
+    iconColor: "text-blue-600 dark:text-blue-400",
     code: `const plan = await zendfi.createSubscriptionPlan({
   name: 'Premium Monthly',
   amount: 29.99,
   currency: 'USD',
-  interval: 'monthly'
-});`
+  interval: 'monthly',
+  trial_days: 14
+});
+
+// Subscription active: sub_112233445`,
   },
   {
     icon: Shield,
-    title: "Marketplaces",
-    description: "Escrow payments with buyer/seller protection and configurable release conditions.",
-    example: "Freelance platforms, NFT marketplaces, peer-to-peer trading",
-    gradient: "from-green-500/10 to-emerald-500/10",
-    iconColor: "text-green-500",
+    tab: "Marketplaces",
+    title: "Marketplace Escrow",
+    description:
+      "Escrow payments with buyer/seller protection and configurable release conditions. Perfect for freelance platforms and peer-to-peer trading.",
+    iconBg: "bg-green-100 dark:bg-green-500/20",
+    iconColor: "text-green-600 dark:text-green-400",
     code: `const escrow = await zendfi.createEscrow({
   buyer_wallet: '7xKBN...pT2',
   seller_wallet: '8yLMQ...qW3',
   amount: 500.00,
   release_conditions: { type: 'manual_approval' }
-});`
+});
+
+// Escrow funded: esc_556677889`,
   },
   {
     icon: CreditCard,
+    tab: "Buy Now Pay Later",
     title: "Buy Now, Pay Later",
-    description: "Built-in installment plans for high-ticket items without third-party services.",
-    example: "Split payments over 3, 6, or 12 months",
-    gradient: "from-amber-500/10 to-orange-500/10",
-    iconColor: "text-amber-500",
+    description:
+      "Built-in installment plans for high-ticket items without third-party services. Split payments over 2, 6, or 12 months with automated scheduling and collection.",
+    iconBg: "bg-amber-100 dark:bg-amber-500/20",
+    iconColor: "text-amber-600 dark:text-amber-400",
     code: `const plan = await zendfi.createInstallmentPlan({
   customer_email: 'customer@example.com',
   total_amount: 1200.00,
-  installment_count: 6,
+  installment_count: 4,
   payment_frequency_days: 30
-});`
-  },
-  {
-    icon: FileText,
-    title: "Invoice Billing",
-    description: "Professional invoices with crypto payment options and automatic reminders.",
-    example: "Agency work, consulting, B2B services, contract work",
-    gradient: "from-indigo-500/10 to-violet-500/10",
-    iconColor: "text-indigo-500",
-    code: `const invoice = await zendfi.createInvoice({
-  customer_email: 'client@company.com',
-  due_date: '2025-12-31',
-  items: [{ description: 'Web Design', unit_price: 5000.00 }]
-});`
+});
+
+// Plan created successfully: pln_123456789`,
   },
   {
     icon: Gamepad2,
-    title: "Gaming & Apps",
-    description: "In-app purchases with instant confirmation and global reach.",
-    example: "Game credits, premium features, virtual goods, consumables",
-    gradient: "from-rose-500/10 to-red-500/10",
-    iconColor: "text-rose-500",
+    tab: "Gaming",
+    title: "Gaming & In-App",
+    description:
+      "In-app purchases with instant confirmation and global reach. Power game credits, premium features, and virtual goods with crypto payments.",
+    iconBg: "bg-rose-100 dark:bg-rose-500/20",
+    iconColor: "text-rose-600 dark:text-rose-400",
     code: `const payment = await zendfi.createPayment({
   amount: 4.99,
   currency: 'USD',
   token: 'USDC',
-  metadata: { itemId: 'gold_pack_1000' }
-});`
+  metadata: { itemId: 'gold_pack_1000', userId: 'usr_42' }
+});
+
+// Purchase confirmed: pay_998877665`,
   },
 ]
 
 export function UseCasesSlider() {
-  const [selectedIndex, setSelectedIndex] = useState(0)
-  const isMobile = useIsMobile()
-  
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { 
-      loop: true,
-      align: 'center',
-      skipSnaps: false,
-      dragFree: false,
-      duration: 25,
-      containScroll: 'trimSnaps'
-    },
-    [Autoplay({ 
-      delay: 5000, 
-      stopOnInteraction: true, 
-      stopOnMouseEnter: true,
-      stopOnFocusIn: true
-    })]
-  )
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [prevIndex, setPrevIndex] = useState(0)
+  const [direction, setDirection] = useState<"left" | "right">("right")
+  const [isAnimating, setIsAnimating] = useState(false)
+  const [isPaused, setIsPaused] = useState(false)
+  const tickRef = useRef(0)
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
-  const scrollTo = useCallback((index: number) => {
-    if (emblaApi) emblaApi.scrollTo(index)
-  }, [emblaApi])
+  // Sliding tab indicator refs
+  const tabContainerRef = useRef<HTMLDivElement>(null)
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 })
+
+  const total = useCases.length
+
+  // Measure the active tab and position the sliding indicator
+  const updateIndicator = useCallback(() => {
+    const activeTab = tabRefs.current[activeIndex]
+    const container = tabContainerRef.current
+    if (!activeTab || !container) return
+
+    const containerRect = container.getBoundingClientRect()
+    const tabRect = activeTab.getBoundingClientRect()
+
+    setIndicatorStyle({
+      left: tabRect.left - containerRect.left,
+      width: tabRect.width,
+    })
+  }, [activeIndex])
+
+  useLayoutEffect(() => {
+    updateIndicator()
+  }, [updateIndicator])
 
   useEffect(() => {
-    if (!emblaApi) return
+    window.addEventListener("resize", updateIndicator)
+    return () => window.removeEventListener("resize", updateIndicator)
+  }, [updateIndicator])
 
-    const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap())
+  // Transition to a new slide with direction
+  const transitionTo = useCallback(
+    (newIndex: number) => {
+      if (newIndex === activeIndex || isAnimating) return
+      setDirection(newIndex > activeIndex ? "right" : "left")
+      setPrevIndex(activeIndex)
+      setIsAnimating(true)
+      setActiveIndex(newIndex)
+      // Animation duration matches CSS (600ms)
+      setTimeout(() => setIsAnimating(false), 600)
+    },
+    [activeIndex, isAnimating]
+  )
+
+  // Infinite carousel: auto-advance using modular arithmetic
+  const advance = useCallback(() => {
+    tickRef.current += 1
+    const next = tickRef.current % total
+    transitionTo(next)
+  }, [total, transitionTo])
+
+  useEffect(() => {
+    if (isPaused) {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+      return
     }
 
-    emblaApi.on('select', onSelect)
-    onSelect()
-
+    intervalRef.current = setInterval(advance, 5000)
     return () => {
-      emblaApi.off('select', onSelect)
+      if (intervalRef.current) clearInterval(intervalRef.current)
     }
-  }, [emblaApi])
+  }, [advance, isPaused])
+
+  const goTo = useCallback(
+    (index: number) => {
+      tickRef.current = index
+      transitionTo(index % total)
+    },
+    [total, transitionTo]
+  )
+
+  const current = useCases[activeIndex]
+  const prev = useCases[prevIndex]
+
+  // Syntax-highlight the code block (simple keyword coloring)
+  const highlightCode = (raw: string) => {
+    const lines = raw.split("\n")
+    return lines.map((line, i) => {
+      if (line.trim().startsWith("//")) {
+        return (
+          <span key={i} className="text-purple-400">
+            {line}
+            {"\n"}
+          </span>
+        )
+      }
+      const highlighted = line
+        .replace(
+          /\b(const|await|let|var|return|new|function)\b/g,
+          '<kw>$1</kw>'
+        )
+        .replace(
+          /('[^']*')/g,
+          '<str>$1</str>'
+        )
+        .replace(
+          /(\d+\.?\d*)/g,
+          '<num>$1</num>'
+        )
+
+      return (
+        <span key={i}>
+          {highlighted.split(/(<kw>.*?<\/kw>|<str>.*?<\/str>|<num>.*?<\/num>)/g).map((part, j) => {
+            if (part.startsWith("<kw>"))
+              return (
+                <span key={j} className="text-purple-400">
+                  {part.replace(/<\/?kw>/g, "")}
+                </span>
+              )
+            if (part.startsWith("<str>"))
+              return (
+                <span key={j} className="text-green-400">
+                  {part.replace(/<\/?str>/g, "")}
+                </span>
+              )
+            if (part.startsWith("<num>"))
+              return (
+                <span key={j} className="text-amber-400">
+                  {part.replace(/<\/?num>/g, "")}
+                </span>
+              )
+            return <span key={j}>{part}</span>
+          })}
+          {"\n"}
+        </span>
+      )
+    })
+  }
+
+  const renderSlide = (useCase: typeof useCases[0]) => {
+    const SlideIcon = useCase.icon
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+        {/* Left Side – Info */}
+        <div className="p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center space-y-5 sm:space-y-6">
+          <div
+            className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center ${useCase.iconBg}`}
+          >
+            <SlideIcon className={`w-5 h-5 sm:w-6 sm:h-6 ${useCase.iconColor}`} />
+          </div>
+
+          <h3 className="text-2xl sm:text-3xl md:text-[2rem] font-bold text-foreground leading-tight">
+            {useCase.title}
+          </h3>
+
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+            {useCase.description}
+          </p>
+
+          <a
+            href="#"
+            className="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-2.5 transition-all duration-200 group w-fit"
+          >
+            See Case Study
+            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+          </a>
+        </div>
+
+        {/* Right Side – Code Terminal */}
+        <div className="flex items-center p-4 sm:p-6 md:p-8 lg:p-10 no-scrollbar">
+          <div className="bg-[#1e1e2e] rounded-xl overflow-hidden w-full shadow-2xl">
+            <div className="flex items-center gap-2 px-4 py-3">
+              <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+              <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+              <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+              <span className="ml-3 text-gray-500 text-xs font-medium">terminal</span>
+            </div>
+            <div className="px-4 sm:px-5 pb-5 pt-1 overflow-x-auto scrollbar-none">
+              <pre className="text-[13px] sm:text-sm leading-[1.7] font-mono text-gray-300">
+                <code>{highlightCode(useCase.code)}</code>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // Slide animation CSS
+  const enterClass =
+    direction === "right"
+      ? "animate-slideInRight"
+      : "animate-slideInLeft"
+  const exitClass =
+    direction === "right"
+      ? "animate-slideOutLeft"
+      : "animate-slideOutRight"
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-background to-secondary/5">
+    <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-background to-secondary/5">
+      {/* Slide animation keyframes + scrollbar hiding */}
+      <style jsx>{`
+        /* Hide scrollbar on code blocks */
+        .scrollbar-none {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-none::-webkit-scrollbar {
+          display: none;
+        }
+
+        @keyframes slideInRight {
+          0% {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+          100% {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+        @keyframes slideOutLeft {
+          0% {
+            transform: translateX(0);
+            opacity: 1;
+          }
+          100% {
+            transform: translateX(-100%);
+            opacity: 0;
+          }
+        }
+        @keyframes slideInLeft {
+          0% {
+            transform: translateX(-100%);
+            opacity: 0;
+          }
+          100% {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+        @keyframes slideOutRight {
+          0% {
+            transform: translateX(0);
+            opacity: 1;
+          }
+          100% {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+        }
+        .animate-slideInRight {
+          animation: slideInRight 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .animate-slideOutLeft {
+          animation: slideOutLeft 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .animate-slideInLeft {
+          animation: slideInLeft 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .animate-slideOutRight {
+          animation: slideOutRight 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+      `}</style>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header */}
-        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 leading-tight">
-            Built for Every
-            <span className="block text-accent">Use Case</span>
+        <div className="text-center max-w-7xl mx-auto mb-10 sm:mb-14">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl lg:text-[3.5rem] font-extrabold text-foreground mb-4 sm:mb-5 leading-[1.1] tracking-tight">
+            Built for Every{" "}
+            <span className="text-accent">Use Case</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             From e-commerce to enterprise, ZendFi powers payments for businesses of all sizes.
           </p>
         </div>
 
-        {/* Embla Carousel */}
-        <div className="relative max-w-7xl mx-auto">
-          <div className="overflow-hidden sm:mx-0" ref={emblaRef}>
-            <div className="flex will-change-transform">
-              {useCases.map((useCase, index) => {
-                const Icon = useCase.icon
-                return (
-                  <div key={index} className="flex-[0_0_100%] min-w-0 pl-2 pr-2 mx-auto">
-                    <div className="relative rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 lg:p-16 min-h-[400px] sm:min-h-[350px] md:min-h-[400px] lg:min-h-[400px] bg-background/95 border border-border/50">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-16 items-start md:items-center h-full">
-                        {/* Left Side - Info */}
-                        <div className="space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8">
-                          {/* Icon */}
-                          <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-background/80 flex items-center justify-center ${useCase.iconColor} border border-border/30 transition-transform duration-200`}>
-                            <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
-                          </div>
+        {/* Tab Navigation with sliding indicator */}
+        <div className="flex justify-center mb-10 sm:mb-12">
+          <div
+            ref={tabContainerRef}
+            className="relative inline-flex items-center rounded-2xl border border-border bg-background py-2 px-1 shadow-sm"
+          >
+            {/* Sliding pill indicator */}
+            <div
+              className="absolute top-1 bottom-1 rounded-2xl border border-border bg-muted/60 shadow-sm z-0 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style={{
+                left: `${indicatorStyle.left}px`,
+                width: `${indicatorStyle.width}px`,
+              }}
+            />
 
-                          {/* Title */}
-                          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                            {useCase.title}
-                          </h3>
-
-                          {/* Description */}
-                          <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
-                            {useCase.description}
-                          </p>
-
-                          {/* Example */}
-                          <div className="pt-4 sm:pt-6 border-t border-border/30">
-                            <p className="text-xs sm:text-sm font-semibold text-accent mb-2 sm:mb-3">USE CASES:</p>
-                            <p className="text-sm sm:text-base text-muted-foreground italic">
-                              {useCase.example}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Right Side - Code Example */}
-                        <div className="relative h-full flex items-center">
-                          <div className="bg-gray-900 rounded-lg sm:rounded-xl overflow-hidden border border-accent/20 w-full shadow-lg">
-                            {/* Terminal Header */}
-                            <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border-b border-gray-700">
-                              <div className="flex gap-1.5 sm:gap-2">
-                                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
-                                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
-                                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
-                              </div>
-                              <span className="text-gray-400 text-[10px] sm:text-xs">example.ts</span>
-                            </div>
-
-                            {/* Code */}
-                            <div className="p-3 sm:p-4 md:p-6 -mt-5 overflow-x-auto">
-                              <pre className="text-sm sm:text-sm leading-relaxed">
-                                <div className="text-gray-300 font-mono ">
-                                  {useCase.code}
-                                </div>
-                              </pre>
-                            </div>
-                          </div>
-
-                          {/* Floating Badge */}
-                          <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-accent text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold shadow-lg">
-                            {index + 1} of {useCases.length}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-
-          {/* Navigation Dots */}
-          <div className="flex items-center justify-center gap-2 mt-6 sm:mt-8">
-            {useCases.map((_, index) => (
+            {useCases.map((uc, index) => (
               <button
                 key={index}
-                onClick={() => scrollTo(index)}
-                className={`h-2 rounded-full transition-all duration-300 ease-out ${
-                  index === selectedIndex 
-                    ? "bg-accent w-8" 
-                    : "bg-border hover:bg-accent/50 w-2"
+                ref={(el) => { tabRefs.current[index] = el }}
+                onClick={() => goTo(index)}
+                className={`relative z-10 rounded-full px-4 sm:px-5 py-2 text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
+                  index === activeIndex
+                    ? "text-accent"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
+              >
+                {uc.tab}
+              </button>
             ))}
           </div>
+        </div>
 
-          {/* Use Case Labels */}
-          <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-2 sm:gap-3 mt-6 sm:mt-8">
-            {useCases.map((useCase, index) => {
-              const UseCaseIcon = useCase.icon
-              return (
-                <button
-                  key={index}
-                  onClick={() => scrollTo(index)}
-                  className={`flex flex-col items-center gap-1.5 sm:gap-2 p-2 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-200 ease-out ${
-                    index === selectedIndex
-                      ? "bg-accent/10 border-2 border-accent scale-105"
-                      : "bg-background/50 border border-border hover:border-accent/50 hover:scale-105"
-                  }`}
-                >
-                  <UseCaseIcon className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-200 ${index === selectedIndex ? useCase.iconColor : "text-muted-foreground"}`} />
-                  <span className={`text-[10px] sm:text-xs font-medium text-center leading-tight transition-colors duration-200 ${
-                    index === selectedIndex ? "text-accent" : "text-muted-foreground"
-                  }`}>
-                    {useCase.title.split(" ")[0]}
-                  </span>
-                </button>
-              )
-            })}
+        {/* Content Card with slide transitions */}
+        <div
+          className="relative max-w-7xl mx-auto"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <div className="rounded-2xl sm:rounded-3xl bg-background border border-border/60 shadow-lg overflow-hidden relative">
+            {/* Exiting slide */}
+            {isAnimating && (
+              <div className={`absolute inset-0 ${exitClass}`}>
+                {renderSlide(prev)}
+              </div>
+            )}
+
+            {/* Active slide */}
+            <div
+              key={activeIndex}
+              className={isAnimating ? enterClass : ""}
+            >
+              {renderSlide(current)}
+            </div>
           </div>
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-12 sm:mt-16">
-          <div className="inline-flex flex-col items-center gap-3 sm:gap-4">
-            <p className="text-base sm:text-lg text-muted-foreground">
-              Ready to build your use case?
-            </p>
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-white font-semibold px-6 sm:px-8 text-sm sm:text-base transition-all duration-200">
-              Get Started Free
-            </Button>
-          </div>
+        <div className="text-center mt-14 sm:mt-16">
+          <p className="text-base sm:text-lg text-muted-foreground mb-4">
+            Ready to build your use case?
+          </p>
+          <Button
+            size="lg"
+            className="bg-accent hover:bg-accent/90 text-white font-semibold px-8 text-sm sm:text-base rounded-lg transition-all duration-200"
+          >
+            Get Started Free
+          </Button>
         </div>
       </div>
     </section>
