@@ -1,359 +1,282 @@
-"use client";
+import Link from "next/link"
+import { ArrowRight, Bolt, Globe, Rocket, ShieldCheck, Sparkles, Zap } from "lucide-react"
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import Link from "next/link";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import { TestimonialSection } from "@/components/testimonial-section";
-import { ArrowRight, Zap, Globe2, TrendingDown, Shield, Code2, Sparkles, CheckCircle2 } from "lucide-react";
-import { useRef } from "react";
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+import { Button } from "@/components/ui/button"
 
-export default function AboutPage() {
-    const { scrollYProgress } = useScroll();
-    const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-    const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
+const team = [
+  {
+    name: "0xTnxl",
+    role: "Software Engineer",
+    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDF3FObFASbnvp37aF4Z4MWYHNCreXC5FXylPUmkiiClQIZA8F11KfDJM1H61BFPsBKSiCWaCfeCKUOy_lbRi8PPUZRk9n7t0BiifYByp7mt9w4NZV6-RhP6wM9JBg_8Qdeizb7IghNVzAsq3FZ7BDBps4reufQR4LHfvz5yHyyn_RjnRbx82GFAQo_gRWNss1l50PKWCGDaVm2lkUKRogJp88hx0XIwbGp61zEczmKHYbD0xJlNvenTT_zepDbUa_FdljQLo4e9oE",
+    tone: "text-[hsl(var(--color-accent))]",
+  },
+  {
+    name: "Deedaro",
+    role: "Software Engineer",
+    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuA5Epn7DJSYZaj86LY8_Qrg6K6yJGGTPmkeTjiC1QgzlNUqy9z54gyHiyEXO0gRoaESuCdQ0CV3uLpgx_r8a-TBJoiaAIHk5sZUgTUbB4xDVIEBBcg0XvQJ8j8hdteF5VO9_3tsREatVXN51cTvjMvuhuN8RoVZ9Pp3D6P1q3-shDQ41NmLWAXYz_y3o3bjb196IzdsA3fl6YCcPLGXJQyQpClJ1yQYmML5Mr5g_MNtzdYfVerRmGN5YSmN64dfzAXfXcDcSsh5vwg",
+    tone: "text-[hsl(var(--color-accent))]",
+  },
+  // {
+  //   name: "Venture Cap",
+  //   role: "Lead Investor",
+  //   src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAuGdokGg24CHCDTb73gXOIfF0fxvDvNFUhdvXWmTAxGq5RuMj2LAlpyAYM8N4B09B9k--FQZmAF6vQlrhOlNY57kmmaI3WJEJUQB8B0QENuLvldnBB7fH5_y3USol_K8HCHKC-iNEszkxARvBD4-iNfYd6fsYK0h9tjJVFlChnKTNMUhBXdSBwNih3-QgDvK_DzpIf95_81iGf1xFysR9SpZT-g-_bAJriBEdb1zKxHiVFRi6cplPv4c4sNm3X6h8GtPoMM-nO63k",
+  //   tone: "text-muted-foreground",
+  // },
+  {
+    name: "BridgeMark",
+    role: "Strategic Partner",
+    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDL-qNBzAiWq2GoJwaT8ABUcqNeCb9BCxo3oNM2KS89NcmCvHd0L1wexXzOGdu8uvj5G6x8ocjqolpXx2-cVrBO60g6nckIujo0Bat69JVNwKVE8ElIUAxrHoEejheAsKCUAKavxg1D6_Fwu82-7M66icq-BwtsJ1tvEcPjSrWotmZr-TeTfiQvlBjSzBV6xJiUBGNX92zb8bINpPI8sfAmj9tIknqvIhgfC_0quqV-KsheeHD2KG0ab4CYvPGlK1zFImulhhyUN9E",
+    tone: "text-muted-foreground",
+  },
+]
 
-    const reasons = [
-        {
-            number: "01",
-            title: "Stripe-Level DX",
-            desc: "Clean APIs, comprehensive docs, and SDKs that just work. No blockchain complexity leaking through.",
-            icon: Code2,
-            gradient: "from-accent/80/20 to-purple-300/20",
-            iconColor: "text-accent/50",
-            feat: ["7-line integration", "TypeScript/Python/Rust SDKs"],
-        },
-        {
-            number: "02",
-            title: "Built for Scale",
-            desc: "Production-ready infrastructure with enterprise features: webhooks, batch processing, real-time analytics.",
-            icon: Globe2,
-            gradient: "from-blue-200/20 to-cyan-300/20",
-            iconColor: "text-blue-500",
-            feat: ["99.9% Uptime SLA", "20+ Webhook Events"],
-        },
-        {
-            number: "03",
-            title: "0.6% All-Inclusive",
-            desc: "No setup fees. No monthly minimums. No hidden charges. Just transparent pricing that beats Stripe by 80%.",
-            icon: TrendingDown,
-            gradient: "from-green-200/20 to-emerald-300/20",
-            iconColor: "text-green-500",
-            feat: ["0.6% flat rate", "Zero chargebacks"],
-        },
-        {
-            number: "04",
-            title: "Non-Custodial Security",
-            desc: "Your funds, your keys. We never hold your money. Every payment goes straight to your wallet.",
-            icon: Shield,
-            gradient: "from-amber-200/20 to-orange-300/20",
-            iconColor: "text-amber-500",
-            feat: ["Self-custody wallets", "Instant settlements"],
-        },
-        {
-            number: "05",
-            title: "Everything You Need",
-            desc: "Payment links, invoices, subscriptions, escrows, split payments—features Stripe charges extra for, all built-in.",
-            icon: Zap,
-            gradient: "from-pink-200/20 to-rose-300/20",
-            iconColor: "text-pink-500",
-            feat: ["Advanced payment types", "Hosted checkout pages"],
-        },
-    ];
+export default function WhatIsZendFiPage() {
+  return (
+    <main>
+      <Header />
+      <main className="w-full pt-20">
+          <div className="absolute inset-0 bg-[size:40px_40px] zendfi-grid-pattern opacity-[0.45] pointer-events-none" />
+        {/* HERO */}
+        <section className="relative w-full min-h-[75vh] flex flex-col items-center justify-center px-4 py-20 bg-background">
+          <div className="absolute inset-0 bg-[size:40px_40px] zendfi-grid-pattern opacity-[0.45] pointer-events-none" />
 
-    return (
-        <>
-            <Header />
-
-            {/* Hero Section with Parallax */}
-            <main className="relative overflow-hidden lg:overflow-visible flex-1">
-                <section className="relative overflow-hidden">
-                    <motion.div
-                        className="absolute inset-0 bg-gradient-to-b from-accent/50/5 via-transparent to-transparent pointer-events-none"
-                        style={{ opacity, scale }}
-                    />
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        {/* Hero */}
-                        <motion.section
-                            className="text-center max-w-4xl mx-auto pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden"
-                            initial={{ opacity: 0, y: 40 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                        >
-                            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
-                            {/* Floating Badge */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2 }}
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-transparent border border-accent/50/20 mb-8"
-                            >
-                                <Sparkles className="w-4 h-4 text-accent/50" />
-                                <span className="text-sm font-medium text-accent/60 dark:text-accent/40">
-                                    Powering Global Commerce
-                                </span>
-                            </motion.div>
-
-                                <h1
-                                    className="text-4xl font-medium tracking-tight leading-tight text-balance"
-                                >
-                                    <span className="block bg-gradient-to-br from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent"> The Payment SDK</span>
-                                    <span className="bg-accent bg-clip-text text-transparent"> Developers Actually Want</span>
-                                </h1>
-
-                            <motion.p
-                                className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.4, duration: 0.8 }}
-                            >
-                                Accept crypto payments in seven lines of code. No blockchain degree required. Just ridiculously good developer experience.
-                            </motion.p>
-
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5, duration: 0.8 }}
-                                className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-16"
-                            >
-                                <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
-                                    <Link href="/signup">
-                                        <Button
-                                            size="lg"
-                                            className="bg-accent hover:bg-accent/90 font-semibold text-white px-8 py-6 text-lg w-full sm:w-auto"
-                                        >
-                                            Get Started Free
-                                        </Button>
-                                    </Link>
-                                </motion.div>
-                                <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
-                                    <Link href="/docs">
-                                        <Button
-                                            size="lg"
-                                            variant="outline"
-                                            className="border-2 border-accent text-accent font-semibold hover:text-accent px-8 py-6 text-lg transition-all duration-300 w-full sm:w-auto"
-                                        >
-                                            View Live Demo
-                                        </Button>
-                                    </Link>
-                                </motion.div>
-                            </motion.div>
-
-                            {/* Stats Bar */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 40 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.7, duration: 0.8 }}
-                                className="grid grid-cols-2 gap-8 mt-20 pt-12 border-t border-border/30"
-                            >
-                                {[
-                                    { value: "99.9%", label: "Uptime" },
-                                    { value: "<400ms", label: "Settlement" }
-                                ].map((stat, i) => (
-                                    <div key={i} className="text-center">
-                                        <div className="text-xl md:text-3xl font-bold text-accent dark:text-accent mb-2">
-                                            {stat.value}
-                                        </div>
-                                        <div className="text-xs text-muted-foreground">
-                                            {stat.label}
-                                        </div>
-                                    </div>
-                                ))}
-                            </motion.div>
-                        </motion.section>
-
-                    </div>
-                </section>
-                <motion.section
-                    className="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-                    initial={{ opacity: 0, y: 60 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                >
-                    <div id="our-story" className="grid lg:grid-cols-2 gap-12 items-center">
-                        <motion.div
-                            className="relative p-10 md:p-14 rounded-3xl bg-background"
-                            initial={{ opacity: 0, x: -40 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="relative">
-                                <span className="inline-block px-4 py-1.5 rounded-full border border-accent text-accent text-sm mb-6">
-                                    Our Mission
-                                </span>
-
-                                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-                                    Built for Developers,
-                                    <br />
-                                    By Developers
-                                </h2>
-
-                                <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
-                                    <p>
-                                        ZendFi started because we were frustrated. Integrating crypto payments
-                                        meant wrestling with confusing docs, fragmented tools, and APIs that
-                                        assumed you had a PhD in blockchain.
-                                    </p>
-                                    <p>
-                                        We built the SDK we wished existed: clean, simple, powerful. Seven lines
-                                        of code to accept payments. Stripe-level DX. Enterprise features included.
-                                        Zero gas fees. No blockchain complexity leaking through.
-                                    </p>
-                                </div>
-
-                                {/* Decorative corner accent */}
-                                <div className="absolute top-0 right-0 w-24 h-24 border-t-4 border-r-4 border-accent rounded-tr-3xl opacity-20" />
-                            </div>
-                        </motion.div>
-
-                        {/* Visual element */}
-                        <motion.div
-                            className="relative"
-                            initial={{ opacity: 0, x: 40 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            viewport={{ once: true }}
-                        >
-                            {/* <Image src={"/images/sol3.png"} alt="illustration" width={300} height={300}/> */}
-                        </motion.div>
-                    </div>
-                </motion.section>
-
-                {/* Why Choose ZendFi */}
-                <section className="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <motion.div
-                        className="text-center max-w-3xl mx-auto mb-20"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 text-foreground">
-                            Imagine Stripe...
-                            <br />
-                            But with crypto superpowers.
-                        </h2>
-                        <p className="text-xl text-muted-foreground leading-relaxed">
-                            We give you Stripe's developer experience with crypto's advantages: instant
-                            settlements, zero chargebacks, and fees 80% lower.
-                        </p>
-                    </motion.div>
-
-                    <div className="space-y-6">
-                        {reasons.map((reason, i) => (
-                            <InteractiveReasonCard key={i} reason={reason} index={i} />
-                        ))}
-                    </div>
-                </section>
-                {/* CTA Section */}
-                <motion.section
-                    className=""
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    <div className="relativ bg-accent/20 dark:bg-transparent p-12 md:p-16 text-center overflow-hidden">
-
-
-                        <div className="relative z-10 max-w-2xl mx-auto">
-                            <h2 className="text-3xl dark:text-white font-bold text-slate-700 mb-6">
-                                Ready to Build with ZendFi?
-                            </h2>
-                            <p className="text-xl text-slate-700/90 dark:text-white/80 mb-8">
-                                Get started in minutes with our SDK. No credit card required.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <Link href={"/signup"}>
-                                    <Button size="lg" className="bg-transparent border border-accent text-accent hover:bg-transparent/90 group">
-                                        Get Started
-                                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                    </Button>
-                                </Link>
-                                <Button size="lg" variant="outline" className="border-white/30 text-white bg-accent dark:bg-accent hover:bg-accent/90">
-                                    <Link href={"mailto:sales@zendfi.tech"}>
-                                        Contact Sales
-                                    </Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </motion.section>
-            </main>
-
-            {/* <TestimonialSection /> */}
-            <Footer />
-        </>
-    );
-}
-function InteractiveReasonCard({ reason, index }: { reason: any; index: number }) {
-    const cardRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: cardRef,
-        offset: ["start end", "end start"],
-    });
-
-    const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0, 1, 1, 0.8]);
-    const scale = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0.97, 1, 1, 0.99]);
-    const y = useTransform(scrollYProgress, [0, 1], [50, -30]);
-
-    return (
-        <motion.div
-            ref={cardRef}
-            style={{ opacity, scale, y }}
-            transition={{ type: "spring", stiffness: 200, damping: 25 }}
-            className="group"
-        >
-            <div className="relative p-8 md:p-10 rounded-3xl transition-all duration-500 hover:-translate-y-1">
-
-                <div className="relative grid md:grid-cols-[auto_1fr_auto] gap-8 items-center">
-                    {/* Left side */}
-                    <div className="flex md:flex-col items-center gap-6">
-                        <motion.div
-                            whileHover={{ rotate: 15, scale: 1.1 }}
-                            transition={{ duration: 0.4 }}
-                            className="w-20 h-20 rounded-2xl bg-violet-50 dark:bg-violet-950/30 flex items-center justify-center transition-all duration-300"
-                        >
-                            <reason.icon className={`w-10 h-10 ${reason.iconColor}`} />
-                        </motion.div>
-
-                        <span className="text-6xl font-bold text-gray-200 dark:text-zinc-300 group-hover:text-violet-500/30 transition-colors duration-300">
-                            {reason.number}
-                        </span>
-                    </div>
-
-                    {/* Middle content */}
-                    <div className="space-y-3">
-                        <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white group-hover:text-accent transition-colors duration-300">
-                            {reason.title}
-                        </h3>
-                        <p className="text-lg text-gray-600 dark:text-zinc-400 leading-relaxed">
-                            {reason.desc}
-                        </p>
-
-                        <div className="flex flex-wrap gap-2 pt-2">
-                            {reason.feat.map((feature: string, i: number) => (
-                                <div
-                                    key={i}
-                                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full 
-               bg-gray-50 dark:bg-zinc-800 text-sm"
-                                >
-                                    <CheckCircle2 className="w-4 h-4 text-accent" />
-                                    <span className="font-medium text-gray-800 dark:text-zinc-100">
-                                        {feature}
-                                    </span>
-                                </div>
-                            ))}
-
-                        </div>
-                    </div>
-
-                </div>
+          <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-10">
+            <div className="inline-flex rounded-xl items-center gap-3 px-4 py-2 bg-card/80 border border-foreground text-xs font-bold text-foreground uppercase tracking-widest">
+              <span className="w-2 h-2 bg-accent" />
+              Our Manifesto
             </div>
-        </motion.div>
-    );
+
+            <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-foreground leading-[0.9] tracking-tighter">
+              Redefining <br />
+              <span className="text-accent block mt-2">Global Commerce.</span>
+            </h1>
+
+            <p className="text-foreground/90 text-lg sm:text-xl md:text-2xl font-medium leading-relaxed max-w-3xl mx-auto mt-2">
+              We are building the financial rails for a borderless world where money moves as freely as information. No intermediaries. No delays. Just pure, agentic commerce.
+            </p>
+
+            <div className="mt-6 w-full sm:w-auto rounded-2xl border-2 border-foreground bg-background p-1 zendfi-hard-shadow hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-200">
+              <Link href="/docs" className="group w-full sm:w-auto h-14 px-10 text-foreground text-lg font-bold flex items-center justify-center gap-3">
+                Read the Whitepaper
+                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* BORDERLESS WORLD */}
+        <section className="w-full py-24 bg-[#f4f4f5] dark:bg-[#110a18] border-y border-foreground/10">
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="grid lg:grid-cols-2 gap-16 xl:gap-20 items-start">
+              <div>
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-foreground mb-8 tracking-tighter leading-none">
+                  A world without
+                  <br />
+                  <span className="text-accent">financial borders.</span>
+                </h2>
+
+                <div className="space-y-6 text-lg text-foreground/80 font-normal leading-relaxed">
+                  <p>
+                    Traditional banking rails were built for a physical world. They are slow, expensive, and fragmented by geography. In an era of AI agents and global digital communities, we need infrastructure that can keep up.
+                  </p>
+                  <p>
+                    ZendFi leverages the speed and efficiency of Solana to create a unified payment layer. We empower businesses to accept payments from anyone, anywhere, instantly—bridging the gap between fiat (Naira) and crypto.
+                  </p>
+
+                  <div className="p-6 bg-background border-l-4 border-accent">
+                    <p className="font-bold text-foreground text-xl">
+                      This isn&apos;t just about payments. It&apos;s about enabling a new economy of autonomous agents and truly global marketplaces.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="relative rounded-2xl bg-background p-0 border border-foreground/10">
+                  <div className="flex flex-col">
+                    <div className="group flex items-start gap-6 p-8 border-b border-foreground/10 hover:bg-foreground/[0.03] transition-colors">
+                      <div className="w-16 h-16 rounded-xl bg-foreground text-background flex items-center justify-center shrink-0">
+                        <Globe className="w-8 h-8" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
+                          Global Access
+                        </h3>
+                        <p className="text-foreground/70 font-medium">
+                          Breaking down the walls of localized banking systems to create a truly inclusive financial ecosystem.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="group flex items-start gap-6 p-8 border-b border-foreground/10 hover:bg-foreground/[0.03] transition-colors">
+                      <div className="w-16 h-16 rounded-xl bg-foreground text-background flex items-center justify-center shrink-0">
+                        <Rocket className="w-8 h-8" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
+                          Advanced Options
+                        </h3>
+                        <p className="text-foreground/70 font-medium">
+                          Providing the flexible payment options for businesses to accept a wide range of payment types, from one-time purchases to subscriptions to programmable money for AI agents.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="group flex items-start gap-6 p-8 hover:bg-foreground/[0.03] transition-colors">
+                      <div className="w-16 h-16 rounded-xl bg-foreground text-background flex items-center justify-center shrink-0">
+                        <Bolt className="w-8 h-8" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
+                          Instant Settlement
+                        </h3>
+                        <p className="text-foreground/70 font-medium">
+                          Moving from T+2 days to T+400ms. Cash flow that moves as fast as your business.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SOLANA */}
+        <section className="w-full py-24 bg-background">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8 border-b border-foreground pb-8">
+              <div>
+                <h2 className="text-4xl md:text-6xl font-black text-foreground tracking-tighter">
+                  Why We Build on <span className="text-accent">Solana</span>
+                </h2>
+              </div>
+              <p className="text-lg md:text-xl text-foreground/70 font-medium max-w-md md:text-right">
+                Matching the speed and scale of traditional financial markets.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-card p-8 rounded-xl border border-foreground flat-card">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="text-sm font-bold text-foreground uppercase tracking-wider border-b-2 border-[hsl(var(--color-accent))] pb-1">
+                    Throughput
+                  </div>
+                  <Zap className="w-10 h-10 text-foreground" />
+                </div>
+                <div className="flex items-baseline gap-2 mb-6">
+                  <span className="text-6xl font-black text-foreground">65k</span>
+                  <span className="text-xl font-bold text-foreground/50">TPS</span>
+                </div>
+                <div className="w-full h-4 bg-foreground/10 mb-6 border border-foreground/20">
+                  <div className="h-full bg-foreground w-full" />
+                </div>
+                <p className="text-base font-medium text-foreground/70">Vs. Visa&apos;s ~24,000 TPS. Solana handles global scale effortlessly.</p>
+              </div>
+
+              <div className="bg-card p-8 rounded-xl border border-foreground flat-card">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="text-sm font-bold text-foreground uppercase tracking-wider border-b-2 border-[hsl(var(--color-accent))] pb-1">
+                    Cost Per Txn
+                  </div>
+                  <ShieldCheck className="w-10 h-10 text-foreground" />
+                </div>
+                <div className="flex items-baseline gap-2 mb-6">
+                  <span className="text-5xl sm:text-6xl font-black text-foreground">&lt;$0.001</span>
+                </div>
+                <div className="w-full h-4 bg-foreground/10 mb-6 border border-foreground/20">
+                  <div className="h-full bg-foreground w-[5%]" />
+                </div>
+                <p className="text-base font-medium text-foreground/70">Vs. Stripe&apos;s 2.9% + 30¢. Micro-payments are finally viable.</p>
+              </div>
+
+              <div className="bg-card p-8 rounded-xl border border-foreground flat-card">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="text-sm font-bold text-foreground uppercase tracking-wider border-b-2 border-[hsl(var(--color-accent))] pb-1">
+                    Energy Impact
+                  </div>
+                  <Sparkles className="w-10 h-10 text-foreground" />
+                </div>
+                <div className="flex items-baseline gap-2 mb-6">
+                  <span className="text-6xl font-black text-foreground">0.0%</span>
+                  <span className="text-xl font-bold text-foreground/50">Net Carbon</span>
+                </div>
+                <div className="w-full h-4 bg-foreground/10 mb-6 border border-foreground/20">
+                  <div className="h-full bg-foreground w-full" />
+                </div>
+                <p className="text-base font-medium text-foreground/70">A single transaction uses less energy than two Google searches.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* VISIONARIES */}
+        <section className="w-full py-24 bg-[#f4f4f5] dark:bg-[#110a18] border-y border-foreground/10">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4 tracking-tighter">Backed by Visionaries</h2>
+                <p className="text-lg md:text-xl text-foreground/70 max-w-xl font-medium">
+                  We are a team of engineers, economists, and designers supported by the best investors in Web3 and Fintech.
+                </p>
+              </div>
+
+              <Link
+                href="/careers"
+                className="px-6 py-3 bg-background rounded-lg border border-foreground text-foreground font-bold flex items-center gap-2 hover:bg-foreground hover:text-background transition-colors zendfi-hard-shadow hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
+              >
+                View Open Roles <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+              {team.map((m) => (
+                <div
+                  key={m.name}
+                  className="bg-background border border-foreground/10 flex flex-col items-center justify-center p-6 md:p-8 text-center hover:border-foreground transition-colors group cursor-pointer"
+                >
+                  <div className="w-28 h-28 md:w-32 md:h-32 bg-foreground/5 mb-6 overflow-hidden grayscale group-hover:grayscale-0 transition-all border border-transparent group-hover:border-foreground">
+                    {/* Using <img> to avoid remote Image config issues */}
+                    <img alt={m.name} className="w-full h-full object-cover" src={m.src} />
+                  </div>
+                  <h4 className="text-lg md:text-xl font-bold text-foreground">{m.name}</h4>
+                  <p className={`text-xs md:text-sm font-bold uppercase tracking-wide mt-1 ${m.tone}`}>{m.role}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="">
+          <div className="relativ bg-accent/20 dark:bg-transparent p-12 md:p-16 text-center overflow-hidden">
+            <div className="relative z-10 max-w-2xl mx-auto">
+              <h2 className="text-3xl dark:text-white font-bold text-slate-700 mb-6">
+                Ready to Build with ZendFi?
+              </h2>
+              <p className="text-xl text-slate-700/90 dark:text-white/80 mb-8">
+                Get started in minutes with our SDK. No credit card required.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href={"/signup"}>
+                  <Button size="lg" className="px-6 py-3 bg-accent rounded-lg hover:bg-accent border border-foreground text-white font-bold flex items-center gap-2 hover:text-background transition-colors zendfi-hard-shadow hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]">
+                    Get Started
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <Button size="lg" variant="outline" className="px-6 py-3 bg-background rounded-lg border border-foreground text-foreground font-bold flex items-center gap-2 hover:bg-white hover:text-black transition-colors zendfi-hard-shadow hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]">
+                  <Link href={"mailto:sales@zendfi.tech"}>
+                    Contact Sales
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </main>
+  )
 }

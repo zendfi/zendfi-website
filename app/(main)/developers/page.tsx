@@ -4,7 +4,7 @@ import { Header } from "@/components/header"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import {
-  ArrowRight,
+  Cloud,
   Zap,
   Globe,
   Lock,
@@ -14,10 +14,13 @@ import {
   Copy,
   Terminal,
   BookOpen,
-  Layers,
-  Clock,
+  ShoppingCart,
   Shield,
-  Sparkles
+  Link2,
+  Split,
+  Calendar,
+  Store,
+  Key
 } from "lucide-react"
 import Link from "next/link"
 import { Footer } from "@/components/footer"
@@ -94,37 +97,37 @@ export default function DevelopersPage() {
     {
       title: "E-commerce Stores",
       description: "Accept crypto payments for digital products with instant settlements and zero chargebacks",
-      icon: Globe,
+      icon: ShoppingCart,
       color: "text-violet-500"
     },
     {
       title: "SaaS Platforms",
       description: "Set up recurring billing in USDC/USDT with lower fees than traditional processors",
-      icon: Zap,
+      icon: Cloud,
       color: "text-blue-500"
     },
     {
       title: "Marketplaces",
       description: "Enable escrow payments with buyer/seller protection and automatic fund releases",
-      icon: ArrowRight,
+      icon: Store,
       color: "text-green-500"
     },
     {
       title: "Payment Links",
       description: "Create shareable payment links for freelancers, creators, and service providers",
-      icon: Clock,
+      icon: Link2,
       color: "text-amber-500"
     },
     {
       title: "Split Payments",
       description: "Automatically distribute revenue across multiple wallets for teams and DAOs",
-      icon: Layers,
+      icon: Split,
       color: "text-pink-500"
     },
     {
       title: "Buy Now Pay Later",
       description: "Offer installment plans while receiving full payment upfront",
-      icon: ArrowRight,
+      icon: Calendar,
       color: "text-purple-500"
     },
   ]
@@ -140,7 +143,61 @@ const payment = await zendfi.createPayment({
 
 console.log(payment.checkout_url);`
 
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState(false); 
+
+    const highlightCode = (raw: string) => {
+    const lines = raw.split("\n")
+    return lines.map((line, i) => {
+      if (line.trim().startsWith("//")) {
+        return (
+          <span key={i} className="text-purple-400">
+            {line}
+            {"\n"}
+          </span>
+        )
+      }
+      const highlighted = line
+        .replace(
+          /\b(const|await|let|var|return|new|function)\b/g,
+          '<kw>$1</kw>'
+        )
+        .replace(
+          /('[^']*')/g,
+          '<str>$1</str>'
+        )
+        .replace(
+          /(\d+\.?\d*)/g,
+          '<num>$1</num>'
+        )
+
+      return (
+        <span key={i}>
+          {highlighted.split(/(<kw>.*?<\/kw>|<str>.*?<\/str>|<num>.*?<\/num>)/g).map((part, j) => {
+            if (part.startsWith("<kw>"))
+              return (
+                <span key={j} className="text-purple-400">
+                  {part.replace(/<\/?kw>/g, "")}
+                </span>
+              )
+            if (part.startsWith("<str>"))
+              return (
+                <span key={j} className="text-green-400">
+                  {part.replace(/<\/?str>/g, "")}
+                </span>
+              )
+            if (part.startsWith("<num>"))
+              return (
+                <span key={j} className="text-amber-400">
+                  {part.replace(/<\/?num>/g, "")}
+                </span>
+              )
+            return <span key={j}>{part}</span>
+          })}
+          {"\n"}
+        </span>
+      )
+    })
+  }
 
   return (
     <main className="min-h-screen bg-background">
@@ -251,7 +308,7 @@ console.log(payment.checkout_url);`
 
               {/* Code */}
                 <pre className="relative w-full max-w-full min-w-0 text-xs sm:text-sm text-slate-300 font-mono leading-relaxed overflow-x-auto max-h-[400px] md:max-h-[500px] pr-12 sm:pr-14">
-                  <span className="font-mono text-xs">{codeSnippet}</span>
+                  <span className="font-mono text-xs">{highlightCode(codeSnippet)}</span>
                 </pre>
 
                 {/* Copy Button */}
@@ -312,9 +369,8 @@ console.log(payment.checkout_url);`
                   viewport={{ once: true }}
                 >
                   <Card className={`p-8 h-full bg-trnansparent border-none transition-all`}>
-                    <div className="w-14 h-14 rounded-2xl bg-accent/70 flex items-center justify-center mb-1">
-                      <Icon className="w-7 h-7 text-white" />
-                    </div>
+                      <Icon className="w-7 h-7 text-accent" />
+                   
                     <h3 className="text-xl font-semibold text-foreground">
                       {feature.title}
                     </h3>
@@ -331,7 +387,7 @@ console.log(payment.checkout_url);`
 
       {/* How It Works - Step by Step */}
       <section className="py-20 md:py-28 bg-background dark:bg-transparent">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -368,9 +424,9 @@ console.log(payment.checkout_url);`
                   </div>
 
                   {/* Icon */}
-                  <div className="w-14 h-14 rounded-xl border border-border flex items-center justify-center mb-5">
+                  {/* <div className="w-14 h-14 rounded-xl border border-border flex items-center justify-center mb-5">
                     <Icon className={`w-7 h-7 text-accent`} />
-                  </div>
+                  </div> */}
 
                   {/* Title */}
                   <h3 className="text-lg font-semibold text-foreground mb-2">
@@ -381,26 +437,6 @@ console.log(payment.checkout_url);`
                   <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
                     {step.description}
                   </p>
-
-                  {/* Arrow (Desktop only) */}
-                  {!isLast && (
-                    <div className="hidden lg:flex absolute top-12 right-[-25px] w-8 h-8 items-center justify-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        className="w-6 h-6 text-border"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M5 12h14m-7-7l7 7-7 7"
-                        />
-                      </svg>
-                    </div>
-                  )}
                 </motion.div>
               )
             })}
@@ -443,7 +479,7 @@ console.log(payment.checkout_url);`
                 >
                   <Card className="p-6 h-full bg-transparent border-none transition-all group">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500/10 to-purple-500/10 flex items-center justify-center flex-shrink-0 transition-transform">
+                      <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform">
                         <Icon className={`w-6 h-6 ${useCase.color}`} />
                       </div>
                       <h3 className="font-semibold text-foreground text-lg pt-2">
@@ -494,7 +530,7 @@ console.log(payment.checkout_url);`
                   </Link>
                   <Link href="/signup">
                     <Button size="lg" variant="outline" className="w-full border-accent/30 text-accent hover:text-accent">
-                      <Code2 className="w-4 h-4 mr-2" />
+                      <Key className="w-4 h-4 mr-2" />
                       Get API Key
                     </Button>
                   </Link>

@@ -9,101 +9,16 @@ import {
     Layers,
     CheckCircle2,
     ArrowRight,
-    Zap,
+    ArrowDown,
+    Check,
     Clock,
     Shield,
     Sparkles,
-    // New Icon for Agentic Intent
-    Wrench
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ScheduleDemoButton } from "@/components/schedule-demo"
 
-// --- NEW SECTION COMPONENT: Agentic Intent Protocol (AIP-1) ---
-
-function AgenticIntentSection() {
-    return (
-        <section id="agentic-intent" className="py-20 md:py-28 bg-gradient-to-b from-background to-muted/20 relative">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    className="grid lg:grid-cols-[400px_1fr] gap-12 items-start"
-                    initial={{ opacity: 0, y: 60 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                >
-                    {/* Sticky Icon Card (Matching the pattern of the other sections) */}
-                    <motion.div className="lg:sticky lg:top-32 lg:self-start">
-                        <div className="p-12 rounded-3xl bg-accent/5">
-                            <div className="w-20 h-20 rounded-2xl bg-accent/80 flex items-center justify-center mb-6">
-                                <Wrench className="text-white w-10 h-10" />
-                            </div>
-                            <h3 className="text-2xl font-bold">Autonomous Agent Payments</h3>
-                        </div>
-                    </motion.div>
-
-                    {/* Content */}
-                    <div>
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                            className="mb-12"
-                        >
-                            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                                The Agentic Intent Protocol (AIP-1)
-                            </h2>
-                            <p className="text-xl text-muted-foreground leading-relaxed">
-                                AIP-1 solves the Agent Autonomy Trilemma, allowing AI agents to spend money independently while guaranteeing users retain complete cryptographic control of their funds.
-                                This is payments built for the future of AI.
-                            </p>
-                        </motion.div>
-
-                        <div className="grid gap-4">
-                            {[
-                                {
-                                    id: "aip-trilemma",
-                                    title: "Trilemma Solved: Autonomy + Non-Custody + Security",
-                                    desc: "Achieve all three essential properties simultaneously using threshold cryptography. Your agent acts without you, but always under your control.",
-                                    gradient: "from-violet-500/10 to-purple-500/10",
-                                    border: "border-violet-500/20"
-                                },
-                                {
-                                    id: "aip-noncustody",
-                                    title: "Distributed Non-Custody",
-                                    desc: "Your signing key is never held by a single party—not even Zendfi. It is securely managed by a decentralized network (Lit Protocol), ensuring maximum trust and security.",
-                                    gradient: "from-green-500/10 to-emerald-500/10",
-                                    border: "border-green-500/20"
-                                },
-                                {
-                                    id: "aip-intent",
-                                    title: "Intent-Based Spending",
-                                    desc: "Instead of approving every transaction, you define a broad financial intent (e.g., 'Agent can spend up to $100/day'). The agent operates autonomously within these secure, pre-approved bounds.",
-                                    gradient: "from-blue-500/10 to-cyan-500/10",
-                                    border: "border-blue-500/20"
-                                },
-                                {
-                                    id: "aip-security",
-                                    title: "Programmatic Spending Checks",
-                                    desc: "Every agent action is verified against your cryptographic conditions before the key is reconstructed for a single, momentary signature. Maximum security with zero human intervention.",
-                                    gradient: "from-pink-500/10 to-rose-500/10",
-                                    border: "border-pink-500/20"
-                                }
-                            ].map((feature, i) => (
-                                <FeatureCard key={i} {...feature} index={i} />
-                            ))}
-                        </div>
-                    </div>
-                </motion.div>
-            </div>
-        </section>
-    );
-}
-
-
-// --- MAIN SOLUTIONS PAGE COMPONENT ---
 
 export default function SolutionsPage() {
     return (
@@ -115,8 +30,6 @@ export default function SolutionsPage() {
                 <section className="relative overflow-hidden">
                     {/* Animated Background */}
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px]" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-violet-500/5 via-transparent to-transparent" />
-
                     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
                         <motion.div
                             className="text-center max-w-4xl mx-auto"
@@ -160,8 +73,8 @@ export default function SolutionsPage() {
                             >
                                 <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
                                     <Link href="/signup">
-                                        <Button 
-                                            size="lg" 
+                                        <Button
+                                            size="lg"
                                             className="bg-accent hover:bg-accent/90 text-white px-8 py-6 text-lg w-full sm:w-auto"
                                         >
                                             Get Started Free
@@ -170,9 +83,9 @@ export default function SolutionsPage() {
                                 </motion.div>
                                 <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
                                     <Link href="/docs">
-                                        <Button 
-                                            size="lg" 
-                                            variant="outline" 
+                                        <Button
+                                            size="lg"
+                                            variant="outline"
                                             className="border-2 border-accent text-accent hover:text-accent px-8 py-6 text-lg transition-all duration-300 w-full sm:w-auto"
                                         >
                                             View Live Demo
@@ -207,11 +120,8 @@ export default function SolutionsPage() {
                     </div>
                 </section>
 
-                {/* --- INSERTED AIP-1 SECTION --- */}
-                <AgenticIntentSection />
-
-                  {/* HOSTED CHECKOUT PAGES (Existing Section - Retained) */}
-                <section id="checkout" className="py-20 md:py-28 bg-background relative">
+                {/* HOSTED CHECKOUT PAGES (Existing Section - Retained) */}
+                <section id="checkouts" className="py-20 md:py-28 bg-background relative">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <motion.div
                             className="grid lg:grid-cols-[1fr_400px] gap-12 items-start"
@@ -297,9 +207,9 @@ export default function SolutionsPage() {
                         </motion.div>
                     </div>
                 </section>
-                
+
                 {/* ADVANCED PAYMENT TYPES (Existing Section - Retained) */}
-                <section id="payment-types" className="py-20 md:py-28 bg-gradient-to-b from-background to-muted/20 relative">
+                <section id="advanced" className="py-20 md:py-28 bg-gradient-to-b from-background to-muted/20 relative">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <motion.div
                             className="grid lg:grid-cols-[400px_1fr] gap-12 items-start"
@@ -388,7 +298,7 @@ export default function SolutionsPage() {
                 </section>
 
                 {/* INSTANT SETTLEMENTS (Existing Section - Retained) */}
-                <section className="py-20 md:py-28 bg-gradient-to-b from-muted/20 to-background">
+                <section id="settlement" className="py-20 md:py-28 bg-gradient-to-b from-muted/20 to-background">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <motion.div
                             className="grid lg:grid-cols-[1fr_400px] gap-12 items-start"
@@ -468,6 +378,81 @@ export default function SolutionsPage() {
                     </div>
                 </section>
 
+                {/* ONRAMP: Nigeria Market Section */}
+                <section id="onramp" className="py-20 md:py-28 bg-white">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <motion.div
+                            className="grid lg:grid-cols-[1fr_420px] gap-12 items-center"
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            viewport={{ once: true }}
+                        >
+                            {/* Left: Content */}
+                            <div>
+                                <div className="mb-4">
+                                    <span className="inline-block px-4 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold mb-4">REGIONAL SPECIAL</span>
+                                    <h2 className="text-4xl md:text-5xl font-bold mb-2">
+                                        Built for the <span className="text-accent">Nigeria Market</span>
+                                    </h2>
+                                    <p className="text-lg text-slate-500 mb-6">
+                                        Navigate the unique challenges of the Naira market with infrastructure designed for local realities. From direct bank payouts to deep stablecoin liquidity.
+                                    </p>
+                                </div>
+                                <ul className="mb-8 space-y-4">
+                                    <li className="flex items-start gap-3">
+                                        <Check className="w-5 h-5 text-accent mt-1" />
+                                        <div>
+                                            <span className="font-semibold text-slate-700">Instant NGN ⇄ USDC Swaps</span>
+                                            <div className="text-sm text-slate-500">High-volume liquidity pools with minimal slippage for Naira pairs.</div>
+                                        </div>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <Check className="w-5 h-5 text-accent mt-1" />
+                                        <div>
+                                            <span className="font-semibold text-slate-700">Direct-to-Bank Payouts</span>
+                                            <div className="text-sm text-slate-500">Real-time settlement into Nigerian bank accounts via local infrastructure.</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <Link href="/signup">
+                                    <Button size="lg" className="bg-accent text-white font-semibold hover:bg-accent">
+                                        Get Started with NGN onramp
+                                    </Button>
+                                </Link>
+                            </div>
+                            {/* Right: Card */}
+                            <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 flex flex-col gap-6">
+                                <div className="flex items-center gap-4 mb-2">
+                                    <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-700 text-lg">NG</div>
+                                    <div>
+                                        <div className="text-slate-700 font-semibold text-lg">Access Bank PLC</div>
+                                        <div className="text-xs text-slate-400">ACC: **** 8392</div>
+                                    </div>
+                                    <div className="ml-auto text-xs text-slate-400 font-mono">BALANCE</div>
+                                </div>
+                                <div className="text-3xl font-bold text-slate-900 mb-4">₦ 4,250,000.00</div>
+                                <div className="space-y-3">
+                                    <div className="flex items-center gap-3">
+                                        <ArrowDown className="w-5 h-5 text-green-500" />
+                                        <div className="text-slate-700 font-medium">Settlement from USDC</div>
+                                        <div className="ml-auto text-green-600 font-bold">+₦ 250,000.00</div>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <ArrowDown className="w-5 h-5 text-green-500" />
+                                        <div className="text-slate-700 font-medium">Vendor Payout</div>
+                                        <div className="ml-auto text-green-600 font-bold">+₦ 1,120,500.00</div>
+                                    </div>
+                                </div>
+                                <div className="text-xs text-slate-400 mt-4 flex items-center justify-between">
+                                    <span>Live Exchange Rate</span>
+                                    <span className="font-mono">1 USDC = 1,665.42 NGN</span>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+
                 {/* CTA SECTION (Retained) */}
                 <section className="">
                     <div className="">
@@ -478,7 +463,7 @@ export default function SolutionsPage() {
                             viewport={{ once: true }}
                         >
                             <div className="relative bg-accent/20 dark:bg-transparent p-12 md:p-16 text-center overflow-hidden">
-                            
+
                                 <div className="relative z-10 max-w-3xl mx-auto">
                                     <h2 className="text-4xl md:text-5xl font-bold text-slate-700 dark:text-white mb-6">
                                         Build with ZendFi Today
