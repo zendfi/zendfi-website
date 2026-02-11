@@ -109,13 +109,13 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`font-sans ${poppins.variable}`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        {/* <ThemeProvider attribute="class" defaultTheme="light" enableSystem> */}
           <SmoothScroll />
           <QueryProvider>
             <Suspense fallback={null}>{children}</Suspense>
           </QueryProvider>
           <Analytics />
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
       </body>
     </html>
   )
