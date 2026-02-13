@@ -372,8 +372,8 @@ export function UseCasesSlider() {
         </div>
 
         {/* Tab Navigation with sliding indicator - Improved Mobile Responsiveness */}
-        <div className="flex justify-center mb-10 sm:mb-12 px-2">
-          <div className="w-full max-w-full overflow-x-auto pb-2 -mb-2 scrollbar-thin">
+        <div className="flex justify-center mb-10 sm:mb-12 px-2 w-full">
+          <div className="w-full max-w-full flex mx-auto overflow-x-auto pb-2 -mb-2 scrollbar-thin">
             <div
               ref={tabContainerRef}
               className="relative inline-flex items-center rounded-xl sm:rounded-2xl border border-border bg-background py-1.5 sm:py-2 px-1 shadow-sm min-w-max mx-auto"

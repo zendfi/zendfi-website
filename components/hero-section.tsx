@@ -141,9 +141,9 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight drop-shadow-lg dark:drop-shadow-[0_0_20px_rgba(139,92,246,0.3)]"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tighter"
           >
-            One integration. <br /> <span className="bg-clip-text text-accent">Every crypto payment experience.</span>
+            One integration. <br /> <span className="block text-accent">Every crypto payment experience.</span>
           </motion.h1>
 
           {/* HERO TEXT ALERT 🚨: SUBTEXT – The supporting cast with all the deets */}
