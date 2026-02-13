@@ -118,13 +118,13 @@ export function Header() {
           <nav className="hidden md:flex items-center">
             <NavigationMenu className='relative z-50'>
               <NavigationMenuList className='flex-wrap'>
-                <NavigationMenuItem>
+                {/* <NavigationMenuItem>
                   <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                     <Link href="/what-is-zendfi" className='text-slate-500 dark:text-gray-200/95 dark:hover:text-accent'>
                       What's ZendFi
                     </Link>
                   </NavigationMenuLink>
-                </NavigationMenuItem>
+                </NavigationMenuItem> */}
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>Solutions</NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -217,9 +217,9 @@ export function Header() {
               </SheetHeader>
 
               <nav className="px-6 py-6 space-y-6">
-                <div className='text-semibold'>
+                {/* <div className='text-semibold'>
                   <MobileNavLink href="/what-is-zendfi" onClick={() => setIsOpen(false)}>What's Zendfi</MobileNavLink>
-                </div>
+                </div> */}
 
                 <div>
                   <div className="font-semibold text-slate-600 dark:text-gray-200/95 mb-3">Solutions</div>
