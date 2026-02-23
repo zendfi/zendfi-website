@@ -104,11 +104,11 @@ export function Header() {
           <div className="flex items-center space-x-2">
             <Link href="/" className="flex items-center">
               <Image
-                src="/images/logo.png"
+                src="/images/zendfi_logo_gg.png"
                 alt="Zendfi Logo"
                 width={120}
                 height={32}
-                className="h-8 w-auto filter hue-rotate-[19deg] dark:hue-rotate-[13deg] brightness-110"
+                className="h-8 w-auto"
                 priority
               />
             </Link>
